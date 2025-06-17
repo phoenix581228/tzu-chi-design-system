@@ -1,0 +1,384 @@
+/**
+ * CIS 設計系統 - 單選框與複選框元件
+ * 包含各種選擇控件的樣式
+ */
+
+/* ===========================
+   共用基礎樣式
+   =========================== */
+.cis-form-check {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: var(--cis-spacing-6);
+  margin-bottom: var(--cis-spacing-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.cis-form-check-inline {
+  display: inline-flex;
+  margin-right: var(--cis-spacing-4);
+  margin-bottom: 0;
+}
+
+.cis-form-check-label {
+  font-size: var(--cis-font-size-base);
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-primary);
+  cursor: pointer;
+  transition: color var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+/* 原生輸入框隱藏 */
+.cis-form-check-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* ===========================
+   複選框樣式
+   =========================== */
+.cis-checkbox {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  background-color: var(--cis-surface-2);
+  border: 2px solid var(--cis-border-strong);
+  border-radius: var(--cis-radius-base);
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+/* 複選框勾選標記 */
+.cis-checkbox::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 勾選狀態 */
+.cis-form-check-input:checked ~ .cis-checkbox {
+  background-color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-form-check-input:checked ~ .cis-checkbox::after {
+  display: block;
+}
+
+/* 不確定狀態 */
+.cis-form-check-input:indeterminate ~ .cis-checkbox {
+  background-color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-form-check-input:indeterminate ~ .cis-checkbox::after {
+  display: block;
+  left: 3px;
+  top: 6px;
+  width: 10px;
+  height: 0;
+  border: 2px solid #FFFFFF;
+  border-width: 2px 0 0 0;
+  transform: none;
+}
+
+/* ===========================
+   單選框樣式
+   =========================== */
+.cis-radio {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  background-color: var(--cis-surface-2);
+  border: 2px solid var(--cis-border-strong);
+  border-radius: 50%;
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+/* 單選框選中標記 */
+.cis-radio::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+/* 選中狀態 */
+.cis-form-check-input:checked ~ .cis-radio {
+  background-color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-form-check-input:checked ~ .cis-radio::after {
+  display: block;
+}
+
+/* ===========================
+   開關樣式
+   =========================== */
+.cis-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  margin-right: var(--cis-spacing-2);
+}
+
+.cis-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cis-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--cis-surface-3);
+  border: 2px solid var(--cis-border-strong);
+  border-radius: var(--cis-radius-full);
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-switch-slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--cis-text-tertiary);
+  border-radius: 50%;
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-switch-input:checked + .cis-switch-slider {
+  background-color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-switch-input:checked + .cis-switch-slider::before {
+  transform: translateX(20px);
+  background-color: #FFFFFF;
+}
+
+/* 開關標籤容器 */
+.cis-form-switch {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--cis-spacing-2);
+}
+
+.cis-form-switch .cis-form-check-label {
+  margin-left: 0;
+  cursor: pointer;
+}
+
+/* ===========================
+   大小變體
+   =========================== */
+
+/* 小型複選框 */
+.cis-checkbox-sm {
+  width: 14px;
+  height: 14px;
+}
+
+.cis-checkbox-sm::after {
+  left: 3px;
+  top: 0;
+  width: 3px;
+  height: 6px;
+}
+
+/* 大型複選框 */
+.cis-checkbox-lg {
+  width: 22px;
+  height: 22px;
+}
+
+.cis-checkbox-lg::after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+}
+
+/* 小型單選框 */
+.cis-radio-sm {
+  width: 14px;
+  height: 14px;
+}
+
+.cis-radio-sm::after {
+  width: 6px;
+  height: 6px;
+}
+
+/* 大型單選框 */
+.cis-radio-lg {
+  width: 22px;
+  height: 22px;
+}
+
+.cis-radio-lg::after {
+  width: 10px;
+  height: 10px;
+}
+
+/* 小型開關 */
+.cis-switch-sm {
+  width: 36px;
+  height: 20px;
+}
+
+.cis-switch-sm .cis-switch-slider::before {
+  height: 12px;
+  width: 12px;
+}
+
+.cis-switch-sm .cis-switch-input:checked + .cis-switch-slider::before {
+  transform: translateX(16px);
+}
+
+/* 大型開關 */
+.cis-switch-lg {
+  width: 52px;
+  height: 28px;
+}
+
+.cis-switch-lg .cis-switch-slider::before {
+  height: 20px;
+  width: 20px;
+}
+
+.cis-switch-lg .cis-switch-input:checked + .cis-switch-slider::before {
+  transform: translateX(24px);
+}
+
+/* ===========================
+   狀態樣式
+   =========================== */
+
+/* 懸停狀態 */
+.cis-form-check:hover .cis-checkbox,
+.cis-form-check:hover .cis-radio {
+  border-color: var(--cis-brand-primary);
+  box-shadow: 0 0 0 4px var(--cis-hover-bg);
+}
+
+.cis-form-switch:hover .cis-switch-slider {
+  box-shadow: 0 0 0 4px var(--cis-hover-bg);
+}
+
+/* 聚焦狀態 */
+.cis-form-check-input:focus ~ .cis-checkbox,
+.cis-form-check-input:focus ~ .cis-radio {
+  box-shadow: 0 0 0 3px var(--cis-focus-ring);
+}
+
+.cis-switch-input:focus + .cis-switch-slider {
+  box-shadow: 0 0 0 3px var(--cis-focus-ring);
+}
+
+/* 禁用狀態 */
+.cis-form-check-input:disabled ~ .cis-checkbox,
+.cis-form-check-input:disabled ~ .cis-radio,
+.cis-switch-input:disabled + .cis-switch-slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cis-form-check-input:disabled ~ .cis-form-check-label,
+.cis-switch-input:disabled ~ .cis-form-check-label {
+  color: var(--cis-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ===========================
+   錯誤狀態
+   =========================== */
+.cis-form-check-error .cis-checkbox,
+.cis-form-check-error .cis-radio {
+  border-color: var(--cis-danger);
+}
+
+.cis-form-check-error .cis-form-check-input:checked ~ .cis-checkbox,
+.cis-form-check-error .cis-form-check-input:checked ~ .cis-radio {
+  background-color: var(--cis-danger);
+  border-color: var(--cis-danger);
+}
+
+/* ===========================
+   選項組
+   =========================== */
+.cis-checkbox-group,
+.cis-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cis-spacing-2);
+}
+
+.cis-checkbox-group-inline,
+.cis-radio-group-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--cis-spacing-4);
+}
+
+/* ===========================
+   卡片式選項
+   =========================== */
+.cis-form-check-card {
+  display: flex;
+  align-items: center;
+  padding: var(--cis-spacing-3) var(--cis-spacing-4);
+  background-color: var(--cis-surface-1);
+  border: 2px solid var(--cis-border-default);
+  border-radius: var(--cis-radius-lg);
+  cursor: pointer;
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-form-check-card:hover {
+  background-color: var(--cis-surface-2);
+  border-color: var(--cis-border-strong);
+}
+
+.cis-form-check-input:checked ~ .cis-form-check-card {
+  background-color: var(--cis-selected-bg);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-form-check-card .cis-checkbox,
+.cis-form-check-card .cis-radio {
+  position: static;
+  transform: none;
+  margin-right: var(--cis-spacing-3);
+}

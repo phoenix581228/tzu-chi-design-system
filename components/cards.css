@@ -1,0 +1,316 @@
+/**
+ * CIS 設計系統 - 卡片元件
+ * 包含各種卡片樣式和佈局
+ */
+
+/* ===========================
+   基礎卡片
+   =========================== */
+.cis-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cis-surface-1);
+  border: 1px solid var(--cis-border-default);
+  border-radius: var(--cis-radius-lg);
+  box-shadow: var(--cis-shadow-sm);
+  overflow: hidden;
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+/* 卡片懸停效果 */
+.cis-card-hoverable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cis-shadow-lg);
+  border-color: var(--cis-border-strong);
+}
+
+/* 卡片點擊效果 */
+.cis-card-clickable {
+  cursor: pointer;
+}
+
+.cis-card-clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--cis-shadow-sm);
+}
+
+/* ===========================
+   卡片結構元素
+   =========================== */
+
+/* 卡片圖片 */
+.cis-card-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--cis-surface-2);
+}
+
+.cis-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--cis-duration-300) var(--cis-ease-in-out);
+}
+
+.cis-card-hoverable:hover .cis-card-image img {
+  transform: scale(1.05);
+}
+
+/* 卡片標題欄 */
+.cis-card-header {
+  padding: var(--cis-spacing-4);
+  border-bottom: 1px solid var(--cis-border-light);
+  background-color: var(--cis-surface-1);
+}
+
+/* 卡片內容 */
+.cis-card-body {
+  flex: 1 1 auto;
+  padding: var(--cis-spacing-4);
+}
+
+/* 卡片頁腳 */
+.cis-card-footer {
+  padding: var(--cis-spacing-4);
+  border-top: 1px solid var(--cis-border-light);
+  background-color: var(--cis-surface-1);
+}
+
+/* ===========================
+   卡片內容元素
+   =========================== */
+
+/* 卡片標題 */
+.cis-card-title {
+  margin: 0 0 var(--cis-spacing-2) 0;
+  font-size: var(--cis-font-size-xl);
+  font-weight: 600;
+  line-height: var(--cis-line-height-tight);
+  color: var(--cis-text-primary);
+}
+
+/* 卡片副標題 */
+.cis-card-subtitle {
+  margin: 0 0 var(--cis-spacing-3) 0;
+  font-size: var(--cis-font-size-sm);
+  font-weight: 500;
+  color: var(--cis-text-tertiary);
+}
+
+/* 卡片描述 */
+.cis-card-description {
+  margin: 0;
+  font-size: var(--cis-font-size-base);
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-secondary);
+}
+
+/* 卡片標籤 */
+.cis-card-badge {
+  position: absolute;
+  top: var(--cis-spacing-3);
+  right: var(--cis-spacing-3);
+  padding: var(--cis-spacing-1) var(--cis-spacing-2);
+  background-color: var(--cis-brand-primary);
+  color: #FFFFFF;
+  font-size: var(--cis-font-size-xs);
+  font-weight: 600;
+  border-radius: var(--cis-radius-full);
+  z-index: 1;
+}
+
+/* ===========================
+   卡片變體
+   =========================== */
+
+/* 緊湊卡片 */
+.cis-card-compact .cis-card-header,
+.cis-card-compact .cis-card-body,
+.cis-card-compact .cis-card-footer {
+  padding: var(--cis-spacing-3);
+}
+
+/* 無邊框卡片 */
+.cis-card-borderless {
+  border: none;
+  box-shadow: none;
+}
+
+/* 扁平卡片 */
+.cis-card-flat {
+  box-shadow: none;
+  background-color: var(--cis-surface-2);
+}
+
+/* 高層級卡片 */
+.cis-card-elevated {
+  box-shadow: var(--cis-shadow-lg);
+  border: none;
+}
+
+/* 輪廓卡片 */
+.cis-card-outline {
+  background-color: transparent;
+  border: 2px solid var(--cis-border-strong);
+  box-shadow: none;
+}
+
+/* ===========================
+   卡片佈局變體
+   =========================== */
+
+/* 水平卡片 */
+.cis-card-horizontal {
+  flex-direction: row;
+}
+
+.cis-card-horizontal .cis-card-image {
+  width: 40%;
+  max-width: 300px;
+}
+
+.cis-card-horizontal .cis-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 小型水平卡片 */
+.cis-card-horizontal-sm .cis-card-image {
+  width: 120px;
+}
+
+/* ===========================
+   特殊卡片類型
+   =========================== */
+
+/* 個人資料卡片 */
+.cis-card-profile {
+  text-align: center;
+}
+
+.cis-card-profile .cis-card-avatar {
+  width: 80px;
+  height: 80px;
+  margin: var(--cis-spacing-4) auto var(--cis-spacing-3);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--cis-surface-3);
+}
+
+.cis-card-profile .cis-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 統計卡片 */
+.cis-card-stat {
+  text-align: center;
+  padding: var(--cis-spacing-6) var(--cis-spacing-4);
+}
+
+.cis-card-stat-value {
+  font-size: var(--cis-font-size-3xl);
+  font-weight: 700;
+  color: var(--cis-text-primary);
+  margin-bottom: var(--cis-spacing-2);
+}
+
+.cis-card-stat-label {
+  font-size: var(--cis-font-size-sm);
+  color: var(--cis-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 功能卡片 */
+.cis-card-feature {
+  text-align: center;
+  padding: var(--cis-spacing-6);
+  transition: all var(--cis-duration-300) var(--cis-ease-in-out);
+}
+
+.cis-card-feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--cis-spacing-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cis-surface-3);
+  border-radius: var(--cis-radius-lg);
+  color: var(--cis-brand-primary);
+  font-size: var(--cis-font-size-2xl);
+}
+
+.cis-card-feature:hover .cis-card-feature-icon {
+  background-color: var(--cis-brand-primary);
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+/* ===========================
+   卡片網格系統
+   =========================== */
+.cis-card-grid {
+  display: grid;
+  gap: var(--cis-spacing-4);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.cis-card-grid-2 {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.cis-card-grid-3 {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.cis-card-grid-4 {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* ===========================
+   卡片動作區
+   =========================== */
+.cis-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--cis-spacing-2);
+  padding: var(--cis-spacing-3) var(--cis-spacing-4);
+  border-top: 1px solid var(--cis-border-light);
+}
+
+.cis-card-actions-end {
+  justify-content: flex-end;
+}
+
+.cis-card-actions-between {
+  justify-content: space-between;
+}
+
+.cis-card-actions-center {
+  justify-content: center;
+}
+
+/* ===========================
+   響應式調整
+   =========================== */
+@media (max-width: 768px) {
+  .cis-card-horizontal {
+    flex-direction: column;
+  }
+  
+  .cis-card-horizontal .cis-card-image {
+    width: 100%;
+    max-width: none;
+    height: 200px;
+  }
+  
+  .cis-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

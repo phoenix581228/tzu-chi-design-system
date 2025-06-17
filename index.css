@@ -1,0 +1,81 @@
+/**
+ * 慈濟大入口網設計系統
+ * CIS Design System
+ * 
+ * 主題支援：Dark Mode（預設）、Light Mode（未來擴充）
+ */
+
+/* ===========================
+   主題變數定義
+   =========================== */
+@import './themes/variables.css';
+@import './themes/dark-theme.css';
+/* @import './themes/light-theme.css'; */ /* 未來啟用 */
+
+/* ===========================
+   基礎樣式
+   =========================== */
+@import './base/reset.css';
+@import './base/typography.css';
+@import './base/grid-system.css';
+
+/* ===========================
+   核心元件
+   =========================== */
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/badges.css';
+@import './components/dropdowns.css';
+@import './components/forms/text-input.css';
+@import './components/forms/radio-checkbox.css';
+@import './components/search-bar.css';
+@import './components/tabs.css';
+@import './components/icon-buttons.css';
+
+/* ===========================
+   版面元素
+   =========================== */
+@import './layout/page.css';
+@import './layout/elevation.css';
+@import './layout/states.css';
+
+/* ===========================
+   特殊元件
+   =========================== */
+@import './special/sdgs-icons.css';
+@import './special/social-interaction.css';
+@import './special/vertical-image-blocks.css';
+
+/* ===========================
+   工具類別
+   =========================== */
+@import './utilities/colors.css';
+@import './utilities/spacing.css';
+@import './utilities/links-fonts.css';
+
+/* ===========================
+   主題切換器
+   =========================== */
+:root {
+  /* 預設使用 Dark Mode */
+  color-scheme: dark;
+}
+
+/* 主題切換類別 */
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* 主題過渡動畫 */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+/* 禁用特定元素的過渡（如程式碼區塊） */
+pre *,
+code *,
+.no-transition * {
+  transition: none;
+}

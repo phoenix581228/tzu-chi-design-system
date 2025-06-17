@@ -1,0 +1,321 @@
+/**
+ * CIS 設計系統 - 按鈕元件
+ * 包含各種按鈕樣式、大小和狀態
+ */
+
+/* ===========================
+   基礎按鈕樣式
+   =========================== */
+.cis-btn {
+  /* 基礎樣式 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cis-spacing-2);
+  
+  /* 文字樣式 */
+  font-family: var(--cis-font-family-base);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  
+  /* 邊框和圓角 */
+  border: 1px solid transparent;
+  border-radius: var(--cis-radius-md);
+  
+  /* 內間距 */
+  padding: var(--cis-spacing-2) var(--cis-spacing-4);
+  
+  /* 動畫效果 */
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+  
+  /* 互動樣式 */
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 焦點樣式 */
+.cis-btn:focus-visible {
+  outline: 2px solid var(--cis-border-focus);
+  outline-offset: 2px;
+}
+
+/* 禁用狀態 */
+.cis-btn:disabled,
+.cis-btn.cis-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===========================
+   按鈕變體
+   =========================== */
+
+/* 主要按鈕 */
+.cis-btn-primary {
+  background-color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+  color: #FFFFFF;
+}
+
+.cis-btn-primary:hover:not(:disabled) {
+  background-color: var(--cis-brand-primary-light);
+  border-color: var(--cis-brand-primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--cis-shadow-md);
+}
+
+.cis-btn-primary:active:not(:disabled) {
+  background-color: var(--cis-brand-primary-dark);
+  border-color: var(--cis-brand-primary-dark);
+  transform: translateY(0);
+  box-shadow: var(--cis-shadow-sm);
+}
+
+/* 次要按鈕 */
+.cis-btn-secondary {
+  background-color: var(--cis-surface-2);
+  border-color: var(--cis-border-default);
+  color: var(--cis-text-primary);
+}
+
+.cis-btn-secondary:hover:not(:disabled) {
+  background-color: var(--cis-surface-3);
+  border-color: var(--cis-border-strong);
+  box-shadow: var(--cis-shadow-sm);
+}
+
+.cis-btn-secondary:active:not(:disabled) {
+  background-color: var(--cis-surface-4);
+  border-color: var(--cis-border-strong);
+}
+
+/* 輪廓按鈕 */
+.cis-btn-outline {
+  background-color: transparent;
+  border-color: var(--cis-brand-primary);
+  color: var(--cis-brand-primary);
+}
+
+.cis-btn-outline:hover:not(:disabled) {
+  background-color: var(--cis-brand-primary);
+  color: #FFFFFF;
+  box-shadow: var(--cis-shadow-md);
+}
+
+.cis-btn-outline:active:not(:disabled) {
+  background-color: var(--cis-brand-primary-dark);
+  border-color: var(--cis-brand-primary-dark);
+}
+
+/* 文字按鈕 */
+.cis-btn-text {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--cis-brand-primary);
+  padding: var(--cis-spacing-2);
+}
+
+.cis-btn-text:hover:not(:disabled) {
+  background-color: var(--cis-hover-bg);
+  text-decoration: underline;
+}
+
+.cis-btn-text:active:not(:disabled) {
+  background-color: var(--cis-active-bg);
+}
+
+/* 危險按鈕 */
+.cis-btn-danger {
+  background-color: var(--cis-danger);
+  border-color: var(--cis-danger);
+  color: #FFFFFF;
+}
+
+.cis-btn-danger:hover:not(:disabled) {
+  background-color: var(--cis-danger-light);
+  border-color: var(--cis-danger-light);
+  box-shadow: var(--cis-shadow-md);
+}
+
+.cis-btn-danger:active:not(:disabled) {
+  background-color: var(--cis-danger-dark);
+  border-color: var(--cis-danger-dark);
+}
+
+/* 成功按鈕 */
+.cis-btn-success {
+  background-color: var(--cis-success);
+  border-color: var(--cis-success);
+  color: #FFFFFF;
+}
+
+.cis-btn-success:hover:not(:disabled) {
+  background-color: var(--cis-success-light);
+  border-color: var(--cis-success-light);
+  box-shadow: var(--cis-shadow-md);
+}
+
+.cis-btn-success:active:not(:disabled) {
+  background-color: var(--cis-success-dark);
+  border-color: var(--cis-success-dark);
+}
+
+/* ===========================
+   按鈕大小
+   =========================== */
+
+/* 小型 */
+.cis-btn-sm {
+  font-size: var(--cis-font-size-sm);
+  padding: var(--cis-spacing-1) var(--cis-spacing-3);
+  border-radius: var(--cis-radius-base);
+}
+
+/* 中型（預設） */
+.cis-btn-md {
+  font-size: var(--cis-font-size-base);
+  padding: var(--cis-spacing-2) var(--cis-spacing-4);
+}
+
+/* 大型 */
+.cis-btn-lg {
+  font-size: var(--cis-font-size-lg);
+  padding: var(--cis-spacing-3) var(--cis-spacing-6);
+  border-radius: var(--cis-radius-lg);
+}
+
+/* ===========================
+   按鈕組
+   =========================== */
+.cis-btn-group {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.cis-btn-group > .cis-btn {
+  position: relative;
+  flex: 0 1 auto;
+}
+
+.cis-btn-group > .cis-btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+
+.cis-btn-group > .cis-btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cis-btn-group > .cis-btn:hover,
+.cis-btn-group > .cis-btn:focus,
+.cis-btn-group > .cis-btn:active {
+  z-index: 1;
+}
+
+/* ===========================
+   按鈕特殊效果
+   =========================== */
+
+/* 全寬按鈕 */
+.cis-btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* 圓形按鈕 */
+.cis-btn-circle {
+  border-radius: 50%;
+  padding: var(--cis-spacing-2);
+  width: 40px;
+  height: 40px;
+}
+
+.cis-btn-circle.cis-btn-sm {
+  width: 32px;
+  height: 32px;
+  padding: var(--cis-spacing-1);
+}
+
+.cis-btn-circle.cis-btn-lg {
+  width: 48px;
+  height: 48px;
+  padding: var(--cis-spacing-3);
+}
+
+/* 載入中狀態 */
+.cis-btn-loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+.cis-btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: cis-btn-spin 0.8s linear infinite;
+}
+
+@keyframes cis-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 漣漪效果 */
+.cis-btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.cis-btn-ripple::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cis-btn-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ===========================
+   按鈕圖標
+   =========================== */
+.cis-btn-icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.cis-btn-icon-left {
+  margin-right: var(--cis-spacing-2);
+}
+
+.cis-btn-icon-right {
+  margin-left: var(--cis-spacing-2);
+}

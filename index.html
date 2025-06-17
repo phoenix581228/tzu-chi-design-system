@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 v1.0.1 - CIS Dark Mode</title>
+    <meta name="description" content="慈濟設計系統 v1.0.1 - 基於 CIS 大入口網 Dark Mode 設計規範">
+    <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
+    <meta property="og:title" content="慈濟設計系統 v1.0.1">
+    <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.1.css">
+    <style>
+        /* 展示頁面專用樣式 */
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--cis-spacing-8) var(--cis-spacing-4);
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: var(--cis-spacing-16);
+            padding-bottom: var(--cis-spacing-8);
+            border-bottom: 1px solid var(--cis-border-default);
+        }
+        
+        .demo-section {
+            margin-bottom: var(--cis-spacing-16);
+        }
+        
+        .demo-section-title {
+            margin-bottom: var(--cis-spacing-6);
+            padding-bottom: var(--cis-spacing-3);
+            border-bottom: 1px solid var(--cis-border-light);
+        }
+        
+        .demo-grid {
+            display: grid;
+            gap: var(--cis-spacing-4);
+            margin-bottom: var(--cis-spacing-8);
+        }
+        
+        .demo-grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .demo-grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        .demo-box {
+            padding: var(--cis-spacing-4);
+            background-color: var(--cis-surface-2);
+            border-radius: var(--cis-radius-lg);
+            border: 1px solid var(--cis-border-light);
+        }
+        
+        .demo-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--cis-spacing-3);
+            align-items: center;
+        }
+        
+        .color-preview {
+            width: 100%;
+            height: 80px;
+            border-radius: var(--cis-radius-md);
+            margin-bottom: var(--cis-spacing-2);
+        }
+        
+        .version-badge {
+            display: inline-block;
+            padding: var(--cis-spacing-1) var(--cis-spacing-3);
+            background-color: var(--cis-brand-primary);
+            color: white;
+            border-radius: var(--cis-radius-full);
+            font-size: var(--cis-font-size-sm);
+            font-weight: 600;
+            margin-left: var(--cis-spacing-2);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- 頁面標題 -->
+        <header class="demo-header">
+            <h1 class="cis-h1">
+                慈濟設計系統
+                <span class="version-badge">v1.0.1</span>
+            </h1>
+            <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
+            <p class="cis-caption">更新日期：2025-06-18</p>
+        </header>
+
+        <!-- 色彩系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">色彩系統 Color System</h2>
+            
+            <h3 class="cis-h4">品牌色彩</h3>
+            <div class="demo-grid demo-grid-3">
+                <div class="demo-box">
+                    <div class="color-preview" style="background-color: var(--cis-brand-primary);"></div>
+                    <p class="cis-body-small">主色 Primary</p>
+                    <code class="cis-code">#2E7BCC</code>
+                </div>
+                <div class="demo-box">
+                    <div class="color-preview" style="background-color: var(--cis-brand-primary-light);"></div>
+                    <p class="cis-body-small">主色淺 Primary Light</p>
+                    <code class="cis-code">#5A9ADB</code>
+                </div>
+                <div class="demo-box">
+                    <div class="color-preview" style="background-color: var(--cis-brand-primary-dark);"></div>
+                    <p class="cis-body-small">主色深 Primary Dark</p>
+                    <code class="cis-code">#1E5BA8</code>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">功能色彩</h3>
+            <div class="demo-grid demo-grid-3">
+                <div class="demo-box">
+                    <div class="color-preview" style="background-color: var(--cis-success);"></div>
+                    <p class="cis-body-small">成功 Success</p>
+                    <code class="cis-code">#10B981</code>
+                </div>
+                <div class="demo-box">
+                    <div class="color-preview" style="background-color: var(--cis-warning);"></div>
+                    <p class="cis-body-small">警告 Warning</p>
+                    <code class="cis-code">#F59E0B</code>
+                </div>
+                <div class="demo-box">
+                    <div class="color-preview" style="background-color: var(--cis-danger);"></div>
+                    <p class="cis-body-small">危險 Danger</p>
+                    <code class="cis-code">#EF4444</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文字排版 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">文字排版 Typography</h2>
+            <div class="demo-box">
+                <h1 class="cis-h1">標題一 Heading 1</h1>
+                <h2 class="cis-h2">標題二 Heading 2</h2>
+                <h3 class="cis-h3">標題三 Heading 3</h3>
+                <h4 class="cis-h4">標題四 Heading 4</h4>
+                <h5 class="cis-h5">標題五 Heading 5</h5>
+                <h6 class="cis-h6">標題六 Heading 6</h6>
+                <p class="cis-body-large">大型內文 Large Body Text</p>
+                <p class="cis-body">一般內文 Regular Body Text</p>
+                <p class="cis-body-small">小型內文 Small Body Text</p>
+                <p class="cis-caption">說明文字 Caption Text</p>
+            </div>
+        </section>
+
+        <!-- 按鈕系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">按鈕系統 Button System</h2>
+            
+            <h3 class="cis-h4">按鈕變體</h3>
+            <div class="demo-box">
+                <div class="demo-flex">
+                    <button class="cis-btn cis-btn-primary">主要按鈕</button>
+                    <button class="cis-btn cis-btn-secondary">次要按鈕</button>
+                    <button class="cis-btn cis-btn-outline">輪廓按鈕</button>
+                    <button class="cis-btn cis-btn-text">文字按鈕</button>
+                    <button class="cis-btn cis-btn-danger">危險按鈕</button>
+                    <button class="cis-btn cis-btn-success">成功按鈕</button>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">按鈕大小</h3>
+            <div class="demo-box">
+                <div class="demo-flex">
+                    <button class="cis-btn cis-btn-primary cis-btn-sm">小型按鈕</button>
+                    <button class="cis-btn cis-btn-primary cis-btn-md">中型按鈕</button>
+                    <button class="cis-btn cis-btn-primary cis-btn-lg">大型按鈕</button>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">按鈕狀態</h3>
+            <div class="demo-box">
+                <div class="demo-flex">
+                    <button class="cis-btn cis-btn-primary">正常狀態</button>
+                    <button class="cis-btn cis-btn-primary" disabled>禁用狀態</button>
+                    <button class="cis-btn cis-btn-primary cis-btn-loading">載入中</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 卡片系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">卡片系統 Card System</h2>
+            <div class="demo-grid demo-grid-2">
+                <div class="cis-card">
+                    <div class="cis-card-header">
+                        <h3 class="cis-card-title">基礎卡片</h3>
+                    </div>
+                    <div class="cis-card-body">
+                        <p class="cis-card-description">這是一個基礎卡片範例，包含標題和內容區域。</p>
+                    </div>
+                    <div class="cis-card-footer">
+                        <button class="cis-btn cis-btn-primary cis-btn-sm">了解更多</button>
+                    </div>
+                </div>
+
+                <div class="cis-card cis-card-elevated">
+                    <div class="cis-card-body">
+                        <h3 class="cis-card-title">提升卡片</h3>
+                        <p class="cis-card-subtitle">具有陰影效果</p>
+                        <p class="cis-card-description">這個卡片具有更明顯的陰影效果，適合需要強調的內容。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 表單元件 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">表單元件 Form Components</h2>
+            <div class="demo-grid demo-grid-2">
+                <div class="demo-box">
+                    <h3 class="cis-h4">文字輸入</h3>
+                    <div class="cis-form-control">
+                        <label class="cis-label cis-label-required">姓名</label>
+                        <input type="text" class="cis-input" placeholder="請輸入姓名">
+                        <span class="cis-form-text">請輸入您的真實姓名</span>
+                    </div>
+                    <div class="cis-form-control">
+                        <label class="cis-label">電子郵件</label>
+                        <input type="email" class="cis-input cis-input-success" placeholder="example@email.com">
+                        <span class="cis-form-text-success">電子郵件格式正確</span>
+                    </div>
+                </div>
+
+                <div class="demo-box">
+                    <h3 class="cis-h4">選擇控件</h3>
+                    <div class="cis-form-check">
+                        <input type="checkbox" class="cis-form-check-input" id="check1">
+                        <span class="cis-checkbox"></span>
+                        <label class="cis-form-check-label" for="check1">複選框選項</label>
+                    </div>
+                    <div class="cis-form-check">
+                        <input type="radio" class="cis-form-check-input" name="radio" id="radio1">
+                        <span class="cis-radio"></span>
+                        <label class="cis-form-check-label" for="radio1">單選框選項</label>
+                    </div>
+                    <div class="cis-form-switch">
+                        <label class="cis-switch">
+                            <input type="checkbox" class="cis-switch-input">
+                            <span class="cis-switch-slider"></span>
+                        </label>
+                        <label class="cis-form-check-label">開關控件</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 徽章系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">徽章系統 Badge System</h2>
+            <div class="demo-box">
+                <h3 class="cis-h4">徽章變體</h3>
+                <div class="demo-flex">
+                    <span class="cis-badge cis-badge-primary">主要</span>
+                    <span class="cis-badge cis-badge-secondary">次要</span>
+                    <span class="cis-badge cis-badge-success">成功</span>
+                    <span class="cis-badge cis-badge-warning">警告</span>
+                    <span class="cis-badge cis-badge-danger">危險</span>
+                    <span class="cis-badge cis-badge-info">資訊</span>
+                </div>
+
+                <h3 class="cis-h4">SDGS 徽章</h3>
+                <div class="demo-flex">
+                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-1">1</span>
+                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-2">2</span>
+                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-3">3</span>
+                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-4">4</span>
+                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-5">5</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 搜尋欄 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">搜尋欄 Search Bar</h2>
+            <div class="demo-box">
+                <div class="cis-search">
+                    <svg class="cis-search-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                    <input type="search" class="cis-search-input" placeholder="搜尋...">
+                    <button class="cis-search-button">搜尋</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 版本資訊 -->
+        <footer class="demo-section">
+            <div class="demo-box" style="text-align: center;">
+                <h3 class="cis-h4">版本資訊</h3>
+                <p class="cis-body">慈濟設計系統 v1.0.1</p>
+                <p class="cis-caption">基於 CIS 大入口網 Dark Mode 設計規範</p>
+                <p class="cis-caption">發布日期：2025-06-18</p>
+                <div class="demo-flex" style="justify-content: center; margin-top: var(--cis-spacing-4);">
+                    <a href="index-v1.0.html" class="cis-link">查看 v1.0</a>
+                    <span class="cis-text-tertiary">|</span>
+                    <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="cis-link">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

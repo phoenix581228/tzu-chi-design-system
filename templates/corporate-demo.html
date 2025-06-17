@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業網站範本 - 慈濟設計系統</title>
+    <link rel="stylesheet" href="../tzu-chi-design-system.css">
+    <style>
+        /* 企業網站專用樣式 */
+        .hero-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--tzuchi-primary) 0%, var(--tzuchi-primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 4rem 0;
+        }
+        
+        .about-image {
+            background: var(--tzuchi-bg-elevated);
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--tzuchi-text-tertiary);
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background: var(--tzuchi-bg-surface);
+            padding: 3rem 0;
+            margin-top: 5rem;
+            border-top: 1px solid var(--tzuchi-divider);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav style="background: var(--tzuchi-bg-surface); padding: 1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--tzuchi-divider);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0;">企業名稱</h3>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#home" style="color: var(--tzuchi-text-primary); text-decoration: none;">首頁</a>
+                <a href="#about" style="color: var(--tzuchi-text-primary); text-decoration: none;">關於我們</a>
+                <a href="#services" style="color: var(--tzuchi-text-primary); text-decoration: none;">服務</a>
+                <a href="#contact" style="color: var(--tzuchi-text-primary); text-decoration: none;">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>歡迎來到我們的企業</h1>
+            <p>提供專業、可靠、創新的解決方案</p>
+            <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-lg">了解更多</button>
+        </div>
+    </section>
+
+    <!-- 服務介紹 -->
+    <section id="services" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+        <h2 style="text-align: center; margin-bottom: 3rem;">我們的服務</h2>
+        <div class="services-grid">
+            <div class="tzuchi-card service-card">
+                <div class="service-icon">💼</div>
+                <h3>商業諮詢</h3>
+                <p>專業的商業策略規劃與執行建議</p>
+            </div>
+            <div class="tzuchi-card service-card">
+                <div class="service-icon">🚀</div>
+                <h3>數位轉型</h3>
+                <p>協助企業進行全方位的數位化升級</p>
+            </div>
+            <div class="tzuchi-card service-card">
+                <div class="service-icon">📊</div>
+                <h3>數據分析</h3>
+                <p>深入的數據洞察與商業智慧解決方案</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 -->
+    <section id="about" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+        <div class="about-section">
+            <div class="about-image">
+                🏢
+            </div>
+            <div>
+                <h2>關於我們</h2>
+                <p style="margin-bottom: 1.5rem;">我們是一家致力於提供創新解決方案的企業，擁有超過十年的行業經驗。我們的團隊由各領域的專家組成，能夠為客戶提供全方位的服務。</p>
+                <p>透過不斷創新和追求卓越，我們已經成功協助數百家企業實現其商業目標。我們相信，透過專業的服務和真誠的合作，能夠創造更大的價值。</p>
+                <button class="tzuchi-btn tzuchi-btn-outline" style="margin-top: 1.5rem;">了解更多</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡表單 -->
+    <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+        <h2 style="text-align: center; margin-bottom: 3rem;">聯絡我們</h2>
+        <form class="contact-form tzuchi-card" style="padding: 2rem;">
+            <div class="tzuchi-form-group">
+                <label class="tzuchi-label">姓名</label>
+                <input type="text" class="tzuchi-input" placeholder="請輸入您的姓名">
+            </div>
+            <div class="tzuchi-form-group">
+                <label class="tzuchi-label">電子郵件</label>
+                <input type="email" class="tzuchi-input" placeholder="your@email.com">
+            </div>
+            <div class="tzuchi-form-group">
+                <label class="tzuchi-label">主題</label>
+                <select class="tzuchi-select">
+                    <option>一般諮詢</option>
+                    <option>商業合作</option>
+                    <option>技術支援</option>
+                </select>
+            </div>
+            <div class="tzuchi-form-group">
+                <label class="tzuchi-label">訊息內容</label>
+                <textarea class="tzuchi-textarea" rows="5" placeholder="請輸入您的訊息..."></textarea>
+            </div>
+            <button type="submit" class="tzuchi-btn tzuchi-btn-primary" style="width: 100%;">送出訊息</button>
+        </form>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>企業名稱</h4>
+                <p style="color: var(--tzuchi-text-secondary);">提供專業可靠的企業解決方案</p>
+            </div>
+            <div>
+                <h4>快速連結</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--tzuchi-text-secondary); text-decoration: none;">關於我們</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--tzuchi-text-secondary); text-decoration: none;">服務項目</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--tzuchi-text-secondary); text-decoration: none;">客戶案例</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>聯絡資訊</h4>
+                <p style="color: var(--tzuchi-text-secondary);">
+                    電話：(02) 1234-5678<br>
+                    電郵：info@company.com<br>
+                    地址：台北市信義區信義路五段7號
+                </p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--tzuchi-divider);">
+            <p style="color: var(--tzuchi-text-tertiary);">© 2024 企業名稱. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

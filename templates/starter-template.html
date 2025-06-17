@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 - 起始範本</title>
+    <meta name="description" content="使用慈濟設計系統的基礎範本">
+    
+    <!-- 引入慈濟設計系統 CSS -->
+    <link rel="stylesheet" href="tzu-chi-design-system.css">
+    
+    <!-- 自訂樣式 -->
+    <style>
+        /* 在這裡加入您的自訂樣式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .content {
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav style="background: var(--tzuchi-bg-surface); padding: 1rem 0; border-bottom: 1px solid var(--tzuchi-divider);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0;">您的網站名稱</h3>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: var(--tzuchi-text-primary); text-decoration: none;">首頁</a>
+                <a href="#" style="color: var(--tzuchi-text-primary); text-decoration: none;">關於</a>
+                <a href="#" style="color: var(--tzuchi-text-primary); text-decoration: none;">服務</a>
+                <a href="#" style="color: var(--tzuchi-text-primary); text-decoration: none;">聯絡</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="container">
+        <!-- 標題區 -->
+        <header class="header">
+            <h1 class="tzuchi-h1">歡迎使用慈濟設計系統</h1>
+            <p class="tzuchi-body">這是一個簡單的起始範本，您可以從這裡開始建立您的網站。</p>
+        </header>
+
+        <!-- 內容區 -->
+        <section class="content">
+            <h2 class="tzuchi-h2">開始使用</h2>
+            <p class="tzuchi-body">這個範本包含了基本的結構和慈濟設計系統的 CSS。您可以：</p>
+            <ul>
+                <li>修改導航列的連結和樣式</li>
+                <li>加入您自己的內容和元件</li>
+                <li>使用慈濟設計系統提供的各種 CSS 類別</li>
+                <li>自訂顏色和樣式變數</li>
+            </ul>
+        </section>
+
+        <!-- 元件示範 -->
+        <section class="content">
+            <h2 class="tzuchi-h2">常用元件</h2>
+            
+            <!-- 按鈕 -->
+            <div style="margin-bottom: 2rem;">
+                <h3 class="tzuchi-h3">按鈕</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="tzuchi-btn tzuchi-btn-primary">主要按鈕</button>
+                    <button class="tzuchi-btn tzuchi-btn-secondary">次要按鈕</button>
+                    <button class="tzuchi-btn tzuchi-btn-outline">輪廓按鈕</button>
+                </div>
+            </div>
+
+            <!-- 卡片 -->
+            <div style="margin-bottom: 2rem;">
+                <h3 class="tzuchi-h3">卡片</h3>
+                <div class="tzuchi-card" style="max-width: 400px;">
+                    <div class="tzuchi-card-header">
+                        <h4 class="tzuchi-card-title">卡片標題</h4>
+                        <p class="tzuchi-card-subtitle">卡片副標題</p>
+                    </div>
+                    <div class="tzuchi-card-body">
+                        <p>這是卡片的內容區域，可以放置任何內容。</p>
+                    </div>
+                    <div class="tzuchi-card-footer">
+                        <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">操作按鈕</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 表單 -->
+            <div style="margin-bottom: 2rem;">
+                <h3 class="tzuchi-h3">表單元件</h3>
+                <form style="max-width: 400px;">
+                    <div class="tzuchi-form-group">
+                        <label class="tzuchi-label">輸入框</label>
+                        <input type="text" class="tzuchi-input" placeholder="請輸入文字">
+                    </div>
+                    <div class="tzuchi-form-group">
+                        <label class="tzuchi-label">選擇框</label>
+                        <select class="tzuchi-select">
+                            <option>選項一</option>
+                            <option>選項二</option>
+                            <option>選項三</option>
+                        </select>
+                    </div>
+                    <div class="tzuchi-form-group">
+                        <label class="tzuchi-checkbox">
+                            <input type="checkbox">
+                            <span class="tzuchi-checkbox-label">勾選此選項</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 自訂區域 -->
+        <section class="content">
+            <h2 class="tzuchi-h2">您的內容</h2>
+            <p class="tzuchi-body">在這裡開始建立您的內容...</p>
+            <!-- 在這裡加入您的內容 -->
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer style="background: var(--tzuchi-bg-surface); padding: 2rem 0; margin-top: 4rem; border-top: 1px solid var(--tzuchi-divider);">
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--tzuchi-text-secondary); margin: 0;">© 2024 您的網站名稱. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 在這裡加入您的 JavaScript 程式碼
+        console.log('慈濟設計系統起始範本已載入');
+    </script>
+</body>
+</html>

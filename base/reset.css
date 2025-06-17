@@ -1,0 +1,242 @@
+/**
+ * CIS 設計系統 - CSS Reset
+ * 基於 modern-normalize 並針對慈濟設計系統優化
+ */
+
+/* ===========================
+   Box sizing
+   =========================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===========================
+   Document
+   =========================== */
+html {
+  /* 改善字體渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* 防止 iOS 文字大小調整 */
+  -webkit-text-size-adjust: 100%;
+  
+  /* 改善滾動行為 */
+  scroll-behavior: smooth;
+  
+  /* 基礎字體大小 */
+  font-size: 16px;
+  
+  /* 改善行高 */
+  line-height: 1.5;
+}
+
+/* ===========================
+   Body
+   =========================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--cis-font-family-base);
+  font-size: var(--cis-font-size-base);
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-primary);
+  background-color: var(--cis-bg-primary);
+  
+  /* 改善文字渲染 */
+  text-rendering: optimizeLegibility;
+  
+  /* 防止橡皮筋效果 (iOS) */
+  overflow-anchor: none;
+}
+
+/* ===========================
+   標題元素
+   =========================== */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: var(--cis-line-height-tight);
+}
+
+/* ===========================
+   段落和文字元素
+   =========================== */
+p {
+  margin: 0;
+}
+
+hr {
+  margin: var(--cis-spacing-4) 0;
+  border: 0;
+  border-top: 1px solid var(--cis-border-default);
+}
+
+/* ===========================
+   列表
+   =========================== */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+}
+
+/* ===========================
+   連結
+   =========================== */
+a {
+  color: var(--cis-brand-primary);
+  text-decoration: none;
+  transition: color var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+a:hover {
+  color: var(--cis-brand-primary-light);
+}
+
+/* ===========================
+   表單元素
+   =========================== */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/* ===========================
+   媒體元素
+   =========================== */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg {
+  display: block;
+  vertical-align: middle;
+}
+
+/* ===========================
+   表格
+   =========================== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+
+/* ===========================
+   程式碼元素
+   =========================== */
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--cis-font-family-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  margin: 0;
+  overflow: auto;
+}
+
+/* ===========================
+   互動元素
+   =========================== */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* ===========================
+   隱藏元素
+   =========================== */
+[hidden] {
+  display: none !important;
+}
+
+/* ===========================
+   無障礙輔助
+   =========================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===========================
+   焦點樣式
+   =========================== */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cis-border-focus);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   禁用動畫（無障礙）
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

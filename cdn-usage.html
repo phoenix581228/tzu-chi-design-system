@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 - CDN 使用指南</title>
+    <link rel="stylesheet" href="./tzu-chi-design-system.css">
+    <link rel="stylesheet" href="./demo.css">
+    <style>
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #94a3b8;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+        
+        .section {
+            background: #27272a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #3f3f46;
+        }
+        
+        .code-block {
+            background: #18181b;
+            border: 1px solid #3f3f46;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-block pre {
+            color: #e4e4e7;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #3f3f46;
+            color: #e4e4e7;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        
+        .copy-button:hover {
+            background: #52525b;
+        }
+        
+        .copy-button.copied {
+            background: #16a34a;
+        }
+        
+        .cdn-option {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #18181b;
+            border-radius: 8px;
+            border: 1px solid #3f3f46;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #3f3f46;
+            color: #e4e4e7;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+        
+        .badge.recommended {
+            background: #16a34a;
+            color: white;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .feature {
+            padding: 1rem;
+            background: #18181b;
+            border-radius: 8px;
+            border: 1px solid #3f3f46;
+        }
+        
+        .feature h4 {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .warning {
+            background: #7c2d12;
+            color: #fed7aa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #ea580c;
+        }
+        
+        .info {
+            background: #1e3a8a;
+            color: #dbeafe;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #3f3f46;
+        }
+        
+        .comparison-table th {
+            background: #18181b;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:hover {
+            background: #18181b;
+        }
+        
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>慈濟設計系統 CDN 使用指南</h1>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">設計規範</a>
+                <a href="quick-start.html" class="nav-link">快速開始</a>
+                <a href="templates.html" class="nav-link">CSS 範本</a>
+                <a href="cdn-usage.html" class="nav-link active">CDN 使用</a>
+            </nav>
+        </header>
+        
+        <div class="section">
+            <h2>🚀 快速開始</h2>
+            <p>選擇以下任一 CDN 服務，將連結添加到您的 HTML 頁面中：</p>
+            
+            <div class="cdn-option">
+                <h3>jsDelivr CDN <span class="badge recommended">推薦</span></h3>
+                <p>全球 CDN 網絡，自動選擇最快的節點</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+                    <pre>&lt;!-- 最新版本 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 指定版本 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@1.0.0/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 非壓縮版本（開發用） --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.css"&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="cdn-option">
+                <h3>unpkg CDN</h3>
+                <p>快速、可靠的 npm CDN 服務</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+                    <pre>&lt;!-- 最新版本 --&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/tzu-chi-design-system@latest/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 指定版本 --&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/tzu-chi-design-system@1.0.0/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 瀏覽套件內容 --&gt;
+&lt;!-- 訪問: https://unpkg.com/browse/tzu-chi-design-system@latest/ --&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="cdn-option">
+                <h3>GitHub Pages</h3>
+                <p>直接從 GitHub 託管的版本</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+                    <pre>&lt;!-- 主分支最新版本 --&gt;
+&lt;link rel="stylesheet" href="https://tzu-chi.github.io/design-system/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 特定版本標籤 --&gt;
+&lt;link rel="stylesheet" href="https://tzu-chi.github.io/design-system/v1.0.0/tzu-chi-design-system.min.css"&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="cdn-option">
+                <h3>Netlify CDN</h3>
+                <p>高性能邊緣網絡，支援即時部署</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+                    <pre>&lt;!-- 生產環境 --&gt;
+&lt;link rel="stylesheet" href="https://tzu-chi-design-system.netlify.app/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 預覽部署（用於測試） --&gt;
+&lt;link rel="stylesheet" href="https://deploy-preview-{number}--tzu-chi-design-system.netlify.app/tzu-chi-design-system.min.css"&gt;</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 CDN 服務比較</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>CDN 服務</th>
+                        <th>優點</th>
+                        <th>適用場景</th>
+                        <th>SLA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>jsDelivr</strong></td>
+                        <td>
+                            • 全球節點最多<br>
+                            • 自動壓縮優化<br>
+                            • 智能回退機制
+                        </td>
+                        <td>生產環境、全球用戶</td>
+                        <td>99.9%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>unpkg</strong></td>
+                        <td>
+                            • 簡單易用<br>
+                            • 自動解析 npm<br>
+                            • 支援目錄瀏覽
+                        </td>
+                        <td>開發測試、快速原型</td>
+                        <td>99.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GitHub Pages</strong></td>
+                        <td>
+                            • 版本控制整合<br>
+                            • 免費託管<br>
+                            • 自動部署
+                        </td>
+                        <td>開源項目、文檔站點</td>
+                        <td>99.95%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Netlify</strong></td>
+                        <td>
+                            • 即時預覽<br>
+                            • 邊緣函數<br>
+                            • A/B 測試
+                        </td>
+                        <td>持續部署、測試環境</td>
+                        <td>99.99%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>💡 使用範例</h2>
+            
+            <h3>基本 HTML 模板</h3>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;慈濟應用程式&lt;/title&gt;
+    
+    &lt;!-- 慈濟設計系統 CSS --&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.min.css"&gt;
+&lt;/head&gt;
+&lt;body class="dark"&gt;
+    &lt;div class="container"&gt;
+        &lt;header class="header"&gt;
+            &lt;h1 class="text-gradient"&gt;歡迎使用慈濟設計系統&lt;/h1&gt;
+        &lt;/header&gt;
+        
+        &lt;main class="content"&gt;
+            &lt;div class="card"&gt;
+                &lt;h2&gt;開始使用&lt;/h2&gt;
+                &lt;p&gt;透過 CDN 快速整合慈濟設計系統&lt;/p&gt;
+                &lt;button class="button button-primary"&gt;了解更多&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+            
+            <h3>搭配 JavaScript 框架</h3>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>&lt;!-- React/Vue/Angular 項目 --&gt;
+&lt;!-- 在 public/index.html 中添加 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 或在 JavaScript 中動態載入 --&gt;
+&lt;script&gt;
+// 動態載入 CSS
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.min.css';
+document.head.appendChild(link);
+&lt;/script&gt;</pre>
+            </div>
+            
+            <h3>版本鎖定最佳實踐</h3>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>&lt;!-- 生產環境：使用特定版本 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@1.0.0/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 開發環境：使用最新版本 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.min.css"&gt;
+
+&lt;!-- 使用版本範圍 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@^1.0.0/tzu-chi-design-system.min.css"&gt;</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🛡️ 安全性建議</h2>
+            
+            <h3>使用 SRI (Subresource Integrity)</h3>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>&lt;!-- 使用 SRI 確保檔案完整性 --&gt;
+&lt;link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@1.0.0/tzu-chi-design-system.min.css"
+      integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+      crossorigin="anonymous"&gt;
+
+&lt;!-- 生成 SRI hash --&gt;
+&lt;!-- 使用線上工具：https://www.srihash.org/ --&gt;
+&lt;!-- 或使用命令行：openssl dgst -sha384 -binary file.css | openssl base64 -A --&gt;</pre>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ 注意：</strong>使用 @latest 標籤時無法使用 SRI，因為檔案內容可能會變更。生產環境建議使用固定版本號。
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚀 性能優化建議</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <h4>預載入 CSS</h4>
+                    <pre>&lt;link rel="preload" 
+      href="https://cdn.jsdelivr.net/..."
+      as="style"&gt;</pre>
+                </div>
+                
+                <div class="feature">
+                    <h4>DNS 預取</h4>
+                    <pre>&lt;link rel="dns-prefetch" 
+      href="//cdn.jsdelivr.net"&gt;</pre>
+                </div>
+                
+                <div class="feature">
+                    <h4>預連接</h4>
+                    <pre>&lt;link rel="preconnect" 
+      href="https://cdn.jsdelivr.net"
+      crossorigin&gt;</pre>
+                </div>
+            </div>
+            
+            <h3>完整優化範例</h3>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>&lt;!-- 在 &lt;head&gt; 頂部添加 --&gt;
+&lt;link rel="dns-prefetch" href="//cdn.jsdelivr.net"&gt;
+&lt;link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin&gt;
+&lt;link rel="preload" 
+      href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@1.0.0/tzu-chi-design-system.min.css" 
+      as="style"&gt;
+
+&lt;!-- 實際載入 CSS --&gt;
+&lt;link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@1.0.0/tzu-chi-design-system.min.css"&gt;</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📦 NPM 安裝</h2>
+            <p>除了 CDN，您也可以通過 npm 安裝：</p>
+            
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre># 使用 npm
+npm install tzu-chi-design-system
+
+# 使用 yarn
+yarn add tzu-chi-design-system
+
+# 使用 pnpm
+pnpm add tzu-chi-design-system</pre>
+            </div>
+            
+            <h3>在項目中引入</h3>
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>// 在您的主 CSS 或 JavaScript 檔案中
+import 'tzu-chi-design-system/tzu-chi-design-system.min.css';
+
+// 或在 CSS 中
+@import 'tzu-chi-design-system/tzu-chi-design-system.min.css';</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔧 故障排除</h2>
+            
+            <div class="info">
+                <strong>💡 提示：</strong>如果 CDN 載入失敗，可以使用以下回退方案：
+            </div>
+            
+            <div class="code-block">
+                <button class="copy-button" onclick="copyCode(this)">複製</button>
+                <pre>&lt;!-- CDN 回退方案 --&gt;
+&lt;link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/tzu-chi-design-system@latest/tzu-chi-design-system.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/tzu-chi-design-system@latest/tzu-chi-design-system.min.css';"&gt;
+
+&lt;!-- 或使用 JavaScript 檢測 --&gt;
+&lt;script&gt;
+// 檢查 CSS 是否載入成功
+function checkCSS() {
+    const testEl = document.createElement('div');
+    testEl.className = 'tzu-chi-test';
+    document.body.appendChild(testEl);
+    const styles = window.getComputedStyle(testEl);
+    
+    if (!styles.getPropertyValue('--tzu-chi-primary')) {
+        // CSS 未載入，使用備用方案
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/local/tzu-chi-design-system.min.css';
+        document.head.appendChild(link);
+    }
+    
+    document.body.removeChild(testEl);
+}
+
+// DOM 載入完成後檢查
+document.addEventListener('DOMContentLoaded', checkCSS);
+&lt;/script&gt;</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📚 相關資源</h2>
+            <ul>
+                <li><a href="https://github.com/tzu-chi/design-system" target="_blank">GitHub 儲存庫</a></li>
+                <li><a href="https://www.npmjs.com/package/tzu-chi-design-system" target="_blank">NPM 套件頁面</a></li>
+                <li><a href="index.html">設計系統文檔</a></li>
+                <li><a href="demo.html">元件展示</a></li>
+                <li><a href="quick-start.html">快速開始指南</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.parentElement.querySelector('pre');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '已複製！';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = '複製';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/**
+ * CIS 設計系統 - 主題變數定義
+ * 所有主題共用的基礎變數
+ */
+
+:root {
+  /* ===========================
+     字型系統
+     =========================== */
+  --cis-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "微軟正黑體", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+  --cis-font-family-mono: "SF Mono", "Monaco", "Inconsolata", "Fira Code", monospace;
+  
+  /* ===========================
+     字體大小
+     =========================== */
+  --cis-font-size-xs: 0.75rem;    /* 12px */
+  --cis-font-size-sm: 0.875rem;   /* 14px */
+  --cis-font-size-base: 1rem;     /* 16px */
+  --cis-font-size-lg: 1.125rem;   /* 18px */
+  --cis-font-size-xl: 1.25rem;    /* 20px */
+  --cis-font-size-2xl: 1.5rem;    /* 24px */
+  --cis-font-size-3xl: 1.875rem;  /* 30px */
+  --cis-font-size-4xl: 2.25rem;   /* 36px */
+  --cis-font-size-5xl: 3rem;      /* 48px */
+  
+  /* ===========================
+     行高
+     =========================== */
+  --cis-line-height-tight: 1.25;
+  --cis-line-height-normal: 1.5;
+  --cis-line-height-relaxed: 1.75;
+  --cis-line-height-loose: 2;
+  
+  /* ===========================
+     間距系統
+     =========================== */
+  --cis-spacing-0: 0;
+  --cis-spacing-1: 0.25rem;  /* 4px */
+  --cis-spacing-2: 0.5rem;   /* 8px */
+  --cis-spacing-3: 0.75rem;  /* 12px */
+  --cis-spacing-4: 1rem;     /* 16px */
+  --cis-spacing-5: 1.25rem;  /* 20px */
+  --cis-spacing-6: 1.5rem;   /* 24px */
+  --cis-spacing-8: 2rem;     /* 32px */
+  --cis-spacing-10: 2.5rem;  /* 40px */
+  --cis-spacing-12: 3rem;    /* 48px */
+  --cis-spacing-16: 4rem;    /* 64px */
+  --cis-spacing-20: 5rem;    /* 80px */
+  
+  /* ===========================
+     圓角
+     =========================== */
+  --cis-radius-none: 0;
+  --cis-radius-sm: 0.125rem;   /* 2px */
+  --cis-radius-base: 0.25rem;  /* 4px */
+  --cis-radius-md: 0.375rem;   /* 6px */
+  --cis-radius-lg: 0.5rem;     /* 8px */
+  --cis-radius-xl: 0.75rem;    /* 12px */
+  --cis-radius-2xl: 1rem;      /* 16px */
+  --cis-radius-3xl: 1.5rem;    /* 24px */
+  --cis-radius-full: 9999px;
+  
+  /* ===========================
+     陰影系統 (Elevation)
+     =========================== */
+  --cis-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --cis-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --cis-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --cis-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --cis-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --cis-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --cis-shadow-2xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  
+  /* ===========================
+     動畫時間
+     =========================== */
+  --cis-duration-75: 75ms;
+  --cis-duration-100: 100ms;
+  --cis-duration-150: 150ms;
+  --cis-duration-200: 200ms;
+  --cis-duration-300: 300ms;
+  --cis-duration-500: 500ms;
+  --cis-duration-700: 700ms;
+  --cis-duration-1000: 1000ms;
+  
+  /* ===========================
+     動畫緩動函數
+     =========================== */
+  --cis-ease-linear: linear;
+  --cis-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --cis-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --cis-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* ===========================
+     Z-Index 層級
+     =========================== */
+  --cis-z-0: 0;
+  --cis-z-10: 10;
+  --cis-z-20: 20;
+  --cis-z-30: 30;
+  --cis-z-40: 40;
+  --cis-z-50: 50;
+  --cis-z-modal: 1000;
+  --cis-z-popover: 1050;
+  --cis-z-tooltip: 1100;
+  --cis-z-notification: 1200;
+  
+  /* ===========================
+     網格系統
+     =========================== */
+  --cis-container-sm: 640px;
+  --cis-container-md: 768px;
+  --cis-container-lg: 1024px;
+  --cis-container-xl: 1280px;
+  --cis-container-2xl: 1536px;
+  
+  /* ===========================
+     SDGS 顏色（聯合國永續發展目標）
+     =========================== */
+  --cis-sdgs-1: #e5243b;   /* 消除貧窮 */
+  --cis-sdgs-2: #dda63a;   /* 消除飢餓 */
+  --cis-sdgs-3: #4c9f38;   /* 健康與福祉 */
+  --cis-sdgs-4: #c5192d;   /* 優質教育 */
+  --cis-sdgs-5: #ff3a21;   /* 性別平等 */
+  --cis-sdgs-6: #26bde2;   /* 淨水與衛生 */
+  --cis-sdgs-7: #fcc30b;   /* 可負擔能源 */
+  --cis-sdgs-8: #a21942;   /* 就業與經濟成長 */
+  --cis-sdgs-9: #fd6925;   /* 工業創新基礎建設 */
+  --cis-sdgs-10: #dd1367;  /* 減少不平等 */
+  --cis-sdgs-11: #fd9d24;  /* 永續城市 */
+  --cis-sdgs-12: #bf8b2e;  /* 責任消費與生產 */
+  --cis-sdgs-13: #3f7e44;  /* 氣候行動 */
+  --cis-sdgs-14: #0a97d9;  /* 海洋生態 */
+  --cis-sdgs-15: #56c02b;  /* 陸地生態 */
+  --cis-sdgs-16: #00689d;  /* 和平正義與制度 */
+  --cis-sdgs-17: #19486a;  /* 全球夥伴 */
+}

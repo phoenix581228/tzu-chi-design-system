@@ -1,0 +1,133 @@
+/**
+ * CIS 設計系統 - 深色主題
+ * 基於慈濟大入口網 Dark Mode 設計規範
+ */
+
+:root {
+  /* ===========================
+     品牌色彩
+     =========================== */
+  --cis-brand-primary: #2E7BCC;       /* 慈濟藍 - 主色 */
+  --cis-brand-primary-light: #5A9ADB; /* 慈濟藍 - 淺色 */
+  --cis-brand-primary-dark: #1E5BA8;  /* 慈濟藍 - 深色 */
+  --cis-brand-secondary: #6B7280;     /* 灰色調 - 次要色 */
+  --cis-brand-accent: #F59E0B;        /* 琥珀色 - 強調色 */
+  
+  /* ===========================
+     背景色彩
+     =========================== */
+  --cis-bg-primary: #0F0F0F;          /* 主背景 - 純黑 */
+  --cis-bg-secondary: #1A1A1A;        /* 次要背景 */
+  --cis-bg-tertiary: #242424;         /* 第三層背景 */
+  --cis-bg-elevated: #2A2A2A;         /* 提升層背景 */
+  --cis-bg-overlay: rgba(0, 0, 0, 0.8); /* 遮罩層 */
+  
+  /* ===========================
+     表面色彩 (卡片、面板等)
+     =========================== */
+  --cis-surface-1: #1A1A1A;           /* 1級表面 */
+  --cis-surface-2: #242424;           /* 2級表面 */
+  --cis-surface-3: #2A2A2A;           /* 3級表面 */
+  --cis-surface-4: #333333;           /* 4級表面 */
+  
+  /* ===========================
+     文字色彩
+     =========================== */
+  --cis-text-primary: #FFFFFF;        /* 主要文字 - 100% 不透明 */
+  --cis-text-secondary: #B3B3B3;      /* 次要文字 - 70% 不透明 */
+  --cis-text-tertiary: #808080;       /* 第三層文字 - 50% 不透明 */
+  --cis-text-disabled: #4D4D4D;       /* 禁用文字 - 30% 不透明 */
+  --cis-text-inverse: #0F0F0F;       /* 反色文字 */
+  
+  /* ===========================
+     邊框色彩
+     =========================== */
+  --cis-border-default: #333333;      /* 預設邊框 */
+  --cis-border-light: #262626;        /* 淺色邊框 */
+  --cis-border-strong: #404040;       /* 深色邊框 */
+  --cis-border-focus: #2E7BCC;        /* 焦點邊框 */
+  
+  /* ===========================
+     功能色彩
+     =========================== */
+  --cis-success: #10B981;             /* 成功 - 綠色 */
+  --cis-success-light: #34D399;
+  --cis-success-dark: #059669;
+  
+  --cis-warning: #F59E0B;             /* 警告 - 琥珀色 */
+  --cis-warning-light: #FBBF24;
+  --cis-warning-dark: #D97706;
+  
+  --cis-danger: #EF4444;              /* 危險 - 紅色 */
+  --cis-danger-light: #F87171;
+  --cis-danger-dark: #DC2626;
+  
+  --cis-info: #3B82F6;                /* 資訊 - 藍色 */
+  --cis-info-light: #60A5FA;
+  --cis-info-dark: #2563EB;
+  
+  /* ===========================
+     互動狀態色彩
+     =========================== */
+  --cis-hover-bg: rgba(255, 255, 255, 0.08);
+  --cis-active-bg: rgba(255, 255, 255, 0.12);
+  --cis-selected-bg: rgba(46, 123, 204, 0.16);
+  --cis-focus-ring: rgba(46, 123, 204, 0.48);
+  
+  /* ===========================
+     漸層色彩
+     =========================== */
+  --cis-gradient-primary: linear-gradient(135deg, #2E7BCC 0%, #1E5BA8 100%);
+  --cis-gradient-surface: linear-gradient(180deg, #1A1A1A 0%, #0F0F0F 100%);
+  --cis-gradient-overlay: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+  
+  /* ===========================
+     陰影 (Dark Mode 調整)
+     =========================== */
+  --cis-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --cis-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --cis-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --cis-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  
+  /* ===========================
+     特殊效果
+     =========================== */
+  --cis-glow-primary: 0 0 20px rgba(46, 123, 204, 0.5);
+  --cis-glow-success: 0 0 20px rgba(16, 185, 129, 0.5);
+  --cis-glow-warning: 0 0 20px rgba(245, 158, 11, 0.5);
+  --cis-glow-danger: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+/* ===========================
+   Dark Mode 特定樣式
+   =========================== */
+body {
+  background-color: var(--cis-bg-primary);
+  color: var(--cis-text-primary);
+}
+
+/* 捲軸樣式 */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cis-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cis-surface-3);
+  border-radius: 6px;
+  border: 2px solid var(--cis-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cis-surface-4);
+}
+
+/* 選取文字樣式 */
+::selection {
+  background-color: var(--cis-selected-bg);
+  color: var(--cis-text-primary);
+}

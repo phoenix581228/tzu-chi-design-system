@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 - 快速開始</title>
+    <!-- 引入慈濟設計系統 CSS -->
+    <link rel="stylesheet" href="./tzu-chi-design-system.css">
+    <link rel="stylesheet" href="./demo.css">
+    <style>
+        body {
+            padding: 2rem;
+        }
+        .demo-section {
+            margin-bottom: 3rem;
+        }
+        .demo-section h2 {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--tzuchi-primary);
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .form-demo {
+            max-width: 400px;
+        }
+        .cards-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="tzuchi-h1">慈濟設計系統快速範例</h1>
+            <p class="tzuchi-body">這是一個簡單的範例頁面，展示如何使用慈濟設計系統。</p>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">設計規範</a>
+                <a href="quick-start.html" class="nav-link active">快速開始</a>
+                <a href="templates.html" class="nav-link">CSS 範本</a>
+            </nav>
+        </header>
+
+        <!-- 按鈕範例 -->
+        <section class="demo-section">
+            <h2 class="tzuchi-h2">按鈕元件</h2>
+            <div class="button-group">
+                <button class="tzuchi-btn tzuchi-btn-primary">主要按鈕</button>
+                <button class="tzuchi-btn tzuchi-btn-secondary">次要按鈕</button>
+                <button class="tzuchi-btn tzuchi-btn-outline">輪廓按鈕</button>
+                <button class="tzuchi-btn tzuchi-btn-ghost">幽靈按鈕</button>
+                <button class="tzuchi-btn tzuchi-btn-danger">危險操作</button>
+            </div>
+        </section>
+
+        <!-- 表單範例 -->
+        <section class="demo-section">
+            <h2 class="tzuchi-h2">表單元件</h2>
+            <form class="form-demo">
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-label">姓名</label>
+                    <input type="text" class="tzuchi-input" placeholder="請輸入您的姓名">
+                </div>
+                
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-label">訊息</label>
+                    <textarea class="tzuchi-textarea" rows="4" placeholder="請輸入訊息內容"></textarea>
+                </div>
+                
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-checkbox">
+                        <input type="checkbox">
+                        <span class="tzuchi-checkbox-label">我同意服務條款</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="tzuchi-btn tzuchi-btn-primary">提交表單</button>
+            </form>
+        </section>
+
+        <!-- 卡片範例 -->
+        <section class="demo-section">
+            <h2 class="tzuchi-h2">卡片元件</h2>
+            <div class="cards-demo">
+                <div class="tzuchi-card">
+                    <div class="tzuchi-card-header">
+                        <h3 class="tzuchi-card-title">標準卡片</h3>
+                        <p class="tzuchi-card-subtitle">這是一個標準的卡片範例</p>
+                    </div>
+                    <div class="tzuchi-card-body">
+                        <p>卡片內容可以包含任何類型的資訊，例如文字、圖片或其他元件。</p>
+                    </div>
+                    <div class="tzuchi-card-footer">
+                        <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">了解更多</button>
+                    </div>
+                </div>
+
+                <div class="tzuchi-card tzuchi-card-elevated">
+                    <div class="tzuchi-card-body">
+                        <h4 class="tzuchi-h4">提升卡片</h4>
+                        <p>這是一個具有陰影效果的提升卡片，用於需要更多視覺層次的場合。</p>
+                        <div class="tzuchi-m-md">
+                            <label class="tzuchi-switch">
+                                <input type="checkbox" checked>
+                                <span class="tzuchi-switch-slider"></span>
+                            </label>
+                            <span class="tzuchi-text-secondary tzuchi-m-sm">啟用功能</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用說明 -->
+        <section class="demo-section">
+            <h2 class="tzuchi-h2">如何使用</h2>
+            <div class="tzuchi-card">
+                <div class="tzuchi-card-body">
+                    <h3 class="tzuchi-h3">引入 CSS</h3>
+                    <pre><code>&lt;link rel="stylesheet" href="tzu-chi-design-system.css"&gt;</code></pre>
+                    
+                    <h3 class="tzuchi-h3 tzuchi-m-lg">使用類別</h3>
+                    <p>直接在 HTML 元素上添加相應的類別即可：</p>
+                    <pre><code>&lt;button class="tzuchi-btn tzuchi-btn-primary"&gt;按鈕&lt;/button&gt;
+&lt;div class="tzuchi-card"&gt;
+    &lt;div class="tzuchi-card-body"&gt;內容&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 簡單的互動示範
+        document.addEventListener('DOMContentLoaded', function() {
+            // 表單提交示範
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('表單提交成功！（這只是示範）');
+            });
+
+            // 按鈕點擊示範
+            document.querySelectorAll('.tzuchi-btn').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    if (!e.target.closest('form')) {
+                        console.log('按鈕被點擊:', e.target.textContent);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

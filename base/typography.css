@@ -1,0 +1,319 @@
+/**
+ * CIS 設計系統 - 文字排版
+ * 包含標題、段落、列表等文字相關樣式
+ */
+
+/* ===========================
+   標題系統
+   =========================== */
+.cis-h1,
+.cis-heading-1 {
+  font-size: var(--cis-font-size-5xl);
+  font-weight: 700;
+  line-height: var(--cis-line-height-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--cis-spacing-6);
+  color: var(--cis-text-primary);
+}
+
+.cis-h2,
+.cis-heading-2 {
+  font-size: var(--cis-font-size-4xl);
+  font-weight: 600;
+  line-height: var(--cis-line-height-tight);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--cis-spacing-5);
+  color: var(--cis-text-primary);
+}
+
+.cis-h3,
+.cis-heading-3 {
+  font-size: var(--cis-font-size-3xl);
+  font-weight: 600;
+  line-height: var(--cis-line-height-tight);
+  margin-bottom: var(--cis-spacing-4);
+  color: var(--cis-text-primary);
+}
+
+.cis-h4,
+.cis-heading-4 {
+  font-size: var(--cis-font-size-2xl);
+  font-weight: 600;
+  line-height: var(--cis-line-height-normal);
+  margin-bottom: var(--cis-spacing-3);
+  color: var(--cis-text-primary);
+}
+
+.cis-h5,
+.cis-heading-5 {
+  font-size: var(--cis-font-size-xl);
+  font-weight: 600;
+  line-height: var(--cis-line-height-normal);
+  margin-bottom: var(--cis-spacing-3);
+  color: var(--cis-text-primary);
+}
+
+.cis-h6,
+.cis-heading-6 {
+  font-size: var(--cis-font-size-lg);
+  font-weight: 600;
+  line-height: var(--cis-line-height-normal);
+  margin-bottom: var(--cis-spacing-2);
+  color: var(--cis-text-primary);
+}
+
+/* ===========================
+   段落樣式
+   =========================== */
+.cis-body-large {
+  font-size: var(--cis-font-size-lg);
+  line-height: var(--cis-line-height-relaxed);
+  margin-bottom: var(--cis-spacing-4);
+  color: var(--cis-text-secondary);
+}
+
+.cis-body,
+.cis-paragraph {
+  font-size: var(--cis-font-size-base);
+  line-height: var(--cis-line-height-normal);
+  margin-bottom: var(--cis-spacing-4);
+  color: var(--cis-text-secondary);
+}
+
+.cis-body-small {
+  font-size: var(--cis-font-size-sm);
+  line-height: var(--cis-line-height-normal);
+  margin-bottom: var(--cis-spacing-3);
+  color: var(--cis-text-tertiary);
+}
+
+.cis-caption {
+  font-size: var(--cis-font-size-xs);
+  line-height: var(--cis-line-height-normal);
+  margin-bottom: var(--cis-spacing-2);
+  color: var(--cis-text-tertiary);
+}
+
+/* ===========================
+   文字樣式變體
+   =========================== */
+.cis-text-primary {
+  color: var(--cis-text-primary);
+}
+
+.cis-text-secondary {
+  color: var(--cis-text-secondary);
+}
+
+.cis-text-tertiary {
+  color: var(--cis-text-tertiary);
+}
+
+.cis-text-disabled {
+  color: var(--cis-text-disabled);
+}
+
+.cis-text-brand {
+  color: var(--cis-brand-primary);
+}
+
+.cis-text-success {
+  color: var(--cis-success);
+}
+
+.cis-text-warning {
+  color: var(--cis-warning);
+}
+
+.cis-text-danger {
+  color: var(--cis-danger);
+}
+
+.cis-text-info {
+  color: var(--cis-info);
+}
+
+/* ===========================
+   文字對齊
+   =========================== */
+.cis-text-left {
+  text-align: left;
+}
+
+.cis-text-center {
+  text-align: center;
+}
+
+.cis-text-right {
+  text-align: right;
+}
+
+.cis-text-justify {
+  text-align: justify;
+}
+
+/* ===========================
+   文字粗細
+   =========================== */
+.cis-font-light {
+  font-weight: 300;
+}
+
+.cis-font-normal {
+  font-weight: 400;
+}
+
+.cis-font-medium {
+  font-weight: 500;
+}
+
+.cis-font-semibold {
+  font-weight: 600;
+}
+
+.cis-font-bold {
+  font-weight: 700;
+}
+
+/* ===========================
+   文字裝飾
+   =========================== */
+.cis-text-underline {
+  text-decoration: underline;
+}
+
+.cis-text-line-through {
+  text-decoration: line-through;
+}
+
+.cis-text-no-underline {
+  text-decoration: none;
+}
+
+/* ===========================
+   列表樣式
+   =========================== */
+.cis-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--cis-spacing-4);
+}
+
+.cis-list-disc {
+  list-style-type: disc;
+  padding-left: var(--cis-spacing-6);
+}
+
+.cis-list-decimal {
+  list-style-type: decimal;
+  padding-left: var(--cis-spacing-6);
+}
+
+.cis-list-item {
+  margin-bottom: var(--cis-spacing-2);
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-secondary);
+}
+
+/* ===========================
+   引用樣式
+   =========================== */
+.cis-blockquote {
+  margin: 0 0 var(--cis-spacing-6) 0;
+  padding-left: var(--cis-spacing-6);
+  border-left: 4px solid var(--cis-brand-primary);
+  color: var(--cis-text-secondary);
+  font-style: italic;
+}
+
+.cis-blockquote-footer {
+  margin-top: var(--cis-spacing-2);
+  font-size: var(--cis-font-size-sm);
+  color: var(--cis-text-tertiary);
+}
+
+/* ===========================
+   程式碼樣式
+   =========================== */
+.cis-code {
+  padding: 2px 6px;
+  background-color: var(--cis-surface-2);
+  border-radius: var(--cis-radius-sm);
+  font-family: var(--cis-font-family-mono);
+  font-size: 0.875em;
+  color: var(--cis-text-primary);
+}
+
+.cis-pre {
+  display: block;
+  margin: 0 0 var(--cis-spacing-4) 0;
+  padding: var(--cis-spacing-4);
+  background-color: var(--cis-surface-1);
+  border: 1px solid var(--cis-border-default);
+  border-radius: var(--cis-radius-md);
+  overflow-x: auto;
+}
+
+.cis-pre code {
+  background: none;
+  padding: 0;
+  font-size: var(--cis-font-size-sm);
+  color: var(--cis-text-primary);
+}
+
+/* ===========================
+   連結樣式
+   =========================== */
+.cis-link {
+  color: var(--cis-brand-primary);
+  text-decoration: none;
+  transition: color var(--cis-duration-200) var(--cis-ease-in-out);
+  cursor: pointer;
+}
+
+.cis-link:hover {
+  color: var(--cis-brand-primary-light);
+  text-decoration: underline;
+}
+
+.cis-link:active {
+  color: var(--cis-brand-primary-dark);
+}
+
+.cis-link:focus-visible {
+  outline: 2px solid var(--cis-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--cis-radius-sm);
+}
+
+/* ===========================
+   文字省略
+   =========================== */
+.cis-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cis-line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cis-line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===========================
+   中文優化
+   =========================== */
+.cis-text-chinese {
+  font-family: "Microsoft JhengHei", "微軟正黑體", "PingFang TC", "蘋方-繁", "Noto Sans TC", sans-serif;
+  letter-spacing: 0.05em;
+  text-align: justify;
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 - CI 規範指南</title>
+    <meta name="description" content="慈濟設計系統 - 基於 Material Design Dark Theme 的企業 CI 規範指南">
+    <meta name="keywords" content="慈濟,設計系統,CI,design system,material design">
+    <meta property="og:title" content="慈濟設計系統">
+    <meta property="og:description" content="企業級 UI 設計規範與元件庫">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    <link rel="stylesheet" href="tzu-chi-design-system.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>慈濟設計系統</h1>
+            <p class="subtitle">Corporate Identity Guidelines v1.0</p>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">設計規範</a>
+                <a href="quick-start.html" class="nav-link">快速開始</a>
+                <a href="templates.html" class="nav-link">CSS 範本</a>
+            </nav>
+        </header>
+
+        <!-- 色彩系統 -->
+        <section class="section">
+            <h2>色彩系統 Color System</h2>
+            <div class="color-grid">
+                <div class="color-group">
+                    <h3>主色 Primary Colors</h3>
+                    <div class="color-swatches">
+                        <div class="color-swatch primary-dark">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">深藍 Dark Blue</p>
+                                <p class="color-code">#1B2D58</p>
+                                <p class="color-usage">主要品牌色</p>
+                            </div>
+                        </div>
+                        <div class="color-swatch primary-light">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">淺藍 Light Blue</p>
+                                <p class="color-code">#587291</p>
+                                <p class="color-usage">輔助主色</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-group">
+                    <h3>輔助色 Secondary Colors</h3>
+                    <div class="color-swatches">
+                        <div class="color-swatch secondary">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">次要色 Secondary</p>
+                                <p class="color-code">#4C5364</p>
+                                <p class="color-usage">次要元素</p>
+                            </div>
+                        </div>
+                        <div class="color-swatch accent">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">強調色 Accent</p>
+                                <p class="color-code">#5DC5C4</p>
+                                <p class="color-usage">重點提示</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-group">
+                    <h3>背景色 Background Colors</h3>
+                    <div class="color-swatches">
+                        <div class="color-swatch bg-primary">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">主背景 Primary</p>
+                                <p class="color-code">#0F1419</p>
+                                <p class="color-usage">頁面背景</p>
+                            </div>
+                        </div>
+                        <div class="color-swatch bg-surface">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">表面 Surface</p>
+                                <p class="color-code">#1A1F2E</p>
+                                <p class="color-usage">卡片、面板</p>
+                            </div>
+                        </div>
+                        <div class="color-swatch bg-elevated">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">提升 Elevated</p>
+                                <p class="color-code">#22293B</p>
+                                <p class="color-usage">浮動元素</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-group">
+                    <h3>文字色 Text Colors</h3>
+                    <div class="color-swatches">
+                        <div class="color-swatch text-primary">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">主文字 Primary</p>
+                                <p class="color-code">#E7E9EA</p>
+                                <p class="color-usage">主要內容</p>
+                            </div>
+                        </div>
+                        <div class="color-swatch text-secondary">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">次文字 Secondary</p>
+                                <p class="color-code">#8B98A5</p>
+                                <p class="color-usage">次要內容</p>
+                            </div>
+                        </div>
+                        <div class="color-swatch text-tertiary">
+                            <div class="color-preview"></div>
+                            <div class="color-info">
+                                <p class="color-name">輔助文字 Tertiary</p>
+                                <p class="color-code">#536471</p>
+                                <p class="color-usage">提示文字</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文字系統 -->
+        <section class="section">
+            <h2>文字系統 Typography</h2>
+            <div class="typography-examples">
+                <div class="type-example">
+                    <h1 class="tzuchi-h1">標題一 Heading 1</h1>
+                    <p class="type-specs">2.25rem (36px) / 500 / 2.5rem</p>
+                </div>
+                <div class="type-example">
+                    <h2 class="tzuchi-h2">標題二 Heading 2</h2>
+                    <p class="type-specs">1.875rem (30px) / 600 / 2.25rem</p>
+                </div>
+                <div class="type-example">
+                    <h3 class="tzuchi-h3">標題三 Heading 3</h3>
+                    <p class="type-specs">1.5rem (24px) / 600 / 2rem</p>
+                </div>
+                <div class="type-example">
+                    <h4 class="tzuchi-h4">標題四 Heading 4</h4>
+                    <p class="type-specs">1.25rem (20px) / 600 / 1.75rem</p>
+                </div>
+                <div class="type-example">
+                    <p class="tzuchi-body">內文 Body Text - 這是一段示範文字，用於展示慈濟設計系統的內文樣式。</p>
+                    <p class="type-specs">1rem (16px) / 400 / 1.5rem</p>
+                </div>
+                <div class="type-example">
+                    <p class="tzuchi-small">小字 Small Text - 輔助說明文字</p>
+                    <p class="type-specs">0.875rem (14px) / 400 / 1.25rem</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 按鈕系統 -->
+        <section class="section">
+            <h2>按鈕系統 Button System</h2>
+            <div class="button-examples">
+                <div class="button-group">
+                    <h3>主要按鈕 Primary Buttons</h3>
+                    <div class="button-row">
+                        <button class="tzuchi-btn tzuchi-btn-primary">主要按鈕</button>
+                        <button class="tzuchi-btn tzuchi-btn-primary" disabled>禁用狀態</button>
+                        <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">小尺寸</button>
+                        <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-lg">大尺寸</button>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <h3>次要按鈕 Secondary Buttons</h3>
+                    <div class="button-row">
+                        <button class="tzuchi-btn tzuchi-btn-secondary">次要按鈕</button>
+                        <button class="tzuchi-btn tzuchi-btn-outline">輪廓按鈕</button>
+                        <button class="tzuchi-btn tzuchi-btn-ghost">幽靈按鈕</button>
+                        <button class="tzuchi-btn tzuchi-btn-danger">危險按鈕</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 卡片系統 -->
+        <section class="section">
+            <h2>卡片系統 Card System</h2>
+            <div class="card-examples">
+                <div class="tzuchi-card">
+                    <div class="tzuchi-card-header">
+                        <h3 class="tzuchi-card-title">卡片標題</h3>
+                        <p class="tzuchi-card-subtitle">卡片副標題</p>
+                    </div>
+                    <div class="tzuchi-card-body">
+                        <p>這是卡片內容區域，可以放置各種內容。</p>
+                    </div>
+                    <div class="tzuchi-card-footer">
+                        <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">操作按鈕</button>
+                    </div>
+                </div>
+
+                <div class="tzuchi-card tzuchi-card-elevated">
+                    <div class="tzuchi-card-body">
+                        <h4>提升卡片</h4>
+                        <p>這是一個具有陰影效果的提升卡片。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 表單系統 -->
+        <section class="section">
+            <h2>表單系統 Form System</h2>
+            <div class="form-examples">
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-label">輸入框標籤</label>
+                    <input type="text" class="tzuchi-input" placeholder="請輸入內容">
+                    <span class="tzuchi-helper-text">這是輔助說明文字</span>
+                </div>
+
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-label">文字區域</label>
+                    <textarea class="tzuchi-textarea" rows="3" placeholder="請輸入多行文字"></textarea>
+                </div>
+
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-label">選擇框</label>
+                    <select class="tzuchi-select">
+                        <option>選項一</option>
+                        <option>選項二</option>
+                        <option>選項三</option>
+                    </select>
+                </div>
+
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-checkbox">
+                        <input type="checkbox">
+                        <span class="tzuchi-checkbox-label">複選框選項</span>
+                    </label>
+                </div>
+
+                <div class="tzuchi-form-group">
+                    <label class="tzuchi-radio">
+                        <input type="radio" name="radio-demo">
+                        <span class="tzuchi-radio-label">單選框選項一</span>
+                    </label>
+                    <label class="tzuchi-radio">
+                        <input type="radio" name="radio-demo">
+                        <span class="tzuchi-radio-label">單選框選項二</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 開關系統 -->
+        <section class="section">
+            <h2>開關系統 Switch System</h2>
+            <div class="switch-examples">
+                <div class="switch-item">
+                    <label class="tzuchi-switch">
+                        <input type="checkbox" checked>
+                        <span class="tzuchi-switch-slider"></span>
+                    </label>
+                    <span class="switch-label">標準開關（開啟）</span>
+                </div>
+
+                <div class="switch-item">
+                    <label class="tzuchi-switch">
+                        <input type="checkbox">
+                        <span class="tzuchi-switch-slider"></span>
+                    </label>
+                    <span class="switch-label">標準開關（關閉）</span>
+                </div>
+
+                <div class="switch-item">
+                    <label class="tzuchi-switch tzuchi-switch-sm">
+                        <input type="checkbox" checked>
+                        <span class="tzuchi-switch-slider"></span>
+                    </label>
+                    <span class="switch-label">小型開關</span>
+                </div>
+
+                <div class="switch-item">
+                    <label class="tzuchi-switch" disabled>
+                        <input type="checkbox" disabled>
+                        <span class="tzuchi-switch-slider"></span>
+                    </label>
+                    <span class="switch-label">禁用開關</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用指南 -->
+        <section class="section">
+            <h2>使用指南 Usage Guide</h2>
+            <div class="usage-guide">
+                <div class="usage-item">
+                    <h3>1. 引入 CSS 檔案</h3>
+                    <pre><code>&lt;link rel="stylesheet" href="tzu-chi-design-system.css"&gt;</code></pre>
+                </div>
+
+                <div class="usage-item">
+                    <h3>2. 使用 CSS 變數</h3>
+                    <pre><code>/* 在您的 CSS 中使用變數 */
+.my-element {
+    background-color: var(--tzuchi-bg-surface);
+    color: var(--tzuchi-text-primary);
+    border: 1px solid var(--tzuchi-divider);
+}</code></pre>
+                </div>
+
+                <div class="usage-item">
+                    <h3>3. 應用類別名稱</h3>
+                    <pre><code>&lt;button class="tzuchi-btn tzuchi-btn-primary"&gt;
+    點擊我
+&lt;/button&gt;
+
+&lt;div class="tzuchi-card"&gt;
+    &lt;div class="tzuchi-card-body"&gt;
+        卡片內容
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

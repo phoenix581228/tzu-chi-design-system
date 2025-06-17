@@ -1,0 +1,328 @@
+/**
+ * CIS 設計系統 - 徽章元件
+ * 用於標記、計數和狀態顯示
+ */
+
+/* ===========================
+   基礎徽章
+   =========================== */
+.cis-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cis-spacing-1) var(--cis-spacing-2);
+  font-size: var(--cis-font-size-xs);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--cis-radius-full);
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+  background-color: var(--cis-surface-3);
+  color: var(--cis-text-primary);
+  border: 1px solid transparent;
+}
+
+/* ===========================
+   徽章變體
+   =========================== */
+
+/* 主要徽章 */
+.cis-badge-primary {
+  background-color: var(--cis-brand-primary);
+  color: #FFFFFF;
+}
+
+/* 次要徽章 */
+.cis-badge-secondary {
+  background-color: var(--cis-surface-3);
+  color: var(--cis-text-primary);
+  border-color: var(--cis-border-default);
+}
+
+/* 成功徽章 */
+.cis-badge-success {
+  background-color: var(--cis-success);
+  color: #FFFFFF;
+}
+
+/* 警告徽章 */
+.cis-badge-warning {
+  background-color: var(--cis-warning);
+  color: #000000;
+}
+
+/* 危險徽章 */
+.cis-badge-danger {
+  background-color: var(--cis-danger);
+  color: #FFFFFF;
+}
+
+/* 資訊徽章 */
+.cis-badge-info {
+  background-color: var(--cis-info);
+  color: #FFFFFF;
+}
+
+/* 輪廓徽章 */
+.cis-badge-outline {
+  background-color: transparent;
+  border-width: 2px;
+}
+
+.cis-badge-outline-primary {
+  color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-badge-outline-success {
+  color: var(--cis-success);
+  border-color: var(--cis-success);
+}
+
+.cis-badge-outline-warning {
+  color: var(--cis-warning);
+  border-color: var(--cis-warning);
+}
+
+.cis-badge-outline-danger {
+  color: var(--cis-danger);
+  border-color: var(--cis-danger);
+}
+
+.cis-badge-outline-info {
+  color: var(--cis-info);
+  border-color: var(--cis-info);
+}
+
+/* ===========================
+   徽章大小
+   =========================== */
+
+/* 小型 */
+.cis-badge-sm {
+  padding: 0 var(--cis-spacing-1);
+  font-size: 0.625rem;
+  min-width: 16px;
+  height: 16px;
+}
+
+/* 中型（預設） */
+.cis-badge-md {
+  padding: var(--cis-spacing-1) var(--cis-spacing-2);
+  font-size: var(--cis-font-size-xs);
+  min-width: 20px;
+  height: 20px;
+}
+
+/* 大型 */
+.cis-badge-lg {
+  padding: var(--cis-spacing-1) var(--cis-spacing-3);
+  font-size: var(--cis-font-size-sm);
+  min-width: 24px;
+  height: 24px;
+}
+
+/* ===========================
+   徽章形狀
+   =========================== */
+
+/* 圓形徽章（用於數字） */
+.cis-badge-circle {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.cis-badge-circle.cis-badge-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.cis-badge-circle.cis-badge-lg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 方形徽章 */
+.cis-badge-square {
+  border-radius: var(--cis-radius-base);
+}
+
+/* ===========================
+   點狀徽章
+   =========================== */
+.cis-badge-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  min-width: auto;
+}
+
+.cis-badge-dot-sm {
+  width: 6px;
+  height: 6px;
+}
+
+.cis-badge-dot-lg {
+  width: 10px;
+  height: 10px;
+}
+
+/* 脈衝動畫 */
+.cis-badge-dot-pulse {
+  position: relative;
+}
+
+.cis-badge-dot-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: inherit;
+  animation: cis-badge-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes cis-badge-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ===========================
+   徽章組合
+   =========================== */
+
+/* 相對定位容器 */
+.cis-badge-container {
+  position: relative;
+  display: inline-flex;
+}
+
+/* 絕對定位徽章 */
+.cis-badge-floating {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 1;
+}
+
+.cis-badge-floating.cis-badge-dot {
+  top: -2px;
+  right: -2px;
+}
+
+/* 左上角定位 */
+.cis-badge-floating-top-left {
+  top: -4px;
+  right: auto;
+  left: -4px;
+}
+
+/* 左下角定位 */
+.cis-badge-floating-bottom-left {
+  top: auto;
+  bottom: -4px;
+  right: auto;
+  left: -4px;
+}
+
+/* 右下角定位 */
+.cis-badge-floating-bottom-right {
+  top: auto;
+  bottom: -4px;
+  right: -4px;
+}
+
+/* ===========================
+   標籤樣式徽章
+   =========================== */
+.cis-badge-tag {
+  border-radius: var(--cis-radius-md);
+  padding: var(--cis-spacing-1) var(--cis-spacing-3);
+  font-weight: 500;
+}
+
+/* 可移除徽章 */
+.cis-badge-removable {
+  padding-right: var(--cis-spacing-1);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cis-spacing-1);
+}
+
+.cis-badge-removable-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  cursor: pointer;
+  transition: background-color var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-badge-removable-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===========================
+   SDGS 徽章
+   =========================== */
+.cis-badge-sdgs {
+  font-weight: 700;
+  color: #FFFFFF;
+  padding: var(--cis-spacing-1) var(--cis-spacing-3);
+}
+
+.cis-badge-sdgs-1 { background-color: var(--cis-sdgs-1); }
+.cis-badge-sdgs-2 { background-color: var(--cis-sdgs-2); }
+.cis-badge-sdgs-3 { background-color: var(--cis-sdgs-3); }
+.cis-badge-sdgs-4 { background-color: var(--cis-sdgs-4); }
+.cis-badge-sdgs-5 { background-color: var(--cis-sdgs-5); }
+.cis-badge-sdgs-6 { background-color: var(--cis-sdgs-6); }
+.cis-badge-sdgs-7 { background-color: var(--cis-sdgs-7); color: #000000; }
+.cis-badge-sdgs-8 { background-color: var(--cis-sdgs-8); }
+.cis-badge-sdgs-9 { background-color: var(--cis-sdgs-9); }
+.cis-badge-sdgs-10 { background-color: var(--cis-sdgs-10); }
+.cis-badge-sdgs-11 { background-color: var(--cis-sdgs-11); }
+.cis-badge-sdgs-12 { background-color: var(--cis-sdgs-12); }
+.cis-badge-sdgs-13 { background-color: var(--cis-sdgs-13); }
+.cis-badge-sdgs-14 { background-color: var(--cis-sdgs-14); }
+.cis-badge-sdgs-15 { background-color: var(--cis-sdgs-15); }
+.cis-badge-sdgs-16 { background-color: var(--cis-sdgs-16); }
+.cis-badge-sdgs-17 { background-color: var(--cis-sdgs-17); }
+
+/* ===========================
+   特殊效果
+   =========================== */
+
+/* 閃爍效果 */
+.cis-badge-blink {
+  animation: cis-badge-blink 1s ease-in-out infinite;
+}
+
+@keyframes cis-badge-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* 漸變背景 */
+.cis-badge-gradient {
+  background: var(--cis-gradient-primary);
+  border: none;
+  color: #FFFFFF;
+}

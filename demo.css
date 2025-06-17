@@ -1,0 +1,331 @@
+/**
+ * 慈濟設計系統示範頁面樣式
+ * Demo Page Styles
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Navigation Styles */
+.nav-links {
+  display: flex;
+  gap: var(--tzuchi-spacing-md);
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--tzuchi-bg-elevated);
+  border-radius: var(--tzuchi-radius-lg);
+  border: 1px solid var(--tzuchi-divider);
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: var(--tzuchi-shadow-md);
+}
+
+/* 導航連結完全遵循慈濟按鈕規範 */
+.nav-link {
+  /* 繼承 .tzuchi-btn 的所有樣式 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--tzuchi-spacing-sm) var(--tzuchi-spacing-lg);
+  font-size: var(--tzuchi-text-base);
+  font-weight: var(--tzuchi-font-medium);
+  line-height: var(--tzuchi-leading-tight);
+  border-radius: var(--tzuchi-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--tzuchi-transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  font-family: inherit;
+}
+
+.nav-link:focus {
+  outline: 2px solid var(--tzuchi-accent);
+  outline-offset: 2px;
+}
+
+/* 預設狀態 - 使用幽靈按鈕樣式 */
+.nav-link {
+  background-color: transparent;
+  color: var(--tzuchi-text-primary);
+}
+
+.nav-link:hover:not(.active) {
+  background-color: var(--tzuchi-hover);
+}
+
+/* 當前頁面 - 使用主要按鈕樣式 */
+.nav-link.active {
+  background-color: var(--tzuchi-primary);
+  color: var(--tzuchi-text-on-primary);
+}
+
+.nav-link.active:hover {
+  background-color: var(--tzuchi-primary-light);
+}
+
+.nav-link:active {
+  transform: scale(0.98);
+}
+
+/* 移除外部連結箭頭，因為按鈕樣式已經夠清晰 */
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--tzuchi-divider);
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--tzuchi-primary) 0%, var(--tzuchi-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--tzuchi-text-secondary);
+  font-size: 1.25rem;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--tzuchi-primary);
+}
+
+/* 色彩展示 */
+.color-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.color-group h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--tzuchi-text-secondary);
+}
+
+.color-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.color-swatch {
+  background: var(--tzuchi-bg-surface);
+  border: 1px solid var(--tzuchi-divider);
+  border-radius: var(--tzuchi-radius-lg);
+  overflow: hidden;
+  transition: transform var(--tzuchi-transition-base);
+}
+
+.color-swatch:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--tzuchi-shadow-lg);
+}
+
+.color-preview {
+  height: 80px;
+  width: 100%;
+}
+
+.color-info {
+  padding: 1rem;
+}
+
+.color-name {
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.color-code {
+  font-family: var(--tzuchi-font-mono);
+  font-size: 0.875rem;
+  color: var(--tzuchi-text-secondary);
+  margin: 0 0 0.25rem 0;
+}
+
+.color-usage {
+  font-size: 0.75rem;
+  color: var(--tzuchi-text-tertiary);
+  margin: 0;
+}
+
+/* 色彩預覽 */
+.primary-dark .color-preview { background-color: var(--tzuchi-primary); }
+.primary-light .color-preview { background-color: var(--tzuchi-primary-light); }
+.secondary .color-preview { background-color: var(--tzuchi-secondary); }
+.accent .color-preview { background-color: var(--tzuchi-accent); }
+.bg-primary .color-preview { background-color: var(--tzuchi-bg-primary); }
+.bg-surface .color-preview { background-color: var(--tzuchi-bg-surface); }
+.bg-elevated .color-preview { background-color: var(--tzuchi-bg-elevated); }
+.text-primary .color-preview { background-color: var(--tzuchi-text-primary); }
+.text-secondary .color-preview { background-color: var(--tzuchi-text-secondary); }
+.text-tertiary .color-preview { background-color: var(--tzuchi-text-tertiary); }
+
+/* 文字展示 */
+.typography-examples {
+  background: var(--tzuchi-bg-surface);
+  padding: 2rem;
+  border-radius: var(--tzuchi-radius-lg);
+}
+
+.type-example {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--tzuchi-divider);
+}
+
+.type-example:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.type-specs {
+  font-family: var(--tzuchi-font-mono);
+  font-size: 0.875rem;
+  color: var(--tzuchi-text-tertiary);
+  margin-top: 0.5rem;
+}
+
+/* 按鈕展示 */
+.button-examples {
+  background: var(--tzuchi-bg-surface);
+  padding: 2rem;
+  border-radius: var(--tzuchi-radius-lg);
+}
+
+.button-group {
+  margin-bottom: 2rem;
+}
+
+.button-group:last-child {
+  margin-bottom: 0;
+}
+
+.button-group h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--tzuchi-text-secondary);
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* 卡片展示 */
+.card-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* 表單展示 */
+.form-examples {
+  background: var(--tzuchi-bg-surface);
+  padding: 2rem;
+  border-radius: var(--tzuchi-radius-lg);
+  max-width: 600px;
+}
+
+/* 開關展示 */
+.switch-examples {
+  background: var(--tzuchi-bg-surface);
+  padding: 2rem;
+  border-radius: var(--tzuchi-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.switch-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.switch-label {
+  color: var(--tzuchi-text-secondary);
+}
+
+/* 使用指南 */
+.usage-guide {
+  background: var(--tzuchi-bg-surface);
+  padding: 2rem;
+  border-radius: var(--tzuchi-radius-lg);
+}
+
+.usage-item {
+  margin-bottom: 2rem;
+}
+
+.usage-item:last-child {
+  margin-bottom: 0;
+}
+
+.usage-item h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--tzuchi-text-secondary);
+}
+
+pre {
+  background: var(--tzuchi-bg-elevated);
+  padding: 1rem;
+  border-radius: var(--tzuchi-radius-md);
+  overflow-x: auto;
+  border: 1px solid var(--tzuchi-divider);
+}
+
+code {
+  font-family: var(--tzuchi-font-mono);
+  font-size: 0.875rem;
+  color: var(--tzuchi-text-primary);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .color-swatches {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .card-examples {
+    grid-template-columns: 1fr;
+  }
+}

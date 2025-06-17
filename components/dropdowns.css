@@ -1,0 +1,396 @@
+/**
+ * CIS 設計系統 - 下拉選單元件
+ * 包含各種下拉選單樣式和功能
+ */
+
+/* ===========================
+   下拉選單容器
+   =========================== */
+.cis-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* ===========================
+   下拉選單觸發器
+   =========================== */
+.cis-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cis-spacing-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.cis-dropdown-toggle::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: var(--cis-spacing-1);
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-bottom: 0;
+  border-left: 4px solid transparent;
+  transition: transform var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-dropdown.cis-show .cis-dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* ===========================
+   下拉選單內容
+   =========================== */
+.cis-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: var(--cis-z-popover);
+  display: none;
+  min-width: 200px;
+  padding: var(--cis-spacing-2) 0;
+  margin-top: var(--cis-spacing-2);
+  background-color: var(--cis-surface-1);
+  border: 1px solid var(--cis-border-default);
+  border-radius: var(--cis-radius-lg);
+  box-shadow: var(--cis-shadow-lg);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-dropdown.cis-show .cis-dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 右對齊 */
+.cis-dropdown-menu-end {
+  right: 0;
+  left: auto;
+}
+
+/* 向上展開 */
+.cis-dropup .cis-dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: var(--cis-spacing-2);
+  transform: translateY(10px);
+}
+
+.cis-dropup.cis-show .cis-dropdown-menu {
+  transform: translateY(0);
+}
+
+.cis-dropup .cis-dropdown-toggle::after {
+  border-top: 0;
+  border-bottom: 4px solid;
+}
+
+/* 向右展開 */
+.cis-dropend .cis-dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0;
+  margin-left: var(--cis-spacing-2);
+  transform: translateX(-10px);
+}
+
+.cis-dropend.cis-show .cis-dropdown-menu {
+  transform: translateX(0);
+}
+
+.cis-dropend .cis-dropdown-toggle::after {
+  border-top: 4px solid transparent;
+  border-right: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid;
+  vertical-align: 0;
+}
+
+/* 向左展開 */
+.cis-dropstart .cis-dropdown-menu {
+  top: 0;
+  right: 100%;
+  left: auto;
+  margin-top: 0;
+  margin-right: var(--cis-spacing-2);
+  transform: translateX(10px);
+}
+
+.cis-dropstart.cis-show .cis-dropdown-menu {
+  transform: translateX(0);
+}
+
+.cis-dropstart .cis-dropdown-toggle::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: var(--cis-spacing-1);
+  vertical-align: middle;
+  border-top: 4px solid transparent;
+  border-right: 4px solid;
+  border-bottom: 4px solid transparent;
+  border-left: 0;
+}
+
+.cis-dropstart .cis-dropdown-toggle::after {
+  display: none;
+}
+
+/* ===========================
+   下拉選單項目
+   =========================== */
+.cis-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: var(--cis-spacing-2) var(--cis-spacing-4);
+  clear: both;
+  font-weight: 400;
+  color: var(--cis-text-primary);
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: all var(--cis-duration-150) var(--cis-ease-in-out);
+}
+
+.cis-dropdown-item:hover {
+  background-color: var(--cis-hover-bg);
+  color: var(--cis-text-primary);
+}
+
+.cis-dropdown-item:active {
+  background-color: var(--cis-active-bg);
+}
+
+.cis-dropdown-item:focus {
+  outline: none;
+  background-color: var(--cis-hover-bg);
+}
+
+/* 活動狀態 */
+.cis-dropdown-item.cis-active,
+.cis-dropdown-item:active {
+  color: var(--cis-brand-primary);
+  background-color: var(--cis-selected-bg);
+}
+
+/* 禁用狀態 */
+.cis-dropdown-item.cis-disabled,
+.cis-dropdown-item:disabled {
+  color: var(--cis-text-disabled);
+  pointer-events: none;
+  background-color: transparent;
+  opacity: 0.6;
+}
+
+/* ===========================
+   下拉選單元素
+   =========================== */
+
+/* 分隔線 */
+.cis-dropdown-divider {
+  height: 0;
+  margin: var(--cis-spacing-2) 0;
+  overflow: hidden;
+  border-top: 1px solid var(--cis-border-light);
+}
+
+/* 標題 */
+.cis-dropdown-header {
+  display: block;
+  padding: var(--cis-spacing-2) var(--cis-spacing-4);
+  margin-bottom: 0;
+  font-size: var(--cis-font-size-sm);
+  font-weight: 600;
+  color: var(--cis-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* 文字項目 */
+.cis-dropdown-item-text {
+  display: block;
+  padding: var(--cis-spacing-2) var(--cis-spacing-4);
+  color: var(--cis-text-secondary);
+}
+
+/* ===========================
+   下拉選單圖標
+   =========================== */
+.cis-dropdown-item-icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin-right: var(--cis-spacing-2);
+  vertical-align: middle;
+  color: var(--cis-text-tertiary);
+}
+
+.cis-dropdown-item:hover .cis-dropdown-item-icon {
+  color: var(--cis-text-secondary);
+}
+
+.cis-dropdown-item.cis-active .cis-dropdown-item-icon {
+  color: var(--cis-brand-primary);
+}
+
+/* ===========================
+   巢狀下拉選單
+   =========================== */
+.cis-dropdown-submenu {
+  position: relative;
+}
+
+.cis-dropdown-submenu > .cis-dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: calc(var(--cis-spacing-2) * -1);
+  margin-left: var(--cis-spacing-1);
+}
+
+.cis-dropdown-submenu:hover > .cis-dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cis-dropdown-submenu > .cis-dropdown-item::after {
+  content: "";
+  position: absolute;
+  right: var(--cis-spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 4px solid transparent;
+  border-right: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid;
+}
+
+/* ===========================
+   下拉選單大小
+   =========================== */
+
+/* 小型 */
+.cis-dropdown-menu-sm {
+  min-width: 160px;
+  font-size: var(--cis-font-size-sm);
+}
+
+.cis-dropdown-menu-sm .cis-dropdown-item {
+  padding: var(--cis-spacing-1) var(--cis-spacing-3);
+}
+
+/* 大型 */
+.cis-dropdown-menu-lg {
+  min-width: 280px;
+}
+
+.cis-dropdown-menu-lg .cis-dropdown-item {
+  padding: var(--cis-spacing-3) var(--cis-spacing-5);
+}
+
+/* ===========================
+   特殊下拉選單類型
+   =========================== */
+
+/* 選單組 */
+.cis-dropdown-menu-group {
+  padding: var(--cis-spacing-3);
+}
+
+.cis-dropdown-menu-group-title {
+  margin-bottom: var(--cis-spacing-2);
+  font-size: var(--cis-font-size-sm);
+  font-weight: 600;
+  color: var(--cis-text-tertiary);
+}
+
+/* 複選下拉選單 */
+.cis-dropdown-check .cis-dropdown-item {
+  padding-left: var(--cis-spacing-10);
+  position: relative;
+}
+
+.cis-dropdown-check .cis-dropdown-item::before {
+  content: "";
+  position: absolute;
+  left: var(--cis-spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--cis-border-strong);
+  border-radius: var(--cis-radius-sm);
+  background-color: transparent;
+}
+
+.cis-dropdown-check .cis-dropdown-item.cis-checked::before {
+  background-color: var(--cis-brand-primary);
+  border-color: var(--cis-brand-primary);
+}
+
+.cis-dropdown-check .cis-dropdown-item.cis-checked::after {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 4px;
+  height: 8px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+}
+
+/* 深色主題下拉選單 */
+.cis-dropdown-menu-dark {
+  background-color: var(--cis-surface-4);
+  border-color: var(--cis-border-strong);
+}
+
+.cis-dropdown-menu-dark .cis-dropdown-item {
+  color: var(--cis-text-secondary);
+}
+
+.cis-dropdown-menu-dark .cis-dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--cis-text-primary);
+}
+
+.cis-dropdown-menu-dark .cis-dropdown-divider {
+  border-color: var(--cis-border-strong);
+}
+
+/* ===========================
+   全寬度下拉選單
+   =========================== */
+.cis-dropdown-fullwidth .cis-dropdown-menu {
+  width: 100%;
+}
+
+/* ===========================
+   下拉選單動畫
+   =========================== */
+@keyframes cis-dropdown-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cis-dropdown-menu.cis-animate {
+  animation: cis-dropdown-fade-in var(--cis-duration-200) var(--cis-ease-out);
+}

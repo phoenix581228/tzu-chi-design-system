@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 - CSS 範本下載</title>
+    <meta name="description" content="慈濟設計系統 CSS 範本 - 企業網站、管理後台、行銷頁面等各種範本下載">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    <link rel="stylesheet" href="tzu-chi-design-system.css">
+    <link rel="stylesheet" href="demo.css">
+    <style>
+        /* 確保連結在深色模式下可見 */
+        a {
+            color: var(--tzuchi-accent);
+            text-decoration: none;
+            transition: all var(--tzuchi-transition-base);
+        }
+        
+        a:hover {
+            color: var(--tzuchi-primary-light);
+            text-decoration: underline;
+        }
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .template-card {
+            background: var(--tzuchi-bg-surface);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border-color: var(--tzuchi-primary);
+        }
+        
+        .template-preview {
+            width: 100%;
+            height: 200px;
+            background: var(--tzuchi-bg-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .template-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .template-preview-placeholder {
+            color: var(--tzuchi-text-tertiary);
+            font-size: 3rem;
+        }
+        
+        .template-info {
+            padding: 1.5rem;
+        }
+        
+        .template-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--tzuchi-text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .template-description {
+            color: var(--tzuchi-text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .template-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .template-features li {
+            padding: 0.25rem 0;
+            color: var(--tzuchi-text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .template-features li:before {
+            content: "✓ ";
+            color: var(--tzuchi-accent);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .template-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .template-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--tzuchi-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .template-badge.new {
+            background: var(--tzuchi-accent);
+        }
+        
+        .download-section {
+            background: var(--tzuchi-bg-surface);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .download-section h3 {
+            color: var(--tzuchi-text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .download-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--tzuchi-bg-elevated);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .download-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .download-info h4 {
+            color: var(--tzuchi-text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .download-info p {
+            color: var(--tzuchi-text-secondary);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        
+        .usage-guide {
+            background: var(--tzuchi-bg-surface);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .usage-guide h3 {
+            color: var(--tzuchi-text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .usage-guide pre {
+            background: var(--tzuchi-bg-primary);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            color: var(--tzuchi-text-primary);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .usage-guide .step {
+            margin-bottom: 1.5rem;
+        }
+        
+        .usage-guide .step h4 {
+            color: var(--tzuchi-text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .usage-guide .step p {
+            color: var(--tzuchi-text-secondary);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>CSS 範本下載</h1>
+            <p class="subtitle">預先設計的範本，快速啟動您的專案</p>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">設計規範</a>
+                <a href="quick-start.html" class="nav-link">快速開始</a>
+                <a href="templates.html" class="nav-link active">CSS 範本</a>
+            </nav>
+        </header>
+
+        <!-- 範本展示 -->
+        <section class="section">
+            <h2>可用範本</h2>
+            <div class="template-grid">
+                <!-- 企業網站範本 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="template-preview-placeholder">🏢</div>
+                    </div>
+                    <div class="template-info">
+                        <span class="template-badge">熱門</span>
+                        <h3 class="template-title">企業網站範本</h3>
+                        <p class="template-description">專為企業形象網站設計的完整範本，包含首頁、關於我們、服務介紹等頁面。</p>
+                        <ul class="template-features">
+                            <li>響應式設計</li>
+                            <li>導航選單與頁尾</li>
+                            <li>服務展示區塊</li>
+                            <li>聯絡表單</li>
+                        </ul>
+                        <div class="template-actions">
+                            <a href="templates/corporate-template.zip" download class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">下載範本</a>
+                            <a href="templates/corporate-demo.html" target="_blank" class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-sm">預覽</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 管理後台範本 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="template-preview-placeholder">📊</div>
+                    </div>
+                    <div class="template-info">
+                        <span class="template-badge new">新範本</span>
+                        <h3 class="template-title">管理後台範本</h3>
+                        <p class="template-description">功能完整的管理後台介面，適合各種管理系統和數據分析平台。</p>
+                        <ul class="template-features">
+                            <li>側邊欄導航</li>
+                            <li>數據圖表元件</li>
+                            <li>表格與分頁</li>
+                            <li>用戶管理介面</li>
+                        </ul>
+                        <div class="template-actions">
+                            <a href="templates/admin-template.zip" download class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">下載範本</a>
+                            <a href="templates/admin-demo.html" target="_blank" class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-sm">預覽</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 行銷頁面範本 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="template-preview-placeholder">🚀</div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">行銷頁面範本</h3>
+                        <p class="template-description">高轉換率的行銷著陸頁設計，包含各種行銷元素和互動效果。</p>
+                        <ul class="template-features">
+                            <li>英雄區塊設計</li>
+                            <li>特色展示</li>
+                            <li>客戶見證</li>
+                            <li>價格方案表</li>
+                        </ul>
+                        <div class="template-actions">
+                            <a href="templates/landing-template.zip" download class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">下載範本</a>
+                            <a href="templates/landing-demo.html" target="_blank" class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-sm">預覽</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 部落格範本 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="template-preview-placeholder">📝</div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">部落格範本</h3>
+                        <p class="template-description">簡潔優雅的部落格版型，專注於內容呈現和閱讀體驗。</p>
+                        <ul class="template-features">
+                            <li>文章列表頁</li>
+                            <li>文章詳情頁</li>
+                            <li>側邊欄小工具</li>
+                            <li>評論區塊</li>
+                        </ul>
+                        <div class="template-actions">
+                            <a href="templates/blog-template.zip" download class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">下載範本</a>
+                            <a href="templates/blog-demo.html" target="_blank" class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-sm">預覽</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 電子商務範本 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="template-preview-placeholder">🛍️</div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">電子商務範本</h3>
+                        <p class="template-description">完整的電商網站範本，包含產品展示、購物車等功能介面。</p>
+                        <ul class="template-features">
+                            <li>產品網格展示</li>
+                            <li>產品詳情頁</li>
+                            <li>購物車介面</li>
+                            <li>結帳流程</li>
+                        </ul>
+                        <div class="template-actions">
+                            <a href="templates/ecommerce-template.zip" download class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">下載範本</a>
+                            <a href="templates/ecommerce-demo.html" target="_blank" class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-sm">預覽</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 個人作品集範本 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="template-preview-placeholder">🎨</div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">個人作品集範本</h3>
+                        <p class="template-description">展示個人作品和技能的專業作品集網站範本。</p>
+                        <ul class="template-features">
+                            <li>作品展示區</li>
+                            <li>技能介紹</li>
+                            <li>個人簡介</li>
+                            <li>聯絡表單</li>
+                        </ul>
+                        <div class="template-actions">
+                            <a href="templates/portfolio-template.zip" download class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">下載範本</a>
+                            <a href="templates/portfolio-demo.html" target="_blank" class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-sm">預覽</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下載選項 -->
+        <section class="download-section">
+            <h3>下載所有範本</h3>
+            <div class="download-option">
+                <div class="download-info">
+                    <h4>完整範本包</h4>
+                    <p>包含所有 6 個範本及其源代碼</p>
+                </div>
+                <a href="templates/all-templates.zip" download class="tzuchi-btn tzuchi-btn-primary">下載全部 (2.5MB)</a>
+            </div>
+            <div class="download-option">
+                <div class="download-info">
+                    <h4>基礎起始範本</h4>
+                    <p>最小化的起始範本，包含基本結構</p>
+                </div>
+                <a href="templates/starter-template.zip" download class="tzuchi-btn tzuchi-btn-secondary">下載起始範本</a>
+            </div>
+        </section>
+
+        <!-- 使用說明 -->
+        <section class="usage-guide">
+            <h3>使用說明</h3>
+            
+            <div class="step">
+                <h4>步驟 1：下載範本</h4>
+                <p>選擇適合您專案需求的範本，點擊「下載範本」按鈕。</p>
+            </div>
+
+            <div class="step">
+                <h4>步驟 2：解壓縮檔案</h4>
+                <p>將下載的 ZIP 檔案解壓縮到您的專案目錄。</p>
+            </div>
+
+            <div class="step">
+                <h4>步驟 3：引入慈濟設計系統</h4>
+                <p>確保在 HTML 檔案中正確引入慈濟設計系統的 CSS 檔案：</p>
+                <pre><code>&lt;link rel="stylesheet" href="path/to/tzu-chi-design-system.css"&gt;</code></pre>
+            </div>
+
+            <div class="step">
+                <h4>步驟 4：自訂內容</h4>
+                <p>根據您的需求修改範本中的內容、顏色和版面配置。所有範本都支援慈濟設計系統的 CSS 變數，方便您進行主題自訂。</p>
+                <pre><code>/* 自訂主題顏色 */
+:root {
+    --tzuchi-primary: #1B2D58;
+    --tzuchi-accent: #5DC5C4;
+    /* 更多自訂變數... */
+}</code></pre>
+            </div>
+
+            <div class="step">
+                <h4>範本結構</h4>
+                <p>每個範本包含以下檔案：</p>
+                <ul style="color: var(--tzuchi-text-secondary); margin-top: 0.5rem;">
+                    <li>• index.html - 主頁面</li>
+                    <li>• styles.css - 範本特定樣式</li>
+                    <li>• scripts.js - 互動功能（如有需要）</li>
+                    <li>• README.md - 範本說明文件</li>
+                    <li>• assets/ - 圖片和其他資源</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 支援與協助 -->
+        <section class="section">
+            <h2 style="color: var(--tzuchi-text-primary); margin-bottom: 1.5rem;">需要協助？</h2>
+            <div class="tzuchi-card tzuchi-card-elevated">
+                <div class="tzuchi-card-body" style="background: var(--tzuchi-bg-elevated);">
+                    <h3 style="color: var(--tzuchi-text-primary); margin-bottom: 1rem;">技術支援</h3>
+                    <p style="color: var(--tzuchi-text-secondary);">如果您在使用範本時遇到任何問題，請參考以下資源：</p>
+                    <ul style="margin-top: 1rem; color: var(--tzuchi-text-primary);">
+                        <li>查看 <a href="index.html" style="color: var(--tzuchi-accent); text-decoration: underline;">設計規範</a> 了解更多元件使用方式</li>
+                        <li>參考 <a href="quick-start.html" style="color: var(--tzuchi-accent); text-decoration: underline;">快速開始</a> 指南</li>
+                        <li>每個範本都包含詳細的 README 文件</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

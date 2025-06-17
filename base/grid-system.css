@@ -1,0 +1,296 @@
+/**
+ * CIS 設計系統 - 網格系統
+ * 響應式 12 欄位網格佈局
+ */
+
+/* ===========================
+   容器
+   =========================== */
+.cis-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--cis-spacing-4);
+  padding-left: var(--cis-spacing-4);
+}
+
+/* 容器斷點 */
+@media (min-width: 640px) {
+  .cis-container {
+    max-width: var(--cis-container-sm);
+  }
+}
+
+@media (min-width: 768px) {
+  .cis-container {
+    max-width: var(--cis-container-md);
+    padding-right: var(--cis-spacing-6);
+    padding-left: var(--cis-spacing-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cis-container {
+    max-width: var(--cis-container-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .cis-container {
+    max-width: var(--cis-container-xl);
+  }
+}
+
+@media (min-width: 1536px) {
+  .cis-container {
+    max-width: var(--cis-container-2xl);
+  }
+}
+
+/* 流體容器 */
+.cis-container-fluid {
+  max-width: 100%;
+}
+
+/* ===========================
+   行
+   =========================== */
+.cis-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(var(--cis-spacing-4) * -0.5);
+  margin-left: calc(var(--cis-spacing-4) * -0.5);
+}
+
+/* 行間距變體 */
+.cis-row-gap-0 {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.cis-row-gap-0 > * {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.cis-row-gap-sm {
+  margin-right: calc(var(--cis-spacing-2) * -0.5);
+  margin-left: calc(var(--cis-spacing-2) * -0.5);
+}
+
+.cis-row-gap-sm > * {
+  padding-right: calc(var(--cis-spacing-2) * 0.5);
+  padding-left: calc(var(--cis-spacing-2) * 0.5);
+}
+
+.cis-row-gap-lg {
+  margin-right: calc(var(--cis-spacing-6) * -0.5);
+  margin-left: calc(var(--cis-spacing-6) * -0.5);
+}
+
+.cis-row-gap-lg > * {
+  padding-right: calc(var(--cis-spacing-6) * 0.5);
+  padding-left: calc(var(--cis-spacing-6) * 0.5);
+}
+
+/* ===========================
+   欄位基礎
+   =========================== */
+[class*="cis-col"] {
+  position: relative;
+  width: 100%;
+  padding-right: calc(var(--cis-spacing-4) * 0.5);
+  padding-left: calc(var(--cis-spacing-4) * 0.5);
+}
+
+/* 自動欄位 */
+.cis-col {
+  flex: 1 0 0%;
+}
+
+.cis-col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* ===========================
+   12 欄位系統
+   =========================== */
+.cis-col-1 { flex: 0 0 auto; width: 8.333333%; }
+.cis-col-2 { flex: 0 0 auto; width: 16.666667%; }
+.cis-col-3 { flex: 0 0 auto; width: 25%; }
+.cis-col-4 { flex: 0 0 auto; width: 33.333333%; }
+.cis-col-5 { flex: 0 0 auto; width: 41.666667%; }
+.cis-col-6 { flex: 0 0 auto; width: 50%; }
+.cis-col-7 { flex: 0 0 auto; width: 58.333333%; }
+.cis-col-8 { flex: 0 0 auto; width: 66.666667%; }
+.cis-col-9 { flex: 0 0 auto; width: 75%; }
+.cis-col-10 { flex: 0 0 auto; width: 83.333333%; }
+.cis-col-11 { flex: 0 0 auto; width: 91.666667%; }
+.cis-col-12 { flex: 0 0 auto; width: 100%; }
+
+/* 偏移 */
+.cis-offset-1 { margin-left: 8.333333%; }
+.cis-offset-2 { margin-left: 16.666667%; }
+.cis-offset-3 { margin-left: 25%; }
+.cis-offset-4 { margin-left: 33.333333%; }
+.cis-offset-5 { margin-left: 41.666667%; }
+.cis-offset-6 { margin-left: 50%; }
+.cis-offset-7 { margin-left: 58.333333%; }
+.cis-offset-8 { margin-left: 66.666667%; }
+.cis-offset-9 { margin-left: 75%; }
+.cis-offset-10 { margin-left: 83.333333%; }
+.cis-offset-11 { margin-left: 91.666667%; }
+
+/* ===========================
+   響應式斷點
+   =========================== */
+
+/* Small (sm) - 640px */
+@media (min-width: 640px) {
+  .cis-col-sm { flex: 1 0 0%; }
+  .cis-col-sm-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-sm-1 { flex: 0 0 auto; width: 8.333333%; }
+  .cis-col-sm-2 { flex: 0 0 auto; width: 16.666667%; }
+  .cis-col-sm-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-sm-4 { flex: 0 0 auto; width: 33.333333%; }
+  .cis-col-sm-5 { flex: 0 0 auto; width: 41.666667%; }
+  .cis-col-sm-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-sm-7 { flex: 0 0 auto; width: 58.333333%; }
+  .cis-col-sm-8 { flex: 0 0 auto; width: 66.666667%; }
+  .cis-col-sm-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-sm-10 { flex: 0 0 auto; width: 83.333333%; }
+  .cis-col-sm-11 { flex: 0 0 auto; width: 91.666667%; }
+  .cis-col-sm-12 { flex: 0 0 auto; width: 100%; }
+  
+  .cis-offset-sm-0 { margin-left: 0; }
+  .cis-offset-sm-1 { margin-left: 8.333333%; }
+  .cis-offset-sm-2 { margin-left: 16.666667%; }
+  .cis-offset-sm-3 { margin-left: 25%; }
+  .cis-offset-sm-4 { margin-left: 33.333333%; }
+  .cis-offset-sm-5 { margin-left: 41.666667%; }
+  .cis-offset-sm-6 { margin-left: 50%; }
+  .cis-offset-sm-7 { margin-left: 58.333333%; }
+  .cis-offset-sm-8 { margin-left: 66.666667%; }
+  .cis-offset-sm-9 { margin-left: 75%; }
+  .cis-offset-sm-10 { margin-left: 83.333333%; }
+  .cis-offset-sm-11 { margin-left: 91.666667%; }
+}
+
+/* Medium (md) - 768px */
+@media (min-width: 768px) {
+  .cis-col-md { flex: 1 0 0%; }
+  .cis-col-md-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-md-1 { flex: 0 0 auto; width: 8.333333%; }
+  .cis-col-md-2 { flex: 0 0 auto; width: 16.666667%; }
+  .cis-col-md-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-md-4 { flex: 0 0 auto; width: 33.333333%; }
+  .cis-col-md-5 { flex: 0 0 auto; width: 41.666667%; }
+  .cis-col-md-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-md-7 { flex: 0 0 auto; width: 58.333333%; }
+  .cis-col-md-8 { flex: 0 0 auto; width: 66.666667%; }
+  .cis-col-md-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-md-10 { flex: 0 0 auto; width: 83.333333%; }
+  .cis-col-md-11 { flex: 0 0 auto; width: 91.666667%; }
+  .cis-col-md-12 { flex: 0 0 auto; width: 100%; }
+  
+  .cis-offset-md-0 { margin-left: 0; }
+  .cis-offset-md-1 { margin-left: 8.333333%; }
+  .cis-offset-md-2 { margin-left: 16.666667%; }
+  .cis-offset-md-3 { margin-left: 25%; }
+  .cis-offset-md-4 { margin-left: 33.333333%; }
+  .cis-offset-md-5 { margin-left: 41.666667%; }
+  .cis-offset-md-6 { margin-left: 50%; }
+  .cis-offset-md-7 { margin-left: 58.333333%; }
+  .cis-offset-md-8 { margin-left: 66.666667%; }
+  .cis-offset-md-9 { margin-left: 75%; }
+  .cis-offset-md-10 { margin-left: 83.333333%; }
+  .cis-offset-md-11 { margin-left: 91.666667%; }
+}
+
+/* Large (lg) - 1024px */
+@media (min-width: 1024px) {
+  .cis-col-lg { flex: 1 0 0%; }
+  .cis-col-lg-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-lg-1 { flex: 0 0 auto; width: 8.333333%; }
+  .cis-col-lg-2 { flex: 0 0 auto; width: 16.666667%; }
+  .cis-col-lg-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-lg-4 { flex: 0 0 auto; width: 33.333333%; }
+  .cis-col-lg-5 { flex: 0 0 auto; width: 41.666667%; }
+  .cis-col-lg-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-lg-7 { flex: 0 0 auto; width: 58.333333%; }
+  .cis-col-lg-8 { flex: 0 0 auto; width: 66.666667%; }
+  .cis-col-lg-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-lg-10 { flex: 0 0 auto; width: 83.333333%; }
+  .cis-col-lg-11 { flex: 0 0 auto; width: 91.666667%; }
+  .cis-col-lg-12 { flex: 0 0 auto; width: 100%; }
+  
+  .cis-offset-lg-0 { margin-left: 0; }
+  .cis-offset-lg-1 { margin-left: 8.333333%; }
+  .cis-offset-lg-2 { margin-left: 16.666667%; }
+  .cis-offset-lg-3 { margin-left: 25%; }
+  .cis-offset-lg-4 { margin-left: 33.333333%; }
+  .cis-offset-lg-5 { margin-left: 41.666667%; }
+  .cis-offset-lg-6 { margin-left: 50%; }
+  .cis-offset-lg-7 { margin-left: 58.333333%; }
+  .cis-offset-lg-8 { margin-left: 66.666667%; }
+  .cis-offset-lg-9 { margin-left: 75%; }
+  .cis-offset-lg-10 { margin-left: 83.333333%; }
+  .cis-offset-lg-11 { margin-left: 91.666667%; }
+}
+
+/* Extra Large (xl) - 1280px */
+@media (min-width: 1280px) {
+  .cis-col-xl { flex: 1 0 0%; }
+  .cis-col-xl-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-xl-1 { flex: 0 0 auto; width: 8.333333%; }
+  .cis-col-xl-2 { flex: 0 0 auto; width: 16.666667%; }
+  .cis-col-xl-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-xl-4 { flex: 0 0 auto; width: 33.333333%; }
+  .cis-col-xl-5 { flex: 0 0 auto; width: 41.666667%; }
+  .cis-col-xl-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-xl-7 { flex: 0 0 auto; width: 58.333333%; }
+  .cis-col-xl-8 { flex: 0 0 auto; width: 66.666667%; }
+  .cis-col-xl-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-xl-10 { flex: 0 0 auto; width: 83.333333%; }
+  .cis-col-xl-11 { flex: 0 0 auto; width: 91.666667%; }
+  .cis-col-xl-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* ===========================
+   對齊選項
+   =========================== */
+
+/* 水平對齊 */
+.cis-justify-start { justify-content: flex-start; }
+.cis-justify-center { justify-content: center; }
+.cis-justify-end { justify-content: flex-end; }
+.cis-justify-between { justify-content: space-between; }
+.cis-justify-around { justify-content: space-around; }
+.cis-justify-evenly { justify-content: space-evenly; }
+
+/* 垂直對齊 */
+.cis-items-start { align-items: flex-start; }
+.cis-items-center { align-items: center; }
+.cis-items-end { align-items: flex-end; }
+.cis-items-stretch { align-items: stretch; }
+.cis-items-baseline { align-items: baseline; }
+
+/* 自身對齊 */
+.cis-self-start { align-self: flex-start; }
+.cis-self-center { align-self: center; }
+.cis-self-end { align-self: flex-end; }
+.cis-self-stretch { align-self: stretch; }
+.cis-self-baseline { align-self: baseline; }
+
+/* ===========================
+   順序控制
+   =========================== */
+.cis-order-first { order: -1; }
+.cis-order-last { order: 999; }
+.cis-order-0 { order: 0; }
+.cis-order-1 { order: 1; }
+.cis-order-2 { order: 2; }
+.cis-order-3 { order: 3; }
+.cis-order-4 { order: 4; }
+.cis-order-5 { order: 5; }

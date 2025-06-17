@@ -1,0 +1,50 @@
+{
+  "name": "tzu-chi-design-system",
+  "version": "1.0.0",
+  "description": "慈濟設計系統 - 基於 Material Design Dark Theme 的企業 CI 規範",
+  "main": "tzu-chi-design-system.min.css",
+  "style": "tzu-chi-design-system.min.css",
+  "unpkg": "tzu-chi-design-system.min.css",
+  "jsdelivr": "tzu-chi-design-system.min.css",
+  "keywords": [
+    "design-system",
+    "css",
+    "tzu-chi",
+    "material-design",
+    "dark-theme",
+    "ui-framework",
+    "css-framework",
+    "component-library"
+  ],
+  "author": "慈濟大模型專案團隊",
+  "license": "MIT",
+  "homepage": "https://tzu-chi.github.io/design-system",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzu-chi/design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tzu-chi/design-system/issues"
+  },
+  "files": [
+    "tzu-chi-design-system.css",
+    "tzu-chi-design-system.min.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "test": "echo \"No tests specified\"",
+    "prepublishOnly": "echo \"Publishing Tzu Chi Design System to npm...\"",
+    "postpublish": "echo \"Successfully published! Available via CDN:\n- jsDelivr: https://cdn.jsdelivr.net/npm/tzu-chi-design-system@${npm_package_version}/\n- unpkg: https://unpkg.com/tzu-chi-design-system@${npm_package_version}/\""
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理後台範本 - 慈濟設計系統</title>
+    <link rel="stylesheet" href="../tzu-chi-design-system.css">
+    <style>
+        /* 管理後台專用樣式 */
+        body {
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: var(--tzuchi-bg-surface);
+            border-right: 1px solid var(--tzuchi-divider);
+            padding: 1.5rem 0;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-header {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--tzuchi-divider);
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: var(--tzuchi-text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .sidebar-menu a:hover {
+            background: var(--tzuchi-bg-elevated);
+            color: var(--tzuchi-text-primary);
+        }
+        
+        .sidebar-menu a.active {
+            background: var(--tzuchi-primary);
+            color: white;
+        }
+        
+        .sidebar-menu .icon {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .topbar {
+            background: var(--tzuchi-bg-surface);
+            border-bottom: 1px solid var(--tzuchi-divider);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--tzuchi-bg-surface);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--tzuchi-text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--tzuchi-text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .stat-change {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .stat-change.positive {
+            color: var(--tzuchi-accent);
+        }
+        
+        .stat-change.negative {
+            color: #ef4444;
+        }
+        
+        .data-table {
+            width: 100%;
+            background: var(--tzuchi-bg-surface);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .data-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th {
+            background: var(--tzuchi-bg-elevated);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--tzuchi-text-primary);
+            border-bottom: 1px solid var(--tzuchi-divider);
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--tzuchi-divider);
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table tr:hover {
+            background: var(--tzuchi-bg-elevated);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--tzuchi-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -250px;
+                height: 100vh;
+                z-index: 1000;
+                transition: left 0.3s;
+            }
+            
+            .sidebar.open {
+                left: 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 側邊欄 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h3 style="margin: 0;">管理後台</h3>
+            <p style="margin: 0.5rem 0 0; color: var(--tzuchi-text-secondary); font-size: 0.875rem;">v1.0.0</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active"><span class="icon">📊</span> 儀表板</a></li>
+            <li><a href="#"><span class="icon">👥</span> 用戶管理</a></li>
+            <li><a href="#"><span class="icon">📦</span> 產品管理</a></li>
+            <li><a href="#"><span class="icon">📈</span> 分析報告</a></li>
+            <li><a href="#"><span class="icon">💰</span> 財務管理</a></li>
+            <li><a href="#"><span class="icon">⚙️</span> 系統設定</a></li>
+        </ul>
+    </aside>
+
+    <!-- 主要內容區 -->
+    <div class="main-content">
+        <!-- 頂部導航列 -->
+        <header class="topbar">
+            <div>
+                <h2 style="margin: 0;">儀表板</h2>
+            </div>
+            <div class="user-menu">
+                <button class="tzuchi-btn tzuchi-btn-ghost tzuchi-btn-sm">🔔</button>
+                <div class="user-avatar">JD</div>
+                <span>John Doe</span>
+            </div>
+        </header>
+
+        <!-- 內容區 -->
+        <main class="content">
+            <!-- 統計卡片 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">1,234</div>
+                    <div class="stat-label">總用戶數</div>
+                    <div class="stat-change positive">↑ 12% 較上月</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$45,678</div>
+                    <div class="stat-label">本月收入</div>
+                    <div class="stat-change positive">↑ 8% 較上月</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">567</div>
+                    <div class="stat-label">新訂單</div>
+                    <div class="stat-change negative">↓ 3% 較上月</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">89.2%</div>
+                    <div class="stat-label">系統運行時間</div>
+                    <div class="stat-change positive">↑ 0.5% 較上月</div>
+                </div>
+            </div>
+
+            <!-- 圖表區域 -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="tzuchi-card" style="padding: 1.5rem;">
+                    <h3>收入趨勢</h3>
+                    <div style="height: 300px; background: var(--tzuchi-bg-elevated); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--tzuchi-text-tertiary);">
+                        📈 圖表區域
+                    </div>
+                </div>
+                <div class="tzuchi-card" style="padding: 1.5rem;">
+                    <h3>用戶分布</h3>
+                    <div style="height: 300px; background: var(--tzuchi-bg-elevated); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--tzuchi-text-tertiary);">
+                        🥧 圓餅圖
+                    </div>
+                </div>
+            </div>
+
+            <!-- 數據表格 -->
+            <div class="data-table">
+                <div style="padding: 1.5rem; border-bottom: 1px solid var(--tzuchi-divider);">
+                    <h3 style="margin: 0;">最近訂單</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>客戶名稱</th>
+                            <th>產品</th>
+                            <th>金額</th>
+                            <th>狀態</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#12345</td>
+                            <td>王小明</td>
+                            <td>產品 A</td>
+                            <td>$299</td>
+                            <td><span style="color: var(--tzuchi-accent);">已完成</span></td>
+                            <td>
+                                <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">查看</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#12346</td>
+                            <td>李小華</td>
+                            <td>產品 B</td>
+                            <td>$599</td>
+                            <td><span style="color: #f59e0b;">處理中</span></td>
+                            <td>
+                                <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">查看</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#12347</td>
+                            <td>張大同</td>
+                            <td>產品 C</td>
+                            <td>$199</td>
+                            <td><span style="color: var(--tzuchi-accent);">已完成</span></td>
+                            <td>
+                                <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">查看</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#12348</td>
+                            <td>陳小美</td>
+                            <td>產品 D</td>
+                            <td>$899</td>
+                            <td><span style="color: #ef4444;">已取消</span></td>
+                            <td>
+                                <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">查看</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--tzuchi-divider);">
+                    <span style="color: var(--tzuchi-text-secondary);">顯示 1-4 筆，共 123 筆</span>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">上一頁</button>
+                        <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">1</button>
+                        <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-primary">2</button>
+                        <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">3</button>
+                        <button class="tzuchi-btn tzuchi-btn-sm tzuchi-btn-ghost">下一頁</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

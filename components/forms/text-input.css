@@ -1,0 +1,335 @@
+/**
+ * CIS 設計系統 - 文字輸入元件
+ * 包含文字輸入框、文字區域等表單輸入元件
+ */
+
+/* ===========================
+   基礎輸入框樣式
+   =========================== */
+.cis-input {
+  display: block;
+  width: 100%;
+  padding: var(--cis-spacing-2) var(--cis-spacing-3);
+  font-family: var(--cis-font-family-base);
+  font-size: var(--cis-font-size-base);
+  font-weight: 400;
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-primary);
+  background-color: var(--cis-surface-1);
+  border: 1px solid var(--cis-border-default);
+  border-radius: var(--cis-radius-md);
+  outline: none;
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+/* 占位符樣式 */
+.cis-input::placeholder {
+  color: var(--cis-text-tertiary);
+  opacity: 1;
+}
+
+/* 聚焦狀態 */
+.cis-input:focus {
+  border-color: var(--cis-brand-primary);
+  background-color: var(--cis-surface-2);
+  box-shadow: 0 0 0 3px var(--cis-focus-ring);
+}
+
+/* 禁用狀態 */
+.cis-input:disabled,
+.cis-input.cis-disabled {
+  background-color: var(--cis-surface-1);
+  border-color: var(--cis-border-light);
+  color: var(--cis-text-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 只讀狀態 */
+.cis-input:read-only {
+  background-color: var(--cis-surface-1);
+  border-color: var(--cis-border-light);
+  cursor: default;
+}
+
+/* ===========================
+   輸入框大小
+   =========================== */
+
+/* 小型 */
+.cis-input-sm {
+  padding: var(--cis-spacing-1) var(--cis-spacing-2);
+  font-size: var(--cis-font-size-sm);
+  border-radius: var(--cis-radius-base);
+}
+
+/* 大型 */
+.cis-input-lg {
+  padding: var(--cis-spacing-3) var(--cis-spacing-4);
+  font-size: var(--cis-font-size-lg);
+  border-radius: var(--cis-radius-lg);
+}
+
+/* ===========================
+   輸入框狀態
+   =========================== */
+
+/* 成功狀態 */
+.cis-input-success {
+  border-color: var(--cis-success);
+}
+
+.cis-input-success:focus {
+  border-color: var(--cis-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* 警告狀態 */
+.cis-input-warning {
+  border-color: var(--cis-warning);
+}
+
+.cis-input-warning:focus {
+  border-color: var(--cis-warning);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+/* 錯誤狀態 */
+.cis-input-error {
+  border-color: var(--cis-danger);
+}
+
+.cis-input-error:focus {
+  border-color: var(--cis-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* ===========================
+   文字區域
+   =========================== */
+.cis-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.cis-textarea-sm {
+  min-height: 80px;
+}
+
+.cis-textarea-lg {
+  min-height: 120px;
+}
+
+/* 禁止調整大小 */
+.cis-textarea-no-resize {
+  resize: none;
+}
+
+/* ===========================
+   輸入框組
+   =========================== */
+.cis-input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.cis-input-group > .cis-input {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+}
+
+/* 輸入框前綴/後綴 */
+.cis-input-group-prepend,
+.cis-input-group-append {
+  display: flex;
+  align-items: center;
+  padding: var(--cis-spacing-2) var(--cis-spacing-3);
+  font-size: var(--cis-font-size-base);
+  font-weight: 400;
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--cis-surface-2);
+  border: 1px solid var(--cis-border-default);
+}
+
+.cis-input-group-prepend {
+  border-right: 0;
+  border-radius: var(--cis-radius-md) 0 0 var(--cis-radius-md);
+}
+
+.cis-input-group-append {
+  border-left: 0;
+  border-radius: 0 var(--cis-radius-md) var(--cis-radius-md) 0;
+}
+
+.cis-input-group > .cis-input:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.cis-input-group > .cis-input:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* ===========================
+   表單標籤
+   =========================== */
+.cis-label {
+  display: inline-block;
+  margin-bottom: var(--cis-spacing-2);
+  font-size: var(--cis-font-size-sm);
+  font-weight: 500;
+  color: var(--cis-text-primary);
+}
+
+.cis-label-required::after {
+  content: " *";
+  color: var(--cis-danger);
+}
+
+/* ===========================
+   表單說明文字
+   =========================== */
+.cis-form-text {
+  display: block;
+  margin-top: var(--cis-spacing-1);
+  font-size: var(--cis-font-size-sm);
+  color: var(--cis-text-tertiary);
+}
+
+.cis-form-text-success {
+  color: var(--cis-success);
+}
+
+.cis-form-text-warning {
+  color: var(--cis-warning);
+}
+
+.cis-form-text-error {
+  color: var(--cis-danger);
+}
+
+/* ===========================
+   表單控制組
+   =========================== */
+.cis-form-control {
+  margin-bottom: var(--cis-spacing-4);
+}
+
+.cis-form-control-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cis-spacing-3);
+}
+
+/* ===========================
+   特殊輸入框樣式
+   =========================== */
+
+/* 搜尋輸入框 */
+.cis-input-search {
+  padding-left: var(--cis-spacing-10);
+}
+
+.cis-input-search-icon {
+  position: absolute;
+  left: var(--cis-spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cis-text-tertiary);
+  pointer-events: none;
+}
+
+/* 密碼輸入框 */
+.cis-input-password {
+  padding-right: var(--cis-spacing-10);
+}
+
+.cis-input-password-toggle {
+  position: absolute;
+  right: var(--cis-spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cis-text-secondary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--cis-spacing-1);
+}
+
+.cis-input-password-toggle:hover {
+  color: var(--cis-text-primary);
+}
+
+/* 計數器輸入框 */
+.cis-input-counter {
+  position: absolute;
+  right: var(--cis-spacing-3);
+  bottom: var(--cis-spacing-1);
+  font-size: var(--cis-font-size-xs);
+  color: var(--cis-text-tertiary);
+}
+
+/* ===========================
+   浮動標籤
+   =========================== */
+.cis-form-floating {
+  position: relative;
+}
+
+.cis-form-floating > .cis-input {
+  padding-top: var(--cis-spacing-6);
+  padding-bottom: var(--cis-spacing-1);
+}
+
+.cis-form-floating > .cis-label {
+  position: absolute;
+  top: var(--cis-spacing-2);
+  left: var(--cis-spacing-3);
+  height: 100%;
+  padding: var(--cis-spacing-2) 0;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-form-floating > .cis-input:focus ~ .cis-label,
+.cis-form-floating > .cis-input:not(:placeholder-shown) ~ .cis-label {
+  opacity: 0.8;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+/* ===========================
+   清除按鈕
+   =========================== */
+.cis-input-clear {
+  position: absolute;
+  right: var(--cis-spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--cis-spacing-1);
+  background: none;
+  border: none;
+  color: var(--cis-text-tertiary);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--cis-duration-200) var(--cis-ease-in-out);
+}
+
+.cis-input:not(:placeholder-shown) ~ .cis-input-clear {
+  opacity: 1;
+}
+
+.cis-input-clear:hover {
+  color: var(--cis-text-secondary);
+}

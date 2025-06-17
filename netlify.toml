@@ -1,0 +1,96 @@
+# Netlify 部署配置文件
+# 用於配置慈濟設計系統在 Netlify 上的部署
+
+[build]
+  # 構建命令（如果需要構建過程）
+  command = "echo 'No build needed for CSS framework'"
+  
+  # 發布目錄
+  publish = "."
+  
+  # Node.js 版本
+  environment = { NODE_VERSION = "18" }
+
+# 重定向規則
+[[redirects]]
+  from = "/latest/*"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/v1/*"
+  to = "/:splat"
+  status = 200
+
+# 自定義標頭
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    # 允許跨域訪問
+    Access-Control-Allow-Origin = "*"
+    # 緩存控制
+    Cache-Control = "public, max-age=31536000, immutable"
+    # 內容類型
+    Content-Type = "text/css; charset=UTF-8"
+    # 安全標頭
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.min.css"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/css; charset=UTF-8"
+    X-Content-Type-Options = "nosniff"
+    # 壓縮提示
+    Content-Encoding = "gzip"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self' 'unsafe-inline' https: data:; img-src 'self' https: data:; font-src 'self' https: data:;"
+
+# 插件配置
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  
+  [plugins.inputs]
+    buildDir = "."
+    exclude = [
+      "./deploy.sh",
+      "./package.json",
+      "./package-lock.json",
+      "./netlify.toml"
+    ]
+
+# 環境變量
+[context.production.environment]
+  SITE_URL = "https://tzu-chi-design-system.netlify.app"
+
+[context.deploy-preview.environment]
+  SITE_URL = "預覽部署 URL"
+
+# 性能優化
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# 函數配置（如果需要）
+[functions]
+  directory = "functions"
+
+# 部署通知
+[build.environment]
+  INCOMING_HOOK_TITLE = "慈濟設計系統部署成功"
+  INCOMING_HOOK_URL = "your-webhook-url"

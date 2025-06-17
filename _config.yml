@@ -1,0 +1,59 @@
+# GitHub Pages 配置文件
+# 用於設置慈濟設計系統的 GitHub Pages 部署
+
+# 站點基本配置
+title: 慈濟設計系統
+description: 基於 Material Design Dark Theme 的企業 CI 規範
+baseurl: "" # 如果部署在子目錄，請設置為 /your-repo-name
+url: "https://tzu-chi.github.io" # 替換為實際的 GitHub Pages URL
+
+# 構建設置
+markdown: kramdown
+theme: null # 不使用 Jekyll 主題，因為我們有自己的設計系統
+
+# 插件（GitHub Pages 支持的插件）
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# 排除文件
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - deploy.sh
+  - netlify.toml
+  - .gitignore
+  - README.md
+
+# 包含文件
+include:
+  - .nojekyll
+  - tzu-chi-design-system.css
+  - tzu-chi-design-system.min.css
+  - index.html
+  - demo.html
+  - quick-start.html
+  - cdn-usage.html
+
+# 資產優化
+sass:
+  style: compressed
+
+# SEO 設置
+tagline: "慈濟設計系統 - 統一的視覺語言"
+twitter:
+  username: tzuchi
+  card: summary
+social:
+  name: 慈濟基金會
+  links:
+    - https://www.tzuchi.org.tw
+
+# 默認值
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null
+      image: /assets/og-image.png

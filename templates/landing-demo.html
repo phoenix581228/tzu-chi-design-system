@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行銷頁面範本 - 慈濟設計系統</title>
+    <link rel="stylesheet" href="../tzu-chi-design-system.css">
+    <style>
+        /* 行銷頁面專用樣式 */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--tzuchi-primary) 0%, var(--tzuchi-primary-light) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23000000" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat;
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .features {
+            padding: 5rem 0;
+            background: var(--tzuchi-bg-primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--tzuchi-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .testimonials {
+            padding: 5rem 0;
+            background: var(--tzuchi-bg-surface);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .testimonial {
+            background: var(--tzuchi-bg-elevated);
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--tzuchi-primary);
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--tzuchi-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .pricing {
+            padding: 5rem 0;
+            background: var(--tzuchi-bg-primary);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .pricing-card {
+            background: var(--tzuchi-bg-surface);
+            border: 1px solid var(--tzuchi-divider);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--tzuchi-accent);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: '最受歡迎';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--tzuchi-accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--tzuchi-text-primary);
+            margin: 1rem 0;
+        }
+        
+        .price-unit {
+            font-size: 1rem;
+            color: var(--tzuchi-text-secondary);
+        }
+        
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--tzuchi-primary) 0%, var(--tzuchi-primary-light) 100%);
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav style="background: rgba(15, 20, 25, 0.95); backdrop-filter: blur(10px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; color: white;">品牌名稱</h3>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <a href="#features" style="color: white; text-decoration: none;">功能</a>
+                <a href="#testimonials" style="color: white; text-decoration: none;">客戶見證</a>
+                <a href="#pricing" style="color: white; text-decoration: none;">價格方案</a>
+                <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-sm">立即開始</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>革命性的解決方案</h1>
+            <p>透過我們的創新平台，輕鬆實現您的商業目標</p>
+            <div class="cta-buttons">
+                <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-lg" style="background: white; color: var(--tzuchi-primary);">免費試用</button>
+                <button class="tzuchi-btn tzuchi-btn-outline tzuchi-btn-lg" style="border-color: white; color: white;">觀看演示</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能介紹 -->
+    <section id="features" class="features">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">強大功能</h2>
+            <p style="color: var(--tzuchi-text-secondary); font-size: 1.25rem;">為您的業務提供全方位支援</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>極速效能</h3>
+                <p style="color: var(--tzuchi-text-secondary);">採用最新技術架構，確保系統運行速度始終保持最佳狀態</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>安全可靠</h3>
+                <p style="color: var(--tzuchi-text-secondary);">企業級安全防護，讓您的數據得到最完善的保護</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <h3>數據分析</h3>
+                <p style="color: var(--tzuchi-text-secondary);">即時數據監控與深度分析，助您做出明智決策</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客戶見證 -->
+    <section id="testimonials" class="testimonials">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">客戶好評</h2>
+            <p style="color: var(--tzuchi-text-secondary); font-size: 1.25rem;">聽聽我們的客戶怎麼說</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>這個平台徹底改變了我們的工作流程，效率提升了300%！強烈推薦給所有需要數位轉型的企業。</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">王</div>
+                    <div>
+                        <div style="font-weight: 600;">王小明</div>
+                        <div style="color: var(--tzuchi-text-secondary); font-size: 0.875rem;">科技公司 CEO</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>使用這個系統後，我們的客戶滿意度大幅提升。介面直觀，功能強大，是我們用過最好的解決方案。</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">李</div>
+                    <div>
+                        <div style="font-weight: 600;">李小華</div>
+                        <div style="color: var(--tzuchi-text-secondary); font-size: 0.875rem;">行銷總監</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>投資回報率超出預期！不到三個月就回本，現在已經成為我們日常運營不可或缺的工具。</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">張</div>
+                    <div>
+                        <div style="font-weight: 600;">張大同</div>
+                        <div style="color: var(--tzuchi-text-secondary); font-size: 0.875rem;">財務長</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 價格方案 -->
+    <section id="pricing" class="pricing">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">選擇適合您的方案</h2>
+            <p style="color: var(--tzuchi-text-secondary); font-size: 1.25rem;">透明定價，無隱藏費用</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>基礎版</h3>
+                <div class="price">$29<span class="price-unit">/月</span></div>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                    <li style="padding: 0.5rem 0;">✓ 基本功能</li>
+                    <li style="padding: 0.5rem 0;">✓ 5 個用戶</li>
+                    <li style="padding: 0.5rem 0;">✓ 10GB 儲存空間</li>
+                    <li style="padding: 0.5rem 0;">✓ 電郵支援</li>
+                </ul>
+                <button class="tzuchi-btn tzuchi-btn-outline" style="width: 100%;">選擇方案</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3>專業版</h3>
+                <div class="price">$99<span class="price-unit">/月</span></div>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                    <li style="padding: 0.5rem 0;">✓ 所有基礎功能</li>
+                    <li style="padding: 0.5rem 0;">✓ 無限用戶</li>
+                    <li style="padding: 0.5rem 0;">✓ 100GB 儲存空間</li>
+                    <li style="padding: 0.5rem 0;">✓ 優先支援</li>
+                    <li style="padding: 0.5rem 0;">✓ 進階分析</li>
+                </ul>
+                <button class="tzuchi-btn tzuchi-btn-primary" style="width: 100%;">選擇方案</button>
+            </div>
+            <div class="pricing-card">
+                <h3>企業版</h3>
+                <div class="price">客製<span class="price-unit">報價</span></div>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                    <li style="padding: 0.5rem 0;">✓ 所有專業功能</li>
+                    <li style="padding: 0.5rem 0;">✓ 無限用戶</li>
+                    <li style="padding: 0.5rem 0;">✓ 無限儲存空間</li>
+                    <li style="padding: 0.5rem 0;">✓ 專屬客戶經理</li>
+                    <li style="padding: 0.5rem 0;">✓ 客製化功能</li>
+                </ul>
+                <button class="tzuchi-btn tzuchi-btn-outline" style="width: 100%;">聯絡我們</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 區塊 -->
+    <section class="cta">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 2.5rem; color: white; margin-bottom: 1rem;">準備好開始了嗎？</h2>
+            <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">立即註冊，享受 30 天免費試用</p>
+            <button class="tzuchi-btn tzuchi-btn-primary tzuchi-btn-lg" style="background: white; color: var(--tzuchi-primary);">立即開始免費試用</button>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer style="background: var(--tzuchi-bg-surface); padding: 3rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+            <p style="color: var(--tzuchi-text-secondary);">© 2024 品牌名稱. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
