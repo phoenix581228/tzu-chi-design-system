@@ -1,0 +1,269 @@
+/**
+ * 連結系統 Link System
+ * 
+ * 基於 CIS Dark Mode 設計規範的連結組件
+ * 支援多種狀態和樣式變化
+ */
+
+/* ===========================
+   基礎連結樣式
+   =========================== */
+
+/* 連結基礎樣式 */
+.cis-link {
+  color: var(--cis-brand-primary-light);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cis-spacing-1);
+}
+
+/* 預設狀態 */
+.cis-link:link,
+.cis-link:visited {
+  color: var(--cis-brand-primary-light);
+}
+
+/* 懸停狀態 */
+.cis-link:hover {
+  color: var(--cis-brand-primary);
+  text-decoration: underline;
+}
+
+/* 點擊狀態 */
+.cis-link:active {
+  color: var(--cis-brand-primary-dark);
+}
+
+/* 聚焦狀態 */
+.cis-link:focus-visible {
+  outline: 2px solid var(--cis-brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--cis-radius-sm);
+}
+
+/* 禁用狀態 */
+.cis-link.cis-link-disabled,
+.cis-link[disabled] {
+  color: var(--cis-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===========================
+   連結尺寸
+   =========================== */
+
+/* 小型連結 */
+.cis-link-sm {
+  font-size: var(--cis-font-size-base);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* 標準連結 */
+.cis-link-md {
+  font-size: var(--cis-font-size-lg);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* 大型連結 */
+.cis-link-lg {
+  font-size: var(--cis-font-size-xl);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* ===========================
+   連結樣式變體
+   =========================== */
+
+/* 亮色背景上的連結 */
+.cis-link-on-light {
+  color: #BAE0FD;
+}
+
+.cis-link-on-light:hover {
+  color: #0296F9;
+}
+
+.cis-link-on-light:active {
+  color: #0296F9;
+}
+
+.cis-link-on-light.cis-link-disabled {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+/* 深色背景上的連結 */
+.cis-link-on-dark {
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.cis-link-on-dark:hover {
+  font-weight: 900;
+}
+
+.cis-link-on-dark:active {
+  font-weight: 900;
+}
+
+.cis-link-on-dark.cis-link-disabled {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+/* ===========================
+   帶圖標的連結
+   =========================== */
+
+/* 帶圖標的連結容器 */
+.cis-link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cis-spacing-1);
+}
+
+/* 小型帶圖標連結 */
+.cis-link-sm .cis-link-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* 大型帶圖標連結 */
+.cis-link-lg .cis-link-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* 圖標樣式 */
+.cis-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cis-link-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* ===========================
+   特殊連結樣式
+   =========================== */
+
+/* 導航連結 */
+.cis-link-nav {
+  padding: var(--cis-spacing-2) var(--cis-spacing-3);
+  border-radius: var(--cis-radius-md);
+  font-weight: 500;
+}
+
+.cis-link-nav:hover {
+  background-color: var(--cis-surface-2);
+  text-decoration: none;
+}
+
+.cis-link-nav.active {
+  background-color: var(--cis-brand-primary);
+  color: white;
+}
+
+/* 外部連結 */
+.cis-link-external::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.25em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6;
+}
+
+/* 下載連結 */
+.cis-link-download::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ===========================
+   連結群組
+   =========================== */
+
+/* 連結列表 */
+.cis-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cis-spacing-2);
+}
+
+/* 水平連結群組 */
+.cis-link-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cis-spacing-4);
+}
+
+/* 連結分隔符 */
+.cis-link-divider {
+  color: var(--cis-text-tertiary);
+  opacity: 0.6;
+}
+
+/* ===========================
+   麵包屑導航
+   =========================== */
+
+.cis-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--cis-spacing-2);
+  font-size: var(--cis-font-size-sm);
+}
+
+.cis-breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.cis-breadcrumb-separator {
+  color: var(--cis-text-tertiary);
+  margin: 0 var(--cis-spacing-1);
+}
+
+.cis-breadcrumb-item:last-child .cis-link {
+  color: var(--cis-text-secondary);
+  pointer-events: none;
+}
+
+/* ===========================
+   響應式調整
+   =========================== */
+
+@media (max-width: 768px) {
+  /* 在小螢幕上調整連結間距 */
+  .cis-link-group {
+    flex-wrap: wrap;
+    gap: var(--cis-spacing-2);
+  }
+  
+  .cis-breadcrumb {
+    font-size: var(--cis-font-size-xs);
+  }
+}

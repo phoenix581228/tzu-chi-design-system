@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.2.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.3.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -173,6 +173,7 @@
                 <li><a href="#cards">卡片 Cards</a></li>
                 <li><a href="#badges">徽章 Badges</a></li>
                 <li><a href="#icons">圖標 Icons</a></li>
+                <li><a href="#links">連結 Links</a></li>
             </ul>
         </div>
         
@@ -594,6 +595,226 @@
                             <p class="cis-caption">關閉</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 連結系統 -->
+        <section id="links" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">連結系統 Links</h2>
+                <p class="showcase-section-description">
+                    完整的連結系統，支援多種狀態、尺寸和樣式變化
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">連結尺寸</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-4);">
+                        <a href="#" class="cis-link cis-link-sm">小型連結文字（18px）</a>
+                        <a href="#" class="cis-link cis-link-md">標準連結文字（20px）</a>
+                        <a href="#" class="cis-link cis-link-lg">大型連結文字（22px）</a>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;a href="#" class="cis-link cis-link-sm"&gt;小型連結文字&lt;/a&gt;
+&lt;a href="#" class="cis-link cis-link-md"&gt;標準連結文字&lt;/a&gt;
+&lt;a href="#" class="cis-link cis-link-lg"&gt;大型連結文字&lt;/a&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">連結狀態</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-3">
+                        <div class="cis-card">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">預設狀態</h4>
+                                <a href="#" class="cis-link">連結文字</a>
+                            </div>
+                        </div>
+                        <div class="cis-card">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">懸停狀態</h4>
+                                <a href="#" class="cis-link" style="color: var(--cis-brand-primary); text-decoration: underline;">連結文字</a>
+                            </div>
+                        </div>
+                        <div class="cis-card">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">點擊狀態</h4>
+                                <a href="#" class="cis-link" style="color: var(--cis-brand-primary-dark);">連結文字</a>
+                            </div>
+                        </div>
+                        <div class="cis-card">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">聚焦狀態</h4>
+                                <a href="#" class="cis-link" style="outline: 2px solid var(--cis-brand-primary); outline-offset: 2px; border-radius: var(--cis-radius-sm);">連結文字</a>
+                            </div>
+                        </div>
+                        <div class="cis-card">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">禁用狀態</h4>
+                                <a href="#" class="cis-link cis-link-disabled">連結文字</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">帶圖標的連結</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-2">
+                        <div>
+                            <h4 class="cis-h5">小型帶圖標連結</h4>
+                            <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                                <a href="#" class="cis-link cis-link-sm cis-link-with-icon">
+                                    北一合心
+                                    <span class="cis-link-icon">
+                                        <svg viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <a href="#" class="cis-link cis-link-sm cis-link-with-icon">
+                                    登入新版大藏經
+                                    <span class="cis-link-icon">
+                                        <svg viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+                                            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="cis-h5">大型帶圖標連結</h4>
+                            <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                                <a href="#" class="cis-link cis-link-lg cis-link-with-icon">
+                                    慈濟全球資訊網
+                                    <span class="cis-link-icon">
+                                        <svg viewBox="0 0 32 32" fill="currentColor">
+                                            <path d="M16 2C8.269 2 2 8.269 2 16s6.269 14 14 14 14-6.269 14-14S23.731 2 16 2zm0 26C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12z"/>
+                                            <path d="M16 7c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9zm0 16c-3.859 0-7-3.141-7-7s3.141-7 7-7 7 3.141 7 7-3.141 7-7 7z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <a href="#" class="cis-link cis-link-lg cis-link-with-icon">
+                                    下載年度報告
+                                    <span class="cis-link-icon">
+                                        <svg viewBox="0 0 32 32" fill="currentColor">
+                                            <path d="M26 24v4H6v-4H4v4c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2v-4h-2z"/>
+                                            <path d="M16 22L8 14l1.41-1.41L15 18.17V4h2v14.17l5.59-5.59L24 14l-8 8z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;a href="#" class="cis-link cis-link-sm cis-link-with-icon"&gt;
+  登入新版大藏經
+  &lt;span class="cis-link-icon"&gt;
+    &lt;svg viewBox="0 0 20 20" fill="currentColor"&gt;
+      &lt;path d="..."&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+&lt;/a&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">不同背景上的連結</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-2">
+                        <div class="cis-card">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">亮色背景</h4>
+                                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                                    <a href="#" class="cis-link cis-link-on-light">預設連結</a>
+                                    <a href="#" class="cis-link cis-link-on-light" style="color: #0296F9;">懸停連結</a>
+                                    <a href="#" class="cis-link cis-link-on-light cis-link-disabled">禁用連結</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cis-card" style="background-color: var(--cis-surface-1);">
+                            <div class="cis-card-body">
+                                <h4 class="cis-h5">深色背景</h4>
+                                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                                    <a href="#" class="cis-link cis-link-on-dark">預設連結</a>
+                                    <a href="#" class="cis-link cis-link-on-dark" style="font-weight: 900;">懸停連結</a>
+                                    <a href="#" class="cis-link cis-link-on-dark cis-link-disabled">禁用連結</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">特殊連結樣式</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-2">
+                        <div>
+                            <h4 class="cis-h5">功能連結</h4>
+                            <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                                <a href="#" class="cis-link cis-link-external">外部連結</a>
+                                <a href="#" class="cis-link cis-link-download">下載連結</a>
+                                <a href="#" class="cis-link cis-link-nav">導航連結</a>
+                                <a href="#" class="cis-link cis-link-nav active">啟用的導航連結</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="cis-h5">連結群組</h4>
+                            <div class="cis-link-group">
+                                <a href="#" class="cis-link cis-link-sm">隱私政策</a>
+                                <span class="cis-link-divider">|</span>
+                                <a href="#" class="cis-link cis-link-sm">使用條款</a>
+                                <span class="cis-link-divider">|</span>
+                                <a href="#" class="cis-link cis-link-sm">聯絡我們</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">麵包屑導航</h3>
+                <div class="showcase-example-demo">
+                    <nav class="cis-breadcrumb">
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">首頁</a>
+                            <span class="cis-breadcrumb-separator">/</span>
+                        </div>
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">慈善志業</a>
+                            <span class="cis-breadcrumb-separator">/</span>
+                        </div>
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">國內慈善</a>
+                            <span class="cis-breadcrumb-separator">/</span>
+                        </div>
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">急難救助</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;nav class="cis-breadcrumb"&gt;
+  &lt;div class="cis-breadcrumb-item"&gt;
+    &lt;a href="#" class="cis-link cis-link-sm"&gt;首頁&lt;/a&gt;
+    &lt;span class="cis-breadcrumb-separator"&gt;/&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="cis-breadcrumb-item"&gt;
+    &lt;a href="#" class="cis-link cis-link-sm"&gt;慈善志業&lt;/a&gt;
+    &lt;span class="cis-breadcrumb-separator"&gt;/&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="cis-breadcrumb-item"&gt;
+    &lt;a href="#" class="cis-link cis-link-sm"&gt;急難救助&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
                 </div>
             </div>
         </section>

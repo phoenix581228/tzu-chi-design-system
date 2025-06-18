@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v1.0.2 - CIS Dark Mode</title>
-    <meta name="description" content="慈濟設計系統 v1.0.2 - 基於 CIS 大入口網 Dark Mode 設計規範">
+    <title>慈濟設計系統 v1.0.3 - CIS Dark Mode</title>
+    <meta name="description" content="慈濟設計系統 v1.0.3 - 基於 CIS 大入口網 Dark Mode 設計規範">
     <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
-    <meta property="og:title" content="慈濟設計系統 v1.0.2">
+    <meta property="og:title" content="慈濟設計系統 v1.0.3">
     <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.2.css">
+    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.3.css">
     <style>
         /* 展示頁面專用樣式 */
         .demo-container {
@@ -89,7 +89,7 @@
         <header class="demo-header">
             <h1 class="cis-h1">
                 慈濟設計系統
-                <span class="version-badge">v1.0.2</span>
+                <span class="version-badge">v1.0.3</span>
             </h1>
             <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
             <p class="cis-caption">更新日期：2025-06-18</p>
@@ -620,11 +620,79 @@
             </div>
         </section>
 
+        <!-- 連結系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">連結系統 Link System</h2>
+            
+            <h3 class="cis-h4">連結尺寸</h3>
+            <div class="demo-box">
+                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-4);">
+                    <a href="#" class="cis-link cis-link-sm">小型連結文字</a>
+                    <a href="#" class="cis-link cis-link-md">標準連結文字</a>
+                    <a href="#" class="cis-link cis-link-lg">大型連結文字</a>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">連結狀態</h3>
+            <div class="demo-box">
+                <div class="demo-flex">
+                    <a href="#" class="cis-link">預設連結</a>
+                    <a href="#" class="cis-link" style="color: var(--cis-brand-primary); text-decoration: underline;">懸停狀態</a>
+                    <a href="#" class="cis-link" style="color: var(--cis-brand-primary-dark);">點擊狀態</a>
+                    <a href="#" class="cis-link cis-link-disabled">禁用連結</a>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">帶圖標連結</h3>
+            <div class="demo-box">
+                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                    <a href="#" class="cis-link cis-link-sm cis-link-with-icon">
+                        登入新版大藏經
+                        <span class="cis-link-icon">
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+                                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#" class="cis-link cis-link-lg cis-link-with-icon">
+                        下載檔案
+                        <span class="cis-link-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">特殊連結樣式</h3>
+            <div class="demo-box">
+                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
+                    <a href="#" class="cis-link cis-link-external">外部連結</a>
+                    <a href="#" class="cis-link cis-link-download">下載連結</a>
+                    <nav class="cis-breadcrumb">
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">首頁</a>
+                            <span class="cis-breadcrumb-separator">/</span>
+                        </div>
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">組件</a>
+                            <span class="cis-breadcrumb-separator">/</span>
+                        </div>
+                        <div class="cis-breadcrumb-item">
+                            <a href="#" class="cis-link cis-link-sm">連結系統</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
         <!-- 版本資訊 -->
         <footer class="demo-section">
             <div class="demo-box" style="text-align: center;">
                 <h3 class="cis-h4">版本資訊</h3>
-                <p class="cis-body">慈濟設計系統 v1.0.2</p>
+                <p class="cis-body">慈濟設計系統 v1.0.3</p>
                 <p class="cis-caption">基於 CIS 大入口網 Dark Mode 設計規範</p>
                 <p class="cis-caption">發布日期：2025-06-18</p>
                 <div class="demo-flex" style="justify-content: center; margin-top: var(--cis-spacing-4);">
