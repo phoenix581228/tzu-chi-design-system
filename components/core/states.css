@@ -1,0 +1,264 @@
+/* ========================================
+   States System - 狀態系統
+   慈濟設計系統 - CIS Dark Mode
+   ======================================== */
+
+/* 基礎狀態類別 */
+.cis-state {
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+/* ===========================
+   互動狀態 - Interactive States
+   =========================== */
+
+/* Hover 狀態 */
+.cis-state-hover:hover,
+.cis-hover {
+    background-color: var(--cis-state-hover-bg);
+    transform: translateY(-1px);
+}
+
+/* Active/Pressed 狀態 */
+.cis-state-active:active,
+.cis-active {
+    background-color: var(--cis-state-active-bg);
+    transform: translateY(0);
+}
+
+/* Focus 狀態 */
+.cis-state-focus:focus,
+.cis-focus {
+    outline: 2px solid var(--cis-brand-primary);
+    outline-offset: 2px;
+}
+
+/* Focus Visible (鍵盤導航) */
+.cis-state-focus-visible:focus-visible,
+.cis-focus-visible {
+    outline: 3px solid var(--cis-brand-primary);
+    outline-offset: 3px;
+}
+
+/* ===========================
+   功能狀態 - Functional States
+   =========================== */
+
+/* Disabled 狀態 */
+.cis-state-disabled,
+.cis-disabled,
+[disabled] {
+    opacity: 0.38;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Loading 狀態 */
+.cis-state-loading,
+.cis-loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.cis-state-loading::after,
+.cis-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid var(--cis-text-tertiary);
+    border-radius: 50%;
+    border-top-color: var(--cis-brand-primary);
+    animation: cis-spin 0.8s linear infinite;
+}
+
+/* Selected 狀態 */
+.cis-state-selected,
+.cis-selected {
+    background-color: var(--cis-state-selected-bg);
+    color: var(--cis-brand-primary);
+}
+
+/* Checked 狀態 */
+.cis-state-checked,
+.cis-checked {
+    background-color: var(--cis-brand-primary);
+    color: white;
+}
+
+/* ===========================
+   驗證狀態 - Validation States
+   =========================== */
+
+/* Error 狀態 */
+.cis-state-error,
+.cis-error {
+    border-color: var(--cis-danger);
+    color: var(--cis-danger);
+}
+
+.cis-state-error:focus,
+.cis-error:focus {
+    outline-color: var(--cis-danger);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Success 狀態 */
+.cis-state-success,
+.cis-success {
+    border-color: var(--cis-success);
+    color: var(--cis-success);
+}
+
+.cis-state-success:focus,
+.cis-success:focus {
+    outline-color: var(--cis-success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Warning 狀態 */
+.cis-state-warning,
+.cis-warning {
+    border-color: var(--cis-warning);
+    color: var(--cis-warning);
+}
+
+.cis-state-warning:focus,
+.cis-warning:focus {
+    outline-color: var(--cis-warning);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* ===========================
+   狀態組合 - State Combinations
+   =========================== */
+
+/* 可點擊元素的基礎狀態 */
+.cis-clickable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cis-clickable:hover {
+    background-color: var(--cis-state-hover-bg);
+}
+
+.cis-clickable:active {
+    background-color: var(--cis-state-active-bg);
+}
+
+/* 可拖曳狀態 */
+.cis-draggable {
+    cursor: move;
+}
+
+.cis-draggable:active {
+    cursor: grabbing;
+    opacity: 0.8;
+}
+
+.cis-dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+/* ===========================
+   狀態指示器 - State Indicators
+   =========================== */
+
+/* 狀態點 */
+.cis-state-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: var(--cis-spacing-2);
+}
+
+.cis-state-dot-active {
+    background-color: var(--cis-success);
+}
+
+.cis-state-dot-inactive {
+    background-color: var(--cis-text-tertiary);
+}
+
+.cis-state-dot-error {
+    background-color: var(--cis-danger);
+}
+
+.cis-state-dot-warning {
+    background-color: var(--cis-warning);
+}
+
+/* 狀態標籤 */
+.cis-state-label {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--cis-spacing-1) var(--cis-spacing-3);
+    border-radius: var(--cis-radius-sm);
+    font-size: var(--cis-font-size-sm);
+    font-weight: 500;
+}
+
+.cis-state-label-active {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--cis-success);
+}
+
+.cis-state-label-inactive {
+    background-color: var(--cis-surface-2);
+    color: var(--cis-text-tertiary);
+}
+
+.cis-state-label-pending {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--cis-warning);
+}
+
+/* ===========================
+   動畫 - Animations
+   =========================== */
+
+@keyframes cis-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cis-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 123, 204, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(46, 123, 204, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 123, 204, 0);
+    }
+}
+
+/* Pulse 動畫狀態 */
+.cis-state-pulse {
+    animation: cis-pulse 2s infinite;
+}
+
+/* ===========================
+   狀態變數定義
+   =========================== */
+:root {
+    /* 狀態背景色 */
+    --cis-state-hover-bg: rgba(255, 255, 255, 0.05);
+    --cis-state-active-bg: rgba(255, 255, 255, 0.1);
+    --cis-state-selected-bg: rgba(46, 123, 204, 0.1);
+    
+    /* 狀態透明度 */
+    --cis-state-disabled-opacity: 0.38;
+    --cis-state-dragging-opacity: 0.5;
+}

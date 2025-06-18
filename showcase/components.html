@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 - 組件展示</title>
+    <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.2.css">
+    <style>
+        /* 組件展示專用樣式 */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        /* 側邊欄 */
+        .showcase-sidebar {
+            width: 260px;
+            background-color: var(--cis-surface-1);
+            border-right: 1px solid var(--cis-border-default);
+            padding: var(--cis-spacing-6);
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        
+        .showcase-sidebar h2 {
+            margin-bottom: var(--cis-spacing-6);
+            color: var(--cis-brand-primary);
+        }
+        
+        .showcase-nav-section {
+            margin-bottom: var(--cis-spacing-6);
+        }
+        
+        .showcase-nav-section h3 {
+            font-size: var(--cis-font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--cis-text-tertiary);
+            margin-bottom: var(--cis-spacing-3);
+        }
+        
+        .showcase-nav-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .showcase-nav-section li {
+            margin-bottom: var(--cis-spacing-2);
+        }
+        
+        .showcase-nav-section a {
+            color: var(--cis-text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: var(--cis-spacing-2) var(--cis-spacing-3);
+            border-radius: var(--cis-radius-md);
+            transition: all 0.2s ease;
+        }
+        
+        .showcase-nav-section a:hover {
+            background-color: var(--cis-surface-2);
+            color: var(--cis-text-primary);
+        }
+        
+        .showcase-nav-section a.active {
+            background-color: var(--cis-brand-primary);
+            color: white;
+        }
+        
+        /* 主內容區 */
+        .showcase-main {
+            flex: 1;
+            padding: var(--cis-spacing-8);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .showcase-section {
+            margin-bottom: var(--cis-spacing-16);
+            scroll-margin-top: var(--cis-spacing-8);
+        }
+        
+        .showcase-section-header {
+            margin-bottom: var(--cis-spacing-8);
+            padding-bottom: var(--cis-spacing-4);
+            border-bottom: 2px solid var(--cis-border-default);
+        }
+        
+        .showcase-section-title {
+            font-size: var(--cis-font-size-3xl);
+            margin-bottom: var(--cis-spacing-2);
+        }
+        
+        .showcase-section-description {
+            color: var(--cis-text-secondary);
+            font-size: var(--cis-font-size-lg);
+        }
+        
+        .showcase-example {
+            margin-bottom: var(--cis-spacing-8);
+        }
+        
+        .showcase-example-title {
+            font-size: var(--cis-font-size-xl);
+            margin-bottom: var(--cis-spacing-4);
+        }
+        
+        .showcase-example-demo {
+            background-color: var(--cis-surface-2);
+            padding: var(--cis-spacing-6);
+            border-radius: var(--cis-radius-lg);
+            margin-bottom: var(--cis-spacing-4);
+        }
+        
+        .showcase-example-code {
+            background-color: var(--cis-surface-1);
+            padding: var(--cis-spacing-4);
+            border-radius: var(--cis-radius-md);
+            overflow-x: auto;
+        }
+        
+        .showcase-example-code pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: var(--cis-font-size-sm);
+            color: var(--cis-text-secondary);
+        }
+        
+        /* 組件網格展示 */
+        .showcase-grid {
+            display: grid;
+            gap: var(--cis-spacing-4);
+            margin-bottom: var(--cis-spacing-6);
+        }
+        
+        .showcase-grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .showcase-grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        .showcase-grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+    </style>
+</head>
+<body>
+    <!-- 側邊導航 -->
+    <nav class="showcase-sidebar">
+        <h2 class="cis-h3">組件導覽</h2>
+        
+        <div class="showcase-nav-section">
+            <h3>基礎系統</h3>
+            <ul>
+                <li><a href="#colors">色彩系統</a></li>
+                <li><a href="#typography">文字排版</a></li>
+                <li><a href="#states">狀態系統</a></li>
+            </ul>
+        </div>
+        
+        <div class="showcase-nav-section">
+            <h3>核心組件</h3>
+            <ul>
+                <li><a href="#buttons">按鈕 Buttons</a></li>
+                <li><a href="#cards">卡片 Cards</a></li>
+                <li><a href="#badges">徽章 Badges</a></li>
+                <li><a href="#icons">圖標 Icons</a></li>
+            </ul>
+        </div>
+        
+        <div class="showcase-nav-section">
+            <h3>表單組件</h3>
+            <ul>
+                <li><a href="#text-input">文字輸入</a></li>
+                <li><a href="#radio-checkbox">單選/複選</a></li>
+                <li><a href="#dropdowns">下拉選單</a></li>
+            </ul>
+        </div>
+        
+        <div class="showcase-nav-section">
+            <h3>導航組件</h3>
+            <ul>
+                <li><a href="#tabs">標籤頁 Tabs</a></li>
+                <li><a href="#search-bar">搜尋欄</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 主內容區 -->
+    <main class="showcase-main">
+        <!-- 頁面標題 -->
+        <header class="showcase-section">
+            <h1 class="cis-h1">慈濟設計系統組件庫</h1>
+            <p class="cis-body-large cis-text-secondary">
+                v1.x - Dark Mode 版本，包含所有可用組件的完整展示與使用範例
+            </p>
+        </header>
+        
+        <!-- 色彩系統 -->
+        <section id="colors" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">色彩系統</h2>
+                <p class="showcase-section-description">
+                    基於 CIS Dark Mode 的色彩配置，提供品牌色、功能色和中性色
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">品牌色彩</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-3">
+                        <div class="cis-card">
+                            <div style="height: 100px; background-color: var(--cis-brand-primary); border-radius: var(--cis-radius-md);"></div>
+                            <div class="cis-card-body">
+                                <p class="cis-body-small">主色 Primary</p>
+                                <code class="cis-code">#2E7BCC</code>
+                            </div>
+                        </div>
+                        <div class="cis-card">
+                            <div style="height: 100px; background-color: var(--cis-brand-primary-light); border-radius: var(--cis-radius-md);"></div>
+                            <div class="cis-card-body">
+                                <p class="cis-body-small">主色淺 Primary Light</p>
+                                <code class="cis-code">#5A9ADB</code>
+                            </div>
+                        </div>
+                        <div class="cis-card">
+                            <div style="height: 100px; background-color: var(--cis-brand-primary-dark); border-radius: var(--cis-radius-md);"></div>
+                            <div class="cis-card-body">
+                                <p class="cis-body-small">主色深 Primary Dark</p>
+                                <code class="cis-code">#1E5BA8</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 狀態系統 -->
+        <section id="states" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">狀態系統</h2>
+                <p class="showcase-section-description">
+                    統一的互動狀態、功能狀態和驗證狀態定義
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">互動狀態</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-4);">
+                        <button class="cis-btn cis-btn-secondary cis-state">預設狀態</button>
+                        <button class="cis-btn cis-btn-secondary cis-state cis-hover">懸停狀態</button>
+                        <button class="cis-btn cis-btn-secondary cis-state cis-active">點擊狀態</button>
+                        <button class="cis-btn cis-btn-secondary cis-state cis-focus">聚焦狀態</button>
+                        <button class="cis-btn cis-btn-secondary cis-disabled">禁用狀態</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">狀態指示器</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-6);">
+                        <div>
+                            <span class="cis-state-dot cis-state-dot-active"></span>
+                            <span class="cis-body-small">啟用</span>
+                        </div>
+                        <div>
+                            <span class="cis-state-dot cis-state-dot-inactive"></span>
+                            <span class="cis-body-small">停用</span>
+                        </div>
+                        <div>
+                            <span class="cis-state-dot cis-state-dot-error"></span>
+                            <span class="cis-body-small">錯誤</span>
+                        </div>
+                        <div>
+                            <span class="cis-state-dot cis-state-dot-warning"></span>
+                            <span class="cis-body-small">警告</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">狀態標籤</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-3);">
+                        <span class="cis-state-label cis-state-label-active">已啟用</span>
+                        <span class="cis-state-label cis-state-label-inactive">未啟用</span>
+                        <span class="cis-state-label cis-state-label-pending">處理中</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">載入狀態</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-4);">
+                        <button class="cis-btn cis-btn-primary cis-loading">載入中</button>
+                        <button class="cis-btn cis-btn-secondary cis-loading">處理中</button>
+                        <div class="cis-card cis-loading" style="width: 200px; height: 100px;">
+                            載入內容
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 按鈕組件 -->
+        <section id="buttons" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">按鈕 Buttons</h2>
+                <p class="showcase-section-description">
+                    多種樣式和大小的按鈕組件，支援各種互動狀態
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">按鈕變體</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-3);">
+                        <button class="cis-btn cis-btn-primary">主要按鈕</button>
+                        <button class="cis-btn cis-btn-secondary">次要按鈕</button>
+                        <button class="cis-btn cis-btn-outline">輪廓按鈕</button>
+                        <button class="cis-btn cis-btn-text">文字按鈕</button>
+                        <button class="cis-btn cis-btn-danger">危險按鈕</button>
+                        <button class="cis-btn cis-btn-success">成功按鈕</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 圖標系統 -->
+        <section id="icons" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">圖標系統 Icons</h2>
+                <p class="showcase-section-description">
+                    完整的圖標系統，支援多種尺寸、顏色和使用場景
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">圖標尺寸</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="align-items: flex-end; gap: var(--cis-spacing-6);">
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-18">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">18px</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-20">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">20px</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-24">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">24px</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-32">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">32px</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-40">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">40px</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-48">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">48px</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;span class="cis-icon cis-icon-24"&gt;
+  &lt;svg viewBox="0 0 24 24" fill="currentColor"&gt;
+    &lt;path d="..."&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+&lt;/span&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">圖標顏色</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-3">
+                        <div>
+                            <h4 class="cis-h5">品牌色</h4>
+                            <div class="demo-flex" style="gap: var(--cis-spacing-3);">
+                                <span class="cis-icon cis-icon-24 cis-icon-primary">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    </svg>
+                                </span>
+                                <span class="cis-icon cis-icon-24 cis-icon-secondary">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="cis-h5">功能色</h4>
+                            <div class="demo-flex" style="gap: var(--cis-spacing-3);">
+                                <span class="cis-icon cis-icon-24 cis-icon-success">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                    </svg>
+                                </span>
+                                <span class="cis-icon cis-icon-24 cis-icon-warning">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                    </svg>
+                                </span>
+                                <span class="cis-icon cis-icon-24 cis-icon-danger">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                    </svg>
+                                </span>
+                                <span class="cis-icon cis-icon-24 cis-icon-info">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">圖標按鈕</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-3);">
+                        <button class="cis-icon-button">
+                            <span class="cis-icon cis-icon-24">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <button class="cis-icon-button">
+                            <span class="cis-icon cis-icon-24 cis-icon-primary">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <button class="cis-icon-button">
+                            <span class="cis-icon cis-icon-24 cis-icon-danger">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <button class="cis-icon-button" disabled>
+                            <span class="cis-icon cis-icon-24">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;button class="cis-icon-button"&gt;
+  &lt;span class="cis-icon cis-icon-24"&gt;
+    &lt;svg viewBox="0 0 24 24" fill="currentColor"&gt;
+      &lt;path d="..."&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">社群媒體圖標</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-3);">
+                        <span class="cis-icon cis-icon-social cis-icon-social-fb cis-icon-32">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+                            </svg>
+                        </span>
+                        <span class="cis-icon cis-icon-social cis-icon-social-line cis-icon-32">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                            </svg>
+                        </span>
+                        <span class="cis-icon cis-icon-social cis-icon-social-ig cis-icon-32">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </span>
+                        <span class="cis-icon cis-icon-social cis-icon-social-youtube cis-icon-32">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </span>
+                        <span class="cis-icon cis-icon-social cis-icon-social-x cis-icon-32">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;span class="cis-icon cis-icon-social cis-icon-social-fb cis-icon-32"&gt;
+  &lt;svg viewBox="0 0 24 24" fill="currentColor"&gt;
+    &lt;path d="..."&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+&lt;/span&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">動畫效果</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-4);">
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-24 cis-icon-spin cis-icon-primary">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2v4c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H2c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 2.5V9l3.5 3.5-3.5 3.5v-4.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">旋轉動畫</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-24 cis-icon-pulse cis-icon-danger">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </span>
+                            <p class="cis-caption">脈動動畫</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">特殊圖標</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex" style="gap: var(--cis-spacing-4); align-items: center;">
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-dot" style="color: var(--cis-success);"></span>
+                            <p class="cis-caption">狀態點</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-more">
+                                <span></span>
+                            </span>
+                            <p class="cis-caption">更多選項</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="cis-icon cis-icon-menu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p class="cis-caption">選單</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="cis-icon cis-icon-close"></span>
+                            <p class="cis-caption">關閉</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 更多組件區塊會持續添加... -->
+        
+    </main>
+    
+    <!-- 組件互動腳本 -->
+    <script>
+        // 側邊欄導航高亮
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.showcase-nav-section a');
+            
+            // 監聽滾動事件
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const sections = document.querySelectorAll('.showcase-section[id]');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // 平滑滾動
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

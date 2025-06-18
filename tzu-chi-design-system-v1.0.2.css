@@ -1,11 +1,11 @@
 /**
- * 慈濟設計系統 v1.0.1
+ * 慈濟設計系統 v1.0.2
  * Tzu Chi Design System
  * 
  * 基於 CIS (慈濟大入口網) Dark Mode 設計規範
  * 
  * @author Tzu Chi Foundation
- * @version 1.0.1
+ * @version 1.0.2
  * @date 2025-06-18
  */
 
@@ -27,6 +27,7 @@
 @import url('./components/core/buttons.css');
 @import url('./components/core/cards.css');
 @import url('./components/core/badges.css');
+@import url('./components/core/icons.css');
 
 /* 表單元件樣式 */
 @import url('./components/forms/text-input.css');
@@ -41,7 +42,7 @@
    版本標記
    =========================== */
 :root {
-  --cis-version: "1.0.1";
+  --cis-version: "1.0.2";
   --cis-release-date: "2025-06-18";
 }
 

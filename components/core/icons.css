@@ -1,0 +1,347 @@
+/**
+ * 圖標系統 Icon System
+ * 
+ * 基於 CIS Dark Mode 設計規範的圖標組件
+ * 支援多種尺寸：18px, 20px, 24px, 32px, 40px, 48px
+ */
+
+/* ===========================
+   基礎圖標樣式
+   =========================== */
+
+/* 圖標容器基礎樣式 */
+.cis-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  color: currentColor;
+  position: relative;
+}
+
+/* SVG 圖標樣式 */
+.cis-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* ===========================
+   圖標尺寸
+   =========================== */
+
+/* 18px - 小型圖標 */
+.cis-icon-18 {
+  width: 18px;
+  height: 18px;
+}
+
+/* 20px - 標準小圖標 */
+.cis-icon-20 {
+  width: 20px;
+  height: 20px;
+}
+
+/* 24px - 標準圖標 */
+.cis-icon-24 {
+  width: 24px;
+  height: 24px;
+}
+
+/* 32px - 中型圖標 */
+.cis-icon-32 {
+  width: 32px;
+  height: 32px;
+}
+
+/* 40px - 大型圖標 */
+.cis-icon-40 {
+  width: 40px;
+  height: 40px;
+}
+
+/* 48px - 超大圖標 */
+.cis-icon-48 {
+  width: 48px;
+  height: 48px;
+}
+
+/* ===========================
+   圖標顏色
+   =========================== */
+
+/* 品牌色圖標 */
+.cis-icon-primary {
+  color: var(--cis-brand-primary);
+}
+
+/* 次要色圖標 */
+.cis-icon-secondary {
+  color: var(--cis-text-secondary);
+}
+
+/* 成功色圖標 */
+.cis-icon-success {
+  color: var(--cis-success);
+}
+
+/* 警告色圖標 */
+.cis-icon-warning {
+  color: var(--cis-warning);
+}
+
+/* 危險色圖標 */
+.cis-icon-danger {
+  color: var(--cis-danger);
+}
+
+/* 資訊色圖標 */
+.cis-icon-info {
+  color: var(--cis-info);
+}
+
+/* ===========================
+   圖標按鈕
+   =========================== */
+
+/* 圖標按鈕基礎樣式 */
+.cis-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--cis-radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: var(--cis-spacing-2);
+}
+
+.cis-icon-button:hover {
+  background-color: var(--cis-surface-3);
+}
+
+.cis-icon-button:active {
+  transform: scale(0.95);
+}
+
+.cis-icon-button:focus-visible {
+  outline: 2px solid var(--cis-brand-primary);
+  outline-offset: 2px;
+}
+
+.cis-icon-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   社群媒體圖標
+   =========================== */
+
+/* 社群媒體圖標容器 */
+.cis-icon-social {
+  background-color: var(--cis-brand-primary);
+  border-radius: var(--cis-radius-md);
+  padding: var(--cis-spacing-2);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.cis-icon-social:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cis-shadow-lg);
+}
+
+/* Facebook */
+.cis-icon-social-fb {
+  background-color: #1877F2;
+}
+
+/* Line */
+.cis-icon-social-line {
+  background-color: #00C300;
+}
+
+/* Instagram */
+.cis-icon-social-ig {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+/* YouTube */
+.cis-icon-social-youtube {
+  background-color: #FF0000;
+}
+
+/* X (Twitter) */
+.cis-icon-social-x {
+  background-color: #000000;
+}
+
+/* ===========================
+   圖標動畫
+   =========================== */
+
+/* 旋轉動畫 */
+.cis-icon-spin {
+  animation: cis-spin 1s linear infinite;
+}
+
+@keyframes cis-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 脈動動畫 */
+.cis-icon-pulse {
+  animation: cis-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cis-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   特殊圖標樣式
+   =========================== */
+
+/* 點狀圖標 */
+.cis-icon-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* 更多選項圖標 (三個點) */
+.cis-icon-more {
+  display: flex;
+  gap: 4px;
+}
+
+.cis-icon-more::before,
+.cis-icon-more::after,
+.cis-icon-more span {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* 漢堡選單圖標 */
+.cis-icon-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 18px;
+}
+
+.cis-icon-menu span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* 關閉圖標 */
+.cis-icon-close {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.cis-icon-close::before,
+.cis-icon-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+}
+
+.cis-icon-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cis-icon-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 箭頭圖標 */
+.cis-icon-arrow {
+  position: relative;
+}
+
+.cis-icon-arrow-down {
+  transform: rotate(90deg);
+}
+
+.cis-icon-arrow-up {
+  transform: rotate(-90deg);
+}
+
+.cis-icon-arrow-left {
+  transform: rotate(180deg);
+}
+
+.cis-icon-arrow-right {
+  transform: rotate(0deg);
+}
+
+/* ===========================
+   圖標間距
+   =========================== */
+
+/* 圖標與文字間距 */
+.cis-icon + span,
+span + .cis-icon {
+  margin-left: var(--cis-spacing-2);
+}
+
+/* 圖標組 */
+.cis-icon-group {
+  display: inline-flex;
+  gap: var(--cis-spacing-2);
+  align-items: center;
+}
+
+/* ===========================
+   響應式調整
+   =========================== */
+
+@media (max-width: 768px) {
+  /* 在小螢幕上調整大型圖標 */
+  .cis-icon-40 {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .cis-icon-48 {
+    width: 40px;
+    height: 40px;
+  }
+}
