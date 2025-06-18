@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v1.0.3 - CIS Dark Mode</title>
-    <meta name="description" content="慈濟設計系統 v1.0.3 - 基於 CIS 大入口網 Dark Mode 設計規範">
+    <title>慈濟設計系統 v1.0.4 - CIS Dark Mode</title>
+    <meta name="description" content="慈濟設計系統 v1.0.4 - 基於 CIS 大入口網 Dark Mode 設計規範">
     <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
-    <meta property="og:title" content="慈濟設計系統 v1.0.3">
+    <meta property="og:title" content="慈濟設計系統 v1.0.4">
     <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.3.css">
+    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.4.css">
     <style>
         /* 展示頁面專用樣式 */
         .demo-container {
@@ -89,7 +89,7 @@
         <header class="demo-header">
             <h1 class="cis-h1">
                 慈濟設計系統
-                <span class="version-badge">v1.0.3</span>
+                <span class="version-badge">v1.0.4</span>
             </h1>
             <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
             <p class="cis-caption">更新日期：2025-06-18</p>
@@ -688,11 +688,117 @@
             </div>
         </section>
 
+        <!-- 網格系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">網格系統 Grid System</h2>
+            
+            <h3 class="cis-h4">容器類型</h3>
+            <div class="demo-box">
+                <div style="margin-bottom: var(--cis-spacing-4);">
+                    <p class="cis-caption">響應式容器</p>
+                    <div class="cis-container" style="background: var(--cis-surface-2); padding: var(--cis-spacing-2); border-radius: var(--cis-radius-md);">
+                        <div class="cis-text-sm">容器內容 - 自適應不同螢幕尺寸</div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--cis-spacing-4);">
+                    <p class="cis-caption">流體容器</p>
+                    <div class="cis-container-fluid" style="background: var(--cis-surface-2); padding: var(--cis-spacing-2); border-radius: var(--cis-radius-md);">
+                        <div class="cis-text-sm">流體容器 - 佔滿全寬度</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">12欄網格佈局</h3>
+            <div class="demo-box">
+                <div class="cis-container">
+                    <div class="cis-row" style="margin-bottom: var(--cis-spacing-4);">
+                        <div class="cis-col-12">
+                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                .cis-col-12
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cis-row" style="margin-bottom: var(--cis-spacing-4);">
+                        <div class="cis-col-6">
+                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                .cis-col-6
+                            </div>
+                        </div>
+                        <div class="cis-col-6">
+                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                .cis-col-6
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cis-row">
+                        <div class="cis-col-4">
+                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                .cis-col-4
+                            </div>
+                        </div>
+                        <div class="cis-col-4">
+                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                .cis-col-4
+                            </div>
+                        </div>
+                        <div class="cis-col-4">
+                            <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                .cis-col-4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">響應式網格</h3>
+            <div class="demo-box">
+                <div class="cis-container">
+                    <div class="cis-row">
+                        <div class="cis-col-12 cis-col-md-6 cis-col-lg-4">
+                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
+                                手機12欄 / 平板6欄 / 桌機4欄
+                            </div>
+                        </div>
+                        <div class="cis-col-12 cis-col-md-6 cis-col-lg-4">
+                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
+                                手機12欄 / 平板6欄 / 桌機4欄
+                            </div>
+                        </div>
+                        <div class="cis-col-12 cis-col-md-12 cis-col-lg-4">
+                            <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
+                                手機12欄 / 平板12欄 / 桌機4欄
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">偏移與對齊</h3>
+            <div class="demo-box">
+                <div class="cis-container">
+                    <div class="cis-row cis-justify-content-center" style="margin-bottom: var(--cis-spacing-4);">
+                        <div class="cis-col-6">
+                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                置中對齊
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cis-row">
+                        <div class="cis-col-4 cis-offset-4">
+                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                偏移4欄
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 版本資訊 -->
         <footer class="demo-section">
             <div class="demo-box" style="text-align: center;">
                 <h3 class="cis-h4">版本資訊</h3>
-                <p class="cis-body">慈濟設計系統 v1.0.3</p>
+                <p class="cis-body">慈濟設計系統 v1.0.4</p>
                 <p class="cis-caption">基於 CIS 大入口網 Dark Mode 設計規範</p>
                 <p class="cis-caption">發布日期：2025-06-18</p>
                 <div class="demo-flex" style="justify-content: center; margin-top: var(--cis-spacing-4);">

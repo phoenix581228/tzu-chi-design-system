@@ -1,0 +1,465 @@
+/**
+ * 慈濟設計系統 - 網格系統 Grid System
+ * 基於 CIS 響應式設計規範
+ */
+
+/* ===========================
+   網格系統基礎
+   =========================== */
+
+/* 容器基礎樣式 */
+.cis-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--cis-spacing-4);
+  padding-right: var(--cis-spacing-4);
+}
+
+/* 響應式容器最大寬度 */
+.cis-container-sm {
+  max-width: 576px;
+}
+
+.cis-container-md {
+  max-width: 768px;
+}
+
+.cis-container-lg {
+  max-width: 1024px;
+}
+
+.cis-container-xl {
+  max-width: 1200px;
+}
+
+.cis-container-xxl {
+  max-width: 1920px;
+}
+
+/* 流體容器 */
+.cis-container-fluid {
+  max-width: none;
+}
+
+/* ===========================
+   Flexbox 網格系統
+   =========================== */
+
+/* 行容器 */
+.cis-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--cis-grid-gutter-x) * -0.5);
+  margin-right: calc(var(--cis-grid-gutter-x) * -0.5);
+  margin-top: calc(var(--cis-grid-gutter-y) * -1);
+}
+
+.cis-row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-left: calc(var(--cis-grid-gutter-x) * 0.5);
+  padding-right: calc(var(--cis-grid-gutter-x) * 0.5);
+  margin-top: var(--cis-grid-gutter-y);
+}
+
+/* 無間距行 */
+.cis-row.cis-no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cis-row.cis-no-gutters > * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ===========================
+   欄位系統 (12欄網格)
+   =========================== */
+
+/* 基礎欄位 */
+.cis-col {
+  flex: 1 0 0%;
+}
+
+.cis-col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* 12欄網格系統 */
+.cis-col-1 { flex: 0 0 auto; width: 8.33333333%; }
+.cis-col-2 { flex: 0 0 auto; width: 16.66666667%; }
+.cis-col-3 { flex: 0 0 auto; width: 25%; }
+.cis-col-4 { flex: 0 0 auto; width: 33.33333333%; }
+.cis-col-5 { flex: 0 0 auto; width: 41.66666667%; }
+.cis-col-6 { flex: 0 0 auto; width: 50%; }
+.cis-col-7 { flex: 0 0 auto; width: 58.33333333%; }
+.cis-col-8 { flex: 0 0 auto; width: 66.66666667%; }
+.cis-col-9 { flex: 0 0 auto; width: 75%; }
+.cis-col-10 { flex: 0 0 auto; width: 83.33333333%; }
+.cis-col-11 { flex: 0 0 auto; width: 91.66666667%; }
+.cis-col-12 { flex: 0 0 auto; width: 100%; }
+
+/* ===========================
+   響應式斷點
+   =========================== */
+
+/* 小型裝置 (≥576px) */
+@media (min-width: 576px) {
+  .cis-container,
+  .cis-container-sm {
+    max-width: 540px;
+  }
+  
+  .cis-col-sm { flex: 1 0 0%; }
+  .cis-col-sm-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-sm-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .cis-col-sm-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .cis-col-sm-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-sm-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .cis-col-sm-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .cis-col-sm-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-sm-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .cis-col-sm-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .cis-col-sm-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-sm-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .cis-col-sm-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .cis-col-sm-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* 中型裝置 - 平板直式 (≥768px) */
+@media (min-width: 768px) {
+  .cis-container,
+  .cis-container-sm,
+  .cis-container-md {
+    max-width: 720px;
+  }
+  
+  .cis-col-md { flex: 1 0 0%; }
+  .cis-col-md-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-md-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .cis-col-md-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .cis-col-md-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-md-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .cis-col-md-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .cis-col-md-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-md-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .cis-col-md-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .cis-col-md-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-md-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .cis-col-md-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .cis-col-md-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* 大型裝置 - 平板橫式 & 小筆電 (≥1024px) */
+@media (min-width: 1024px) {
+  .cis-container,
+  .cis-container-sm,
+  .cis-container-md,
+  .cis-container-lg {
+    max-width: 960px;
+  }
+  
+  .cis-col-lg { flex: 1 0 0%; }
+  .cis-col-lg-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-lg-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .cis-col-lg-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .cis-col-lg-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-lg-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .cis-col-lg-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .cis-col-lg-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-lg-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .cis-col-lg-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .cis-col-lg-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-lg-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .cis-col-lg-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .cis-col-lg-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* 超大型裝置 - 桌機 (≥1200px) */
+@media (min-width: 1200px) {
+  .cis-container,
+  .cis-container-sm,
+  .cis-container-md,
+  .cis-container-lg,
+  .cis-container-xl {
+    max-width: 1140px;
+  }
+  
+  .cis-col-xl { flex: 1 0 0%; }
+  .cis-col-xl-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-xl-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .cis-col-xl-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .cis-col-xl-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-xl-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .cis-col-xl-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .cis-col-xl-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-xl-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .cis-col-xl-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .cis-col-xl-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-xl-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .cis-col-xl-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .cis-col-xl-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* 超超大型裝置 - 大桌機 (≥1920px) */
+@media (min-width: 1920px) {
+  .cis-container,
+  .cis-container-sm,
+  .cis-container-md,
+  .cis-container-lg,
+  .cis-container-xl,
+  .cis-container-xxl {
+    max-width: 1800px;
+  }
+  
+  .cis-col-xxl { flex: 1 0 0%; }
+  .cis-col-xxl-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-xxl-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .cis-col-xxl-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .cis-col-xxl-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-xxl-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .cis-col-xxl-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .cis-col-xxl-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-xxl-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .cis-col-xxl-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .cis-col-xxl-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-xxl-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .cis-col-xxl-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .cis-col-xxl-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* ===========================
+   偏移欄位 (Offset)
+   =========================== */
+
+.cis-offset-1 { margin-left: 8.33333333%; }
+.cis-offset-2 { margin-left: 16.66666667%; }
+.cis-offset-3 { margin-left: 25%; }
+.cis-offset-4 { margin-left: 33.33333333%; }
+.cis-offset-5 { margin-left: 41.66666667%; }
+.cis-offset-6 { margin-left: 50%; }
+.cis-offset-7 { margin-left: 58.33333333%; }
+.cis-offset-8 { margin-left: 66.66666667%; }
+.cis-offset-9 { margin-left: 75%; }
+.cis-offset-10 { margin-left: 83.33333333%; }
+.cis-offset-11 { margin-left: 91.66666667%; }
+
+/* 響應式偏移 */
+@media (min-width: 576px) {
+  .cis-offset-sm-1 { margin-left: 8.33333333%; }
+  .cis-offset-sm-2 { margin-left: 16.66666667%; }
+  .cis-offset-sm-3 { margin-left: 25%; }
+  .cis-offset-sm-4 { margin-left: 33.33333333%; }
+  .cis-offset-sm-5 { margin-left: 41.66666667%; }
+  .cis-offset-sm-6 { margin-left: 50%; }
+  .cis-offset-sm-7 { margin-left: 58.33333333%; }
+  .cis-offset-sm-8 { margin-left: 66.66666667%; }
+  .cis-offset-sm-9 { margin-left: 75%; }
+  .cis-offset-sm-10 { margin-left: 83.33333333%; }
+  .cis-offset-sm-11 { margin-left: 91.66666667%; }
+}
+
+@media (min-width: 768px) {
+  .cis-offset-md-1 { margin-left: 8.33333333%; }
+  .cis-offset-md-2 { margin-left: 16.66666667%; }
+  .cis-offset-md-3 { margin-left: 25%; }
+  .cis-offset-md-4 { margin-left: 33.33333333%; }
+  .cis-offset-md-5 { margin-left: 41.66666667%; }
+  .cis-offset-md-6 { margin-left: 50%; }
+  .cis-offset-md-7 { margin-left: 58.33333333%; }
+  .cis-offset-md-8 { margin-left: 66.66666667%; }
+  .cis-offset-md-9 { margin-left: 75%; }
+  .cis-offset-md-10 { margin-left: 83.33333333%; }
+  .cis-offset-md-11 { margin-left: 91.66666667%; }
+}
+
+@media (min-width: 1024px) {
+  .cis-offset-lg-1 { margin-left: 8.33333333%; }
+  .cis-offset-lg-2 { margin-left: 16.66666667%; }
+  .cis-offset-lg-3 { margin-left: 25%; }
+  .cis-offset-lg-4 { margin-left: 33.33333333%; }
+  .cis-offset-lg-5 { margin-left: 41.66666667%; }
+  .cis-offset-lg-6 { margin-left: 50%; }
+  .cis-offset-lg-7 { margin-left: 58.33333333%; }
+  .cis-offset-lg-8 { margin-left: 66.66666667%; }
+  .cis-offset-lg-9 { margin-left: 75%; }
+  .cis-offset-lg-10 { margin-left: 83.33333333%; }
+  .cis-offset-lg-11 { margin-left: 91.66666667%; }
+}
+
+@media (min-width: 1200px) {
+  .cis-offset-xl-1 { margin-left: 8.33333333%; }
+  .cis-offset-xl-2 { margin-left: 16.66666667%; }
+  .cis-offset-xl-3 { margin-left: 25%; }
+  .cis-offset-xl-4 { margin-left: 33.33333333%; }
+  .cis-offset-xl-5 { margin-left: 41.66666667%; }
+  .cis-offset-xl-6 { margin-left: 50%; }
+  .cis-offset-xl-7 { margin-left: 58.33333333%; }
+  .cis-offset-xl-8 { margin-left: 66.66666667%; }
+  .cis-offset-xl-9 { margin-left: 75%; }
+  .cis-offset-xl-10 { margin-left: 83.33333333%; }
+  .cis-offset-xl-11 { margin-left: 91.66666667%; }
+}
+
+@media (min-width: 1920px) {
+  .cis-offset-xxl-1 { margin-left: 8.33333333%; }
+  .cis-offset-xxl-2 { margin-left: 16.66666667%; }
+  .cis-offset-xxl-3 { margin-left: 25%; }
+  .cis-offset-xxl-4 { margin-left: 33.33333333%; }
+  .cis-offset-xxl-5 { margin-left: 41.66666667%; }
+  .cis-offset-xxl-6 { margin-left: 50%; }
+  .cis-offset-xxl-7 { margin-left: 58.33333333%; }
+  .cis-offset-xxl-8 { margin-left: 66.66666667%; }
+  .cis-offset-xxl-9 { margin-left: 75%; }
+  .cis-offset-xxl-10 { margin-left: 83.33333333%; }
+  .cis-offset-xxl-11 { margin-left: 91.66666667%; }
+}
+
+/* ===========================
+   對齊工具類
+   =========================== */
+
+/* 水平對齊 */
+.cis-justify-content-start { justify-content: flex-start !important; }
+.cis-justify-content-end { justify-content: flex-end !important; }
+.cis-justify-content-center { justify-content: center !important; }
+.cis-justify-content-between { justify-content: space-between !important; }
+.cis-justify-content-around { justify-content: space-around !important; }
+.cis-justify-content-evenly { justify-content: space-evenly !important; }
+
+/* 垂直對齊 */
+.cis-align-items-start { align-items: flex-start !important; }
+.cis-align-items-end { align-items: flex-end !important; }
+.cis-align-items-center { align-items: center !important; }
+.cis-align-items-baseline { align-items: baseline !important; }
+.cis-align-items-stretch { align-items: stretch !important; }
+
+/* 個別項目對齊 */
+.cis-align-self-start { align-self: flex-start !important; }
+.cis-align-self-end { align-self: flex-end !important; }
+.cis-align-self-center { align-self: center !important; }
+.cis-align-self-baseline { align-self: baseline !important; }
+.cis-align-self-stretch { align-self: stretch !important; }
+
+/* ===========================
+   排序工具類
+   =========================== */
+
+.cis-order-first { order: -1 !important; }
+.cis-order-0 { order: 0 !important; }
+.cis-order-1 { order: 1 !important; }
+.cis-order-2 { order: 2 !important; }
+.cis-order-3 { order: 3 !important; }
+.cis-order-4 { order: 4 !important; }
+.cis-order-5 { order: 5 !important; }
+.cis-order-last { order: 6 !important; }
+
+/* 響應式排序 */
+@media (min-width: 576px) {
+  .cis-order-sm-first { order: -1 !important; }
+  .cis-order-sm-0 { order: 0 !important; }
+  .cis-order-sm-1 { order: 1 !important; }
+  .cis-order-sm-2 { order: 2 !important; }
+  .cis-order-sm-3 { order: 3 !important; }
+  .cis-order-sm-4 { order: 4 !important; }
+  .cis-order-sm-5 { order: 5 !important; }
+  .cis-order-sm-last { order: 6 !important; }
+}
+
+@media (min-width: 768px) {
+  .cis-order-md-first { order: -1 !important; }
+  .cis-order-md-0 { order: 0 !important; }
+  .cis-order-md-1 { order: 1 !important; }
+  .cis-order-md-2 { order: 2 !important; }
+  .cis-order-md-3 { order: 3 !important; }
+  .cis-order-md-4 { order: 4 !important; }
+  .cis-order-md-5 { order: 5 !important; }
+  .cis-order-md-last { order: 6 !important; }
+}
+
+@media (min-width: 1024px) {
+  .cis-order-lg-first { order: -1 !important; }
+  .cis-order-lg-0 { order: 0 !important; }
+  .cis-order-lg-1 { order: 1 !important; }
+  .cis-order-lg-2 { order: 2 !important; }
+  .cis-order-lg-3 { order: 3 !important; }
+  .cis-order-lg-4 { order: 4 !important; }
+  .cis-order-lg-5 { order: 5 !important; }
+  .cis-order-lg-last { order: 6 !important; }
+}
+
+@media (min-width: 1200px) {
+  .cis-order-xl-first { order: -1 !important; }
+  .cis-order-xl-0 { order: 0 !important; }
+  .cis-order-xl-1 { order: 1 !important; }
+  .cis-order-xl-2 { order: 2 !important; }
+  .cis-order-xl-3 { order: 3 !important; }
+  .cis-order-xl-4 { order: 4 !important; }
+  .cis-order-xl-5 { order: 5 !important; }
+  .cis-order-xl-last { order: 6 !important; }
+}
+
+@media (min-width: 1920px) {
+  .cis-order-xxl-first { order: -1 !important; }
+  .cis-order-xxl-0 { order: 0 !important; }
+  .cis-order-xxl-1 { order: 1 !important; }
+  .cis-order-xxl-2 { order: 2 !important; }
+  .cis-order-xxl-3 { order: 3 !important; }
+  .cis-order-xxl-4 { order: 4 !important; }
+  .cis-order-xxl-5 { order: 5 !important; }
+  .cis-order-xxl-last { order: 6 !important; }
+}
+
+/* ===========================
+   間距工具類 (Gutters)
+   =========================== */
+
+.cis-g-0 {
+  --cis-grid-gutter-x: 0;
+  --cis-grid-gutter-y: 0;
+}
+
+.cis-g-1 {
+  --cis-grid-gutter-x: var(--cis-spacing-1);
+  --cis-grid-gutter-y: var(--cis-spacing-1);
+}
+
+.cis-g-2 {
+  --cis-grid-gutter-x: var(--cis-spacing-2);
+  --cis-grid-gutter-y: var(--cis-spacing-2);
+}
+
+.cis-g-3 {
+  --cis-grid-gutter-x: var(--cis-spacing-3);
+  --cis-grid-gutter-y: var(--cis-spacing-3);
+}
+
+.cis-g-4 {
+  --cis-grid-gutter-x: var(--cis-spacing-4);
+  --cis-grid-gutter-y: var(--cis-spacing-4);
+}
+
+.cis-g-5 {
+  --cis-grid-gutter-x: var(--cis-spacing-5);
+  --cis-grid-gutter-y: var(--cis-spacing-5);
+}
+
+/* 水平間距 */
+.cis-gx-0 { --cis-grid-gutter-x: 0; }
+.cis-gx-1 { --cis-grid-gutter-x: var(--cis-spacing-1); }
+.cis-gx-2 { --cis-grid-gutter-x: var(--cis-spacing-2); }
+.cis-gx-3 { --cis-grid-gutter-x: var(--cis-spacing-3); }
+.cis-gx-4 { --cis-grid-gutter-x: var(--cis-spacing-4); }
+.cis-gx-5 { --cis-grid-gutter-x: var(--cis-spacing-5); }
+
+/* 垂直間距 */
+.cis-gy-0 { --cis-grid-gutter-y: 0; }
+.cis-gy-1 { --cis-grid-gutter-y: var(--cis-spacing-1); }
+.cis-gy-2 { --cis-grid-gutter-y: var(--cis-spacing-2); }
+.cis-gy-3 { --cis-grid-gutter-y: var(--cis-spacing-3); }
+.cis-gy-4 { --cis-grid-gutter-y: var(--cis-spacing-4); }
+.cis-gy-5 { --cis-grid-gutter-y: var(--cis-spacing-5); }

@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.3.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.4.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -191,6 +191,13 @@
             <ul>
                 <li><a href="#tabs">標籤頁 Tabs</a></li>
                 <li><a href="#search-bar">搜尋欄</a></li>
+            </ul>
+        </div>
+        
+        <div class="showcase-nav-section">
+            <h3>佈局組件</h3>
+            <ul>
+                <li><a href="#grid-system">網格系統</a></li>
             </ul>
         </div>
     </nav>
@@ -815,6 +822,273 @@
     &lt;a href="#" class="cis-link cis-link-sm"&gt;急難救助&lt;/a&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 網格系統 -->
+        <section id="grid-system" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">網格系統 Grid System</h2>
+                <p class="showcase-section-description">
+                    基於 CIS 響應式設計規範的 12 欄網格系統，支援多種斷點和佈局選項
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">響應式斷點</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-card">
+                        <div class="cis-card-body">
+                            <h4 class="cis-h5">CIS 響應式斷點</h4>
+                            <ul class="cis-text-sm" style="margin: 0; padding-left: var(--cis-spacing-4);">
+                                <li><strong>手機直式:</strong> 375px+</li>
+                                <li><strong>平板直式 & 手機橫式:</strong> 768px+</li>
+                                <li><strong>平板橫式 & 小筆電:</strong> 1024px+</li>
+                                <li><strong>網頁桌機:</strong> 1200px+</li>
+                                <li><strong>大型桌機:</strong> 1920px+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">容器類型</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-2">
+                        <div>
+                            <h4 class="cis-h5">響應式容器</h4>
+                            <div class="cis-container" style="background: var(--cis-surface-2); padding: var(--cis-spacing-2); border-radius: var(--cis-radius-md); border: 1px solid var(--cis-border-default);">
+                                <div class="cis-text-sm">自適應不同螢幕尺寸的容器</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="cis-h5">流體容器</h4>
+                            <div class="cis-container-fluid" style="background: var(--cis-surface-2); padding: var(--cis-spacing-2); border-radius: var(--cis-radius-md); border: 1px solid var(--cis-border-default);">
+                                <div class="cis-text-sm">佔滿全寬度的流體容器</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;div class="cis-container"&gt;
+  &lt;!-- 響應式容器內容 --&gt;
+&lt;/div&gt;
+
+&lt;div class="cis-container-fluid"&gt;
+  &lt;!-- 流體容器內容 --&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">基礎網格佈局</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-container">
+                        <div class="cis-row" style="margin-bottom: var(--cis-spacing-4);">
+                            <div class="cis-col-12">
+                                <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    .cis-col-12
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cis-row" style="margin-bottom: var(--cis-spacing-4);">
+                            <div class="cis-col-6">
+                                <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    .cis-col-6
+                                </div>
+                            </div>
+                            <div class="cis-col-6">
+                                <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    .cis-col-6
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cis-row">
+                            <div class="cis-col-4">
+                                <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    .cis-col-4
+                                </div>
+                            </div>
+                            <div class="cis-col-4">
+                                <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    .cis-col-4
+                                </div>
+                            </div>
+                            <div class="cis-col-4">
+                                <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    .cis-col-4
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;div class="cis-container"&gt;
+  &lt;div class="cis-row"&gt;
+    &lt;div class="cis-col-12"&gt;全寬度&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cis-row"&gt;
+    &lt;div class="cis-col-6"&gt;一半寬度&lt;/div&gt;
+    &lt;div class="cis-col-6"&gt;一半寬度&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cis-row"&gt;
+    &lt;div class="cis-col-4"&gt;三分之一&lt;/div&gt;
+    &lt;div class="cis-col-4"&gt;三分之一&lt;/div&gt;
+    &lt;div class="cis-col-4"&gt;三分之一&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">響應式網格</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-container">
+                        <div class="cis-row">
+                            <div class="cis-col-12 cis-col-md-6 cis-col-lg-4">
+                                <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
+                                    手機12欄 / 平板6欄 / 桌機4欄
+                                </div>
+                            </div>
+                            <div class="cis-col-12 cis-col-md-6 cis-col-lg-4">
+                                <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
+                                    手機12欄 / 平板6欄 / 桌機4欄
+                                </div>
+                            </div>
+                            <div class="cis-col-12 cis-col-md-12 cis-col-lg-4">
+                                <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
+                                    手機12欄 / 平板12欄 / 桌機4欄
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;div class="cis-row"&gt;
+  &lt;div class="cis-col-12 cis-col-md-6 cis-col-lg-4"&gt;
+    手機全寬 / 平板半寬 / 桌機三分之一
+  &lt;/div&gt;
+  &lt;div class="cis-col-12 cis-col-md-6 cis-col-lg-4"&gt;
+    手機全寬 / 平板半寬 / 桌機三分之一
+  &lt;/div&gt;
+  &lt;div class="cis-col-12 cis-col-md-12 cis-col-lg-4"&gt;
+    手機全寬 / 平板全寬 / 桌機三分之一
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">偏移與對齊</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-container">
+                        <div class="cis-row cis-justify-content-center" style="margin-bottom: var(--cis-spacing-4);">
+                            <div class="cis-col-6">
+                                <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    置中對齊
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cis-row cis-justify-content-between" style="margin-bottom: var(--cis-spacing-4);">
+                            <div class="cis-col-4">
+                                <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    左側
+                                </div>
+                            </div>
+                            <div class="cis-col-4">
+                                <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    右側
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cis-row">
+                            <div class="cis-col-4 cis-offset-4">
+                                <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                    偏移4欄
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;!-- 置中對齊 --&gt;
+&lt;div class="cis-row cis-justify-content-center"&gt;
+  &lt;div class="cis-col-6"&gt;置中內容&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 兩端對齊 --&gt;
+&lt;div class="cis-row cis-justify-content-between"&gt;
+  &lt;div class="cis-col-4"&gt;左側&lt;/div&gt;
+  &lt;div class="cis-col-4"&gt;右側&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 偏移 --&gt;
+&lt;div class="cis-row"&gt;
+  &lt;div class="cis-col-4 cis-offset-4"&gt;偏移4欄&lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">間距控制</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-2">
+                        <div>
+                            <h4 class="cis-h5">無間距</h4>
+                            <div class="cis-container">
+                                <div class="cis-row cis-g-0">
+                                    <div class="cis-col-6">
+                                        <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center;">
+                                            無間距
+                                        </div>
+                                    </div>
+                                    <div class="cis-col-6">
+                                        <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center;">
+                                            無間距
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="cis-h5">大間距</h4>
+                            <div class="cis-container">
+                                <div class="cis-row cis-g-5">
+                                    <div class="cis-col-6">
+                                        <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                            大間距
+                                        </div>
+                                    </div>
+                                    <div class="cis-col-6">
+                                        <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
+                                            大間距
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;!-- 無間距 --&gt;
+&lt;div class="cis-row cis-g-0"&gt;...&lt;/div&gt;
+
+&lt;!-- 小間距 --&gt;
+&lt;div class="cis-row cis-g-2"&gt;...&lt;/div&gt;
+
+&lt;!-- 標準間距 --&gt;
+&lt;div class="cis-row cis-g-4"&gt;...&lt;/div&gt;
+
+&lt;!-- 大間距 --&gt;
+&lt;div class="cis-row cis-g-5"&gt;...&lt;/div&gt;
+
+&lt;!-- 僅水平間距 --&gt;
+&lt;div class="cis-row cis-gx-3"&gt;...&lt;/div&gt;
+
+&lt;!-- 僅垂直間距 --&gt;
+&lt;div class="cis-row cis-gy-3"&gt;...&lt;/div&gt;</pre>
                 </div>
             </div>
         </section>

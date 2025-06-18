@@ -1,10 +1,24 @@
 /**
- * CIS 設計系統 - 網格系統
- * 響應式 12 欄位網格佈局
+ * 慈濟設計系統 - 網格系統 Grid System
+ * 基於 CIS 響應式設計規範
+ * 
+ * 響應式斷點：
+ * - 手機直式: 375px
+ * - 平板直式 & 手機橫式: 768px  
+ * - 平板橫式 & 小筆電: 1024px
+ * - 網頁桌機: 1200px - 1920px
  */
 
 /* ===========================
-   容器
+   網格系統變數
+   =========================== */
+:root {
+  --cis-grid-gutter-x: var(--cis-spacing-4);
+  --cis-grid-gutter-y: var(--cis-spacing-4);
+}
+
+/* ===========================
+   容器系統
    =========================== */
 .cis-container {
   width: 100%;
@@ -14,16 +28,42 @@
   padding-left: var(--cis-spacing-4);
 }
 
-/* 容器斷點 */
-@media (min-width: 640px) {
+/* 響應式容器最大寬度 - 基於 CIS 規範 */
+.cis-container-sm {
+  max-width: 375px;
+}
+
+.cis-container-md {
+  max-width: 768px;
+}
+
+.cis-container-lg {
+  max-width: 1024px;
+}
+
+.cis-container-xl {
+  max-width: 1200px;
+}
+
+.cis-container-xxl {
+  max-width: 1920px;
+}
+
+/* 流體容器 */
+.cis-container-fluid {
+  max-width: none;
+}
+
+/* 容器響應式斷點 */
+@media (min-width: 375px) {
   .cis-container {
-    max-width: var(--cis-container-sm);
+    max-width: 360px;
   }
 }
 
 @media (min-width: 768px) {
   .cis-container {
-    max-width: var(--cis-container-md);
+    max-width: 720px;
     padding-right: var(--cis-spacing-6);
     padding-left: var(--cis-spacing-6);
   }
@@ -31,25 +71,20 @@
 
 @media (min-width: 1024px) {
   .cis-container {
-    max-width: var(--cis-container-lg);
+    max-width: 960px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   .cis-container {
-    max-width: var(--cis-container-xl);
+    max-width: 1140px;
   }
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1920px) {
   .cis-container {
-    max-width: var(--cis-container-2xl);
+    max-width: 1800px;
   }
-}
-
-/* 流體容器 */
-.cis-container-fluid {
-  max-width: 100%;
 }
 
 /* ===========================
@@ -58,40 +93,77 @@
 .cis-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: calc(var(--cis-spacing-4) * -0.5);
-  margin-left: calc(var(--cis-spacing-4) * -0.5);
+  margin-left: calc(var(--cis-grid-gutter-x) * -0.5);
+  margin-right: calc(var(--cis-grid-gutter-x) * -0.5);
+  margin-top: calc(var(--cis-grid-gutter-y) * -1);
 }
 
-/* 行間距變體 */
-.cis-row-gap-0 {
-  margin-right: 0;
+.cis-row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-left: calc(var(--cis-grid-gutter-x) * 0.5);
+  padding-right: calc(var(--cis-grid-gutter-x) * 0.5);
+  margin-top: var(--cis-grid-gutter-y);
+}
+
+/* 無間距行 */
+.cis-row.cis-no-gutters {
   margin-left: 0;
+  margin-right: 0;
 }
 
-.cis-row-gap-0 > * {
-  padding-right: 0;
+.cis-row.cis-no-gutters > * {
   padding-left: 0;
+  padding-right: 0;
 }
 
-.cis-row-gap-sm {
-  margin-right: calc(var(--cis-spacing-2) * -0.5);
-  margin-left: calc(var(--cis-spacing-2) * -0.5);
+/* 間距工具類 (Gutters) */
+.cis-g-0 {
+  --cis-grid-gutter-x: 0;
+  --cis-grid-gutter-y: 0;
 }
 
-.cis-row-gap-sm > * {
-  padding-right: calc(var(--cis-spacing-2) * 0.5);
-  padding-left: calc(var(--cis-spacing-2) * 0.5);
+.cis-g-1 {
+  --cis-grid-gutter-x: var(--cis-spacing-1);
+  --cis-grid-gutter-y: var(--cis-spacing-1);
 }
 
-.cis-row-gap-lg {
-  margin-right: calc(var(--cis-spacing-6) * -0.5);
-  margin-left: calc(var(--cis-spacing-6) * -0.5);
+.cis-g-2 {
+  --cis-grid-gutter-x: var(--cis-spacing-2);
+  --cis-grid-gutter-y: var(--cis-spacing-2);
 }
 
-.cis-row-gap-lg > * {
-  padding-right: calc(var(--cis-spacing-6) * 0.5);
-  padding-left: calc(var(--cis-spacing-6) * 0.5);
+.cis-g-3 {
+  --cis-grid-gutter-x: var(--cis-spacing-3);
+  --cis-grid-gutter-y: var(--cis-spacing-3);
 }
+
+.cis-g-4 {
+  --cis-grid-gutter-x: var(--cis-spacing-4);
+  --cis-grid-gutter-y: var(--cis-spacing-4);
+}
+
+.cis-g-5 {
+  --cis-grid-gutter-x: var(--cis-spacing-5);
+  --cis-grid-gutter-y: var(--cis-spacing-5);
+}
+
+/* 水平間距 */
+.cis-gx-0 { --cis-grid-gutter-x: 0; }
+.cis-gx-1 { --cis-grid-gutter-x: var(--cis-spacing-1); }
+.cis-gx-2 { --cis-grid-gutter-x: var(--cis-spacing-2); }
+.cis-gx-3 { --cis-grid-gutter-x: var(--cis-spacing-3); }
+.cis-gx-4 { --cis-grid-gutter-x: var(--cis-spacing-4); }
+.cis-gx-5 { --cis-grid-gutter-x: var(--cis-spacing-5); }
+
+/* 垂直間距 */
+.cis-gy-0 { --cis-grid-gutter-y: 0; }
+.cis-gy-1 { --cis-grid-gutter-y: var(--cis-spacing-1); }
+.cis-gy-2 { --cis-grid-gutter-y: var(--cis-spacing-2); }
+.cis-gy-3 { --cis-grid-gutter-y: var(--cis-spacing-3); }
+.cis-gy-4 { --cis-grid-gutter-y: var(--cis-spacing-4); }
+.cis-gy-5 { --cis-grid-gutter-y: var(--cis-spacing-5); }
 
 /* ===========================
    欄位基礎
@@ -143,11 +215,11 @@
 .cis-offset-11 { margin-left: 91.666667%; }
 
 /* ===========================
-   響應式斷點
+   響應式斷點 - 基於 CIS 規範
    =========================== */
 
-/* Small (sm) - 640px */
-@media (min-width: 640px) {
+/* Small (sm) - 手機直式 375px */
+@media (min-width: 375px) {
   .cis-col-sm { flex: 1 0 0%; }
   .cis-col-sm-auto { flex: 0 0 auto; width: auto; }
   .cis-col-sm-1 { flex: 0 0 auto; width: 8.333333%; }
@@ -177,7 +249,7 @@
   .cis-offset-sm-11 { margin-left: 91.666667%; }
 }
 
-/* Medium (md) - 768px */
+/* Medium (md) - 平板直式 & 手機橫式 768px */
 @media (min-width: 768px) {
   .cis-col-md { flex: 1 0 0%; }
   .cis-col-md-auto { flex: 0 0 auto; width: auto; }
@@ -208,7 +280,7 @@
   .cis-offset-md-11 { margin-left: 91.666667%; }
 }
 
-/* Large (lg) - 1024px */
+/* Large (lg) - 平板橫式 & 小筆電 1024px */
 @media (min-width: 1024px) {
   .cis-col-lg { flex: 1 0 0%; }
   .cis-col-lg-auto { flex: 0 0 auto; width: auto; }
@@ -239,8 +311,8 @@
   .cis-offset-lg-11 { margin-left: 91.666667%; }
 }
 
-/* Extra Large (xl) - 1280px */
-@media (min-width: 1280px) {
+/* Extra Large (xl) - 網頁桌機 1200px */
+@media (min-width: 1200px) {
   .cis-col-xl { flex: 1 0 0%; }
   .cis-col-xl-auto { flex: 0 0 auto; width: auto; }
   .cis-col-xl-1 { flex: 0 0 auto; width: 8.333333%; }
@@ -255,42 +327,143 @@
   .cis-col-xl-10 { flex: 0 0 auto; width: 83.333333%; }
   .cis-col-xl-11 { flex: 0 0 auto; width: 91.666667%; }
   .cis-col-xl-12 { flex: 0 0 auto; width: 100%; }
+  
+  .cis-offset-xl-0 { margin-left: 0; }
+  .cis-offset-xl-1 { margin-left: 8.333333%; }
+  .cis-offset-xl-2 { margin-left: 16.666667%; }
+  .cis-offset-xl-3 { margin-left: 25%; }
+  .cis-offset-xl-4 { margin-left: 33.333333%; }
+  .cis-offset-xl-5 { margin-left: 41.666667%; }
+  .cis-offset-xl-6 { margin-left: 50%; }
+  .cis-offset-xl-7 { margin-left: 58.333333%; }
+  .cis-offset-xl-8 { margin-left: 66.666667%; }
+  .cis-offset-xl-9 { margin-left: 75%; }
+  .cis-offset-xl-10 { margin-left: 83.333333%; }
+  .cis-offset-xl-11 { margin-left: 91.666667%; }
+}
+
+/* Extra Extra Large (xxl) - 大型桌機 1920px */
+@media (min-width: 1920px) {
+  .cis-col-xxl { flex: 1 0 0%; }
+  .cis-col-xxl-auto { flex: 0 0 auto; width: auto; }
+  .cis-col-xxl-1 { flex: 0 0 auto; width: 8.333333%; }
+  .cis-col-xxl-2 { flex: 0 0 auto; width: 16.666667%; }
+  .cis-col-xxl-3 { flex: 0 0 auto; width: 25%; }
+  .cis-col-xxl-4 { flex: 0 0 auto; width: 33.333333%; }
+  .cis-col-xxl-5 { flex: 0 0 auto; width: 41.666667%; }
+  .cis-col-xxl-6 { flex: 0 0 auto; width: 50%; }
+  .cis-col-xxl-7 { flex: 0 0 auto; width: 58.333333%; }
+  .cis-col-xxl-8 { flex: 0 0 auto; width: 66.666667%; }
+  .cis-col-xxl-9 { flex: 0 0 auto; width: 75%; }
+  .cis-col-xxl-10 { flex: 0 0 auto; width: 83.333333%; }
+  .cis-col-xxl-11 { flex: 0 0 auto; width: 91.666667%; }
+  .cis-col-xxl-12 { flex: 0 0 auto; width: 100%; }
+  
+  .cis-offset-xxl-0 { margin-left: 0; }
+  .cis-offset-xxl-1 { margin-left: 8.333333%; }
+  .cis-offset-xxl-2 { margin-left: 16.666667%; }
+  .cis-offset-xxl-3 { margin-left: 25%; }
+  .cis-offset-xxl-4 { margin-left: 33.333333%; }
+  .cis-offset-xxl-5 { margin-left: 41.666667%; }
+  .cis-offset-xxl-6 { margin-left: 50%; }
+  .cis-offset-xxl-7 { margin-left: 58.333333%; }
+  .cis-offset-xxl-8 { margin-left: 66.666667%; }
+  .cis-offset-xxl-9 { margin-left: 75%; }
+  .cis-offset-xxl-10 { margin-left: 83.333333%; }
+  .cis-offset-xxl-11 { margin-left: 91.666667%; }
 }
 
 /* ===========================
-   對齊選項
+   對齊工具類
    =========================== */
 
 /* 水平對齊 */
-.cis-justify-start { justify-content: flex-start; }
-.cis-justify-center { justify-content: center; }
-.cis-justify-end { justify-content: flex-end; }
-.cis-justify-between { justify-content: space-between; }
-.cis-justify-around { justify-content: space-around; }
-.cis-justify-evenly { justify-content: space-evenly; }
+.cis-justify-content-start { justify-content: flex-start !important; }
+.cis-justify-content-end { justify-content: flex-end !important; }
+.cis-justify-content-center { justify-content: center !important; }
+.cis-justify-content-between { justify-content: space-between !important; }
+.cis-justify-content-around { justify-content: space-around !important; }
+.cis-justify-content-evenly { justify-content: space-evenly !important; }
 
 /* 垂直對齊 */
-.cis-items-start { align-items: flex-start; }
-.cis-items-center { align-items: center; }
-.cis-items-end { align-items: flex-end; }
-.cis-items-stretch { align-items: stretch; }
-.cis-items-baseline { align-items: baseline; }
+.cis-align-items-start { align-items: flex-start !important; }
+.cis-align-items-end { align-items: flex-end !important; }
+.cis-align-items-center { align-items: center !important; }
+.cis-align-items-baseline { align-items: baseline !important; }
+.cis-align-items-stretch { align-items: stretch !important; }
 
-/* 自身對齊 */
-.cis-self-start { align-self: flex-start; }
-.cis-self-center { align-self: center; }
-.cis-self-end { align-self: flex-end; }
-.cis-self-stretch { align-self: stretch; }
-.cis-self-baseline { align-self: baseline; }
+/* 個別項目對齊 */
+.cis-align-self-start { align-self: flex-start !important; }
+.cis-align-self-end { align-self: flex-end !important; }
+.cis-align-self-center { align-self: center !important; }
+.cis-align-self-baseline { align-self: baseline !important; }
+.cis-align-self-stretch { align-self: stretch !important; }
 
 /* ===========================
-   順序控制
+   排序工具類
    =========================== */
-.cis-order-first { order: -1; }
-.cis-order-last { order: 999; }
-.cis-order-0 { order: 0; }
-.cis-order-1 { order: 1; }
-.cis-order-2 { order: 2; }
-.cis-order-3 { order: 3; }
-.cis-order-4 { order: 4; }
-.cis-order-5 { order: 5; }
+
+.cis-order-first { order: -1 !important; }
+.cis-order-0 { order: 0 !important; }
+.cis-order-1 { order: 1 !important; }
+.cis-order-2 { order: 2 !important; }
+.cis-order-3 { order: 3 !important; }
+.cis-order-4 { order: 4 !important; }
+.cis-order-5 { order: 5 !important; }
+.cis-order-last { order: 6 !important; }
+
+/* 響應式排序 */
+@media (min-width: 375px) {
+  .cis-order-sm-first { order: -1 !important; }
+  .cis-order-sm-0 { order: 0 !important; }
+  .cis-order-sm-1 { order: 1 !important; }
+  .cis-order-sm-2 { order: 2 !important; }
+  .cis-order-sm-3 { order: 3 !important; }
+  .cis-order-sm-4 { order: 4 !important; }
+  .cis-order-sm-5 { order: 5 !important; }
+  .cis-order-sm-last { order: 6 !important; }
+}
+
+@media (min-width: 768px) {
+  .cis-order-md-first { order: -1 !important; }
+  .cis-order-md-0 { order: 0 !important; }
+  .cis-order-md-1 { order: 1 !important; }
+  .cis-order-md-2 { order: 2 !important; }
+  .cis-order-md-3 { order: 3 !important; }
+  .cis-order-md-4 { order: 4 !important; }
+  .cis-order-md-5 { order: 5 !important; }
+  .cis-order-md-last { order: 6 !important; }
+}
+
+@media (min-width: 1024px) {
+  .cis-order-lg-first { order: -1 !important; }
+  .cis-order-lg-0 { order: 0 !important; }
+  .cis-order-lg-1 { order: 1 !important; }
+  .cis-order-lg-2 { order: 2 !important; }
+  .cis-order-lg-3 { order: 3 !important; }
+  .cis-order-lg-4 { order: 4 !important; }
+  .cis-order-lg-5 { order: 5 !important; }
+  .cis-order-lg-last { order: 6 !important; }
+}
+
+@media (min-width: 1200px) {
+  .cis-order-xl-first { order: -1 !important; }
+  .cis-order-xl-0 { order: 0 !important; }
+  .cis-order-xl-1 { order: 1 !important; }
+  .cis-order-xl-2 { order: 2 !important; }
+  .cis-order-xl-3 { order: 3 !important; }
+  .cis-order-xl-4 { order: 4 !important; }
+  .cis-order-xl-5 { order: 5 !important; }
+  .cis-order-xl-last { order: 6 !important; }
+}
+
+@media (min-width: 1920px) {
+  .cis-order-xxl-first { order: -1 !important; }
+  .cis-order-xxl-0 { order: 0 !important; }
+  .cis-order-xxl-1 { order: 1 !important; }
+  .cis-order-xxl-2 { order: 2 !important; }
+  .cis-order-xxl-3 { order: 3 !important; }
+  .cis-order-xxl-4 { order: 4 !important; }
+  .cis-order-xxl-5 { order: 5 !important; }
+  .cis-order-xxl-last { order: 6 !important; }
+}

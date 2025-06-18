@@ -1,0 +1,77 @@
+/**
+ * 慈濟設計系統 v1.0.4
+ * Tzu Chi Design System
+ * 
+ * 基於 CIS (慈濟大入口網) Dark Mode 設計規範
+ * 
+ * @author Tzu Chi Foundation
+ * @version 1.0.4
+ * @date 2025-06-18
+ */
+
+/* ===========================
+   匯入所有模組
+   =========================== */
+
+/* 主題變數 */
+@import url('./themes/variables.css');
+@import url('./themes/dark-theme.css');
+
+/* 基礎樣式 */
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+@import url('./base/grid-system.css');
+
+/* 核心元件樣式 */
+@import url('./components/core/states.css');
+@import url('./components/core/buttons.css');
+@import url('./components/core/cards.css');
+@import url('./components/core/badges.css');
+@import url('./components/core/icons.css');
+@import url('./components/core/links.css');
+
+/* 表單元件樣式 */
+@import url('./components/forms/text-input.css');
+@import url('./components/forms/radio-checkbox.css');
+@import url('./components/forms/dropdowns.css');
+
+/* 導航元件樣式 */
+@import url('./components/navigation/tabs.css');
+@import url('./components/navigation/search-bar.css');
+
+/* 佈局元件樣式 */
+@import url('./components/layout/grid-system.css');
+
+/* ===========================
+   版本標記
+   =========================== */
+:root {
+  --cis-version: "1.0.4";
+  --cis-release-date: "2025-06-18";
+}
+
+/* ===========================
+   基礎應用樣式
+   =========================== */
+body {
+  font-family: var(--cis-font-family-base);
+  font-size: var(--cis-font-size-base);
+  line-height: var(--cis-line-height-normal);
+  color: var(--cis-text-primary);
+  background-color: var(--cis-bg-primary);
+}
+
+/* ===========================
+   版本資訊顯示
+   =========================== */
+body::after {
+  content: "Tzu Chi Design System v" var(--cis-version);
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  color: var(--cis-text-tertiary);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 9999;
+}

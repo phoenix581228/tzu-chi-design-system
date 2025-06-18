@@ -1,6 +1,6 @@
 {
   "name": "tzu-chi-design-system",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "慈濟設計系統 - 基於 Material Design Dark Theme 的企業 CI 規範",
   "main": "tzu-chi-design-system.min.css",
   "style": "tzu-chi-design-system.min.css",
