@@ -1,0 +1,216 @@
+/* ========================================
+   Tab Component - 九宮格組件 Tab
+   慈濟設計系統 - CIS Dark Mode
+   ======================================== */
+
+/* Tab Container */
+.cis-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--cis-spacing-1);
+    width: 100%;
+}
+
+/* Tab Item */
+.cis-tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--cis-spacing-2) 0 0;
+    gap: var(--cis-spacing-2);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), var(--cis-surface-1);
+    box-shadow: var(--cis-shadow-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tab Content */
+.cis-tab-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--cis-spacing-2);
+    padding: 0 var(--cis-spacing-4);
+}
+
+/* Tab Icon */
+.cis-tab-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.cis-tab-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Tab Label */
+.cis-tab-label {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    color: var(--cis-text-secondary);
+    white-space: nowrap;
+}
+
+/* Tab Indicator */
+.cis-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+/* Tab Sizes */
+.cis-tab-sm {
+    min-width: 200px;
+    height: 52px;
+}
+
+.cis-tab-sm .cis-tab-label {
+    font-size: var(--cis-font-size-lg);
+    line-height: 1.5;
+}
+
+.cis-tab-lg {
+    min-width: 300px;
+    height: 53px;
+}
+
+.cis-tab-lg .cis-tab-label {
+    font-size: 26px;
+    line-height: 1.25;
+}
+
+/* Tab States */
+
+/* Default State */
+.cis-tab:not(:hover):not(.cis-tab-active) .cis-tab-icon {
+    color: var(--cis-text-secondary);
+}
+
+.cis-tab:not(:hover):not(.cis-tab-active) .cis-tab-label {
+    color: var(--cis-text-secondary);
+}
+
+/* Hover State */
+.cis-tab:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), var(--cis-surface-1);
+}
+
+.cis-tab:hover .cis-tab-icon {
+    color: #8ECCFC;
+}
+
+.cis-tab:hover .cis-tab-label {
+    color: #8ECCFC;
+}
+
+.cis-tab:hover::after {
+    background-color: #8ECCFC;
+}
+
+/* Active/Focus State */
+.cis-tab-active,
+.cis-tab:focus {
+    outline: none;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), var(--cis-surface-1);
+}
+
+.cis-tab-active .cis-tab-icon,
+.cis-tab:focus .cis-tab-icon {
+    color: #8ECCFC;
+}
+
+.cis-tab-active .cis-tab-label,
+.cis-tab:focus .cis-tab-label {
+    color: #8ECCFC;
+}
+
+.cis-tab-active::after,
+.cis-tab:focus::after {
+    background-color: #8ECCFC;
+}
+
+/* Tab Panel */
+.cis-tab-panel {
+    display: none;
+    padding: var(--cis-spacing-6) 0;
+    animation: cis-tab-fade-in 0.3s ease;
+}
+
+.cis-tab-panel.cis-tab-panel-active {
+    display: block;
+}
+
+@keyframes cis-tab-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .cis-tabs {
+        gap: var(--cis-spacing-1);
+    }
+    
+    .cis-tab {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    .cis-tab-sm,
+    .cis-tab-lg {
+        min-width: 120px;
+        height: 48px;
+    }
+    
+    .cis-tab-label {
+        font-size: var(--cis-font-size-md);
+    }
+    
+    .cis-tab-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Scrollable Tabs */
+.cis-tabs-scrollable {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cis-border-light) transparent;
+}
+
+.cis-tabs-scrollable::-webkit-scrollbar {
+    height: 4px;
+}
+
+.cis-tabs-scrollable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cis-tabs-scrollable::-webkit-scrollbar-thumb {
+    background: var(--cis-border-light);
+    border-radius: 2px;
+}
+
+.cis-tabs-scrollable .cis-tab {
+    flex-shrink: 0;
+}

@@ -296,6 +296,121 @@
             </div>
         </section>
 
+        <!-- Tab 組件 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">Tab 組件 Tab Component</h2>
+            
+            <h3 class="cis-h4">標準 Tab</h3>
+            <div class="demo-box">
+                <div class="cis-tabs" role="tablist">
+                    <button class="cis-tab cis-tab-lg cis-tab-active" role="tab" aria-selected="true" data-tab="tab1">
+                        <div class="cis-tab-content">
+                            <div class="cis-tab-icon">
+                                <svg viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 25.5c-6.351 0-11.5-5.149-11.5-11.5S9.649 4.5 16 4.5 27.5 9.649 27.5 16 22.351 27.5 16 27.5z"/>
+                                    <path d="M16 7c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9zm0 15.5c-3.584 0-6.5-2.916-6.5-6.5S12.416 9.5 16 9.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5z"/>
+                                </svg>
+                            </div>
+                            <span class="cis-tab-label">領航慈濟</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-lg" role="tab" aria-selected="false" data-tab="tab2">
+                        <div class="cis-tab-content">
+                            <div class="cis-tab-icon">
+                                <svg viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M16 2L4 14h3v13h18V14h3L16 2zm7 23H9V12.914l7-7 7 7V25z"/>
+                                </svg>
+                            </div>
+                            <span class="cis-tab-label">社區網絡</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-lg" role="tab" aria-selected="false" data-tab="tab3">
+                        <div class="cis-tab-content">
+                            <div class="cis-tab-icon">
+                                <svg viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm8.5 21.5l-2.5-2.5-6 6-6-6-2.5 2.5 6 6-6 6 2.5 2.5 6-6 6 6 2.5-2.5-6-6 6-6z"/>
+                                </svg>
+                            </div>
+                            <span class="cis-tab-label">慈善醫療</span>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Tab 內容 -->
+                <div class="cis-tab-panel cis-tab-panel-active" id="tab1">
+                    <p class="cis-body">這是領航慈濟的內容區塊。展示了慈濟的核心理念與使命。</p>
+                </div>
+                <div class="cis-tab-panel" id="tab2">
+                    <p class="cis-body">這是社區網絡的內容區塊。連結社區力量，擴展慈善網絡。</p>
+                </div>
+                <div class="cis-tab-panel" id="tab3">
+                    <p class="cis-body">這是慈善醫療的內容區塊。提供醫療援助，照顧需要幫助的人。</p>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">小型 Tab</h3>
+            <div class="demo-box">
+                <div class="cis-tabs" role="tablist">
+                    <button class="cis-tab cis-tab-sm cis-tab-active" role="tab" aria-selected="true">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">概覽</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab" aria-selected="false">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">詳情</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab" aria-selected="false">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">設定</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">可滾動 Tab</h3>
+            <div class="demo-box" style="max-width: 500px;">
+                <div class="cis-tabs cis-tabs-scrollable" role="tablist">
+                    <button class="cis-tab cis-tab-sm cis-tab-active" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">慈善事業</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">醫療志業</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">教育志業</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">人文志業</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">國際賑災</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">骨髓捐贈</span>
+                        </div>
+                    </button>
+                    <button class="cis-tab cis-tab-sm" role="tab">
+                        <div class="cis-tab-content">
+                            <span class="cis-tab-label">環保志業</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- 版本資訊 -->
         <footer class="demo-section">
             <div class="demo-box" style="text-align: center;">
@@ -311,5 +426,47 @@
             </div>
         </footer>
     </div>
+    <!-- Tab 組件互動腳本 -->
+    <script>
+        // Tab 切換功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 處理所有 tab 容器
+            const tabContainers = document.querySelectorAll('.cis-tabs');
+            
+            tabContainers.forEach(container => {
+                const tabs = container.querySelectorAll('.cis-tab');
+                
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // 移除所有 active 狀態
+                        const siblingTabs = container.querySelectorAll('.cis-tab');
+                        siblingTabs.forEach(t => {
+                            t.classList.remove('cis-tab-active');
+                            t.setAttribute('aria-selected', 'false');
+                        });
+                        
+                        // 設定當前 tab 為 active
+                        this.classList.add('cis-tab-active');
+                        this.setAttribute('aria-selected', 'true');
+                        
+                        // 如果有對應的 panel，切換顯示
+                        const targetPanel = this.getAttribute('data-tab');
+                        if (targetPanel) {
+                            // 隱藏所有 panels
+                            document.querySelectorAll('.cis-tab-panel').forEach(panel => {
+                                panel.classList.remove('cis-tab-panel-active');
+                            });
+                            
+                            // 顯示對應的 panel
+                            const panel = document.getElementById(targetPanel);
+                            if (panel) {
+                                panel.classList.add('cis-tab-panel-active');
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
