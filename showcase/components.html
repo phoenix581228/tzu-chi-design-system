@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.6.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.7.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -182,7 +182,7 @@
             <ul>
                 <li><a href="#text-input">文字輸入</a></li>
                 <li><a href="#radio-checkbox">單選/複選</a></li>
-                <li><a href="#dropdowns">下拉選單</a></li>
+                <li><a href="#dropdowns">下拉選單 Dropdowns</a></li>
             </ul>
         </div>
         
@@ -829,6 +829,205 @@
     &lt;a href="#" class="cis-link cis-link-sm"&gt;急難救助&lt;/a&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 下拉選單 -->
+        <section id="dropdowns" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">下拉選單 Dropdowns</h2>
+                <p class="showcase-section-description">
+                    基於 CIS 設計規範的下拉選單組件，包含表單樣式下拉選單和功能型下拉選單
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">CIS 表單下拉選單</h3>
+                <p class="showcase-example-description">表單樣式的下拉選單，支援多種尺寸和互動狀態</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--cis-spacing-6);">
+                        <div>
+                            <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-3);">迷你尺寸 (mini)</p>
+                            <div class="cis-select cis-select-mini">
+                                <div class="cis-select-input">
+                                    <span class="cis-select-value">跨書搜尋</span>
+                                    <div class="cis-select-arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-3);">中等尺寸 (md)</p>
+                            <div class="cis-select cis-select-md">
+                                <div class="cis-select-input">
+                                    <span class="cis-select-value">台灣</span>
+                                    <div class="cis-select-arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-3);">大型尺寸 (lg)</p>
+                            <div class="cis-select cis-select-lg">
+                                <div class="cis-select-input">
+                                    <span class="cis-select-value">台灣</span>
+                                    <div class="cis-select-arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;!-- 迷你尺寸 --&gt;
+&lt;div class="cis-select cis-select-mini"&gt;
+    &lt;div class="cis-select-input"&gt;
+        &lt;span class="cis-select-value"&gt;跨書搜尋&lt;/span&gt;
+        &lt;div class="cis-select-arrow"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 中等尺寸 --&gt;
+&lt;div class="cis-select cis-select-md"&gt;
+    &lt;div class="cis-select-input"&gt;
+        &lt;span class="cis-select-value"&gt;台灣&lt;/span&gt;
+        &lt;div class="cis-select-arrow"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 大型尺寸 --&gt;
+&lt;div class="cis-select cis-select-lg"&gt;
+    &lt;div class="cis-select-input"&gt;
+        &lt;span class="cis-select-value"&gt;台灣&lt;/span&gt;
+        &lt;div class="cis-select-arrow"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">互動狀態</h3>
+                <p class="showcase-example-description">下拉選單的懸停、聚焦和展開狀態</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--cis-spacing-6);">
+                        <div>
+                            <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-3);">預設狀態</p>
+                            <div class="cis-select cis-select-md">
+                                <div class="cis-select-input">
+                                    <span class="cis-select-value">台灣</span>
+                                    <div class="cis-select-arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-3);">懸停狀態</p>
+                            <div class="cis-select cis-select-md">
+                                <div class="cis-select-input" style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212; border-color: rgba(255, 255, 255, 0.6); box-shadow: 0px 0px 0px 2px #FFFFFF;">
+                                    <span class="cis-select-value">台灣</span>
+                                    <div class="cis-select-arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-3);">展開狀態</p>
+                            <div class="cis-select cis-select-md cis-open">
+                                <div class="cis-select-input">
+                                    <span class="cis-select-value">台灣</span>
+                                    <div class="cis-select-arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;!-- 預設狀態 --&gt;
+&lt;div class="cis-select cis-select-md"&gt;
+    &lt;div class="cis-select-input"&gt;
+        &lt;span class="cis-select-value"&gt;台灣&lt;/span&gt;
+        &lt;div class="cis-select-arrow"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 展開狀態 --&gt;
+&lt;div class="cis-select cis-select-md cis-open"&gt;
+    &lt;div class="cis-select-input"&gt;
+        &lt;span class="cis-select-value"&gt;台灣&lt;/span&gt;
+        &lt;div class="cis-select-arrow"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">傳統下拉選單</h3>
+                <p class="showcase-example-description">功能型下拉選單，支援多層級和多種展開方向</p>
+                
+                <div class="showcase-example-demo">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cis-spacing-6);">
+                        <div class="cis-dropdown">
+                            <button class="cis-dropdown-toggle cis-btn cis-btn-outline">
+                                下拉選單
+                            </button>
+                            <div class="cis-dropdown-menu">
+                                <a href="#" class="cis-dropdown-item">選項一</a>
+                                <a href="#" class="cis-dropdown-item">選項二</a>
+                                <div class="cis-dropdown-divider"></div>
+                                <a href="#" class="cis-dropdown-item">選項三</a>
+                            </div>
+                        </div>
+                        
+                        <div class="cis-dropdown">
+                            <button class="cis-dropdown-toggle cis-btn cis-btn-primary">
+                                帶圖標選單
+                            </button>
+                            <div class="cis-dropdown-menu">
+                                <a href="#" class="cis-dropdown-item">
+                                    <span class="cis-dropdown-item-icon">
+                                        <svg viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                        </svg>
+                                    </span>
+                                    佈局設定
+                                </a>
+                                <a href="#" class="cis-dropdown-item">
+                                    <span class="cis-dropdown-item-icon">
+                                        <svg viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                                        </svg>
+                                    </span>
+                                    編輯內容
+                                </a>
+                                <a href="#" class="cis-dropdown-item cis-disabled">
+                                    <span class="cis-dropdown-item-icon">
+                                        <svg viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </span>
+                                    已禁用項目
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;div class="cis-dropdown"&gt;
+    &lt;button class="cis-dropdown-toggle cis-btn cis-btn-outline"&gt;
+        下拉選單
+    &lt;/button&gt;
+    &lt;div class="cis-dropdown-menu"&gt;
+        &lt;a href="#" class="cis-dropdown-item"&gt;選項一&lt;/a&gt;
+        &lt;a href="#" class="cis-dropdown-item"&gt;選項二&lt;/a&gt;
+        &lt;div class="cis-dropdown-divider"&gt;&lt;/div&gt;
+        &lt;a href="#" class="cis-dropdown-item"&gt;選項三&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>

@@ -1,10 +1,149 @@
 /**
  * CIS 設計系統 - 下拉選單元件
- * 包含各種下拉選單樣式和功能
+ * 基於 CIS 大入口網設計規範
+ * 包含表單樣式下拉選單和功能選單
  */
 
 /* ===========================
-   下拉選單容器
+   CIS 表單樣式下拉選單
+   =========================== */
+
+/* 下拉選單輸入框基礎結構 */
+.cis-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  max-width: 215px;
+}
+
+.cis-select-input {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+  background: #121212;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.cis-select-input:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212;
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 0px 2px #FFFFFF;
+}
+
+.cis-select-input:focus,
+.cis-select.cis-open .cis-select-input {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212;
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 0px 0px 0px 2px #FFFFFF;
+}
+
+.cis-select-value {
+  flex: 1;
+  text-align: left;
+}
+
+.cis-select-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.cis-select.cis-open .cis-select-arrow {
+  transform: rotate(180deg);
+}
+
+/* 下拉箭頭圖標 */
+.cis-select-arrow::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 6.5px solid #FFFFFF;
+  border-radius: 1px;
+}
+
+/* ===========================
+   CIS 表單下拉選單尺寸
+   =========================== */
+
+/* 迷你尺寸 (mini) */
+.cis-select-mini {
+  max-width: 110px;
+}
+
+.cis-select-mini .cis-select-input {
+  padding: 2px 8px;
+  height: 27px;
+  font-size: 18px;
+  line-height: 125%;
+  gap: 2px;
+}
+
+.cis-select-mini .cis-select-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+.cis-select-mini .cis-select-arrow::before {
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 4.5px solid #FFFFFF;
+}
+
+/* 中等尺寸 (md) - 預設 */
+.cis-select-md {
+  max-width: 215px;
+}
+
+.cis-select-md .cis-select-input {
+  height: 40px;
+  font-size: 18px;
+  line-height: 125%;
+}
+
+.cis-select-md .cis-select-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+.cis-select-md .cis-select-arrow::before {
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 4.5px solid #FFFFFF;
+}
+
+/* 大型尺寸 (lg) */
+.cis-select-lg {
+  max-width: 215px;
+}
+
+.cis-select-lg .cis-select-input {
+  height: 50px;
+  font-size: 26px;
+  line-height: 125%;
+}
+
+.cis-select-lg .cis-select-arrow {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===========================
+   傳統下拉選單容器
    =========================== */
 .cis-dropdown {
   position: relative;
