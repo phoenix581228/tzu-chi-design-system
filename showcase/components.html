@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.5.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.6.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -191,6 +191,13 @@
             <ul>
                 <li><a href="#tabs">標籤頁 Tabs</a></li>
                 <li><a href="#search-bar">搜尋欄</a></li>
+            </ul>
+        </div>
+        
+        <div class="showcase-nav-section">
+            <h3>社群互動</h3>
+            <ul>
+                <li><a href="#social-interaction">社群互動機制</a></li>
             </ul>
         </div>
         
@@ -922,6 +929,172 @@
     &lt;button class="cis-search-button" type="button" disabled&gt;
         &lt;span class="cis-search-icon"&gt;&lt;/span&gt;
     &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 社群互動機制 -->
+        <section id="social-interaction" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">社群互動機制 Social Interaction</h2>
+                <p class="showcase-section-description">
+                    基於 CIS 設計規範的社群互動元件，包含文章卡片、按讚、分享等互動功能
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">文章卡片</h3>
+                <p class="showcase-example-description">文章展示卡片，包含圖片、標題、內容、時間地點和社群互動控制項</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div class="cis-article-card">
+                        <div class="cis-article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        <div class="cis-article-content">
+                            <div class="cis-article-text">
+                                <h4 class="cis-article-title">標題名稱標題名稱標題名稱標題名稱標題（最長字數26字）</h4>
+                                <p class="cis-article-description">內容文字內容文字內容文字內容文字內容文內容文字內容文字內容文字內內容文字內容文字內容文字內容文字內容文內容文內容文字內容文字內容文字內容文內容文</p>
+                            </div>
+                            <div class="cis-article-divider"></div>
+                            <div class="cis-article-meta">
+                                <div class="cis-article-meta-row">
+                                    <div class="cis-article-info">
+                                        <div class="cis-article-date">2023-06-15</div>
+                                        <div class="cis-article-location">報導地點</div>
+                                    </div>
+                                    <div class="cis-social-actions">
+                                        <div class="cis-social-action">
+                                            <div class="cis-social-icon">
+                                                <div class="cis-like-icon"></div>
+                                            </div>
+                                            <span class="cis-social-text">讚</span>
+                                        </div>
+                                        <div class="cis-social-action">
+                                            <div class="cis-social-icon">
+                                                <div class="cis-share-icon"></div>
+                                            </div>
+                                            <span class="cis-social-text">分享</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;div class="cis-article-card"&gt;
+    &lt;div class="cis-article-image"&gt;&lt;/div&gt;
+    &lt;div class="cis-article-content"&gt;
+        &lt;div class="cis-article-text"&gt;
+            &lt;h4 class="cis-article-title"&gt;標題名稱&lt;/h4&gt;
+            &lt;p class="cis-article-description"&gt;內容文字...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="cis-article-divider"&gt;&lt;/div&gt;
+        &lt;div class="cis-article-meta"&gt;
+            &lt;div class="cis-article-meta-row"&gt;
+                &lt;div class="cis-article-info"&gt;
+                    &lt;div class="cis-article-date"&gt;2023-06-15&lt;/div&gt;
+                    &lt;div class="cis-article-location"&gt;報導地點&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="cis-social-actions"&gt;
+                    &lt;div class="cis-social-action"&gt;
+                        &lt;div class="cis-social-icon"&gt;
+                            &lt;div class="cis-like-icon"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;span class="cis-social-text"&gt;讚&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class="cis-social-action"&gt;
+                        &lt;div class="cis-social-icon"&gt;
+                            &lt;div class="cis-share-icon"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;span class="cis-social-text"&gt;分享&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">社群互動控制欄</h3>
+                <p class="showcase-example-description">單篇文章頁面的社群互動控制欄，提供大型按讚和分享按鈕</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div class="cis-article-social-bar">
+                        <div class="cis-article-social-action">
+                            <div class="cis-social-icon-lg">
+                                <div class="cis-like-icon-lg"></div>
+                            </div>
+                            <span class="cis-social-text-lg">讚</span>
+                        </div>
+                        <div class="cis-article-social-divider"></div>
+                        <div class="cis-article-social-action">
+                            <div class="cis-social-icon-lg">
+                                <div class="cis-share-icon-lg"></div>
+                            </div>
+                            <span class="cis-social-text-lg">分享</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;div class="cis-article-social-bar"&gt;
+    &lt;div class="cis-article-social-action"&gt;
+        &lt;div class="cis-social-icon-lg"&gt;
+            &lt;div class="cis-like-icon-lg"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span class="cis-social-text-lg"&gt;讚&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="cis-article-social-divider"&gt;&lt;/div&gt;
+    &lt;div class="cis-article-social-action"&gt;
+        &lt;div class="cis-social-icon-lg"&gt;
+            &lt;div class="cis-share-icon-lg"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span class="cis-social-text-lg"&gt;分享&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">互動狀態</h3>
+                <p class="showcase-example-description">已按讚和已分享的狀態顯示</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div style="display: flex; gap: var(--cis-spacing-4); align-items: center;">
+                        <div class="cis-social-action">
+                            <div class="cis-social-icon">
+                                <div class="cis-like-icon cis-liked"></div>
+                            </div>
+                            <span class="cis-social-text">2</span>
+                        </div>
+                        <div class="cis-social-action">
+                            <div class="cis-social-icon">
+                                <div class="cis-share-icon cis-shared"></div>
+                            </div>
+                            <span class="cis-social-text">2</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;!-- 已按讚狀態 --&gt;
+&lt;div class="cis-social-action"&gt;
+    &lt;div class="cis-social-icon"&gt;
+        &lt;div class="cis-like-icon cis-liked"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="cis-social-text"&gt;2&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 已分享狀態 --&gt;
+&lt;div class="cis-social-action"&gt;
+    &lt;div class="cis-social-icon"&gt;
+        &lt;div class="cis-share-icon cis-shared"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="cis-social-text"&gt;2&lt;/span&gt;
 &lt;/div&gt;</code></pre>
                 </div>
             </div>

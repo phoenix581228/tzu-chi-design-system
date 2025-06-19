@@ -1,0 +1,471 @@
+/**
+ * CIS 設計系統 - 社群互動機制元件
+ * 基於 CIS 大入口網設計規範
+ * 包含文章卡片、按讚、分享等互動功能
+ */
+
+/* ===========================
+   文章卡片基礎結構
+   =========================== */
+.cis-article-card {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), #121212;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 8px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 680px;
+}
+
+.cis-article-image {
+  width: 339px;
+  height: 217px;
+  background-color: var(--cis-surface-3);
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cis-article-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  height: 213px;
+}
+
+.cis-article-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cis-article-title {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: #FFFFFF;
+  height: 60px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cis-article-description {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #FFFFFF;
+  height: 84px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  flex: 1;
+}
+
+.cis-article-divider {
+  width: 100%;
+  height: 1px;
+  background: #E0E0E0;
+}
+
+/* ===========================
+   文章元資料區域
+   =========================== */
+.cis-article-meta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 44px;
+}
+
+.cis-article-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  height: 44px;
+}
+
+.cis-article-info {
+  display: flex;
+  flex-direction: column;
+  width: 85px;
+  height: 44px;
+}
+
+.cis-article-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+  height: 22px;
+}
+
+.cis-article-location {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+  height: 22px;
+}
+
+/* ===========================
+   社群互動控制項
+   =========================== */
+.cis-social-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 22px;
+}
+
+.cis-social-action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cis-social-action:hover {
+  transform: scale(1.05);
+}
+
+.cis-social-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cis-social-text {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #8ECCFC;
+}
+
+/* 按讚圖標 - 預設狀態 */
+.cis-like-icon {
+  width: 13.86px;
+  height: 12.13px;
+  border: 1.5px solid #8ECCFC;
+  background: transparent;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+}
+
+.cis-like-icon::before {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: transparent;
+  border: 1.5px solid #8ECCFC;
+  border-radius: 50%;
+  top: -2px;
+  left: -1px;
+}
+
+.cis-like-icon::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: transparent;
+  border: 1.5px solid #8ECCFC;
+  border-radius: 50%;
+  top: -2px;
+  right: -1px;
+}
+
+/* 按讚圖標 - 已按讚狀態 */
+.cis-like-icon.cis-liked {
+  background: #CF6679;
+  border-color: #CF6679;
+}
+
+.cis-like-icon.cis-liked::before,
+.cis-like-icon.cis-liked::after {
+  background: #CF6679;
+  border-color: #CF6679;
+}
+
+/* 分享圖標 - 預設狀態 */
+.cis-share-icon {
+  width: 16px;
+  height: 14px;
+  border: 1.5px solid #8ECCFC;
+  background: transparent;
+  border-radius: 0.5px;
+  position: relative;
+}
+
+/* 分享圖標 - 已分享狀態 */
+.cis-share-icon.cis-shared {
+  background: #0296F9;
+  border-color: #0296F9;
+}
+
+/* ===========================
+   單篇文章頁面社群控制項
+   =========================== */
+.cis-article-social-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.cis-article-social-action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cis-article-social-action:hover {
+  transform: scale(1.05);
+}
+
+.cis-article-social-divider {
+  width: 1px;
+  height: 33px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* 大型社群圖標 (32px) */
+.cis-social-icon-lg {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cis-social-text-lg {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 125%;
+  color: #8ECCFC;
+  text-align: center;
+}
+
+/* 大型按讚圖標 */
+.cis-like-icon-lg {
+  width: 21.71px;
+  height: 19px;
+  border: 3px solid #8ECCFC;
+  background: transparent;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+}
+
+.cis-like-icon-lg::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border: 3px solid #8ECCFC;
+  border-radius: 50%;
+  top: -4px;
+  left: -2px;
+}
+
+.cis-like-icon-lg::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border: 3px solid #8ECCFC;
+  border-radius: 50%;
+  top: -4px;
+  right: -2px;
+}
+
+/* 大型按讚圖標 - 已按讚狀態 */
+.cis-like-icon-lg.cis-liked {
+  background: #CF6679;
+  border-color: #CF6679;
+}
+
+.cis-like-icon-lg.cis-liked::before,
+.cis-like-icon-lg.cis-liked::after {
+  background: #CF6679;
+  border-color: #CF6679;
+}
+
+/* 大型分享圖標 */
+.cis-share-icon-lg {
+  width: 26px;
+  height: 22px;
+  border: 3px solid #8ECCFC;
+  background: transparent;
+  border-radius: 1px;
+  position: relative;
+}
+
+/* 大型分享圖標 - 已分享狀態 */
+.cis-share-icon-lg.cis-shared {
+  background: #0296F9;
+  border-color: #0296F9;
+}
+
+/* ===========================
+   社群按鈕樣式
+   =========================== */
+.cis-social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 125%;
+  color: #8ECCFC;
+}
+
+.cis-social-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+.cis-social-button:active {
+  transform: scale(0.98);
+}
+
+.cis-social-button.cis-liked {
+  border-color: #CF6679;
+  color: #CF6679;
+}
+
+.cis-social-button.cis-shared {
+  border-color: #0296F9;
+  color: #0296F9;
+}
+
+/* ===========================
+   響應式設計
+   =========================== */
+
+/* 平板直式 */
+@media (max-width: 768px) {
+  .cis-article-card {
+    max-width: 768px;
+  }
+  
+  .cis-article-social-bar {
+    gap: 20px;
+    padding: 16px 12px;
+  }
+  
+  .cis-article-social-divider {
+    height: 41px;
+  }
+}
+
+/* 手機 */
+@media (max-width: 375px) {
+  .cis-article-card {
+    max-width: 375px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .cis-article-image {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .cis-article-content {
+    height: auto;
+  }
+  
+  .cis-article-social-bar {
+    gap: 16px;
+    padding: 8px 12px;
+    height: 48px;
+  }
+  
+  .cis-social-text-lg {
+    font-size: 20px;
+  }
+  
+  .cis-article-social-divider {
+    height: 32px;
+  }
+}
+
+/* ===========================
+   互動效果動畫
+   =========================== */
+@keyframes cis-like-bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cis-share-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.cis-social-action.cis-animate-like {
+  animation: cis-like-bounce 0.3s ease;
+}
+
+.cis-social-action.cis-animate-share {
+  animation: cis-share-pulse 0.3s ease;
+}
+
+/* ===========================
+   文章卡片變體
+   =========================== */
+.cis-article-card-compact {
+  padding: 8px;
+  gap: 12px;
+}
+
+.cis-article-card-compact .cis-article-image {
+  width: 200px;
+  height: 120px;
+}
+
+.cis-article-card-compact .cis-article-title {
+  font-size: 18px;
+  height: 48px;
+  -webkit-line-clamp: 2;
+}
+
+.cis-article-card-compact .cis-article-description {
+  font-size: 14px;
+  height: 60px;
+  -webkit-line-clamp: 3;
+}
