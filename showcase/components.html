@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.7.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.8.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -174,6 +174,7 @@
                 <li><a href="#badges">徽章 Badges</a></li>
                 <li><a href="#icons">圖標 Icons</a></li>
                 <li><a href="#links">連結 Links</a></li>
+                <li><a href="#elevation">層級 Elevation</a></li>
             </ul>
         </div>
         
@@ -829,6 +830,193 @@
     &lt;a href="#" class="cis-link cis-link-sm"&gt;急難救助&lt;/a&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Elevation 層級系統 -->
+        <section id="elevation" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">層級系統 Elevation</h2>
+                <p class="showcase-section-description">
+                    基於 Material Design 3.0 的層級陰影系統，提供0dp到24dp的完整層級體驗
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">Material Design Elevation 層級</h3>
+                <p class="showcase-example-description">不同層級的陰影和背景疊加效果展示</p>
+                
+                <div class="showcase-example-demo">
+                    <div style="background: #292929; padding: var(--cis-spacing-8); border-radius: var(--cis-radius-lg);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cis-spacing-6);">
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-0" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">00dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">表面層級</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 0%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-1" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">01dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">微微提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 5%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-2" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">02dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">輕微提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 7%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-3" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">03dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">小幅提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 8%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-4" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">04dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">中度提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 9%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-6" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">06dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">明顯提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 11%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-8" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">08dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">顯著提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 12%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-12" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">12dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">高度提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 14%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-16" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">16dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">極高提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 15%</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div class="cis-elevation-24" style="width: 160px; height: 100px; margin: 0 auto var(--cis-spacing-3); border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600;">24dp</div>
+                                <p style="color: #FFFFFF; margin: 0; font-size: 14px;">最高提升</p>
+                                <p style="color: rgba(255, 255, 255, 0.6); margin: 0; font-size: 12px;">Overlay: 16%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-example-code">
+                    <pre><code>&lt;!-- 基礎 elevation 類別 --&gt;
+&lt;div class="cis-elevation-0"&gt;00dp 表面層級&lt;/div&gt;
+&lt;div class="cis-elevation-1"&gt;01dp 微微提升&lt;/div&gt;
+&lt;div class="cis-elevation-4"&gt;04dp 中度提升&lt;/div&gt;
+&lt;div class="cis-elevation-8"&gt;08dp 顯著提升&lt;/div&gt;
+&lt;div class="cis-elevation-24"&gt;24dp 最高提升&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">預製表面組件</h3>
+                <p class="showcase-example-description">常用的表面組件，包含適當的層級和交互效果</p>
+                
+                <div class="showcase-example-demo">
+                    <div style="background: #292929; padding: var(--cis-spacing-8); border-radius: var(--cis-radius-lg);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--cis-spacing-6);">
+                            <div class="cis-surface-card">
+                                <h4 style="color: #FFFFFF; margin: 0 0 var(--cis-spacing-2); font-size: 18px;">卡片表面</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0; font-size: 14px;">具有懸停提升效果的卡片組件</p>
+                            </div>
+                            
+                            <div class="cis-surface-nav" style="padding: var(--cis-spacing-4); border-radius: var(--cis-radius-lg);">
+                                <h4 style="color: #FFFFFF; margin: 0 0 var(--cis-spacing-2); font-size: 18px;">導航表面</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0; font-size: 14px;">適用於導航欄的表面層級</p>
+                            </div>
+                            
+                            <div class="cis-surface-dropdown" style="padding: var(--cis-spacing-4); border-radius: var(--cis-radius-lg);">
+                                <h4 style="color: #FFFFFF; margin: 0 0 var(--cis-spacing-2); font-size: 18px;">下拉選單表面</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0; font-size: 14px;">浮動選單的適當層級</p>
+                            </div>
+                            
+                            <div class="cis-surface-fab" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <span style="color: #FFFFFF; font-size: 24px;">+</span>
+                            </div>
+                            
+                            <div class="cis-surface-modal" style="padding: var(--cis-spacing-6); border-radius: var(--cis-radius-xl);">
+                                <h4 style="color: #FFFFFF; margin: 0 0 var(--cis-spacing-2); font-size: 18px;">模態框表面</h4>
+                                <p style="color: rgba(255, 255, 255, 0.8); margin: 0; font-size: 14px;">最高層級的模態框組件</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-example-code">
+                    <pre><code>&lt;!-- 預製表面組件 --&gt;
+&lt;div class="cis-surface-card"&gt;卡片內容&lt;/div&gt;
+&lt;div class="cis-surface-nav"&gt;導航內容&lt;/div&gt;
+&lt;div class="cis-surface-dropdown"&gt;選單內容&lt;/div&gt;
+&lt;div class="cis-surface-fab"&gt;浮動按鈕&lt;/div&gt;
+&lt;div class="cis-surface-modal"&gt;模態框內容&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">僅陰影效果</h3>
+                <p class="showcase-example-description">只應用陰影效果，不包含背景疊加</p>
+                
+                <div class="showcase-example-demo">
+                    <div style="background: #292929; padding: var(--cis-spacing-8); border-radius: var(--cis-radius-lg);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--cis-spacing-4);">
+                            <div class="cis-shadow-1" style="width: 120px; height: 80px; background: #121212; border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 14px; margin: 0 auto;">Shadow 1</div>
+                            <div class="cis-shadow-2" style="width: 120px; height: 80px; background: #121212; border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 14px; margin: 0 auto;">Shadow 2</div>
+                            <div class="cis-shadow-4" style="width: 120px; height: 80px; background: #121212; border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 14px; margin: 0 auto;">Shadow 4</div>
+                            <div class="cis-shadow-8" style="width: 120px; height: 80px; background: #121212; border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 14px; margin: 0 auto;">Shadow 8</div>
+                            <div class="cis-shadow-16" style="width: 120px; height: 80px; background: #121212; border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 14px; margin: 0 auto;">Shadow 16</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-example-code">
+                    <pre><code>&lt;!-- 僅陰影類別 --&gt;
+&lt;div class="cis-shadow-1"&gt;陰影層級 1&lt;/div&gt;
+&lt;div class="cis-shadow-4"&gt;陰影層級 4&lt;/div&gt;
+&lt;div class="cis-shadow-8"&gt;陰影層級 8&lt;/div&gt;
+&lt;div class="cis-shadow-16"&gt;陰影層級 16&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">動態效果</h3>
+                <p class="showcase-example-description">懸停時的層級提升效果</p>
+                
+                <div class="showcase-example-demo">
+                    <div style="background: #292929; padding: var(--cis-spacing-8); border-radius: var(--cis-radius-lg);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cis-spacing-4);">
+                            <div class="cis-elevation-0 cis-elevation-hover-2" style="width: 160px; height: 100px; border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; cursor: pointer; margin: 0 auto;">
+                                懸停提升至 2dp
+                            </div>
+                            <div class="cis-elevation-1 cis-elevation-hover-4" style="width: 160px; height: 100px; border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; cursor: pointer; margin: 0 auto;">
+                                懸停提升至 4dp
+                            </div>
+                            <div class="cis-elevation-2 cis-elevation-hover-8" style="width: 160px; height: 100px; border-radius: var(--cis-radius-lg); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; cursor: pointer; margin: 0 auto;">
+                                懸停提升至 8dp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-example-code">
+                    <pre><code>&lt;!-- 懸停提升效果 --&gt;
+&lt;div class="cis-elevation-0 cis-elevation-hover-2"&gt;懸停提升&lt;/div&gt;
+&lt;div class="cis-elevation-1 cis-elevation-hover-4"&gt;懸停提升&lt;/div&gt;
+&lt;div class="cis-elevation-2 cis-elevation-hover-8"&gt;懸停提升&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>

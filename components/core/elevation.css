@@ -1,0 +1,250 @@
+/**
+ * CIS 設計系統 - Elevation 組件
+ * 基於 Material Design 3.0 規範
+ * 提供層級陰影和背景疊加系統
+ */
+
+/* ===========================
+   Elevation 基礎類別
+   =========================== */
+
+/* 00dp - 表面層級 */
+.cis-elevation-0 {
+  background: linear-gradient(0deg, var(--cis-overlay-0), var(--cis-overlay-0)), #121212;
+  box-shadow: var(--cis-elevation-0);
+}
+
+/* 01dp - 微微提升 */
+.cis-elevation-1 {
+  background: linear-gradient(0deg, var(--cis-overlay-1), var(--cis-overlay-1)), #121212;
+  box-shadow: var(--cis-elevation-1);
+}
+
+/* 02dp - 輕微提升 */
+.cis-elevation-2 {
+  background: linear-gradient(0deg, var(--cis-overlay-2), var(--cis-overlay-2)), #121212;
+  box-shadow: var(--cis-elevation-2);
+}
+
+/* 03dp - 小幅提升 */
+.cis-elevation-3 {
+  background: linear-gradient(0deg, var(--cis-overlay-3), var(--cis-overlay-3)), #121212;
+  box-shadow: var(--cis-elevation-3);
+}
+
+/* 04dp - 中度提升 */
+.cis-elevation-4 {
+  background: linear-gradient(0deg, var(--cis-overlay-4), var(--cis-overlay-4)), #121212;
+  box-shadow: var(--cis-elevation-4);
+}
+
+/* 06dp - 明顯提升 */
+.cis-elevation-6 {
+  background: linear-gradient(0deg, var(--cis-overlay-6), var(--cis-overlay-6)), #121212;
+  box-shadow: var(--cis-elevation-6);
+}
+
+/* 08dp - 顯著提升 */
+.cis-elevation-8 {
+  background: linear-gradient(0deg, var(--cis-overlay-8), var(--cis-overlay-8)), #121212;
+  box-shadow: var(--cis-elevation-8);
+}
+
+/* 12dp - 高度提升 */
+.cis-elevation-12 {
+  background: linear-gradient(0deg, var(--cis-overlay-12), var(--cis-overlay-12)), #121212;
+  box-shadow: var(--cis-elevation-12);
+}
+
+/* 16dp - 極高提升 */
+.cis-elevation-16 {
+  background: linear-gradient(0deg, var(--cis-overlay-16), var(--cis-overlay-16)), #121212;
+  box-shadow: var(--cis-elevation-16);
+}
+
+/* 24dp - 最高提升 */
+.cis-elevation-24 {
+  background: linear-gradient(0deg, var(--cis-overlay-24), var(--cis-overlay-24)), #121212;
+  box-shadow: var(--cis-elevation-24);
+}
+
+/* ===========================
+   僅陰影類別 (不包含背景疊加)
+   =========================== */
+
+.cis-shadow-0 { box-shadow: var(--cis-elevation-0); }
+.cis-shadow-1 { box-shadow: var(--cis-elevation-1); }
+.cis-shadow-2 { box-shadow: var(--cis-elevation-2); }
+.cis-shadow-3 { box-shadow: var(--cis-elevation-3); }
+.cis-shadow-4 { box-shadow: var(--cis-elevation-4); }
+.cis-shadow-6 { box-shadow: var(--cis-elevation-6); }
+.cis-shadow-8 { box-shadow: var(--cis-elevation-8); }
+.cis-shadow-12 { box-shadow: var(--cis-elevation-12); }
+.cis-shadow-16 { box-shadow: var(--cis-elevation-16); }
+.cis-shadow-24 { box-shadow: var(--cis-elevation-24); }
+
+/* ===========================
+   僅背景疊加類別 (不包含陰影)
+   =========================== */
+
+.cis-overlay-0 { 
+  background: linear-gradient(0deg, var(--cis-overlay-0), var(--cis-overlay-0)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-1 { 
+  background: linear-gradient(0deg, var(--cis-overlay-1), var(--cis-overlay-1)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-2 { 
+  background: linear-gradient(0deg, var(--cis-overlay-2), var(--cis-overlay-2)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-3 { 
+  background: linear-gradient(0deg, var(--cis-overlay-3), var(--cis-overlay-3)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-4 { 
+  background: linear-gradient(0deg, var(--cis-overlay-4), var(--cis-overlay-4)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-6 { 
+  background: linear-gradient(0deg, var(--cis-overlay-6), var(--cis-overlay-6)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-8 { 
+  background: linear-gradient(0deg, var(--cis-overlay-8), var(--cis-overlay-8)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-12 { 
+  background: linear-gradient(0deg, var(--cis-overlay-12), var(--cis-overlay-12)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-16 { 
+  background: linear-gradient(0deg, var(--cis-overlay-16), var(--cis-overlay-16)), var(--cis-bg-primary, #121212); 
+}
+.cis-overlay-24 { 
+  background: linear-gradient(0deg, var(--cis-overlay-24), var(--cis-overlay-24)), var(--cis-bg-primary, #121212); 
+}
+
+/* ===========================
+   Elevation 動畫效果
+   =========================== */
+
+/* 懸停時提升一個層級 */
+.cis-elevation-hover-1:hover { 
+  box-shadow: var(--cis-elevation-1);
+  background: linear-gradient(0deg, var(--cis-overlay-1), var(--cis-overlay-1)), #121212;
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out), 
+              background var(--cis-duration-300) var(--cis-ease-out);
+}
+
+.cis-elevation-hover-2:hover { 
+  box-shadow: var(--cis-elevation-2);
+  background: linear-gradient(0deg, var(--cis-overlay-2), var(--cis-overlay-2)), #121212;
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out), 
+              background var(--cis-duration-300) var(--cis-ease-out);
+}
+
+.cis-elevation-hover-4:hover { 
+  box-shadow: var(--cis-elevation-4);
+  background: linear-gradient(0deg, var(--cis-overlay-4), var(--cis-overlay-4)), #121212;
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out), 
+              background var(--cis-duration-300) var(--cis-ease-out);
+}
+
+.cis-elevation-hover-8:hover { 
+  box-shadow: var(--cis-elevation-8);
+  background: linear-gradient(0deg, var(--cis-overlay-8), var(--cis-overlay-8)), #121212;
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out), 
+              background var(--cis-duration-300) var(--cis-ease-out);
+}
+
+/* ===========================
+   表面組件 - 預製的常用元件
+   =========================== */
+
+/* 卡片表面 */
+.cis-surface-card {
+  background: linear-gradient(0deg, var(--cis-overlay-1), var(--cis-overlay-1)), #121212;
+  box-shadow: var(--cis-elevation-1);
+  border-radius: var(--cis-radius-lg);
+  padding: var(--cis-spacing-4);
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out), 
+              background var(--cis-duration-300) var(--cis-ease-out);
+}
+
+.cis-surface-card:hover {
+  box-shadow: var(--cis-elevation-4);
+  background: linear-gradient(0deg, var(--cis-overlay-4), var(--cis-overlay-4)), #121212;
+}
+
+/* 浮動動作按鈕表面 */
+.cis-surface-fab {
+  background: linear-gradient(0deg, var(--cis-overlay-6), var(--cis-overlay-6)), #121212;
+  box-shadow: var(--cis-elevation-6);
+  border-radius: var(--cis-radius-full);
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out), 
+              background var(--cis-duration-300) var(--cis-ease-out);
+}
+
+.cis-surface-fab:hover {
+  box-shadow: var(--cis-elevation-8);
+  background: linear-gradient(0deg, var(--cis-overlay-8), var(--cis-overlay-8)), #121212;
+}
+
+/* 導航欄表面 */
+.cis-surface-nav {
+  background: linear-gradient(0deg, var(--cis-overlay-2), var(--cis-overlay-2)), #121212;
+  box-shadow: var(--cis-elevation-2);
+  transition: box-shadow var(--cis-duration-300) var(--cis-ease-out);
+}
+
+/* 模態框表面 */
+.cis-surface-modal {
+  background: linear-gradient(0deg, var(--cis-overlay-24), var(--cis-overlay-24)), #121212;
+  box-shadow: var(--cis-elevation-24);
+  border-radius: var(--cis-radius-xl);
+}
+
+/* 下拉選單表面 */
+.cis-surface-dropdown {
+  background: linear-gradient(0deg, var(--cis-overlay-8), var(--cis-overlay-8)), #121212;
+  box-shadow: var(--cis-elevation-8);
+  border-radius: var(--cis-radius-lg);
+}
+
+/* ===========================
+   響應式 Elevation
+   =========================== */
+
+/* 在小螢幕上降低陰影強度 */
+@media (max-width: 768px) {
+  .cis-elevation-8 { box-shadow: var(--cis-elevation-4); }
+  .cis-elevation-12 { box-shadow: var(--cis-elevation-6); }
+  .cis-elevation-16 { box-shadow: var(--cis-elevation-8); }
+  .cis-elevation-24 { box-shadow: var(--cis-elevation-12); }
+}
+
+/* ===========================
+   可訪問性優化
+   =========================== */
+
+/* 減少動效偏好設定 */
+@media (prefers-reduced-motion: reduce) {
+  .cis-elevation-hover-1,
+  .cis-elevation-hover-2,
+  .cis-elevation-hover-4,
+  .cis-elevation-hover-8,
+  .cis-surface-card,
+  .cis-surface-fab,
+  .cis-surface-nav {
+    transition: none;
+  }
+}
+
+/* 高對比模式 */
+@media (prefers-contrast: high) {
+  .cis-elevation-1,
+  .cis-elevation-2,
+  .cis-elevation-3,
+  .cis-elevation-4,
+  .cis-elevation-6,
+  .cis-elevation-8,
+  .cis-elevation-12,
+  .cis-elevation-16,
+  .cis-elevation-24 {
+    border: 1px solid var(--cis-border-strong, rgba(255, 255, 255, 0.2));
+  }
+}

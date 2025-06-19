@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v1.0.7 - CIS Dark Mode</title>
-    <meta name="description" content="慈濟設計系統 v1.0.7 - 基於 CIS 大入口網 Dark Mode 設計規範">
+    <title>慈濟設計系統 v1.0.8 - CIS Dark Mode</title>
+    <meta name="description" content="慈濟設計系統 v1.0.8 - 基於 CIS 大入口網 Dark Mode 設計規範">
     <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
-    <meta property="og:title" content="慈濟設計系統 v1.0.7">
+    <meta property="og:title" content="慈濟設計系統 v1.0.8">
     <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.7.css">
+    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.8.css">
     <style>
         /* 展示頁面專用樣式 */
         .demo-container {
@@ -89,7 +89,7 @@
         <header class="demo-header">
             <h1 class="cis-h1">
                 慈濟設計系統
-                <span class="version-badge">v1.0.7</span>
+                <span class="version-badge">v1.0.8</span>
             </h1>
             <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
             <p class="cis-caption">更新日期：2025-06-19</p>
@@ -300,6 +300,62 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elevation 層級系統 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">Elevation 層級系統</h2>
+            
+            <h3 class="cis-h4">Material Design 層級</h3>
+            <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--cis-spacing-4);">
+                    <div style="text-align: center;">
+                        <div class="cis-elevation-0" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">00dp</div>
+                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">表面層級</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cis-elevation-1" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">01dp</div>
+                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">微微提升</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cis-elevation-4" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">04dp</div>
+                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">中度提升</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cis-elevation-8" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">08dp</div>
+                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">顯著提升</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cis-elevation-16" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">16dp</div>
+                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">極高提升</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cis-elevation-24" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">24dp</div>
+                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">最高提升</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">預製表面組件</h3>
+            <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cis-spacing-4);">
+                    <div class="cis-surface-card">
+                        <p style="color: #FFFFFF; margin: 0; font-size: 14px; font-weight: 600;">卡片表面</p>
+                        <p style="color: rgba(255, 255, 255, 0.7); margin: var(--cis-spacing-1) 0 0; font-size: 12px;">懸停提升效果</p>
+                    </div>
+                    <div class="cis-surface-nav" style="padding: var(--cis-spacing-3); border-radius: var(--cis-radius-md);">
+                        <p style="color: #FFFFFF; margin: 0; font-size: 14px; font-weight: 600;">導航表面</p>
+                        <p style="color: rgba(255, 255, 255, 0.7); margin: var(--cis-spacing-1) 0 0; font-size: 12px;">導航欄層級</p>
+                    </div>
+                    <div class="cis-surface-dropdown" style="padding: var(--cis-spacing-3); border-radius: var(--cis-radius-md);">
+                        <p style="color: #FFFFFF; margin: 0; font-size: 14px; font-weight: 600;">下拉選單</p>
+                        <p style="color: rgba(255, 255, 255, 0.7); margin: var(--cis-spacing-1) 0 0; font-size: 12px;">浮動選單</p>
+                    </div>
+                    <div class="cis-surface-fab" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <span style="color: #FFFFFF; font-size: 20px;">+</span>
                     </div>
                 </div>
             </div>
@@ -986,7 +1042,7 @@
         <footer class="demo-section">
             <div class="demo-box" style="text-align: center;">
                 <h3 class="cis-h4">版本資訊</h3>
-                <p class="cis-body">慈濟設計系統 v1.0.7</p>
+                <p class="cis-body">慈濟設計系統 v1.0.8</p>
                 <p class="cis-caption">基於 CIS 大入口網 Dark Mode 設計規範</p>
                 <p class="cis-caption">發布日期：2025-06-18</p>
                 <div class="demo-flex" style="justify-content: center; margin-top: var(--cis-spacing-4);">

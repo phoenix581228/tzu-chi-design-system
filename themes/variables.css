@@ -61,15 +61,40 @@
   --cis-radius-full: 9999px;
   
   /* ===========================
-     陰影系統 (Elevation)
+     陰影系統 (Elevation) - Material Design 3.0
      =========================== */
-  --cis-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --cis-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --cis-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --cis-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --cis-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --cis-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --cis-shadow-2xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  /* Material Design Elevation 層級 */
+  --cis-elevation-0: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --cis-elevation-1: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  --cis-elevation-2: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+  --cis-elevation-3: 0px 3px 4px rgba(0, 0, 0, 0.14), 0px 3px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.2);
+  --cis-elevation-4: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+  --cis-elevation-6: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2);
+  --cis-elevation-8: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+  --cis-elevation-12: 0px 12px 17px rgba(0, 0, 0, 0.14), 0px 5px 22px rgba(0, 0, 0, 0.12), 0px 7px 8px rgba(0, 0, 0, 0.2);
+  --cis-elevation-16: 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.2);
+  --cis-elevation-24: 0px 24px 38px rgba(0, 0, 0, 0.14), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  
+  /* 向後兼容的陰影別名 */
+  --cis-shadow-xs: var(--cis-elevation-0);
+  --cis-shadow-sm: var(--cis-elevation-1);
+  --cis-shadow-base: var(--cis-elevation-2);
+  --cis-shadow-md: var(--cis-elevation-4);
+  --cis-shadow-lg: var(--cis-elevation-8);
+  --cis-shadow-xl: var(--cis-elevation-16);
+  --cis-shadow-2xl: var(--cis-elevation-24);
+  
+  /* Dark Mode 背景疊加 (Overlay) */
+  --cis-overlay-0: rgba(255, 255, 255, 0);     /* 0% */
+  --cis-overlay-1: rgba(255, 255, 255, 0.05);  /* 5% */
+  --cis-overlay-2: rgba(255, 255, 255, 0.07);  /* 7% */
+  --cis-overlay-3: rgba(255, 255, 255, 0.08);  /* 8% */
+  --cis-overlay-4: rgba(255, 255, 255, 0.09);  /* 9% */
+  --cis-overlay-6: rgba(255, 255, 255, 0.11);  /* 11% */
+  --cis-overlay-8: rgba(255, 255, 255, 0.12);  /* 12% */
+  --cis-overlay-12: rgba(255, 255, 255, 0.14); /* 14% */
+  --cis-overlay-16: rgba(255, 255, 255, 0.15); /* 15% */
+  --cis-overlay-24: rgba(255, 255, 255, 0.16); /* 16% */
   
   /* ===========================
      動畫時間
