@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v1.0.9 - CIS Dark Mode</title>
-    <meta name="description" content="慈濟設計系統 v1.0.9 - 基於 CIS 大入口網 Dark Mode 設計規範">
+    <title>慈濟設計系統 v1.0.10 - CIS Dark Mode</title>
+    <meta name="description" content="慈濟設計系統 v1.0.10 - 基於 CIS 大入口網 Dark Mode 設計規範">
     <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
-    <meta property="og:title" content="慈濟設計系統 v1.0.9">
+    <meta property="og:title" content="慈濟設計系統 v1.0.10">
     <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.9.css">
+    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.10.css">
     <style>
         /* 展示頁面專用樣式 */
         .demo-container {
@@ -89,7 +89,7 @@
         <header class="demo-header">
             <h1 class="cis-h1">
                 慈濟設計系統
-                <span class="version-badge">v1.0.9</span>
+                <span class="version-badge">v1.0.10</span>
             </h1>
             <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
             <p class="cis-caption">更新日期：2025-06-19</p>
@@ -611,35 +611,44 @@
 
             <h3 class="cis-h4">圖標按鈕</h3>
             <div class="demo-box">
-                <div class="demo-flex">
-                    <button class="cis-icon-button">
-                        <span class="cis-icon cis-icon-24">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <button class="cis-icon-button">
-                        <span class="cis-icon cis-icon-24 cis-icon-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <button class="cis-icon-button">
-                        <span class="cis-icon cis-icon-24 cis-icon-danger">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <button class="cis-icon-button" disabled>
-                        <span class="cis-icon cis-icon-24">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </span>
-                    </button>
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">CIS 箭頭圖標按鈕</p>
+                    <div class="demo-flex">
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" title="右箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-left" title="左箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-up" title="上箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-down" title="下箭頭"></button>
+                    </div>
+                </div>
+                
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">CIS 雙箭頭圖標按鈕</p>
+                    <div class="demo-flex">
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow" title="右雙箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-left" title="左雙箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-up" title="上雙箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-down" title="下雙箭頭"></button>
+                    </div>
+                </div>
+                
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">播放控制圖標按鈕</p>
+                    <div class="demo-flex">
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-play" style="color: #E3F3FE;" title="播放"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-pause" style="color: #E3F3FE;" title="暫停"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-stop" style="color: #E3F3FE;" title="停止"></button>
+                    </div>
+                </div>
+                
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">不同尺寸與樣式</p>
+                    <div class="demo-flex">
+                        <button class="cis-icon-button cis-icon-button-24 cis-icon-button-arrow" title="24px 箭頭"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-filled" title="填充樣式"></button>
+                        <button class="cis-icon-button cis-icon-button-40 cis-icon-button-arrow cis-icon-button-outlined" title="邊框樣式"></button>
+                        <button class="cis-icon-button cis-icon-button-48 cis-icon-button-arrow cis-icon-button-round" title="圓形樣式"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" disabled title="禁用狀態"></button>
+                    </div>
                 </div>
             </div>
 

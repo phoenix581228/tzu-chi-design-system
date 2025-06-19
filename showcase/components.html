@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.9.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.10.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -175,6 +175,7 @@
                 <li><a href="#icons">圖標 Icons</a></li>
                 <li><a href="#links">連結 Links</a></li>
                 <li><a href="#elevation">層級 Elevation</a></li>
+                <li><a href="#icon-buttons">圖標按鈕 Icon Buttons</a></li>
             </ul>
         </div>
         
@@ -1751,6 +1752,156 @@
 
 &lt;!-- 僅垂直間距 --&gt;
 &lt;div class="cis-row cis-gy-3"&gt;...&lt;/div&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 圖標按鈕系統 -->
+        <section id="icon-buttons" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">圖標按鈕 Icon Buttons</h2>
+                <p class="showcase-section-description">
+                    基於 CIS 設計規範的圖標按鈕組件，支援多種樣式、尺寸和交互狀態
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">CIS 箭頭圖標按鈕</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-2">
+                        <div>
+                            <h4 class="cis-h5">單箭頭</h4>
+                            <div class="demo-flex">
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" title="右箭頭"></button>
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-left" title="左箭頭"></button>
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-up" title="上箭頭"></button>
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-down" title="下箭頭"></button>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="cis-h5">雙箭頭</h4>
+                            <div class="demo-flex">
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow" title="右雙箭頭"></button>
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-left" title="左雙箭頭"></button>
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-up" title="上雙箭頭"></button>
+                                <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-down" title="下雙箭頭"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;!-- 單箭頭按鈕 --&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-left"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-up"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-down"&gt;&lt;/button&gt;
+
+&lt;!-- 雙箭頭按鈕 --&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-left"&gt;&lt;/button&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">播放控制按鈕</h3>
+                <div class="showcase-example-demo">
+                    <div class="demo-flex">
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-play" style="color: #E3F3FE;" title="播放"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-pause" style="color: #E3F3FE;" title="暫停"></button>
+                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-stop" style="color: #E3F3FE;" title="停止"></button>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-play"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-pause"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-stop"&gt;&lt;/button&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">尺寸變體</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-4">
+                        <div>
+                            <h4 class="cis-h6">24px</h4>
+                            <button class="cis-icon-button cis-icon-button-24 cis-icon-button-arrow" title="24px"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">32px</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" title="32px"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">40px</h4>
+                            <button class="cis-icon-button cis-icon-button-40 cis-icon-button-arrow" title="40px"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">48px</h4>
+                            <button class="cis-icon-button cis-icon-button-48 cis-icon-button-arrow" title="48px"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;button class="cis-icon-button cis-icon-button-24 cis-icon-button-arrow"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-40 cis-icon-button-arrow"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-48 cis-icon-button-arrow"&gt;&lt;/button&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">樣式變體</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-4">
+                        <div>
+                            <h4 class="cis-h6">預設</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" title="預設樣式"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">填充</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-filled" title="填充樣式"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">邊框</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-outlined" title="邊框樣式"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">圓形</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-round" title="圓形樣式"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-filled"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-outlined"&gt;&lt;/button&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-round"&gt;&lt;/button&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">狀態展示</h3>
+                <div class="showcase-example-demo">
+                    <div class="showcase-grid showcase-grid-3">
+                        <div>
+                            <h4 class="cis-h6">正常狀態</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" title="正常狀態"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">懸停狀態 (手動觸發)</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" style="background-color: var(--cis-surface-2);" title="懸停狀態"></button>
+                        </div>
+                        <div>
+                            <h4 class="cis-h6">禁用狀態</h4>
+                            <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" disabled title="禁用狀態"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;!-- 正常狀態 --&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow"&gt;&lt;/button&gt;
+
+&lt;!-- 禁用狀態 --&gt;
+&lt;button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" disabled&gt;&lt;/button&gt;</pre>
                 </div>
             </div>
         </section>
