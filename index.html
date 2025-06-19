@@ -3,1248 +3,522 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v1.0.11 - CIS Dark Mode</title>
-    <meta name="description" content="慈濟設計系統 v1.0.11 - 基於 CIS 大入口網 Dark Mode 設計規範">
-    <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
-    <meta property="og:title" content="慈濟設計系統 v1.0.11">
-    <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
+    <title>慈濟設計系統 v2.0.0 - Material Design 3.0</title>
+    <meta name="description" content="慈濟設計系統 v2.0.0 - 基於 Material Design 3.0 的完整設計系統">
+    <meta name="keywords" content="慈濟,設計系統,Material Design,design system,CSS framework">
+    <meta property="og:title" content="慈濟設計系統 v2.0.0 - Material Design 3.0">
+    <meta property="og:description" content="完整的 Material Design 3.0 色彩系統與企業級 CSS 框架">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://phoenix581228.github.io/tzu-chi-design-system/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.11.css">
+    
+    <!-- Material Design 3.0 CSS System -->
+    <link rel="stylesheet" href="themes/material-design.css">
+    
     <style>
-        /* 展示頁面專用樣式 */
-        .demo-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--cis-spacing-8) var(--cis-spacing-4);
-        }
-        
-        .demo-header {
+        /* 首頁專用樣式 */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+            color: var(--on-primary);
             text-align: center;
-            margin-bottom: var(--cis-spacing-16);
-            padding-bottom: var(--cis-spacing-8);
-            border-bottom: 1px solid var(--cis-border-default);
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
         }
         
-        .demo-section {
-            margin-bottom: var(--cis-spacing-16);
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
         
-        .demo-section-title {
-            margin-bottom: var(--cis-spacing-6);
-            padding-bottom: var(--cis-spacing-3);
-            border-bottom: 1px solid var(--cis-border-light);
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
         
-        .demo-grid {
-            display: grid;
-            gap: var(--cis-spacing-4);
-            margin-bottom: var(--cis-spacing-8);
+        .hero-version {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--cis-radius-full);
+            font-weight: 500;
+            margin-bottom: 2rem;
         }
         
-        .demo-grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-        
-        .demo-grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
-        
-        .demo-box {
-            padding: var(--cis-spacing-4);
-            background-color: var(--cis-surface-2);
-            border-radius: var(--cis-radius-lg);
-            border: 1px solid var(--cis-border-light);
-        }
-        
-        .demo-flex {
+        .cta-buttons {
             display: flex;
+            gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: var(--cis-spacing-3);
-            align-items: center;
         }
         
-        .color-preview {
-            width: 100%;
+        .btn-hero {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: var(--cis-radius-lg);
+            text-decoration: none;
+            transition: all var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .btn-hero-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-hero-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-hero-secondary {
+            background: white;
+            color: var(--primary-700);
+            border: 2px solid white;
+        }
+        
+        .btn-hero-secondary:hover {
+            background: var(--primary-50);
+            transform: translateY(-2px);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2rem;
+            box-shadow: var(--cis-elevation-2);
+            transition: all var(--cis-duration-300) var(--cis-ease-out);
+        }
+        
+        .feature-card:hover {
+            box-shadow: var(--cis-elevation-8);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-100);
+            border-radius: var(--cis-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-description {
+            color: var(--text-medium-emphasis);
+            line-height: 1.6;
+        }
+        
+        .color-showcase {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--cis-elevation-1);
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .color-swatch {
             height: 80px;
             border-radius: var(--cis-radius-md);
-            margin-bottom: var(--cis-spacing-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+            font-size: 0.875rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .version-badge {
-            display: inline-block;
-            padding: var(--cis-spacing-1) var(--cis-spacing-3);
-            background-color: var(--cis-brand-primary);
+        .color-swatch::after {
+            content: attr(data-color);
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.5rem;
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.7);
             color: white;
-            border-radius: var(--cis-radius-full);
-            font-size: var(--cis-font-size-sm);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--cis-radius-base);
+        }
+        
+        .stats-section {
+            background: var(--primary-50);
+            border-radius: var(--cis-radius-xl);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-700);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-medium-emphasis);
+            font-weight: 500;
+        }
+        
+        .changelog-section {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .changelog-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--divider);
+        }
+        
+        .changelog-item:last-child {
+            border-bottom: none;
+        }
+        
+        .changelog-version {
             font-weight: 600;
-            margin-left: var(--cis-spacing-2);
+            color: var(--primary-600);
+            margin-bottom: 0.5rem;
+        }
+        
+        .changelog-date {
+            font-size: 0.875rem;
+            color: var(--text-medium-emphasis);
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--divider);
+            color: var(--text-medium-emphasis);
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-hero {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
-<body>
-    <div class="demo-container">
-        <!-- 頁面標題 -->
-        <header class="demo-header">
-            <h1 class="cis-h1">
-                慈濟設計系統
-                <span class="version-badge">v1.0.11</span>
-            </h1>
-            <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
-            <p class="cis-caption">更新日期：2025-06-19</p>
-            
-            <!-- 快速導航 -->
-            <div class="demo-flex" style="justify-content: center; margin-top: var(--cis-spacing-6);">
-                <a href="showcase/components.html" class="cis-btn cis-btn-primary">
-                    查看完整組件庫
-                </a>
-                <a href="quick-start.html" class="cis-btn cis-btn-outline">
-                    快速開始
-                </a>
-                <a href="templates.html" class="cis-btn cis-btn-outline">
-                    模板範例
-                </a>
-            </div>
-        </header>
 
-        <!-- 色彩系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">色彩系統 Color System</h2>
-            
-            <h3 class="cis-h4">品牌色彩</h3>
-            <div class="demo-grid demo-grid-3">
-                <div class="demo-box">
-                    <div class="color-preview" style="background-color: var(--cis-brand-primary);"></div>
-                    <p class="cis-body-small">主色 Primary</p>
-                    <code class="cis-code">#2E7BCC</code>
-                </div>
-                <div class="demo-box">
-                    <div class="color-preview" style="background-color: var(--cis-brand-primary-light);"></div>
-                    <p class="cis-body-small">主色淺 Primary Light</p>
-                    <code class="cis-code">#5A9ADB</code>
-                </div>
-                <div class="demo-box">
-                    <div class="color-preview" style="background-color: var(--cis-brand-primary-dark);"></div>
-                    <p class="cis-body-small">主色深 Primary Dark</p>
-                    <code class="cis-code">#1E5BA8</code>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">功能色彩</h3>
-            <div class="demo-grid demo-grid-3">
-                <div class="demo-box">
-                    <div class="color-preview" style="background-color: var(--cis-success);"></div>
-                    <p class="cis-body-small">成功 Success</p>
-                    <code class="cis-code">#10B981</code>
-                </div>
-                <div class="demo-box">
-                    <div class="color-preview" style="background-color: var(--cis-warning);"></div>
-                    <p class="cis-body-small">警告 Warning</p>
-                    <code class="cis-code">#F59E0B</code>
-                </div>
-                <div class="demo-box">
-                    <div class="color-preview" style="background-color: var(--cis-danger);"></div>
-                    <p class="cis-body-small">危險 Danger</p>
-                    <code class="cis-code">#EF4444</code>
-                </div>
-            </div>
-        </section>
-
-        <!-- 文字排版 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">文字排版 Typography</h2>
-            <div class="demo-box">
-                <h1 class="cis-h1">標題一 Heading 1</h1>
-                <h2 class="cis-h2">標題二 Heading 2</h2>
-                <h3 class="cis-h3">標題三 Heading 3</h3>
-                <h4 class="cis-h4">標題四 Heading 4</h4>
-                <h5 class="cis-h5">標題五 Heading 5</h5>
-                <h6 class="cis-h6">標題六 Heading 6</h6>
-                <p class="cis-body-large">大型內文 Large Body Text</p>
-                <p class="cis-body">一般內文 Regular Body Text</p>
-                <p class="cis-body-small">小型內文 Small Body Text</p>
-                <p class="cis-caption">說明文字 Caption Text</p>
-            </div>
-        </section>
-
-        <!-- 按鈕系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">按鈕系統 Button System</h2>
-            
-            <h3 class="cis-h4">按鈕變體</h3>
-            <div class="demo-box">
-                <div class="demo-flex">
-                    <button class="cis-btn cis-btn-primary">主要按鈕</button>
-                    <button class="cis-btn cis-btn-secondary">次要按鈕</button>
-                    <button class="cis-btn cis-btn-outline">輪廓按鈕</button>
-                    <button class="cis-btn cis-btn-text">文字按鈕</button>
-                    <button class="cis-btn cis-btn-danger">危險按鈕</button>
-                    <button class="cis-btn cis-btn-success">成功按鈕</button>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">按鈕大小</h3>
-            <div class="demo-box">
-                <div class="demo-flex">
-                    <button class="cis-btn cis-btn-primary cis-btn-sm">小型按鈕</button>
-                    <button class="cis-btn cis-btn-primary cis-btn-md">中型按鈕</button>
-                    <button class="cis-btn cis-btn-primary cis-btn-lg">大型按鈕</button>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">按鈕狀態</h3>
-            <div class="demo-box">
-                <div class="demo-flex">
-                    <button class="cis-btn cis-btn-primary">正常狀態</button>
-                    <button class="cis-btn cis-btn-primary" disabled>禁用狀態</button>
-                    <button class="cis-btn cis-btn-primary cis-btn-loading">載入中</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 卡片系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">卡片系統 Card System</h2>
-            <div class="demo-grid demo-grid-2">
-                <div class="cis-card">
-                    <div class="cis-card-header">
-                        <h3 class="cis-card-title">基礎卡片</h3>
-                    </div>
-                    <div class="cis-card-body">
-                        <p class="cis-card-description">這是一個基礎卡片範例，包含標題和內容區域。</p>
-                    </div>
-                    <div class="cis-card-footer">
-                        <button class="cis-btn cis-btn-primary cis-btn-sm">了解更多</button>
-                    </div>
-                </div>
-
-                <div class="cis-card cis-card-elevated">
-                    <div class="cis-card-body">
-                        <h3 class="cis-card-title">提升卡片</h3>
-                        <p class="cis-card-subtitle">具有陰影效果</p>
-                        <p class="cis-card-description">這個卡片具有更明顯的陰影效果，適合需要強調的內容。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 表單元件 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">表單元件 Form Components</h2>
-            <div class="demo-grid demo-grid-2">
-                <div class="demo-box">
-                    <h3 class="cis-h4">文字輸入</h3>
-                    <div class="cis-form-control">
-                        <label class="cis-label cis-label-required">姓名</label>
-                        <input type="text" class="cis-input" placeholder="請輸入姓名">
-                        <span class="cis-form-text">請輸入您的真實姓名</span>
-                    </div>
-                    <div class="cis-form-control">
-                        <label class="cis-label">電子郵件</label>
-                        <input type="email" class="cis-input cis-input-success" placeholder="example@email.com">
-                        <span class="cis-form-text-success">電子郵件格式正確</span>
-                    </div>
-                </div>
-
-                <div class="demo-box">
-                    <h3 class="cis-h4">選擇控件</h3>
-                    <div class="cis-form-check">
-                        <input type="checkbox" class="cis-form-check-input" id="check1">
-                        <span class="cis-checkbox"></span>
-                        <label class="cis-form-check-label" for="check1">複選框選項</label>
-                    </div>
-                    <div class="cis-form-check">
-                        <input type="radio" class="cis-form-check-input" name="radio" id="radio1">
-                        <span class="cis-radio"></span>
-                        <label class="cis-form-check-label" for="radio1">單選框選項</label>
-                    </div>
-                    <div class="cis-form-switch">
-                        <label class="cis-switch">
-                            <input type="checkbox" class="cis-switch-input">
-                            <span class="cis-switch-slider"></span>
-                        </label>
-                        <label class="cis-form-check-label">開關控件</label>
-                    </div>
-                </div>
-                
-                <div class="demo-box">
-                    <h3 class="cis-h4">下拉選單</h3>
-                    <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cis-spacing-4);">
-                            <div>
-                                <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-2);">迷你尺寸</p>
-                                <div class="cis-select cis-select-mini">
-                                    <div class="cis-select-input">
-                                        <span class="cis-select-value">跨書搜尋</span>
-                                        <div class="cis-select-arrow"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-2);">中等尺寸</p>
-                                <div class="cis-select cis-select-md">
-                                    <div class="cis-select-input">
-                                        <span class="cis-select-value">台灣</span>
-                                        <div class="cis-select-arrow"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-2);">大型尺寸</p>
-                                <div class="cis-select cis-select-lg">
-                                    <div class="cis-select-input">
-                                        <span class="cis-select-value">台灣</span>
-                                        <div class="cis-select-arrow"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Elevation 層級系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">Elevation 層級系統</h2>
-            
-            <h3 class="cis-h4">Material Design 層級</h3>
-            <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--cis-spacing-4);">
-                    <div style="text-align: center;">
-                        <div class="cis-elevation-0" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">00dp</div>
-                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">表面層級</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="cis-elevation-1" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">01dp</div>
-                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">微微提升</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="cis-elevation-4" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">04dp</div>
-                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">中度提升</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="cis-elevation-8" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">08dp</div>
-                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">顯著提升</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="cis-elevation-16" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">16dp</div>
-                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">極高提升</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="cis-elevation-24" style="width: 140px; height: 80px; margin: 0 auto var(--cis-spacing-2); border-radius: var(--cis-radius-md); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 600; font-size: 14px;">24dp</div>
-                        <p style="color: #FFFFFF; margin: 0; font-size: 12px;">最高提升</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">預製表面組件</h3>
-            <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cis-spacing-4);">
-                    <div class="cis-surface-card">
-                        <p style="color: #FFFFFF; margin: 0; font-size: 14px; font-weight: 600;">卡片表面</p>
-                        <p style="color: rgba(255, 255, 255, 0.7); margin: var(--cis-spacing-1) 0 0; font-size: 12px;">懸停提升效果</p>
-                    </div>
-                    <div class="cis-surface-nav" style="padding: var(--cis-spacing-3); border-radius: var(--cis-radius-md);">
-                        <p style="color: #FFFFFF; margin: 0; font-size: 14px; font-weight: 600;">導航表面</p>
-                        <p style="color: rgba(255, 255, 255, 0.7); margin: var(--cis-spacing-1) 0 0; font-size: 12px;">導航欄層級</p>
-                    </div>
-                    <div class="cis-surface-dropdown" style="padding: var(--cis-spacing-3); border-radius: var(--cis-radius-md);">
-                        <p style="color: #FFFFFF; margin: 0; font-size: 14px; font-weight: 600;">下拉選單</p>
-                        <p style="color: rgba(255, 255, 255, 0.7); margin: var(--cis-spacing-1) 0 0; font-size: 12px;">浮動選單</p>
-                    </div>
-                    <div class="cis-surface-fab" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <span style="color: #FFFFFF; font-size: 20px;">+</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 徽章系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">徽章系統 Badge System</h2>
-            <div class="demo-box">
-                <h3 class="cis-h4">徽章變體</h3>
-                <div class="demo-flex">
-                    <span class="cis-badge cis-badge-primary">主要</span>
-                    <span class="cis-badge cis-badge-secondary">次要</span>
-                    <span class="cis-badge cis-badge-success">成功</span>
-                    <span class="cis-badge cis-badge-warning">警告</span>
-                    <span class="cis-badge cis-badge-danger">危險</span>
-                    <span class="cis-badge cis-badge-info">資訊</span>
-                </div>
-
-                <h3 class="cis-h4">SDGS 徽章</h3>
-                <div class="demo-flex">
-                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-1">1</span>
-                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-2">2</span>
-                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-3">3</span>
-                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-4">4</span>
-                    <span class="cis-badge cis-badge-sdgs cis-badge-sdgs-5">5</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 搜尋欄 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">搜尋欄 Search Bar</h2>
-            <div class="demo-box">
-                <div class="cis-search">
-                    <svg class="cis-search-icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                    </svg>
-                    <input type="search" class="cis-search-input" placeholder="搜尋...">
-                    <button class="cis-search-button">搜尋</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tab 組件 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">Tab 組件 Tab Component</h2>
-            
-            <h3 class="cis-h4">標準 Tab</h3>
-            <div class="demo-box">
-                <div class="cis-tabs" role="tablist">
-                    <button class="cis-tab cis-tab-lg cis-tab-active" role="tab" aria-selected="true" data-tab="tab1">
-                        <div class="cis-tab-content">
-                            <div class="cis-tab-icon">
-                                <svg viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 25.5c-6.351 0-11.5-5.149-11.5-11.5S9.649 4.5 16 4.5 27.5 9.649 27.5 16 22.351 27.5 16 27.5z"/>
-                                    <path d="M16 7c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9zm0 15.5c-3.584 0-6.5-2.916-6.5-6.5S12.416 9.5 16 9.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5z"/>
-                                </svg>
-                            </div>
-                            <span class="cis-tab-label">領航慈濟</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-lg" role="tab" aria-selected="false" data-tab="tab2">
-                        <div class="cis-tab-content">
-                            <div class="cis-tab-icon">
-                                <svg viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M16 2L4 14h3v13h18V14h3L16 2zm7 23H9V12.914l7-7 7 7V25z"/>
-                                </svg>
-                            </div>
-                            <span class="cis-tab-label">社區網絡</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-lg" role="tab" aria-selected="false" data-tab="tab3">
-                        <div class="cis-tab-content">
-                            <div class="cis-tab-icon">
-                                <svg viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm8.5 21.5l-2.5-2.5-6 6-6-6-2.5 2.5 6 6-6 6 2.5 2.5 6-6 6 6 2.5-2.5-6-6 6-6z"/>
-                                </svg>
-                            </div>
-                            <span class="cis-tab-label">慈善醫療</span>
-                        </div>
-                    </button>
-                </div>
-                
-                <!-- Tab 內容 -->
-                <div class="cis-tab-panel cis-tab-panel-active" id="tab1">
-                    <p class="cis-body">這是領航慈濟的內容區塊。展示了慈濟的核心理念與使命。</p>
-                </div>
-                <div class="cis-tab-panel" id="tab2">
-                    <p class="cis-body">這是社區網絡的內容區塊。連結社區力量，擴展慈善網絡。</p>
-                </div>
-                <div class="cis-tab-panel" id="tab3">
-                    <p class="cis-body">這是慈善醫療的內容區塊。提供醫療援助，照顧需要幫助的人。</p>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">小型 Tab</h3>
-            <div class="demo-box">
-                <div class="cis-tabs" role="tablist">
-                    <button class="cis-tab cis-tab-sm cis-tab-active" role="tab" aria-selected="true">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">概覽</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab" aria-selected="false">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">詳情</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab" aria-selected="false">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">設定</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">可滾動 Tab</h3>
-            <div class="demo-box" style="max-width: 500px;">
-                <div class="cis-tabs cis-tabs-scrollable" role="tablist">
-                    <button class="cis-tab cis-tab-sm cis-tab-active" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">慈善事業</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">醫療志業</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">教育志業</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">人文志業</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">國際賑災</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">骨髓捐贈</span>
-                        </div>
-                    </button>
-                    <button class="cis-tab cis-tab-sm" role="tab">
-                        <div class="cis-tab-content">
-                            <span class="cis-tab-label">環保志業</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 圖標系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">圖標系統 Icon System</h2>
-            
-            <h3 class="cis-h4">圖標尺寸</h3>
-            <div class="demo-box">
-                <div class="demo-flex" style="align-items: flex-end;">
-                    <div style="text-align: center;">
-                        <span class="cis-icon cis-icon-18">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            </svg>
-                        </span>
-                        <p class="cis-caption">18px</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <span class="cis-icon cis-icon-20">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            </svg>
-                        </span>
-                        <p class="cis-caption">20px</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <span class="cis-icon cis-icon-24">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            </svg>
-                        </span>
-                        <p class="cis-caption">24px</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <span class="cis-icon cis-icon-32">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            </svg>
-                        </span>
-                        <p class="cis-caption">32px</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <span class="cis-icon cis-icon-40">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            </svg>
-                        </span>
-                        <p class="cis-caption">40px</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <span class="cis-icon cis-icon-48">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            </svg>
-                        </span>
-                        <p class="cis-caption">48px</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">圖標顏色</h3>
-            <div class="demo-box">
-                <div class="demo-flex">
-                    <span class="cis-icon cis-icon-24 cis-icon-primary">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-secondary">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-success">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-warning">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-danger">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-info">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">圖標按鈕</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">CIS 箭頭圖標按鈕</p>
-                    <div class="demo-flex">
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" title="右箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-left" title="左箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-up" title="上箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow-down" title="下箭頭"></button>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">CIS 雙箭頭圖標按鈕</p>
-                    <div class="demo-flex">
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow" title="右雙箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-left" title="左雙箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-up" title="上雙箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-double-arrow-down" title="下雙箭頭"></button>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">播放控制圖標按鈕</p>
-                    <div class="demo-flex">
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-play" style="color: #E3F3FE;" title="播放"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-pause" style="color: #E3F3FE;" title="暫停"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-stop" style="color: #E3F3FE;" title="停止"></button>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">不同尺寸與樣式</p>
-                    <div class="demo-flex">
-                        <button class="cis-icon-button cis-icon-button-24 cis-icon-button-arrow" title="24px 箭頭"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow cis-icon-button-filled" title="填充樣式"></button>
-                        <button class="cis-icon-button cis-icon-button-40 cis-icon-button-arrow cis-icon-button-outlined" title="邊框樣式"></button>
-                        <button class="cis-icon-button cis-icon-button-48 cis-icon-button-arrow cis-icon-button-round" title="圓形樣式"></button>
-                        <button class="cis-icon-button cis-icon-button-32 cis-icon-button-arrow" disabled title="禁用狀態"></button>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">社群媒體圖標</h3>
-            <div class="demo-box">
-                <div class="demo-flex">
-                    <span class="cis-icon cis-icon-social cis-icon-social-fb cis-icon-32">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-social cis-icon-social-line cis-icon-32">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-social cis-icon-social-ig cis-icon-32">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-social cis-icon-social-youtube cis-icon-32">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-social cis-icon-social-x cis-icon-32">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">特殊圖標</h3>
-            <div class="demo-box">
-                <div class="demo-flex" style="align-items: center;">
-                    <span class="cis-icon cis-icon-dot" style="color: var(--cis-success);"></span>
-                    <span class="cis-icon cis-icon-more">
-                        <span></span>
-                    </span>
-                    <div class="cis-icon cis-icon-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <span class="cis-icon cis-icon-close"></span>
-                    <span class="cis-icon cis-icon-24">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-arrow-down">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-arrow-left">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                        </svg>
-                    </span>
-                    <span class="cis-icon cis-icon-24 cis-icon-arrow-up">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 連結系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">連結系統 Link System</h2>
-            
-            <h3 class="cis-h4">連結尺寸</h3>
-            <div class="demo-box">
-                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-4);">
-                    <a href="#" class="cis-link cis-link-sm">小型連結文字</a>
-                    <a href="#" class="cis-link cis-link-md">標準連結文字</a>
-                    <a href="#" class="cis-link cis-link-lg">大型連結文字</a>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">連結狀態</h3>
-            <div class="demo-box">
-                <div class="demo-flex">
-                    <a href="#" class="cis-link">預設連結</a>
-                    <a href="#" class="cis-link" style="color: var(--cis-brand-primary); text-decoration: underline;">懸停狀態</a>
-                    <a href="#" class="cis-link" style="color: var(--cis-brand-primary-dark);">點擊狀態</a>
-                    <a href="#" class="cis-link cis-link-disabled">禁用連結</a>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">帶圖標連結</h3>
-            <div class="demo-box">
-                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
-                    <a href="#" class="cis-link cis-link-sm cis-link-with-icon">
-                        登入新版大藏經
-                        <span class="cis-link-icon">
-                            <svg viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-                                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
-                            </svg>
-                        </span>
-                    </a>
-                    <a href="#" class="cis-link cis-link-lg cis-link-with-icon">
-                        下載檔案
-                        <span class="cis-link-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">特殊連結樣式</h3>
-            <div class="demo-box">
-                <div class="demo-flex" style="flex-direction: column; align-items: flex-start; gap: var(--cis-spacing-3);">
-                    <a href="#" class="cis-link cis-link-external">外部連結</a>
-                    <a href="#" class="cis-link cis-link-download">下載連結</a>
-                    <nav class="cis-breadcrumb">
-                        <div class="cis-breadcrumb-item">
-                            <a href="#" class="cis-link cis-link-sm">首頁</a>
-                            <span class="cis-breadcrumb-separator">/</span>
-                        </div>
-                        <div class="cis-breadcrumb-item">
-                            <a href="#" class="cis-link cis-link-sm">組件</a>
-                            <span class="cis-breadcrumb-separator">/</span>
-                        </div>
-                        <div class="cis-breadcrumb-item">
-                            <a href="#" class="cis-link cis-link-sm">連結系統</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </section>
-
-        <!-- 搜尋欄 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">搜尋欄 Search Bar</h2>
-            
-            <h3 class="cis-h4">基本搜尋欄</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">預設狀態</p>
-                    <div class="cis-search cis-search-sm">
-                        <input type="text" class="cis-search-input" placeholder="搜尋...">
-                        <button class="cis-search-button" type="button">
-                            <span class="cis-search-icon"></span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">禁用狀態</p>
-                    <div class="cis-search cis-search-sm cis-disabled">
-                        <input type="text" class="cis-search-input" placeholder="搜尋..." disabled>
-                        <button class="cis-search-button" type="button" disabled>
-                            <span class="cis-search-icon"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">尺寸變體</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">小型搜尋欄</p>
-                    <div class="cis-search cis-search-sm">
-                        <input type="text" class="cis-search-input" placeholder="搜尋內容...">
-                        <button class="cis-search-button" type="button">
-                            <span class="cis-search-icon"></span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">大型搜尋欄</p>
-                    <div class="cis-search cis-search-lg">
-                        <input type="text" class="cis-search-input" placeholder="搜尋慈濟相關內容...">
-                        <button class="cis-search-button" type="button">
-                            <span class="cis-search-icon"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 社群互動機制 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">社群互動機制 Social Interaction</h2>
-            
-            <h3 class="cis-h4">文章卡片</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">完全尚未按讚 / 分享</p>
-                    <div class="cis-article-card">
-                        <div class="cis-article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                        <div class="cis-article-content">
-                            <div class="cis-article-text">
-                                <h4 class="cis-article-title">標題名稱標題名稱標題名稱標題名稱標題（最長字數26字）</h4>
-                                <p class="cis-article-description">內容文字內容文字內容文字內容文字內容文內容文字內容文字內容文字內內容文字內容文字內容文字內容文字內容文內容文內容文字內容文字內容文字內容文內容文</p>
-                            </div>
-                            <div class="cis-article-divider"></div>
-                            <div class="cis-article-meta">
-                                <div class="cis-article-meta-row">
-                                    <div class="cis-article-info">
-                                        <div class="cis-article-date">2023-06-15</div>
-                                        <div class="cis-article-location">報導地點</div>
-                                    </div>
-                                    <div class="cis-social-actions">
-                                        <div class="cis-social-action">
-                                            <div class="cis-social-icon">
-                                                <div class="cis-like-icon"></div>
-                                            </div>
-                                            <span class="cis-social-text">讚</span>
-                                        </div>
-                                        <div class="cis-social-action">
-                                            <div class="cis-social-icon">
-                                                <div class="cis-share-icon"></div>
-                                            </div>
-                                            <span class="cis-social-text">分享</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">個人已按讚 / 分享</p>
-                    <div class="cis-article-card">
-                        <div class="cis-article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                        <div class="cis-article-content">
-                            <div class="cis-article-text">
-                                <h4 class="cis-article-title">標題名稱標題名稱標題名稱標題名稱標題（最長字數26字）</h4>
-                                <p class="cis-article-description">內容文字內容文字內容文字內容文字內容文內容文字內容文字內容文字內內容文字內容文字內容文字內容文字內容文內容文內容文字內容文字內容文字內容文內容文</p>
-                            </div>
-                            <div class="cis-article-divider" style="background: rgba(255, 255, 255, 0.6);"></div>
-                            <div class="cis-article-meta">
-                                <div class="cis-article-meta-row">
-                                    <div class="cis-article-info">
-                                        <div class="cis-article-date">2023-06-15</div>
-                                        <div class="cis-article-location">報導地點</div>
-                                    </div>
-                                    <div class="cis-social-actions">
-                                        <div class="cis-social-action">
-                                            <div class="cis-social-icon">
-                                                <div class="cis-like-icon cis-liked"></div>
-                                            </div>
-                                            <span class="cis-social-text">2</span>
-                                        </div>
-                                        <div class="cis-social-action">
-                                            <div class="cis-social-icon">
-                                                <div class="cis-share-icon cis-shared"></div>
-                                            </div>
-                                            <span class="cis-social-text">2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">社群互動控制欄</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">單篇文章頁面互動控制欄</p>
-                    <div class="cis-article-social-bar">
-                        <div class="cis-article-social-action">
-                            <div class="cis-social-icon-lg">
-                                <div class="cis-like-icon-lg"></div>
-                            </div>
-                            <span class="cis-social-text-lg">讚</span>
-                        </div>
-                        <div class="cis-article-social-divider"></div>
-                        <div class="cis-article-social-action">
-                            <div class="cis-social-icon-lg">
-                                <div class="cis-share-icon-lg"></div>
-                            </div>
-                            <span class="cis-social-text-lg">分享</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">直式圖片卡片</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">專為直式圖片設計的焦點文稿卡片</p>
-                    <div class="cis-article-card-vertical">
-                        <div class="cis-article-image-container">
-                            <div class="cis-article-background" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgwIiBoZWlnaHQ9IjQzNyIgdmlld0JveD0iMCAwIDY4MCA0MzciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2ODAiIGhlaWdodD0iNDM3IiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMF8xKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzBfMSIgeDE9IjAiIHkxPSIwIiB4Mj0iNjgwIiB5Mj0iNDM3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM2NjdlZWEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNzY0YmEyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+');"></div>
-                            <div class="cis-article-overlay"></div>
-                            <div class="cis-article-main-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQyIiBoZWlnaHQ9IjQzNyIgdmlld0JveD0iMCAwIDM0MiA0MzciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzNDIiIGhlaWdodD0iNDM3IiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMF8xKSIvPgo8dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0ZGRiIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPueCuOWQiFtkZW1vXfWciuePh+mdogKPHJlY3QgeD0iMTAwIiB5PSIxNTAiIHdpZHRoPSIxNDIiIGhlaWdodD0iMTM3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHJ4PSI0Ii8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMF8xIiB4MT0iMCIgeTE9IjAiIHgyPSIzNDIiIHkyPSI0MzciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzY2N2VlYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K');"></div>
-                        </div>
-                        <div class="cis-article-content-vertical">
-                            <h4 class="cis-article-title-vertical">直式圖片焦點文稿標題範例展示</h4>
-                            <div class="cis-article-divider-vertical"></div>
-                            <div class="cis-article-meta-vertical">
-                                <div class="cis-article-info-vertical">
-                                    <div class="cis-article-date-vertical">2023-06-19</div>
-                                    <div class="cis-article-location-vertical">慈濟總部</div>
-                                </div>
-                                <div class="cis-social-actions-vertical">
-                                    <div class="cis-social-action-vertical">
-                                        <div class="cis-social-icon-vertical">
-                                            <div class="cis-like-icon"></div>
-                                        </div>
-                                        <span class="cis-social-text-vertical">讚</span>
-                                    </div>
-                                    <div class="cis-social-action-vertical">
-                                        <div class="cis-social-icon-vertical">
-                                            <div class="cis-share-icon"></div>
-                                        </div>
-                                        <span class="cis-social-text-vertical">分享</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 分頁導航 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">分頁導航 Pagination</h2>
-            
-            <h3 class="cis-h4">基本分頁</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">基本分頁組件</p>
-                    <div class="cis-pagination">
-                        <div class="cis-pagination-nav">
-                            <div class="cis-pagination-controls">
-                                <button class="cis-pagination-btn cis-pagination-btn--first">
-                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
-                                    <span class="cis-pagination-sr-only">第一頁</span>
-                                </button>
-                                <button class="cis-pagination-btn cis-pagination-btn--prev">
-                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
-                                    <span class="cis-pagination-sr-only">上一頁</span>
-                                </button>
-                            </div>
-                            <div class="cis-pagination-numbers">
-                                <a href="#" class="cis-pagination-number cis-pagination-number--current">1</a>
-                                <a href="#" class="cis-pagination-number">2</a>
-                                <a href="#" class="cis-pagination-number">3</a>
-                                <a href="#" class="cis-pagination-number">4</a>
-                                <a href="#" class="cis-pagination-number">5</a>
-                            </div>
-                            <div class="cis-pagination-controls">
-                                <button class="cis-pagination-btn cis-pagination-btn--next">
-                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
-                                    <span class="cis-pagination-sr-only">下一頁</span>
-                                </button>
-                                <button class="cis-pagination-btn cis-pagination-btn--last">
-                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
-                                    <span class="cis-pagination-sr-only">最後一頁</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="cis-pagination-info">第 1 頁，共 8 頁</div>
-                    </div>
-                </div>
-                
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">中間頁分頁組件</p>
-                    <div class="cis-pagination">
-                        <div class="cis-pagination-nav">
-                            <div class="cis-pagination-controls">
-                                <button class="cis-pagination-btn cis-pagination-btn--first">
-                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
-                                    <span class="cis-pagination-sr-only">第一頁</span>
-                                </button>
-                                <button class="cis-pagination-btn cis-pagination-btn--prev">
-                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
-                                    <span class="cis-pagination-sr-only">上一頁</span>
-                                </button>
-                            </div>
-                            <div class="cis-pagination-numbers">
-                                <a href="#" class="cis-pagination-number">3</a>
-                                <a href="#" class="cis-pagination-number cis-pagination-number--current">4</a>
-                                <a href="#" class="cis-pagination-number">5</a>
-                                <a href="#" class="cis-pagination-number">6</a>
-                                <a href="#" class="cis-pagination-number">7</a>
-                            </div>
-                            <div class="cis-pagination-controls">
-                                <button class="cis-pagination-btn cis-pagination-btn--next">
-                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
-                                    <span class="cis-pagination-sr-only">下一頁</span>
-                                </button>
-                                <button class="cis-pagination-btn cis-pagination-btn--last">
-                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
-                                    <span class="cis-pagination-sr-only">最後一頁</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="cis-pagination-info">第 4 頁，共 15 頁</div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">簡化分頁</h3>
-            <div class="demo-box">
-                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
-                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">簡化版本，僅顯示前後頁按鈕</p>
-                    <div class="cis-pagination">
-                        <div class="cis-pagination-nav">
-                            <div class="cis-pagination-controls">
-                                <button class="cis-pagination-btn cis-pagination-btn--prev">
-                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
-                                    <span class="cis-pagination-sr-only">上一頁</span>
-                                </button>
-                            </div>
-                            <div class="cis-pagination-info">第 3 頁，共 10 頁</div>
-                            <div class="cis-pagination-controls">
-                                <button class="cis-pagination-btn cis-pagination-btn--next">
-                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
-                                    <span class="cis-pagination-sr-only">下一頁</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 網格系統 -->
-        <section class="demo-section">
-            <h2 class="cis-h2 demo-section-title">網格系統 Grid System</h2>
-            
-            <h3 class="cis-h4">容器類型</h3>
-            <div class="demo-box">
-                <div style="margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption">響應式容器</p>
-                    <div class="cis-container" style="background: var(--cis-surface-2); padding: var(--cis-spacing-2); border-radius: var(--cis-radius-md);">
-                        <div class="cis-text-sm">容器內容 - 自適應不同螢幕尺寸</div>
-                    </div>
-                </div>
-                <div style="margin-bottom: var(--cis-spacing-4);">
-                    <p class="cis-caption">流體容器</p>
-                    <div class="cis-container-fluid" style="background: var(--cis-surface-2); padding: var(--cis-spacing-2); border-radius: var(--cis-radius-md);">
-                        <div class="cis-text-sm">流體容器 - 佔滿全寬度</div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">12欄網格佈局</h3>
-            <div class="demo-box">
-                <div class="cis-container">
-                    <div class="cis-row" style="margin-bottom: var(--cis-spacing-4);">
-                        <div class="cis-col-12">
-                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                .cis-col-12
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cis-row" style="margin-bottom: var(--cis-spacing-4);">
-                        <div class="cis-col-6">
-                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                .cis-col-6
-                            </div>
-                        </div>
-                        <div class="cis-col-6">
-                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                .cis-col-6
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cis-row">
-                        <div class="cis-col-4">
-                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                .cis-col-4
-                            </div>
-                        </div>
-                        <div class="cis-col-4">
-                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                .cis-col-4
-                            </div>
-                        </div>
-                        <div class="cis-col-4">
-                            <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                .cis-col-4
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">響應式網格</h3>
-            <div class="demo-box">
-                <div class="cis-container">
-                    <div class="cis-row">
-                        <div class="cis-col-12 cis-col-md-6 cis-col-lg-4">
-                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
-                                手機12欄 / 平板6欄 / 桌機4欄
-                            </div>
-                        </div>
-                        <div class="cis-col-12 cis-col-md-6 cis-col-lg-4">
-                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
-                                手機12欄 / 平板6欄 / 桌機4欄
-                            </div>
-                        </div>
-                        <div class="cis-col-12 cis-col-md-12 cis-col-lg-4">
-                            <div style="background: var(--cis-info-color); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm); margin-bottom: var(--cis-spacing-2);">
-                                手機12欄 / 平板12欄 / 桌機4欄
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="cis-h4">偏移與對齊</h3>
-            <div class="demo-box">
-                <div class="cis-container">
-                    <div class="cis-row cis-justify-content-center" style="margin-bottom: var(--cis-spacing-4);">
-                        <div class="cis-col-6">
-                            <div style="background: var(--cis-brand-primary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                置中對齊
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cis-row">
-                        <div class="cis-col-4 cis-offset-4">
-                            <div style="background: var(--cis-brand-secondary); color: white; padding: var(--cis-spacing-2); text-align: center; border-radius: var(--cis-radius-sm);">
-                                偏移4欄
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 版本資訊 -->
-        <footer class="demo-section">
-            <div class="demo-box" style="text-align: center;">
-                <h3 class="cis-h4">版本資訊</h3>
-                <p class="cis-body">慈濟設計系統 v1.0.8</p>
-                <p class="cis-caption">基於 CIS 大入口網 Dark Mode 設計規範</p>
-                <p class="cis-caption">發布日期：2025-06-18</p>
-                <div class="demo-flex" style="justify-content: center; margin-top: var(--cis-spacing-4);">
-                    <a href="index-v1.0.html" class="cis-link">查看 v1.0</a>
-                    <span class="cis-text-tertiary">|</span>
-                    <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="cis-link">GitHub</a>
-                </div>
-            </div>
-        </footer>
+<body class="material-design-system">
+    <!-- 主題切換按鈕 -->
+    <div class="theme-toggle">
+        <button class="btn btn-secondary" onclick="toggleTheme()">
+            🌙 切換主題
+        </button>
     </div>
-    <!-- Tab 組件互動腳本 -->
-    <script>
-        // Tab 切換功能
-        document.addEventListener('DOMContentLoaded', function() {
-            // 處理所有 tab 容器
-            const tabContainers = document.querySelectorAll('.cis-tabs');
-            
-            tabContainers.forEach(container => {
-                const tabs = container.querySelectorAll('.cis-tab');
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-version">v2.0.0 - Material Design 3.0</div>
+            <h1 class="hero-title">慈濟設計系統</h1>
+            <p class="hero-subtitle">
+                完整的 Material Design 3.0 色彩系統與企業級 CSS 框架<br>
+                模組化架構 · 2000+ 工具類 · 響應式設計
+            </p>
+            <div class="cta-buttons">
+                <a href="test-v2.html" class="btn-hero btn-hero-primary">
+                    🎨 查看展示
+                </a>
+                <a href="CSS_MODULES_GUIDE.md" class="btn-hero btn-hero-secondary">
+                    📖 使用文檔
+                </a>
+                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="btn-hero btn-hero-primary">
+                    💻 GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 核心特色 -->
+        <section class="section">
+            <h2 class="headline-4 text-center mb-8">🌟 核心特色</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Material Design 3.0</h3>
+                    <p class="feature-description">
+                        完整的 Material Design 3.0 色彩系統，包含 Primary/Secondary 50-900 色階，
+                        Material You 動態色彩，表面層級和狀態層系統。
+                    </p>
+                </div>
                 
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', function() {
-                        // 移除所有 active 狀態
-                        const siblingTabs = container.querySelectorAll('.cis-tab');
-                        siblingTabs.forEach(t => {
-                            t.classList.remove('cis-tab-active');
-                            t.setAttribute('aria-selected', 'false');
-                        });
-                        
-                        // 設定當前 tab 為 active
-                        this.classList.add('cis-tab-active');
-                        this.setAttribute('aria-selected', 'true');
-                        
-                        // 如果有對應的 panel，切換顯示
-                        const targetPanel = this.getAttribute('data-tab');
-                        if (targetPanel) {
-                            // 隱藏所有 panels
-                            document.querySelectorAll('.cis-tab-panel').forEach(panel => {
-                                panel.classList.remove('cis-tab-panel-active');
-                            });
-                            
-                            // 顯示對應的 panel
-                            const panel = document.getElementById(targetPanel);
-                            if (panel) {
-                                panel.classList.add('cis-tab-panel-active');
-                            }
-                        }
-                    });
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3 class="feature-title">模組化架構</h3>
+                    <p class="feature-description">
+                        7個獨立模組設計，可按需引入。變數系統、基礎樣式、色彩工具、
+                        字體排版、佈局系統、UI組件完全分離。
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">2000+ 工具類</h3>
+                    <p class="feature-description">
+                        企業級工具類庫，包含色彩、字體、佈局、間距、陰影等所有設計所需。
+                        支援懸停、焦點、選取等完整互動狀態。
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">響應式設計</h3>
+                    <p class="feature-description">
+                        完整的響應式設計系統，支援桌面、平板、手機等多種設備。
+                        智能斷點和流暢的過渡動畫。
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">♿</div>
+                    <h3 class="feature-title">無障礙設計</h3>
+                    <p class="feature-description">
+                        符合 WCAG 標準的無障礙設計，支援高對比度模式、
+                        減少動畫、鍵盤導航和螢幕閱讀器。
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">主題系統</h3>
+                    <p class="feature-description">
+                        支援深色/淺色主題動態切換，向後兼容 CIS 設計系統。
+                        完整的色彩角色和容器系統。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 色彩展示 -->
+        <section class="color-showcase">
+            <h3 class="headline-5 text-center mb-4">🎨 Material Design 3.0 色彩系統</h3>
+            <p class="text-center text-medium-emphasis mb-6">
+                完整的 Primary 和 Secondary 色彩調色板，支援動態色彩和主題切換
+            </p>
+            <div class="color-grid">
+                <div class="color-swatch bg-primary-100" data-color="100">Primary</div>
+                <div class="color-swatch bg-primary-300" data-color="300">Primary</div>
+                <div class="color-swatch bg-primary-500" data-color="500">Primary</div>
+                <div class="color-swatch bg-primary-700" data-color="700">Primary</div>
+                <div class="color-swatch bg-primary-900" data-color="900">Primary</div>
+                <div class="color-swatch bg-secondary-100" data-color="100">Secondary</div>
+                <div class="color-swatch bg-secondary-300" data-color="300">Secondary</div>
+                <div class="color-swatch bg-secondary-500" data-color="500">Secondary</div>
+                <div class="color-swatch bg-secondary-700" data-color="700">Secondary</div>
+                <div class="color-swatch bg-secondary-900" data-color="900">Secondary</div>
+            </div>
+        </section>
+
+        <!-- 統計數據 -->
+        <section class="stats-section">
+            <h3 class="headline-5 mb-4">📊 系統規模</h3>
+            <p class="text-medium-emphasis">企業級設計系統，功能完整且性能優化</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <div class="stat-label">CSS 模組</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2000+</span>
+                    <div class="stat-label">工具類</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <div class="stat-label">色彩變數</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <div class="stat-label">UI 組件</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快速開始 -->
+        <section class="section">
+            <h3 class="headline-4 text-center mb-6">🚀 快速開始</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4 class="feature-title">CDN 引入</h4>
+                    <div class="code-block">
+&lt;link rel="stylesheet" href="https://phoenix581228.github.io/tzu-chi-design-system/themes/material-design.css"&gt;
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h4 class="feature-title">模組化引入</h4>
+                    <div class="code-block">
+@import 'themes/variables.css';<br>
+@import 'themes/colors.css';<br>
+@import 'themes/components.css';
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 版本更新 -->
+        <section class="changelog-section">
+            <h3 class="headline-5 mb-4">📝 最新更新</h3>
+            
+            <div class="changelog-item">
+                <div class="changelog-version">v2.0.0 - Material Design 3.0 整合</div>
+                <div class="changelog-date">2025-06-19</div>
+                <ul class="text-medium-emphasis">
+                    <li>• 完整的 Material Design 3.0 色彩系統</li>
+                    <li>• 模組化 CSS 架構重構</li>
+                    <li>• 2000+ 工具類和組件樣式</li>
+                    <li>• 支援深色/淺色主題切換</li>
+                    <li>• 增強的無障礙設計和響應式支援</li>
+                </ul>
+            </div>
+            
+            <div class="changelog-item">
+                <div class="changelog-version">v1.0.11 - 垂直圖片卡片組件</div>
+                <div class="changelog-date">2025-06-18</div>
+                <ul class="text-medium-emphasis">
+                    <li>• 新增垂直圖片卡片組件</li>
+                    <li>• 優化圖標按鈕系統</li>
+                    <li>• 改進分頁導航組件</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <p>
+                慈濟設計系統 v2.0.0 | Material Design 3.0<br>
+                <small>基於 Material Design 規範的企業級 CSS 框架</small>
+            </p>
+            <p class="mt-4">
+                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-primary">GitHub</a> •
+                <a href="CSS_MODULES_GUIDE.md" class="link-primary">文檔</a> •
+                <a href="test-v2.html" class="link-primary">展示</a> •
+                <a href="CHANGELOG.md" class="link-primary">更新日誌</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 主題切換功能
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const button = document.querySelector('.theme-toggle button');
+            if (document.body.classList.contains('light-theme')) {
+                button.textContent = '🌞 切換主題';
+            } else {
+                button.textContent = '🌙 切換主題';
+            }
+        }
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
+
+        // 載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // 顯示當前系統資訊
+        console.log('🎨 慈濟設計系統 v2.0.0');
+        console.log('📦 Material Design 3.0 整合完成');
+        console.log('🔗 GitHub: https://github.com/phoenix581228/tzu-chi-design-system');
     </script>
 </body>
 </html>
