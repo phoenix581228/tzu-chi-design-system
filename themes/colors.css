@@ -586,3 +586,514 @@
   background: var(--surface);
   color: var(--text-high-emphasis);
 }
+
+/* ===========================
+   Typography System - 字體排版系統
+   =========================== */
+
+/* 字體排版系統 */
+@import './variables.css';
+
+/* 基礎字體設定 */
+body {
+  font-family: var(--font-primary);
+  font-style: normal;
+  color: var(--text-high-emphasis);
+  line-height: 1.5;
+}
+
+/* 字體家族類 */
+.font-roboto {
+  font-family: var(--font-primary);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* 字體大小類 */
+.text-xs {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.text-sm {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.text-base {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.text-xl {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.text-2xl {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.text-3xl {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.text-4xl {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.text-5xl {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+/* 字體粗細 */
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* 字母間距 */
+.tracking-tight {
+  letter-spacing: -0.4px;
+}
+
+.tracking-normal {
+  letter-spacing: 0.1px;
+}
+
+.tracking-wide {
+  letter-spacing: 0.15px;
+}
+
+.tracking-wider {
+  letter-spacing: 0.25px;
+}
+
+.tracking-widest {
+  letter-spacing: 0.4px;
+}
+
+.tracking-extra-wide {
+  letter-spacing: 0.5625px;
+}
+
+/* Material Design Typography Scale */
+.headline-1 {
+  font-family: var(--font-primary);
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 1.167;
+  letter-spacing: -1.5px;
+}
+
+.headline-2 {
+  font-family: var(--font-primary);
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.headline-3 {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0;
+}
+
+.headline-4 {
+  font-family: var(--font-primary);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.25px;
+}
+
+.headline-5 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.334;
+  letter-spacing: 0;
+}
+
+.headline-6 {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.15px;
+}
+
+.subtitle-1 {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.15px;
+}
+
+.subtitle-2 {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.1px;
+}
+
+.body-1 {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+}
+
+.body-2 {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.15px;
+}
+
+.button-text {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.caption {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.4px;
+}
+
+.overline {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 標籤樣式 */
+.label {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: var(--text-high-emphasis);
+}
+
+.label-left {
+  font-family: var(--font-mono);
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -0.4px;
+  color: var(--text-high-emphasis);
+}
+
+.label-right {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: var(--text-high-emphasis);
+}
+
+/* 額外的字體工具類 */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* 行高工具類 */
+.leading-none {
+  line-height: 1;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+/* 文字裝飾 */
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* 文字轉換 */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.normal-case {
+  text-transform: none;
+}
+
+/* 文字溢出處理 */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.text-clip {
+  text-overflow: clip;
+}
+
+/* 白空間處理 */
+.whitespace-normal {
+  white-space: normal;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.whitespace-pre {
+  white-space: pre;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
+/* 文字斷行 */
+.break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+/* 垂直對齊 */
+.align-baseline {
+  vertical-align: baseline;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.align-bottom {
+  vertical-align: bottom;
+}
+
+.align-text-top {
+  vertical-align: text-top;
+}
+
+.align-text-bottom {
+  vertical-align: text-bottom;
+}
+
+/* 特殊字體效果 */
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+/* 字體平滑化 */
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.subpixel-antialiased {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* 響應式字體 */
+@media (max-width: 768px) {
+  .headline-1 { font-size: 72px; }
+  .headline-2 { font-size: 48px; }
+  .headline-3 { font-size: 36px; }
+  .headline-4 { font-size: 28px; }
+  .headline-5 { font-size: 20px; }
+  .headline-6 { font-size: 18px; }
+  
+  .text-5xl { font-size: 36px; line-height: 40px; }
+  .text-4xl { font-size: 28px; line-height: 32px; }
+  .text-3xl { font-size: 24px; line-height: 28px; }
+  .text-2xl { font-size: 20px; line-height: 24px; }
+}
+
+@media (max-width: 480px) {
+  .headline-1 { font-size: 48px; }
+  .headline-2 { font-size: 36px; }
+  .headline-3 { font-size: 28px; }
+  .headline-4 { font-size: 24px; }
+  .headline-5 { font-size: 18px; }
+  .headline-6 { font-size: 16px; }
+  
+  .text-5xl { font-size: 28px; line-height: 32px; }
+  .text-4xl { font-size: 24px; line-height: 28px; }
+  .text-3xl { font-size: 20px; line-height: 24px; }
+  .text-2xl { font-size: 18px; line-height: 22px; }
+}
+
+/* 文字選取樣式 */
+::selection {
+  background: var(--primary-200);
+  color: var(--on-primary);
+}
+
+::-moz-selection {
+  background: var(--primary-200);
+  color: var(--on-primary);
+}
+
+/* 代碼字體樣式 */
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--surface);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--cis-radius-base);
+  border: 1px solid var(--divider);
+}
+
+.code-block {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: var(--cis-radius-md);
+  border: 1px solid var(--divider);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* 引用文字樣式 */
+.blockquote {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.6;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--primary-500);
+  background: var(--surface);
+  margin: 1rem 0;
+}
+
+.blockquote-author {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--text-medium-emphasis);
+  margin-top: 0.5rem;
+}
+
+.blockquote-author::before {
+  content: "— ";
+}
