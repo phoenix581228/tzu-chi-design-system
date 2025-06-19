@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.4.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.5.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -822,6 +822,107 @@
     &lt;a href="#" class="cis-link cis-link-sm"&gt;急難救助&lt;/a&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 搜尋欄 -->
+        <section id="search-bar" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">搜尋欄 Search Bar</h2>
+                <p class="showcase-section-description">
+                    基於 CIS 設計規範的搜尋輸入框元件，支援多種狀態和尺寸變體
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">基本搜尋欄</h3>
+                <p class="showcase-example-description">提供標準的搜尋輸入功能，包含搜尋按鈕和圖標</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div class="cis-search cis-search-sm" style="margin-bottom: var(--cis-spacing-4);">
+                        <input type="text" class="cis-search-input" placeholder="搜尋...">
+                        <button class="cis-search-button" type="button">
+                            <span class="cis-search-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;div class="cis-search cis-search-sm"&gt;
+    &lt;input type="text" class="cis-search-input" placeholder="搜尋..."&gt;
+    &lt;button class="cis-search-button" type="button"&gt;
+        &lt;span class="cis-search-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">尺寸變體</h3>
+                <p class="showcase-example-description">提供小型和大型兩種尺寸選擇</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div style="margin-bottom: var(--cis-spacing-4);">
+                        <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-2);">小型搜尋欄 (sm)</p>
+                        <div class="cis-search cis-search-sm">
+                            <input type="text" class="cis-search-input" placeholder="搜尋內容...">
+                            <button class="cis-search-button" type="button">
+                                <span class="cis-search-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p style="color: #FFFFFF; margin-bottom: var(--cis-spacing-2);">大型搜尋欄 (lg)</p>
+                        <div class="cis-search cis-search-lg">
+                            <input type="text" class="cis-search-input" placeholder="搜尋慈濟相關內容...">
+                            <button class="cis-search-button" type="button">
+                                <span class="cis-search-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;!-- 小型搜尋欄 --&gt;
+&lt;div class="cis-search cis-search-sm"&gt;
+    &lt;input type="text" class="cis-search-input" placeholder="搜尋內容..."&gt;
+    &lt;button class="cis-search-button" type="button"&gt;
+        &lt;span class="cis-search-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- 大型搜尋欄 --&gt;
+&lt;div class="cis-search cis-search-lg"&gt;
+    &lt;input type="text" class="cis-search-input" placeholder="搜尋慈濟相關內容..."&gt;
+    &lt;button class="cis-search-button" type="button"&gt;
+        &lt;span class="cis-search-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">禁用狀態</h3>
+                <p class="showcase-example-description">禁用狀態下的搜尋欄外觀和行為</p>
+                
+                <div class="showcase-demo" style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <div class="cis-search cis-search-sm cis-disabled">
+                        <input type="text" class="cis-search-input" placeholder="搜尋..." disabled>
+                        <button class="cis-search-button" type="button" disabled>
+                            <span class="cis-search-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="showcase-code">
+                    <pre><code>&lt;div class="cis-search cis-search-sm cis-disabled"&gt;
+    &lt;input type="text" class="cis-search-input" placeholder="搜尋..." disabled&gt;
+    &lt;button class="cis-search-button" type="button" disabled&gt;
+        &lt;span class="cis-search-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>

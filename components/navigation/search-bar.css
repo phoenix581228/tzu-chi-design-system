@@ -1,352 +1,202 @@
 /**
  * CIS 設計系統 - 搜尋欄元件
- * 包含各種搜尋欄樣式和功能
+ * 基於 CIS 大入口網設計規範
+ * 包含各種搜尋欄樣式和互動狀態
  */
 
 /* ===========================
-   基礎搜尋欄
+   基礎搜尋欄結構
    =========================== */
 .cis-search {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
 }
 
+/* 搜尋欄輸入框 */
 .cis-search-input {
-  width: 100%;
-  padding: var(--cis-spacing-3) var(--cis-spacing-12) var(--cis-spacing-3) var(--cis-spacing-10);
-  font-size: var(--cis-font-size-base);
-  line-height: var(--cis-line-height-normal);
-  color: var(--cis-text-primary);
-  background-color: var(--cis-surface-2);
-  border: 1px solid var(--cis-border-default);
-  border-radius: var(--cis-radius-full);
+  flex: 1;
+  height: 36px;
+  padding: 0 16px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 125%;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px 0 0 4px;
   outline: none;
-  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
+  transition: all 0.2s ease;
 }
 
-.cis-search-input::placeholder {
-  color: var(--cis-text-tertiary);
+/* 搜尋按鈕 */
+.cis-search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 4px 0;
+  background-color: #8ECCFC;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.cis-search-input:focus {
-  background-color: var(--cis-surface-3);
-  border-color: var(--cis-brand-primary);
-  box-shadow: 0 0 0 3px var(--cis-focus-ring);
+.cis-search-icon {
+  width: 20px;
+  height: 20px;
+  color: #319897;
 }
 
 /* ===========================
-   搜尋圖標
+   搜尋欄狀態
    =========================== */
-.cis-search-icon {
-  position: absolute;
-  left: var(--cis-spacing-4);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  color: var(--cis-text-tertiary);
+
+/* 預設狀態 */
+.cis-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 聚焦狀態 */
+.cis-search:focus-within {
+  box-shadow: 0 0 0 4px #FFFFFF;
+  border-radius: 4px;
+}
+
+.cis-search:focus-within .cis-search-input {
+  border-color: #0475D8;
+}
+
+.cis-search:focus-within .cis-search-button {
+  background-color: #8ECCFC;
+}
+
+/* 點擊狀態 */
+.cis-search-button:active {
+  background-color: #6DB8E8;
+  transform: scale(0.95);
+}
+
+/* 禁用狀態 */
+.cis-search.cis-disabled .cis-search-input {
+  border-color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.38);
+  cursor: not-allowed;
+}
+
+.cis-search.cis-disabled .cis-search-button {
+  background-color: rgba(255, 255, 255, 0.38);
+  cursor: not-allowed;
   pointer-events: none;
 }
 
-/* ===========================
-   搜尋按鈕
-   =========================== */
-.cis-search-button {
-  position: absolute;
-  right: var(--cis-spacing-1);
-  top: 50%;
-  transform: translateY(-50%);
-  padding: var(--cis-spacing-2) var(--cis-spacing-3);
-  background-color: var(--cis-brand-primary);
-  color: #FFFFFF;
-  border: none;
-  border-radius: var(--cis-radius-full);
-  cursor: pointer;
-  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--cis-spacing-1);
-}
-
-.cis-search-button:hover {
-  background-color: var(--cis-brand-primary-light);
-  transform: translateY(-50%) scale(1.05);
-}
-
-.cis-search-button:active {
-  background-color: var(--cis-brand-primary-dark);
-  transform: translateY(-50%) scale(0.95);
+.cis-search.cis-disabled .cis-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
 }
 
 /* ===========================
-   清除按鈕
-   =========================== */
-.cis-search-clear {
-  position: absolute;
-  right: var(--cis-spacing-12);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  color: var(--cis-text-tertiary);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--cis-duration-150) var(--cis-ease-in-out);
-}
-
-.cis-search-input:not(:placeholder-shown) ~ .cis-search-clear {
-  display: flex;
-}
-
-.cis-search-clear:hover {
-  background-color: var(--cis-hover-bg);
-  color: var(--cis-text-secondary);
-}
-
-/* ===========================
-   搜尋欄變體
+   尺寸變體
    =========================== */
 
-/* 小型搜尋欄 */
+/* 小型搜尋欄 (sm) */
+.cis-search-sm {
+  max-width: 296px;
+}
+
 .cis-search-sm .cis-search-input {
-  padding: var(--cis-spacing-2) var(--cis-spacing-10) var(--cis-spacing-2) var(--cis-spacing-8);
-  font-size: var(--cis-font-size-sm);
-}
-
-.cis-search-sm .cis-search-icon {
-  width: 16px;
-  height: 16px;
-  left: var(--cis-spacing-3);
+  height: 36px;
+  font-size: 18px;
 }
 
 .cis-search-sm .cis-search-button {
-  padding: var(--cis-spacing-1) var(--cis-spacing-2);
+  width: 36px;
+  height: 36px;
 }
 
-/* 大型搜尋欄 */
-.cis-search-lg .cis-search-input {
-  padding: var(--cis-spacing-4) var(--cis-spacing-16) var(--cis-spacing-4) var(--cis-spacing-12);
-  font-size: var(--cis-font-size-lg);
-}
-
-.cis-search-lg .cis-search-icon {
+.cis-search-sm .cis-search-icon {
   width: 20px;
   height: 20px;
-  left: var(--cis-spacing-5);
+}
+
+/* 大型搜尋欄 (lg) */
+.cis-search-lg {
+  max-width: 391px;
+}
+
+.cis-search-lg .cis-search-input {
+  height: 54px;
+  padding: 8px 16px;
+  font-size: 26px;
+  line-height: 125%;
 }
 
 .cis-search-lg .cis-search-button {
-  padding: var(--cis-spacing-3) var(--cis-spacing-4);
+  width: 52px;
+  height: 54px;
 }
 
-/* 方形搜尋欄 */
-.cis-search-square .cis-search-input {
-  border-radius: var(--cis-radius-md);
-}
-
-.cis-search-square .cis-search-button {
-  border-radius: var(--cis-radius-base);
-}
-
-/* ===========================
-   搜尋建議下拉選單
-   =========================== */
-.cis-search-dropdown {
-  position: absolute;
-  top: calc(100% + var(--cis-spacing-2));
-  left: 0;
-  right: 0;
-  background-color: var(--cis-surface-1);
-  border: 1px solid var(--cis-border-default);
-  border-radius: var(--cis-radius-lg);
-  box-shadow: var(--cis-shadow-lg);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: var(--cis-z-popover);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
-}
-
-.cis-search-dropdown.cis-show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* 下拉選單項目 */
-.cis-search-dropdown-item {
-  padding: var(--cis-spacing-3) var(--cis-spacing-4);
-  cursor: pointer;
-  transition: background-color var(--cis-duration-150) var(--cis-ease-in-out);
-  display: flex;
-  align-items: center;
-  gap: var(--cis-spacing-3);
-}
-
-.cis-search-dropdown-item:hover {
-  background-color: var(--cis-hover-bg);
-}
-
-.cis-search-dropdown-item:active {
-  background-color: var(--cis-active-bg);
-}
-
-.cis-search-dropdown-item-icon {
-  width: 16px;
-  height: 16px;
-  color: var(--cis-text-tertiary);
-  flex-shrink: 0;
-}
-
-.cis-search-dropdown-item-text {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.cis-search-dropdown-item-highlight {
-  color: var(--cis-brand-primary);
-  font-weight: 600;
-}
-
-/* 下拉選單分隔線 */
-.cis-search-dropdown-divider {
-  height: 1px;
-  margin: var(--cis-spacing-2) 0;
-  background-color: var(--cis-border-light);
-}
-
-/* 下拉選單標題 */
-.cis-search-dropdown-header {
-  padding: var(--cis-spacing-2) var(--cis-spacing-4);
-  font-size: var(--cis-font-size-sm);
-  font-weight: 600;
-  color: var(--cis-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ===========================
-   進階搜尋選項
-   =========================== */
-.cis-search-advanced {
-  display: flex;
-  align-items: center;
-  gap: var(--cis-spacing-2);
-  margin-top: var(--cis-spacing-3);
-}
-
-.cis-search-filter {
-  display: flex;
-  align-items: center;
-  gap: var(--cis-spacing-2);
-  padding: var(--cis-spacing-1) var(--cis-spacing-3);
-  background-color: var(--cis-surface-2);
-  border: 1px solid var(--cis-border-default);
-  border-radius: var(--cis-radius-full);
-  font-size: var(--cis-font-size-sm);
-  cursor: pointer;
-  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
-}
-
-.cis-search-filter:hover {
-  background-color: var(--cis-surface-3);
-  border-color: var(--cis-border-strong);
-}
-
-.cis-search-filter.cis-active {
-  background-color: var(--cis-brand-primary);
-  border-color: var(--cis-brand-primary);
-  color: #FFFFFF;
-}
-
-/* ===========================
-   搜尋結果統計
-   =========================== */
-.cis-search-results {
-  margin-top: var(--cis-spacing-4);
-  font-size: var(--cis-font-size-sm);
-  color: var(--cis-text-tertiary);
-}
-
-.cis-search-results-count {
-  color: var(--cis-text-primary);
-  font-weight: 600;
-}
-
-/* ===========================
-   語音搜尋
-   =========================== */
-.cis-search-voice {
-  position: absolute;
-  right: var(--cis-spacing-12);
-  top: 50%;
-  transform: translateY(-50%);
+.cis-search-lg .cis-search-icon {
   width: 32px;
   height: 32px;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  color: var(--cis-text-tertiary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--cis-duration-200) var(--cis-ease-in-out);
-}
-
-.cis-search-voice:hover {
-  background-color: var(--cis-hover-bg);
-  color: var(--cis-text-secondary);
-}
-
-.cis-search-voice.cis-listening {
-  color: var(--cis-danger);
-  animation: cis-pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes cis-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
-  }
 }
 
 /* ===========================
-   載入狀態
+   搜尋圖標 SVG
    =========================== */
-.cis-search-loading {
-  position: absolute;
-  right: var(--cis-spacing-12);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--cis-surface-3);
-  border-top-color: var(--cis-brand-primary);
-  border-radius: 50%;
-  animation: cis-spin 0.8s linear infinite;
+.cis-search-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
 }
 
-@keyframes cis-spin {
-  to {
-    transform: translateY(-50%) rotate(360deg);
+/* 預設搜尋圖標（內嵌 SVG） */
+.cis-search-button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='11' cy='11' r='6' stroke='%23319897' stroke-width='3'/%3E%3Cpath d='m21 21-4.35-4.35' stroke='%23319897' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* ===========================
+   互動效果
+   =========================== */
+.cis-search-button:hover {
+  background-color: #7AC3F0;
+  transform: scale(1.05);
+}
+
+.cis-search-button:focus {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* ===========================
+   響應式設計
+   =========================== */
+@media (max-width: 768px) {
+  .cis-search {
+    max-width: 100%;
+  }
+  
+  .cis-search-lg {
+    max-width: 100%;
+  }
+  
+  .cis-search-lg .cis-search-input {
+    font-size: 18px;
+    height: 44px;
+  }
+  
+  .cis-search-lg .cis-search-button {
+    width: 44px;
+    height: 44px;
   }
 }
