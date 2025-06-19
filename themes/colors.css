@@ -3,6 +3,108 @@
  * 基於 Material Design 3.0 規範的完整色彩系統
  */
 
+/* 基礎樣式 */
+@import './variables.css';
+
+/* 重置樣式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 基礎容器 */
+.container {
+  position: relative;
+  width: var(--container-width);
+  height: var(--container-height);
+  background: var(--background);
+}
+
+/* 通用定位類 */
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+/* 通用佈局類 */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* 通用尺寸類 */
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/* 邊距和內距 */
+.p-4 {
+  padding: 1rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+/* 圓角 */
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+/* 透明度 */
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-87 {
+  opacity: 0.87;
+}
+
+/* 可見性 */
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+/* 混合模式 */
+.blend-normal {
+  mix-blend-mode: normal;
+}
+
 :root {
   /* ===========================
      Primary Colors - 主要色彩
