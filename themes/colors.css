@@ -259,7 +259,6 @@
    =========================== */
 
 /* 色彩系統 */
-@import './variables.css';
 
 /* Primary 色彩類 */
 .bg-primary { background: var(--primary-200); }
@@ -592,7 +591,6 @@
    =========================== */
 
 /* 字體排版系統 */
-@import './variables.css';
 
 /* 基礎字體設定 */
 body {
@@ -1103,7 +1101,6 @@ body {
    =========================== */
 
 /* 佈局系統 */
-@import './variables.css';
 
 /* 主容器 */
 .main-container {
@@ -1584,7 +1581,6 @@ body {
    =========================== */
 
 /* 組件樣式 */
-@import './variables.css';
 
 /* 按鈕組件 */
 .btn {
