@@ -257,23 +257,332 @@
 /* ===========================
    Semantic Color Utilities - 語意色彩工具類
    =========================== */
-.bg-primary { background-color: var(--primary-500); }
-.bg-primary-light { background-color: var(--primary-300); }
-.bg-primary-dark { background-color: var(--primary-700); }
 
-.bg-secondary { background-color: var(--secondary-500); }
-.bg-secondary-light { background-color: var(--secondary-300); }
-.bg-secondary-dark { background-color: var(--secondary-700); }
+/* 色彩系統 */
+@import './variables.css';
 
-.text-primary { color: var(--primary-500); }
-.text-secondary { color: var(--secondary-500); }
+/* Primary 色彩類 */
+.bg-primary { background: var(--primary-200); }
+.bg-primary-50 { background: var(--primary-50); }
+.bg-primary-100 { background: var(--primary-100); }
+.bg-primary-200 { background: var(--primary-200); }
+.bg-primary-300 { background: var(--primary-300); }
+.bg-primary-400 { background: var(--primary-400); }
+.bg-primary-500 { background: var(--primary-500); }
+.bg-primary-600 { background: var(--primary-600); }
+.bg-primary-700 { background: var(--primary-700); }
+.bg-primary-800 { background: var(--primary-800); }
+.bg-primary-900 { background: var(--primary-900); }
+.bg-primary-variant { background: var(--primary-variant); }
+
+.text-primary { color: var(--primary-200); }
 .text-on-primary { color: var(--on-primary); }
+
+/* Secondary 色彩類 */
+.bg-secondary { background: var(--secondary-200); }
+.bg-secondary-50 { background: var(--secondary-50); }
+.bg-secondary-100 { background: var(--secondary-100); }
+.bg-secondary-200 { background: var(--secondary-200); }
+.bg-secondary-300 { background: var(--secondary-300); }
+.bg-secondary-400 { background: var(--secondary-400); }
+.bg-secondary-500 { background: var(--secondary-500); }
+.bg-secondary-600 { background: var(--secondary-600); }
+.bg-secondary-700 { background: var(--secondary-700); }
+.bg-secondary-800 { background: var(--secondary-800); }
+.bg-secondary-900 { background: var(--secondary-900); }
+
+.text-secondary { color: var(--secondary-200); }
 .text-on-secondary { color: var(--on-secondary); }
 
+/* Surface & Background 類 */
+.bg-surface { background: var(--surface); }
+.bg-background { background: var(--background); }
+.bg-error { background: var(--error); }
+.bg-success { background: var(--success); }
+
+.text-on-surface { color: var(--on-surface); }
+.text-on-background { color: var(--on-background); }
+.text-on-error { color: var(--on-error); }
+
+/* 文字強調級別 */
 .text-high-emphasis { color: var(--text-high-emphasis); }
 .text-medium-emphasis { color: var(--text-medium-emphasis); }
 .text-disabled { color: var(--text-disabled); }
+.text-on-light-high { color: var(--text-on-light-high); }
+.text-on-light-medium { color: var(--text-on-light-medium); }
+.text-on-light-disabled { color: var(--text-on-light-disabled); }
 
-.border-primary { border-color: var(--primary-500); }
-.border-secondary { border-color: var(--secondary-500); }
-.border-divider { border-color: var(--divider); }
+/* 邊框和分隔線 */
+.border-divider { border: 1px solid var(--divider); }
+.border-divider-light { border: 1px solid var(--divider-light); }
+.border-outline { border: 1px solid var(--outline); }
+.border-primary { border: 1px solid var(--primary-500); }
+.border-secondary { border: 1px solid var(--secondary-500); }
+
+/* 特定組件色彩 */
+.primary-section {
+  background: var(--primary-200);
+  color: var(--on-primary);
+}
+
+.secondary-section {
+  background: var(--secondary-200);
+  color: var(--on-secondary);
+}
+
+.surface-section {
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+.on-primary-section {
+  background: var(--on-primary);
+  color: var(--primary-200);
+}
+
+.error-section {
+  background: var(--error);
+  color: var(--on-error);
+}
+
+/* 色彩展示網格 */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.color-swatch {
+  height: 80px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* 漸變背景 */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, var(--secondary-400), var(--secondary-600));
+}
+
+/* 陰影組合色彩 */
+.shadow-primary {
+  box-shadow: 0 4px 8px rgba(var(--primary-500), 0.3);
+}
+
+.shadow-secondary {
+  box-shadow: 0 4px 8px rgba(var(--secondary-500), 0.3);
+}
+
+.shadow-error {
+  box-shadow: 0 4px 8px rgba(var(--error), 0.3);
+}
+
+.shadow-success {
+  box-shadow: 0 4px 8px rgba(var(--success), 0.3);
+}
+
+/* 懸停狀態色彩 */
+.hover-primary:hover {
+  background: var(--primary-300);
+  transition: background-color var(--cis-duration-200) var(--cis-ease-out);
+}
+
+.hover-secondary:hover {
+  background: var(--secondary-300);
+  transition: background-color var(--cis-duration-200) var(--cis-ease-out);
+}
+
+.hover-surface:hover {
+  background: var(--surface);
+  transition: background-color var(--cis-duration-200) var(--cis-ease-out);
+}
+
+/* 焦點狀態色彩 */
+.focus-primary:focus {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+.focus-secondary:focus {
+  outline: 2px solid var(--secondary-500);
+  outline-offset: 2px;
+}
+
+/* 選取狀態色彩 */
+.selected-primary {
+  background: var(--primary-100);
+  border: 2px solid var(--primary-500);
+}
+
+.selected-secondary {
+  background: var(--secondary-100);
+  border: 2px solid var(--secondary-500);
+}
+
+/* 禁用狀態色彩 */
+.disabled-primary {
+  background: var(--primary-100);
+  color: var(--text-disabled);
+  opacity: 0.5;
+}
+
+.disabled-secondary {
+  background: var(--secondary-100);
+  color: var(--text-disabled);
+  opacity: 0.5;
+}
+
+/* 狀態指示器色彩 */
+.status-online {
+  color: var(--success);
+}
+
+.status-offline {
+  color: var(--text-disabled);
+}
+
+.status-error {
+  color: var(--error);
+}
+
+.status-warning {
+  color: var(--secondary-600);
+}
+
+.status-info {
+  color: var(--primary-500);
+}
+
+/* 通知和標籤色彩 */
+.notification-success {
+  background: var(--success);
+  color: #FFFFFF;
+}
+
+.notification-error {
+  background: var(--error);
+  color: var(--on-error);
+}
+
+.notification-warning {
+  background: var(--secondary-500);
+  color: var(--on-secondary);
+}
+
+.notification-info {
+  background: var(--primary-500);
+  color: var(--on-primary);
+}
+
+/* 標籤和徽章色彩變體 */
+.badge-primary {
+  background: var(--primary-500);
+  color: var(--on-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--cis-radius-full);
+  font-size: var(--cis-font-size-xs);
+}
+
+.badge-secondary {
+  background: var(--secondary-500);
+  color: var(--on-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--cis-radius-full);
+  font-size: var(--cis-font-size-xs);
+}
+
+.badge-success {
+  background: var(--success);
+  color: #FFFFFF;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--cis-radius-full);
+  font-size: var(--cis-font-size-xs);
+}
+
+.badge-error {
+  background: var(--error);
+  color: var(--on-error);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--cis-radius-full);
+  font-size: var(--cis-font-size-xs);
+}
+
+/* 連結色彩狀態 */
+.link-primary {
+  color: var(--primary-500);
+  text-decoration: none;
+}
+
+.link-primary:hover {
+  color: var(--primary-600);
+  text-decoration: underline;
+}
+
+.link-primary:visited {
+  color: var(--primary-700);
+}
+
+.link-secondary {
+  color: var(--secondary-500);
+  text-decoration: none;
+}
+
+.link-secondary:hover {
+  color: var(--secondary-600);
+  text-decoration: underline;
+}
+
+.link-secondary:visited {
+  color: var(--secondary-700);
+}
+
+/* 表格色彩 */
+.table-header {
+  background: var(--surface);
+  color: var(--text-high-emphasis);
+  border-bottom: 2px solid var(--divider);
+}
+
+.table-row:nth-child(even) {
+  background: var(--surface);
+}
+
+.table-row:nth-child(odd) {
+  background: var(--background);
+}
+
+.table-row:hover {
+  background: var(--primary-50);
+}
+
+/* 表單元素色彩 */
+.input-primary {
+  border: 1px solid var(--divider);
+  background: var(--surface);
+  color: var(--text-high-emphasis);
+}
+
+.input-primary:focus {
+  border-color: var(--primary-500);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--primary-500), 0.2);
+}
+
+.input-error {
+  border-color: var(--error);
+  background: var(--surface);
+  color: var(--text-high-emphasis);
+}
+
+.input-success {
+  border-color: var(--success);
+  background: var(--surface);
+  color: var(--text-high-emphasis);
+}
