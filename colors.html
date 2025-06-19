@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色彩系統 - 慈濟設計系統 v2.0.0</title>
+    <meta name="description" content="完整的 Material Design 3.0 色彩系統，包含 Primary/Secondary 色階、動態主題和色彩工具類">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    
+    <!-- Material Design 3.0 CSS System -->
+    <link rel="stylesheet" href="themes/material-design.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <style>
+        .color-section {
+            margin-bottom: 3rem;
+        }
+        
+        .color-palette {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--cis-elevation-2);
+        }
+        
+        .palette-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+        
+        .color-swatch {
+            border-radius: var(--cis-radius-lg);
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1rem;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.05);
+        }
+        
+        .color-name {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        .color-value {
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--cis-radius-sm);
+            backdrop-filter: blur(4px);
+        }
+        
+        .color-usage {
+            background: var(--primary-50);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .usage-title {
+            font-weight: 600;
+            color: var(--primary-700);
+            margin-bottom: 1rem;
+        }
+        
+        .usage-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .usage-example {
+            padding: 1rem;
+            border-radius: var(--cis-radius-md);
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .semantic-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .semantic-item {
+            background: var(--surface);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--cis-elevation-1);
+            transition: all var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .semantic-item:hover {
+            box-shadow: var(--cis-elevation-4);
+            transform: translateY(-2px);
+        }
+        
+        .semantic-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--cis-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .semantic-name {
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 0.5rem;
+        }
+        
+        .semantic-desc {
+            color: var(--text-medium-emphasis);
+            font-size: 0.875rem;
+        }
+        
+        .gradient-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .gradient-item {
+            height: 80px;
+            border-radius: var(--cis-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .copy-notification {
+            position: fixed;
+            top: 100px;
+            right: 2rem;
+            background: var(--primary-600);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--cis-radius-lg);
+            transform: translateX(100%);
+            transition: transform var(--cis-duration-300) var(--cis-ease-out);
+            z-index: 1000;
+        }
+        
+        .copy-notification.show {
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            
+            .color-swatch {
+                height: 80px;
+                padding: 0.75rem;
+            }
+            
+            .semantic-colors {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body class="material-design-system">
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                🎨 慈濟設計系統
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">首頁</a></li>
+                <li><a href="features.html" class="nav-link">功能特色</a></li>
+                <li><a href="colors.html" class="nav-link active">色彩系統</a></li>
+                <li><a href="components.html" class="nav-link">組件展示</a></li>
+                <li><a href="docs.html" class="nav-link">使用文檔</a></li>
+                <li><a href="changelog.html" class="nav-link">更新日誌</a></li>
+            </ul>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        </div>
+    </nav>
+
+    <!-- 主題切換按鈕 -->
+    <div class="theme-toggle">
+        <button class="btn btn-secondary" onclick="toggleTheme()">
+            🌙 切換主題
+        </button>
+    </div>
+
+    <!-- 複製通知 -->
+    <div class="copy-notification" id="copyNotification">
+        色彩值已複製到剪貼板 ✓
+    </div>
+
+    <!-- 頁面標題 -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">🎨 色彩系統</h1>
+            <p class="page-subtitle">
+                完整的 Material Design 3.0 色彩調色板，包含 Primary 和 Secondary 色彩系統、
+                語義化色彩角色，以及動態主題支援
+            </p>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <!-- 語義化色彩角色 -->
+        <section class="color-section">
+            <h2 class="headline-4 mb-6">🎯 語義化色彩角色</h2>
+            <p class="text-medium-emphasis mb-6">
+                Material Design 3.0 定義了一套語義化的色彩角色系統，每種顏色都有明確的用途和意義。
+            </p>
+            
+            <div class="semantic-colors">
+                <div class="semantic-item">
+                    <div class="semantic-icon bg-primary-500">🎯</div>
+                    <div class="semantic-name">Primary</div>
+                    <div class="semantic-desc">主要品牌色彩，用於重要操作</div>
+                </div>
+                <div class="semantic-item">
+                    <div class="semantic-icon bg-secondary-500">🎨</div>
+                    <div class="semantic-name">Secondary</div>
+                    <div class="semantic-desc">次要色彩，提供視覺重點</div>
+                </div>
+                <div class="semantic-item">
+                    <div class="semantic-icon" style="background: var(--surface);">📄</div>
+                    <div class="semantic-name">Surface</div>
+                    <div class="semantic-desc">背景表面色彩</div>
+                </div>
+                <div class="semantic-item">
+                    <div class="semantic-icon" style="background: var(--error-500); color: white;">⚠️</div>
+                    <div class="semantic-name">Error</div>
+                    <div class="semantic-desc">錯誤狀態色彩</div>
+                </div>
+                <div class="semantic-item">
+                    <div class="semantic-icon" style="background: var(--warning-500); color: white;">⚡</div>
+                    <div class="semantic-name">Warning</div>
+                    <div class="semantic-desc">警告狀態色彩</div>
+                </div>
+                <div class="semantic-item">
+                    <div class="semantic-icon" style="background: var(--success-500); color: white;">✅</div>
+                    <div class="semantic-name">Success</div>
+                    <div class="semantic-desc">成功狀態色彩</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Primary 色彩調色板 -->
+        <section class="color-section">
+            <div class="color-palette">
+                <h3 class="palette-title">
+                    🎯 Primary 色彩調色板
+                </h3>
+                <p class="text-medium-emphasis mb-4">
+                    主要品牌色彩，從淺到深提供完整的色彩階層 (50-900)
+                </p>
+                
+                <div class="color-grid">
+                    <div class="color-swatch bg-primary-50" style="color: var(--primary-700);" onclick="copyColor('#E3F3FE')">
+                        <span class="color-name">Primary 50</span>
+                        <span class="color-value">#E3F3FE</span>
+                    </div>
+                    <div class="color-swatch bg-primary-100" style="color: var(--primary-800);" onclick="copyColor('#BAE0FD')">
+                        <span class="color-name">Primary 100</span>
+                        <span class="color-value">#BAE0FD</span>
+                    </div>
+                    <div class="color-swatch bg-primary-200" onclick="copyColor('#8ECCFC')">
+                        <span class="color-name">Primary 200</span>
+                        <span class="color-value">#8ECCFC</span>
+                    </div>
+                    <div class="color-swatch bg-primary-300" onclick="copyColor('#5FB7FA')">
+                        <span class="color-name">Primary 300</span>
+                        <span class="color-value">#5FB7FA</span>
+                    </div>
+                    <div class="color-swatch bg-primary-400" onclick="copyColor('#38A6FA')">
+                        <span class="color-name">Primary 400</span>
+                        <span class="color-value">#38A6FA</span>
+                    </div>
+                    <div class="color-swatch bg-primary-500" onclick="copyColor('#0296F9')">
+                        <span class="color-name">Primary 500</span>
+                        <span class="color-value">#0296F9</span>
+                    </div>
+                    <div class="color-swatch bg-primary-600" onclick="copyColor('#0287E0')">
+                        <span class="color-name">Primary 600</span>
+                        <span class="color-value">#0287E0</span>
+                    </div>
+                    <div class="color-swatch bg-primary-700" onclick="copyColor('#0275C7')">
+                        <span class="color-name">Primary 700</span>
+                        <span class="color-value">#0275C7</span>
+                    </div>
+                    <div class="color-swatch bg-primary-800" onclick="copyColor('#0262AE')">
+                        <span class="color-name">Primary 800</span>
+                        <span class="color-value">#0262AE</span>
+                    </div>
+                    <div class="color-swatch bg-primary-900" onclick="copyColor('#014582')">
+                        <span class="color-name">Primary 900</span>
+                        <span class="color-value">#014582</span>
+                    </div>
+                </div>
+                
+                <div class="color-usage">
+                    <div class="usage-title">💡 使用範例</div>
+                    <div class="usage-examples">
+                        <div class="usage-example bg-primary-500 text-on-primary">
+                            主要按鈕<br>.bg-primary-500
+                        </div>
+                        <div class="usage-example bg-primary-100 text-primary-700">
+                            淺色背景<br>.bg-primary-100
+                        </div>
+                        <div class="usage-example" style="background: white; border: 2px solid var(--primary-500); color: var(--primary-700);">
+                            邊框強調<br>.border-primary-500
+                        </div>
+                        <div class="usage-example bg-primary-700 text-on-primary">
+                            深色變體<br>.bg-primary-700
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secondary 色彩調色板 -->
+        <section class="color-section">
+            <div class="color-palette">
+                <h3 class="palette-title">
+                    🎨 Secondary 色彩調色板
+                </h3>
+                <p class="text-medium-emphasis mb-4">
+                    次要色彩系統，提供視覺層次和重點強調
+                </p>
+                
+                <div class="color-grid">
+                    <div class="color-swatch bg-secondary-50" style="color: var(--secondary-700);" onclick="copyColor('#FFF3E0')">
+                        <span class="color-name">Secondary 50</span>
+                        <span class="color-value">#FFF3E0</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-100" style="color: var(--secondary-800);" onclick="copyColor('#FFE0B2')">
+                        <span class="color-name">Secondary 100</span>
+                        <span class="color-value">#FFE0B2</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-200" onclick="copyColor('#FFCC80')">
+                        <span class="color-name">Secondary 200</span>
+                        <span class="color-value">#FFCC80</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-300" onclick="copyColor('#FFB74D')">
+                        <span class="color-name">Secondary 300</span>
+                        <span class="color-value">#FFB74D</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-400" onclick="copyColor('#FFA726')">
+                        <span class="color-name">Secondary 400</span>
+                        <span class="color-value">#FFA726</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-500" onclick="copyColor('#FF9800')">
+                        <span class="color-name">Secondary 500</span>
+                        <span class="color-value">#FF9800</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-600" onclick="copyColor('#FB8C00')">
+                        <span class="color-name">Secondary 600</span>
+                        <span class="color-value">#FB8C00</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-700" onclick="copyColor('#F57C00')">
+                        <span class="color-name">Secondary 700</span>
+                        <span class="color-value">#F57C00</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-800" onclick="copyColor('#EF6C00')">
+                        <span class="color-name">Secondary 800</span>
+                        <span class="color-value">#EF6C00</span>
+                    </div>
+                    <div class="color-swatch bg-secondary-900" onclick="copyColor('#E65100')">
+                        <span class="color-name">Secondary 900</span>
+                        <span class="color-value">#E65100</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 漸層系統 -->
+        <section class="color-section">
+            <div class="color-palette">
+                <h3 class="palette-title">
+                    🌈 漸層系統
+                </h3>
+                <p class="text-medium-emphasis mb-4">
+                    預定義的漸層樣式，為界面增添現代感和深度
+                </p>
+                
+                <div class="gradient-showcase">
+                    <div class="gradient-item bg-gradient-primary">
+                        Primary 漸層<br>.bg-gradient-primary
+                    </div>
+                    <div class="gradient-item bg-gradient-secondary">
+                        Secondary 漸層<br>.bg-gradient-secondary
+                    </div>
+                    <div class="gradient-item" style="background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));">
+                        混合漸層<br>Primary → Secondary
+                    </div>
+                    <div class="gradient-item" style="background: linear-gradient(45deg, var(--primary-700), var(--primary-400));">
+                        單色漸層<br>深淺漸變
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 狀態色彩 -->
+        <section class="color-section">
+            <div class="color-palette">
+                <h3 class="palette-title">
+                    ⚡ 狀態色彩系統
+                </h3>
+                <p class="text-medium-emphasis mb-4">
+                    成功、警告、錯誤等狀態的專用色彩
+                </p>
+                
+                <div class="usage-examples">
+                    <div class="usage-example" style="background: var(--success-500); color: white;">
+                        成功狀態<br>.bg-success-500
+                    </div>
+                    <div class="usage-example" style="background: var(--warning-500); color: white;">
+                        警告狀態<br>.bg-warning-500
+                    </div>
+                    <div class="usage-example" style="background: var(--error-500); color: white;">
+                        錯誤狀態<br>.bg-error-500
+                    </div>
+                    <div class="usage-example" style="background: var(--info-500); color: white;">
+                        資訊狀態<br>.bg-info-500
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <p>
+                慈濟設計系統 v2.0.0 | Material Design 3.0<br>
+                <small>基於 Material Design 規範的企業級 CSS 框架</small>
+            </p>
+            <p class="mt-4">
+                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-primary">GitHub</a> •
+                <a href="docs.html" class="link-primary">文檔</a> •
+                <a href="features.html" class="link-primary">功能</a> •
+                <a href="components.html" class="link-primary">組件</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 導航切換功能
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // 主題切換功能
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const button = document.querySelector('.theme-toggle button');
+            if (document.body.classList.contains('light-theme')) {
+                button.textContent = '🌞 切換主題';
+            } else {
+                button.textContent = '🌙 切換主題';
+            }
+        }
+
+        // 複製色彩值
+        function copyColor(colorValue) {
+            navigator.clipboard.writeText(colorValue).then(() => {
+                showCopyNotification();
+            });
+        }
+
+        // 顯示複製通知
+        function showCopyNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // 載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const palettes = document.querySelectorAll('.color-palette');
+            palettes.forEach((palette, index) => {
+                palette.style.opacity = '0';
+                palette.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    palette.style.transition = 'all 0.6s ease';
+                    palette.style.opacity = '1';
+                    palette.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        });
+    </script>
+</body>
+</html>

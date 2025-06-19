@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用文檔 - 慈濟設計系統 v2.0.0</title>
+    <meta name="description" content="慈濟設計系統的完整使用文檔，包含安裝指南、API 文檔、最佳實踐和範例代碼">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>📖</text></svg>">
+    
+    <!-- Material Design 3.0 CSS System -->
+    <link rel="stylesheet" href="themes/material-design.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <style>
+        .docs-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            max-width: var(--cis-container-xl);
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .docs-sidebar {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            box-shadow: var(--cis-elevation-2);
+        }
+        
+        .sidebar-title {
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--divider);
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-medium-emphasis);
+            text-decoration: none;
+            border-radius: var(--cis-radius-md);
+            font-size: 0.875rem;
+            transition: all var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: var(--primary-100);
+            color: var(--primary-700);
+        }
+        
+        .docs-content {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2.5rem;
+            box-shadow: var(--cis-elevation-2);
+        }
+        
+        .docs-section {
+            margin-bottom: 3rem;
+        }
+        
+        .docs-section h2 {
+            color: var(--text-high-emphasis);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-500);
+        }
+        
+        .docs-section h3 {
+            color: var(--text-high-emphasis);
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .code-block {
+            background: var(--surface-variant);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            border-left: 4px solid var(--primary-500);
+        }
+        
+        .code-inline {
+            background: var(--surface-variant);
+            padding: 0.2rem 0.4rem;
+            border-radius: var(--cis-radius-sm);
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: var(--primary-700);
+        }
+        
+        .install-steps {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .install-step {
+            background: var(--primary-50);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-500);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary-500);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: var(--primary-700);
+            margin-bottom: 0.5rem;
+        }
+        
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--surface);
+            border-radius: var(--cis-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--cis-elevation-1);
+        }
+        
+        .api-table th {
+            background: var(--primary-100);
+            color: var(--primary-700);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .api-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--divider);
+        }
+        
+        .api-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .example-preview {
+            background: var(--background);
+            border-radius: var(--cis-radius-lg);
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid var(--divider);
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary-600);
+            color: white;
+            border: none;
+            border-radius: var(--cis-radius-md);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .code-block:hover .copy-button {
+            opacity: 1;
+        }
+        
+        .warning-box {
+            background: var(--warning-50);
+            border: 1px solid var(--warning-200);
+            border-radius: var(--cis-radius-lg);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-title {
+            color: var(--warning-700);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--info-50);
+            border: 1px solid var(--info-200);
+            border-radius: var(--cis-radius-lg);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .info-title {
+            color: var(--info-700);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .docs-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .docs-sidebar {
+                position: static;
+                order: 2;
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .docs-content {
+                padding: 1.5rem;
+            }
+            
+            .code-block {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="material-design-system">
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                🎨 慈濟設計系統
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">首頁</a></li>
+                <li><a href="features.html" class="nav-link">功能特色</a></li>
+                <li><a href="colors.html" class="nav-link">色彩系統</a></li>
+                <li><a href="components.html" class="nav-link">組件展示</a></li>
+                <li><a href="docs.html" class="nav-link active">使用文檔</a></li>
+                <li><a href="changelog.html" class="nav-link">更新日誌</a></li>
+            </ul>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        </div>
+    </nav>
+
+    <!-- 主題切換按鈕 -->
+    <div class="theme-toggle">
+        <button class="btn btn-secondary" onclick="toggleTheme()">
+            🌙 切換主題
+        </button>
+    </div>
+
+    <!-- 頁面標題 -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">📖 使用文檔</h1>
+            <p class="page-subtitle">
+                完整的安裝指南、API 文檔和最佳實踐，
+                幫助您快速上手慈濟設計系統 v2.0.0
+            </p>
+        </div>
+    </div>
+
+    <div class="docs-container">
+        <!-- 側邊欄導航 -->
+        <aside class="docs-sidebar">
+            <h3 class="sidebar-title">📑 文檔導航</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#getting-started" class="sidebar-link active">快速開始</a></li>
+                <li><a href="#installation" class="sidebar-link">安裝指南</a></li>
+                <li><a href="#usage" class="sidebar-link">使用方法</a></li>
+                <li><a href="#customization" class="sidebar-link">自訂主題</a></li>
+                <li><a href="#components-api" class="sidebar-link">組件 API</a></li>
+                <li><a href="#utilities" class="sidebar-link">工具類</a></li>
+                <li><a href="#best-practices" class="sidebar-link">最佳實踐</a></li>
+                <li><a href="#migration" class="sidebar-link">遷移指南</a></li>
+            </ul>
+        </aside>
+
+        <!-- 主要內容 -->
+        <main class="docs-content">
+            <!-- 快速開始 -->
+            <section id="getting-started" class="docs-section">
+                <h2>🚀 快速開始</h2>
+                <p>
+                    慈濟設計系統 v2.0.0 是基於 Material Design 3.0 的企業級 CSS 框架，
+                    提供完整的色彩系統、組件庫和工具類。
+                </p>
+                
+                <h3>✨ 核心特色</h3>
+                <ul>
+                    <li>完整的 Material Design 3.0 實現</li>
+                    <li>模組化 CSS 架構（7個獨立模組）</li>
+                    <li>2000+ 預定義工具類</li>
+                    <li>完整的響應式設計支援</li>
+                    <li>深色/淺色主題切換</li>
+                    <li>無障礙設計支援（WCAG 2.1 AA）</li>
+                </ul>
+
+                <h3>📦 系統需求</h3>
+                <div class="info-box">
+                    <div class="info-title">💡 兼容性</div>
+                    <p>支援所有現代瀏覽器，包括 Chrome 90+、Firefox 88+、Safari 14+、Edge 90+</p>
+                </div>
+            </section>
+
+            <!-- 安裝指南 -->
+            <section id="installation" class="docs-section">
+                <h2>📥 安裝指南</h2>
+                
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="flex items-start">
+                            <span class="step-number">1</span>
+                            <div>
+                                <div class="step-title">CDN 引入（推薦）</div>
+                                <p class="text-medium-emphasis mb-3">
+                                    最簡單的使用方式，直接在 HTML 中引入完整的設計系統
+                                </p>
+                                <div class="code-block" style="position: relative;">
+                                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+&lt;!-- 完整版本 --&gt;
+&lt;link rel="stylesheet" href="https://phoenix581228.github.io/tzu-chi-design-system/themes/material-design.css"&gt;
+
+&lt;!-- 或使用 v2.0.0 版本 --&gt;
+&lt;link rel="stylesheet" href="https://phoenix581228.github.io/tzu-chi-design-system/tzu-chi-design-system-v2.0.0.css"&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="flex items-start">
+                            <span class="step-number">2</span>
+                            <div>
+                                <div class="step-title">模組化引入</div>
+                                <p class="text-medium-emphasis mb-3">
+                                    按需引入特定模組，減少檔案大小
+                                </p>
+                                <div class="code-block" style="position: relative;">
+                                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+&lt;!-- 基礎模組 --&gt;
+&lt;link rel="stylesheet" href="themes/variables.css"&gt;
+&lt;link rel="stylesheet" href="themes/base.css"&gt;
+
+&lt;!-- 功能模組（按需引入） --&gt;
+&lt;link rel="stylesheet" href="themes/colors.css"&gt;
+&lt;link rel="stylesheet" href="themes/typography.css"&gt;
+&lt;link rel="stylesheet" href="themes/layout.css"&gt;
+&lt;link rel="stylesheet" href="themes/components.css"&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="install-step">
+                        <div class="flex items-start">
+                            <span class="step-number">3</span>
+                            <div>
+                                <div class="step-title">下載使用</div>
+                                <p class="text-medium-emphasis mb-3">
+                                    下載完整專案到本地使用
+                                </p>
+                                <div class="code-block" style="position: relative;">
+                                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+# 使用 Git 複製
+git clone https://github.com/phoenix581228/tzu-chi-design-system.git
+
+# 或直接下載 ZIP 檔案
+# https://github.com/phoenix581228/tzu-chi-design-system/archive/main.zip
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 使用方法 -->
+            <section id="usage" class="docs-section">
+                <h2>🎯 使用方法</h2>
+                
+                <h3>基礎 HTML 結構</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;我的網站&lt;/title&gt;
+    &lt;link rel="stylesheet" href="themes/material-design.css"&gt;
+&lt;/head&gt;
+&lt;body class="material-design-system"&gt;
+    &lt;!-- 您的內容 --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ 重要提醒</div>
+                    <p>請確保在 <code class="code-inline">&lt;body&gt;</code> 標籤上添加 <code class="code-inline">material-design-system</code> 類別</p>
+                </div>
+
+                <h3>常用組件範例</h3>
+                <div class="example-preview">
+                    <button class="btn btn-primary">主要按鈕</button>
+                    <button class="btn btn-secondary ml-2">次要按鈕</button>
+                    <button class="btn btn-outline ml-2">輪廓按鈕</button>
+                </div>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+&lt;button class="btn btn-primary"&gt;主要按鈕&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;次要按鈕&lt;/button&gt;
+&lt;button class="btn btn-outline"&gt;輪廓按鈕&lt;/button&gt;
+                </div>
+            </section>
+
+            <!-- 組件 API -->
+            <section id="components-api" class="docs-section">
+                <h2>🧩 組件 API</h2>
+                
+                <h3>按鈕組件</h3>
+                <table class="api-table">
+                    <thead>
+                        <tr>
+                            <th>類別名稱</th>
+                            <th>說明</th>
+                            <th>使用範例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="code-inline">.btn</code></td>
+                            <td>基礎按鈕樣式</td>
+                            <td><code class="code-inline">&lt;button class="btn"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code-inline">.btn-primary</code></td>
+                            <td>主要按鈕樣式</td>
+                            <td><code class="code-inline">&lt;button class="btn btn-primary"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code-inline">.btn-secondary</code></td>
+                            <td>次要按鈕樣式</td>
+                            <td><code class="code-inline">&lt;button class="btn btn-secondary"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code-inline">.btn-outline</code></td>
+                            <td>輪廓按鈕樣式</td>
+                            <td><code class="code-inline">&lt;button class="btn btn-outline"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>卡片組件</h3>
+                <table class="api-table">
+                    <thead>
+                        <tr>
+                            <th>類別名稱</th>
+                            <th>說明</th>
+                            <th>使用範例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="code-inline">.card</code></td>
+                            <td>基礎卡片容器</td>
+                            <td><code class="code-inline">&lt;div class="card"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code-inline">.card-header</code></td>
+                            <td>卡片標題區域</td>
+                            <td><code class="code-inline">&lt;div class="card-header"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code-inline">.card-body</code></td>
+                            <td>卡片主要內容</td>
+                            <td><code class="code-inline">&lt;div class="card-body"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="code-inline">.card-footer</code></td>
+                            <td>卡片底部區域</td>
+                            <td><code class="code-inline">&lt;div class="card-footer"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 工具類 -->
+            <section id="utilities" class="docs-section">
+                <h2>⚡ 工具類</h2>
+                
+                <h3>色彩工具類</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+/* 背景色彩 */
+.bg-primary-50    /* 到 */ .bg-primary-900
+.bg-secondary-50  /* 到 */ .bg-secondary-900
+
+/* 文字色彩 */
+.text-primary-500
+.text-secondary-500
+.text-high-emphasis
+.text-medium-emphasis
+.text-disabled
+
+/* 邊框色彩 */
+.border-primary-300
+.border-secondary-300
+                </div>
+
+                <h3>間距工具類</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+/* Margin */
+.m-0, .m-1, .m-2, .m-3, .m-4, .m-5, .m-6, .m-8
+.mt-2, .mr-4, .mb-6, .ml-8  /* 方向性間距 */
+
+/* Padding */
+.p-0, .p-1, .p-2, .p-3, .p-4, .p-5, .p-6, .p-8
+.pt-2, .pr-4, .pb-6, .pl-8  /* 方向性間距 */
+                </div>
+
+                <h3>佈局工具類</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+/* Flexbox */
+.flex, .inline-flex
+.flex-row, .flex-col
+.justify-start, .justify-center, .justify-end
+.items-start, .items-center, .items-end
+
+/* Grid */
+.grid
+.grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4
+
+/* 響應式 */
+.hidden, .block, .inline-block
+.sm:block, .md:flex, .lg:grid
+                </div>
+            </section>
+
+            <!-- 自訂主題 -->
+            <section id="customization" class="docs-section">
+                <h2>🎨 自訂主題</h2>
+                
+                <h3>覆蓋 CSS 變數</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+:root {
+  /* 覆蓋主要色彩 */
+  --primary-500: #your-brand-color;
+  --secondary-500: #your-secondary-color;
+  
+  /* 覆蓋字體 */
+  --font-primary: 'Your Custom Font', sans-serif;
+  
+  /* 覆蓋邊角半徑 */
+  --border-radius: 12px;
+}
+                </div>
+
+                <h3>深色主題切換</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+// JavaScript 主題切換
+function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    
+    // 保存用戶偏好
+    const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+    localStorage.setItem('theme', theme);
+}
+
+// 載入保存的主題
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+    }
+});
+                </div>
+            </section>
+
+            <!-- 最佳實踐 -->
+            <section id="best-practices" class="docs-section">
+                <h2>💡 最佳實踐</h2>
+                
+                <h3>性能優化</h3>
+                <ul>
+                    <li>使用模組化引入，只載入需要的 CSS 模組</li>
+                    <li>在生產環境中使用壓縮版本</li>
+                    <li>利用瀏覽器快取機制</li>
+                </ul>
+
+                <h3>無障礙設計</h3>
+                <ul>
+                    <li>確保足夠的色彩對比度（遵循 WCAG 2.1 AA）</li>
+                    <li>為互動元素提供焦點指示器</li>
+                    <li>使用語義化的 HTML 標籤</li>
+                    <li>提供鍵盤導航支援</li>
+                </ul>
+
+                <h3>響應式設計</h3>
+                <div class="code-block" style="position: relative;">
+                    <button class="copy-button" onclick="copyCode(this)">複製</button>
+/* 使用響應式工具類 */
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"&gt;
+  &lt;div class="p-4"&gt;內容 1&lt;/div&gt;
+  &lt;div class="p-4"&gt;內容 2&lt;/div&gt;
+  &lt;div class="p-4"&gt;內容 3&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </section>
+
+            <!-- 遷移指南 -->
+            <section id="migration" class="docs-section">
+                <h2>🔄 遷移指南</h2>
+                
+                <h3>從 v1.x 升級到 v2.0</h3>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ 重大變更</div>
+                    <p>v2.0.0 包含重大變更，請仔細閱讀遷移指南</p>
+                </div>
+
+                <h4>主要變更</h4>
+                <ul>
+                    <li>完全重新設計的 CSS 架構</li>
+                    <li>新的 Material Design 3.0 色彩系統</li>
+                    <li>模組化 CSS 檔案結構</li>
+                    <li>更新的組件 API</li>
+                </ul>
+
+                <h4>遷移步驟</h4>
+                <ol>
+                    <li>備份現有的 CSS 客製化設定</li>
+                    <li>更新 CSS 引入路徑</li>
+                    <li>檢查並更新組件類別名稱</li>
+                    <li>測試主題切換功能</li>
+                    <li>驗證響應式佈局</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <p>
+                慈濟設計系統 v2.0.0 | Material Design 3.0<br>
+                <small>基於 Material Design 規範的企業級 CSS 框架</small>
+            </p>
+            <p class="mt-4">
+                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-primary">GitHub</a> •
+                <a href="components.html" class="link-primary">組件</a> •
+                <a href="colors.html" class="link-primary">色彩</a> •
+                <a href="features.html" class="link-primary">功能</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 導航切換功能
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // 主題切換功能
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const button = document.querySelector('.theme-toggle button');
+            if (document.body.classList.contains('light-theme')) {
+                button.textContent = '🌞 切換主題';
+            } else {
+                button.textContent = '🌙 切換主題';
+            }
+        }
+
+        // 複製代碼功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement;
+            const code = codeBlock.textContent.replace('複製', '').trim();
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已複製 ✓';
+                setTimeout(() => {
+                    button.textContent = '複製';
+                }, 2000);
+            });
+        }
+
+        // 側邊欄導航
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.sidebar-link');
+            const sections = document.querySelectorAll('.docs-section');
+            
+            // 點擊導航
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // 更新活動狀態
+                        links.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // 滾動監聽
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100) {
+                        current = section.id;
+                    }
+                });
+                
+                if (current) {
+                    links.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + current) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

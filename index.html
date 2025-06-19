@@ -14,6 +14,7 @@
     
     <!-- Material Design 3.0 CSS System -->
     <link rel="stylesheet" href="themes/material-design.css">
+    <link rel="stylesheet" href="shared/navigation.css">
     
     <style>
         /* 首頁專用樣式 */
@@ -278,6 +279,24 @@
 </head>
 
 <body class="material-design-system">
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                🎨 慈濟設計系統
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">首頁</a></li>
+                <li><a href="features.html" class="nav-link">功能特色</a></li>
+                <li><a href="colors.html" class="nav-link">色彩系統</a></li>
+                <li><a href="components.html" class="nav-link">組件展示</a></li>
+                <li><a href="docs.html" class="nav-link">使用文檔</a></li>
+                <li><a href="changelog.html" class="nav-link">更新日誌</a></li>
+            </ul>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        </div>
+    </nav>
+
     <!-- 主題切換按鈕 -->
     <div class="theme-toggle">
         <button class="btn btn-secondary" onclick="toggleTheme()">
@@ -309,83 +328,45 @@
     </section>
 
     <div class="container">
-        <!-- 核心特色 -->
+        <!-- 快速導覽 -->
         <section class="section">
-            <h2 class="headline-4 text-center mb-8">🌟 核心特色</h2>
+            <h2 class="headline-4 text-center mb-8">🚀 探索設計系統</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3 class="feature-title">Material Design 3.0</h3>
+                    <div class="feature-icon">🌟</div>
+                    <h3 class="feature-title">功能特色</h3>
                     <p class="feature-description">
-                        完整的 Material Design 3.0 色彩系統，包含 Primary/Secondary 50-900 色階，
-                        Material You 動態色彩，表面層級和狀態層系統。
+                        探索 Material Design 3.0、模組化架構、2000+ 工具類等六大核心特色
                     </p>
+                    <a href="features.html" class="btn btn-primary mt-4">查看詳情</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">色彩系統</h3>
+                    <p class="feature-description">
+                        完整的 Material Design 3.0 色彩調色板和動態主題系統
+                    </p>
+                    <a href="colors.html" class="btn btn-primary mt-4">色彩展示</a>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🧩</div>
-                    <h3 class="feature-title">模組化架構</h3>
+                    <h3 class="feature-title">UI 組件</h3>
                     <p class="feature-description">
-                        7個獨立模組設計，可按需引入。變數系統、基礎樣式、色彩工具、
-                        字體排版、佈局系統、UI組件完全分離。
+                        按鈕、卡片、表單等完整的企業級 UI 組件庫
                     </p>
+                    <a href="components.html" class="btn btn-primary mt-4">組件展示</a>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">2000+ 工具類</h3>
+                    <div class="feature-icon">📖</div>
+                    <h3 class="feature-title">使用文檔</h3>
                     <p class="feature-description">
-                        企業級工具類庫，包含色彩、字體、佈局、間距、陰影等所有設計所需。
-                        支援懸停、焦點、選取等完整互動狀態。
+                        詳細的安裝指南、API 文檔和最佳實踐建議
                     </p>
+                    <a href="docs.html" class="btn btn-primary mt-4">查看文檔</a>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">響應式設計</h3>
-                    <p class="feature-description">
-                        完整的響應式設計系統，支援桌面、平板、手機等多種設備。
-                        智能斷點和流暢的過渡動畫。
-                    </p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">♿</div>
-                    <h3 class="feature-title">無障礙設計</h3>
-                    <p class="feature-description">
-                        符合 WCAG 標準的無障礙設計，支援高對比度模式、
-                        減少動畫、鍵盤導航和螢幕閱讀器。
-                    </p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3 class="feature-title">主題系統</h3>
-                    <p class="feature-description">
-                        支援深色/淺色主題動態切換，向後兼容 CIS 設計系統。
-                        完整的色彩角色和容器系統。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 色彩展示 -->
-        <section class="color-showcase">
-            <h3 class="headline-5 text-center mb-4">🎨 Material Design 3.0 色彩系統</h3>
-            <p class="text-center text-medium-emphasis mb-6">
-                完整的 Primary 和 Secondary 色彩調色板，支援動態色彩和主題切換
-            </p>
-            <div class="color-grid">
-                <div class="color-swatch bg-primary-100" data-color="100">Primary</div>
-                <div class="color-swatch bg-primary-300" data-color="300">Primary</div>
-                <div class="color-swatch bg-primary-500" data-color="500">Primary</div>
-                <div class="color-swatch bg-primary-700" data-color="700">Primary</div>
-                <div class="color-swatch bg-primary-900" data-color="900">Primary</div>
-                <div class="color-swatch bg-secondary-100" data-color="100">Secondary</div>
-                <div class="color-swatch bg-secondary-300" data-color="300">Secondary</div>
-                <div class="color-swatch bg-secondary-500" data-color="500">Secondary</div>
-                <div class="color-swatch bg-secondary-700" data-color="700">Secondary</div>
-                <div class="color-swatch bg-secondary-900" data-color="900">Secondary</div>
             </div>
         </section>
 
@@ -412,55 +393,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- 快速開始 -->
-        <section class="section">
-            <h3 class="headline-4 text-center mb-6">🚀 快速開始</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h4 class="feature-title">CDN 引入</h4>
-                    <div class="code-block">
-&lt;link rel="stylesheet" href="https://phoenix581228.github.io/tzu-chi-design-system/themes/material-design.css"&gt;
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <h4 class="feature-title">模組化引入</h4>
-                    <div class="code-block">
-@import 'themes/variables.css';<br>
-@import 'themes/colors.css';<br>
-@import 'themes/components.css';
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 版本更新 -->
-        <section class="changelog-section">
-            <h3 class="headline-5 mb-4">📝 最新更新</h3>
-            
-            <div class="changelog-item">
-                <div class="changelog-version">v2.0.0 - Material Design 3.0 整合</div>
-                <div class="changelog-date">2025-06-19</div>
-                <ul class="text-medium-emphasis">
-                    <li>• 完整的 Material Design 3.0 色彩系統</li>
-                    <li>• 模組化 CSS 架構重構</li>
-                    <li>• 2000+ 工具類和組件樣式</li>
-                    <li>• 支援深色/淺色主題切換</li>
-                    <li>• 增強的無障礙設計和響應式支援</li>
-                </ul>
-            </div>
-            
-            <div class="changelog-item">
-                <div class="changelog-version">v1.0.11 - 垂直圖片卡片組件</div>
-                <div class="changelog-date">2025-06-18</div>
-                <ul class="text-medium-emphasis">
-                    <li>• 新增垂直圖片卡片組件</li>
-                    <li>• 優化圖標按鈕系統</li>
-                    <li>• 改進分頁導航組件</li>
-                </ul>
-            </div>
-        </section>
     </div>
 
     <!-- Footer -->
@@ -480,6 +412,12 @@
     </footer>
 
     <script>
+        // 導航切換功能
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
         // 主題切換功能
         function toggleTheme() {
             document.body.classList.toggle('light-theme');

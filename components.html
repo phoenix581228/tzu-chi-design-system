@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 組件展示 - 慈濟設計系統 v2.0.0</title>
+    <meta name="description" content="完整的 Material Design 3.0 UI 組件庫，包含按鈕、卡片、表單、導航等企業級組件">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🧩</text></svg>">
+    
+    <!-- Material Design 3.0 CSS System -->
+    <link rel="stylesheet" href="themes/material-design.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <style>
+        .component-section {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--cis-elevation-2);
+        }
+        
+        .component-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--divider);
+        }
+        
+        .component-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-100);
+            border-radius: var(--cis-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .component-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+        }
+        
+        .component-desc {
+            color: var(--text-medium-emphasis);
+            font-size: 0.875rem;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .demo-item {
+            background: var(--background);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--divider);
+        }
+        
+        .demo-label {
+            font-size: 0.75rem;
+            color: var(--text-medium-emphasis);
+            margin-top: 0.5rem;
+            font-family: monospace;
+        }
+        
+        .form-demo {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-high-emphasis);
+        }
+        
+        .card-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .demo-card {
+            background: var(--surface);
+            border-radius: var(--cis-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--cis-elevation-2);
+            transition: all var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .demo-card:hover {
+            box-shadow: var(--cis-elevation-8);
+            transform: translateY(-4px);
+        }
+        
+        .card-image {
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-400), var(--secondary-400));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .badge-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .navigation-demo {
+            background: var(--primary-50);
+            border-radius: var(--cis-radius-lg);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .demo-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: var(--cis-radius-md);
+            background: white;
+            border: 1px solid var(--divider);
+            text-decoration: none;
+            color: var(--text-medium-emphasis);
+            transition: all var(--cis-duration-200) var(--cis-ease-out);
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            background: var(--primary-500);
+            color: white;
+            border-color: var(--primary-500);
+        }
+        
+        .interactive-demo {
+            background: var(--primary-50);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .loader-demo {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background: var(--surface-variant);
+            border-radius: var(--cis-radius-md);
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: var(--text-high-emphasis);
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="material-design-system">
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                🎨 慈濟設計系統
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">首頁</a></li>
+                <li><a href="features.html" class="nav-link">功能特色</a></li>
+                <li><a href="colors.html" class="nav-link">色彩系統</a></li>
+                <li><a href="components.html" class="nav-link active">組件展示</a></li>
+                <li><a href="docs.html" class="nav-link">使用文檔</a></li>
+                <li><a href="changelog.html" class="nav-link">更新日誌</a></li>
+            </ul>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        </div>
+    </nav>
+
+    <!-- 主題切換按鈕 -->
+    <div class="theme-toggle">
+        <button class="btn btn-secondary" onclick="toggleTheme()">
+            🌙 切換主題
+        </button>
+    </div>
+
+    <!-- 頁面標題 -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">🧩 UI 組件展示</h1>
+            <p class="page-subtitle">
+                完整的 Material Design 3.0 組件庫，包含按鈕、卡片、表單、導航等
+                20+ 個企業級 UI 組件，全部支援主題切換和響應式設計
+            </p>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <!-- 按鈕組件 -->
+        <section class="component-section">
+            <div class="component-header">
+                <div class="component-icon">🔘</div>
+                <div>
+                    <h3 class="component-title">按鈕組件</h3>
+                    <p class="component-desc">多種樣式和狀態的按鈕組件，支援不同尺寸和主題</p>
+                </div>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <button class="btn btn-primary">Primary 按鈕</button>
+                    <div class="demo-label">.btn .btn-primary</div>
+                </div>
+                <div class="demo-item">
+                    <button class="btn btn-secondary">Secondary 按鈕</button>
+                    <div class="demo-label">.btn .btn-secondary</div>
+                </div>
+                <div class="demo-item">
+                    <button class="btn btn-outline">Outline 按鈕</button>
+                    <div class="demo-label">.btn .btn-outline</div>
+                </div>
+                <div class="demo-item">
+                    <button class="btn btn-primary" disabled>禁用按鈕</button>
+                    <div class="demo-label">.btn[disabled]</div>
+                </div>
+            </div>
+            
+            <div class="code-snippet">
+&lt;button class="btn btn-primary"&gt;Primary 按鈕&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary 按鈕&lt;/button&gt;
+&lt;button class="btn btn-outline"&gt;Outline 按鈕&lt;/button&gt;
+            </div>
+        </section>
+
+        <!-- 卡片組件 -->
+        <section class="component-section">
+            <div class="component-header">
+                <div class="component-icon">🃏</div>
+                <div>
+                    <h3 class="component-title">卡片組件</h3>
+                    <p class="component-desc">多種佈局的卡片組件，支援標題、內容、操作區域</p>
+                </div>
+            </div>
+            
+            <div class="card-gallery">
+                <div class="demo-card">
+                    <div class="card-image">🖼️</div>
+                    <div class="card-body">
+                        <h4 class="headline-6 mb-2">基礎卡片</h4>
+                        <p class="body-2 text-medium-emphasis mb-4">
+                            這是一個基礎的卡片組件，包含圖片、標題和內容區域。
+                        </p>
+                        <button class="btn btn-primary btn-sm">了解更多</button>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="card-header">
+                        <h4 class="headline-6">帶標題卡片</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="body-2 text-medium-emphasis">
+                            這個卡片包含獨立的標題區域，適合展示結構化內容。
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="flex justify-between">
+                            <button class="btn btn-outline btn-sm">取消</button>
+                            <button class="btn btn-primary btn-sm">確認</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="card-body">
+                        <div class="flex items-center mb-3">
+                            <div class="feature-icon mr-3">👤</div>
+                            <div>
+                                <h4 class="headline-6">用戶資訊卡片</h4>
+                                <p class="caption text-medium-emphasis">最後登入：2小時前</p>
+                            </div>
+                        </div>
+                        <p class="body-2 text-medium-emphasis">
+                            整合了圖標和用戶資訊的複合卡片設計。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-snippet">
+&lt;div class="card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h4&gt;卡片標題&lt;/h4&gt;
+    &lt;p&gt;卡片內容...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- 表單組件 -->
+        <section class="component-section">
+            <div class="component-header">
+                <div class="component-icon">📝</div>
+                <div>
+                    <h3 class="component-title">表單組件</h3>
+                    <p class="component-desc">完整的表單元素，包含輸入框、選擇器、開關等</p>
+                </div>
+            </div>
+            
+            <div class="form-demo">
+                <div class="form-group">
+                    <label class="form-label">用戶名稱</label>
+                    <input type="text" class="input" placeholder="請輸入用戶名稱">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">電子郵件</label>
+                    <input type="email" class="input" placeholder="user@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">密碼</label>
+                    <input type="password" class="input" placeholder="請輸入密碼">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">個人簡介</label>
+                    <textarea class="input" rows="3" placeholder="請簡單介紹自己..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2">
+                        <span>我同意服務條款</span>
+                    </label>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button class="btn btn-outline flex-1">取消</button>
+                    <button class="btn btn-primary flex-1">提交</button>
+                </div>
+            </div>
+            
+            <div class="code-snippet">
+&lt;input type="text" class="input" placeholder="請輸入..."&gt;
+&lt;textarea class="input" rows="3"&gt;&lt;/textarea&gt;
+&lt;button class="btn btn-primary"&gt;提交&lt;/button&gt;
+            </div>
+        </section>
+
+        <!-- 徽章和標籤 -->
+        <section class="component-section">
+            <div class="component-header">
+                <div class="component-icon">🏷️</div>
+                <div>
+                    <h3 class="component-title">徽章和標籤</h3>
+                    <p class="component-desc">用於標記狀態、分類和重要資訊的小型組件</p>
+                </div>
+            </div>
+            
+            <div class="badge-demo">
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge" style="background: var(--success-500); color: white;">成功</span>
+                <span class="badge" style="background: var(--warning-500); color: white;">警告</span>
+                <span class="badge" style="background: var(--error-500); color: white;">錯誤</span>
+                <span class="badge" style="background: var(--info-500); color: white;">資訊</span>
+            </div>
+            
+            <div class="interactive-demo">
+                <h4 class="subtitle-1 mb-3">互動式標籤</h4>
+                <div class="badge-demo">
+                    <button class="badge badge-primary" onclick="this.style.opacity='0.5'">可點擊</button>
+                    <span class="badge" style="background: var(--surface); color: var(--text-medium-emphasis); border: 1px solid var(--divider);">輕量</span>
+                    <span class="badge badge-secondary">計數 42</span>
+                </div>
+            </div>
+            
+            <div class="code-snippet">
+&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
+            </div>
+        </section>
+
+        <!-- 載入器和進度 -->
+        <section class="component-section">
+            <div class="component-header">
+                <div class="component-icon">⏳</div>
+                <div>
+                    <h3 class="component-title">載入器和進度</h3>
+                    <p class="component-desc">用於顯示載入狀態和進度的動畫組件</p>
+                </div>
+            </div>
+            
+            <div class="loader-demo">
+                <div class="text-center">
+                    <div class="loader mb-2"></div>
+                    <div class="demo-label">基礎載入器</div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="loader" style="width: 32px; height: 32px; border-width: 3px;"></div>
+                    <div class="demo-label">大型載入器</div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="btn btn-primary" onclick="simulateLoading(this)">
+                        載入資料
+                    </button>
+                    <div class="demo-label">載入按鈕</div>
+                </div>
+            </div>
+            
+            <div class="interactive-demo">
+                <h4 class="subtitle-1 mb-3">進度條示例</h4>
+                <div style="background: var(--divider); height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div id="progressBar" style="background: var(--primary-500); height: 100%; width: 65%; transition: width 0.3s ease;"></div>
+                </div>
+                <div class="text-center mt-2">
+                    <small class="text-medium-emphasis">進度：65%</small>
+                </div>
+            </div>
+            
+            <div class="code-snippet">
+&lt;div class="loader"&gt;&lt;/div&gt;
+&lt;div class="progress-bar"&gt;
+  &lt;div class="progress-fill" style="width: 65%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- 浮動操作按鈕 -->
+        <section class="component-section">
+            <div class="component-header">
+                <div class="component-icon">🎯</div>
+                <div>
+                    <h3 class="component-title">浮動操作按鈕 (FAB)</h3>
+                    <p class="component-desc">Material Design 特色的浮動操作按鈕組件</p>
+                </div>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <button class="fab">+</button>
+                    <div class="demo-label">.fab</div>
+                </div>
+                <div class="demo-item">
+                    <button class="fab" style="background: var(--secondary-500);">✉️</button>
+                    <div class="demo-label">.fab (secondary)</div>
+                </div>
+                <div class="demo-item">
+                    <button class="fab" style="width: 40px; height: 40px; border-radius: 12px;">🔍</button>
+                    <div class="demo-label">.fab (small)</div>
+                </div>
+                <div class="demo-item">
+                    <button class="fab" style="width: 72px; height: 72px; border-radius: 20px;">📱</button>
+                    <div class="demo-label">.fab (large)</div>
+                </div>
+            </div>
+            
+            <div class="code-snippet">
+&lt;button class="fab"&gt;+&lt;/button&gt;
+&lt;button class="fab" style="background: var(--secondary-500);"&gt;✉️&lt;/button&gt;
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <p>
+                慈濟設計系統 v2.0.0 | Material Design 3.0<br>
+                <small>基於 Material Design 規範的企業級 CSS 框架</small>
+            </p>
+            <p class="mt-4">
+                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-primary">GitHub</a> •
+                <a href="docs.html" class="link-primary">文檔</a> •
+                <a href="colors.html" class="link-primary">色彩</a> •
+                <a href="features.html" class="link-primary">功能</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 導航切換功能
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // 主題切換功能
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const button = document.querySelector('.theme-toggle button');
+            if (document.body.classList.contains('light-theme')) {
+                button.textContent = '🌞 切換主題';
+            } else {
+                button.textContent = '🌙 切換主題';
+            }
+        }
+
+        // 模擬載入功能
+        function simulateLoading(button) {
+            const originalText = button.textContent;
+            button.innerHTML = '<div class="loader" style="width: 16px; height: 16px; border-width: 2px; margin: 0;"></div>';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = '載入完成 ✓';
+                button.style.background = 'var(--success-500)';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                }, 1000);
+            }, 2000);
+        }
+
+        // 載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.component-section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    section.style.transition = 'all 0.6s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

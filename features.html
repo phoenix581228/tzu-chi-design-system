@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能特色 - 慈濟設計系統 v2.0.0</title>
+    <meta name="description" content="探索慈濟設計系統的六大核心特色：Material Design 3.0、模組化架構、工具類系統等">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🌟</text></svg>">
+    
+    <!-- Material Design 3.0 CSS System -->
+    <link rel="stylesheet" href="themes/material-design.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <style>
+        .feature-detail-card {
+            background: var(--surface);
+            border-radius: var(--cis-radius-xl);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--cis-elevation-2);
+            transition: all var(--cis-duration-300) var(--cis-ease-out);
+        }
+        
+        .feature-detail-card:hover {
+            box-shadow: var(--cis-elevation-8);
+            transform: translateY(-2px);
+        }
+        
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon-large {
+            width: 4rem;
+            height: 4rem;
+            background: var(--primary-100);
+            border-radius: var(--cis-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-subtitle {
+            color: var(--text-medium-emphasis);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-highlights li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-medium-emphasis);
+            line-height: 1.6;
+        }
+        
+        .feature-highlights li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-600);
+            font-weight: bold;
+        }
+        
+        .demo-section {
+            background: var(--primary-50);
+            border-radius: var(--cis-radius-lg);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .demo-title {
+            font-weight: 600;
+            color: var(--primary-700);
+            margin-bottom: 1rem;
+        }
+        
+        .color-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .color-demo-item {
+            height: 60px;
+            border-radius: var(--cis-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .utility-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .utility-example {
+            padding: 1rem;
+            border-radius: var(--cis-radius-md);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-item {
+            background: var(--surface);
+            border: 1px solid var(--divider);
+            border-radius: var(--cis-radius-md);
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .tech-item h5 {
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-item p {
+            color: var(--text-medium-emphasis);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body class="material-design-system">
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                🎨 慈濟設計系統
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">首頁</a></li>
+                <li><a href="features.html" class="nav-link active">功能特色</a></li>
+                <li><a href="colors.html" class="nav-link">色彩系統</a></li>
+                <li><a href="components.html" class="nav-link">組件展示</a></li>
+                <li><a href="docs.html" class="nav-link">使用文檔</a></li>
+                <li><a href="changelog.html" class="nav-link">更新日誌</a></li>
+            </ul>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        </div>
+    </nav>
+
+    <!-- 主題切換按鈕 -->
+    <div class="theme-toggle">
+        <button class="btn btn-secondary" onclick="toggleTheme()">
+            🌙 切換主題
+        </button>
+    </div>
+
+    <!-- 頁面標題 -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">🌟 功能特色</h1>
+            <p class="page-subtitle">
+                探索慈濟設計系統 v2.0.0 的六大核心特色，了解 Material Design 3.0 
+                如何為您的項目帶來現代化的設計體驗
+            </p>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <!-- Material Design 3.0 -->
+        <article class="feature-detail-card">
+            <div class="feature-header">
+                <div class="feature-icon-large">🎨</div>
+                <div class="feature-content">
+                    <h3>Material Design 3.0</h3>
+                    <p class="feature-subtitle">Google 最新設計語言的完整實現</p>
+                </div>
+            </div>
+            
+            <p class="text-medium-emphasis">
+                我們完整實現了 Google Material Design 3.0 規範，提供現代化、
+                一致性和可訪問性的設計體驗。從色彩系統到組件設計，
+                每個細節都遵循最新的設計準則。
+            </p>
+            
+            <ul class="feature-highlights">
+                <li>完整的 Primary/Secondary 色彩調色板 (50-900 色階)</li>
+                <li>Material You 動態色彩系統支援</li>
+                <li>表面層級 (Surface Levels) 和狀態層系統</li>
+                <li>Material Motion 動畫和過渡效果</li>
+                <li>符合 WCAG 2.1 AA 標準的對比度設計</li>
+            </ul>
+            
+            <div class="demo-section">
+                <div class="demo-title">🎨 色彩調色板預覽</div>
+                <div class="color-demo">
+                    <div class="color-demo-item bg-primary-300">Primary 300</div>
+                    <div class="color-demo-item bg-primary-500">Primary 500</div>
+                    <div class="color-demo-item bg-primary-700">Primary 700</div>
+                    <div class="color-demo-item bg-secondary-300">Secondary 300</div>
+                    <div class="color-demo-item bg-secondary-500">Secondary 500</div>
+                    <div class="color-demo-item bg-secondary-700">Secondary 700</div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 模組化架構 -->
+        <article class="feature-detail-card">
+            <div class="feature-header">
+                <div class="feature-icon-large">🧩</div>
+                <div class="feature-content">
+                    <h3>模組化架構</h3>
+                    <p class="feature-subtitle">7個獨立模組，按需引入</p>
+                </div>
+            </div>
+            
+            <p class="text-medium-emphasis">
+                採用模組化設計架構，將設計系統分解為7個獨立的 CSS 模組。
+                您可以根據項目需求選擇性引入，減少不必要的文件大小，
+                提升載入性能。
+            </p>
+            
+            <ul class="feature-highlights">
+                <li>變數系統 (variables.css) - 設計令牌和主題變數</li>
+                <li>基礎樣式 (base.css) - 重置和基礎元素樣式</li>
+                <li>色彩工具 (colors.css) - 色彩工具類和背景樣式</li>
+                <li>字體排版 (typography.css) - Material Design 字體階層</li>
+                <li>佈局系統 (layout.css) - Flexbox 和 Grid 佈局工具</li>
+                <li>UI組件 (components.css) - 按鈕、卡片等組件樣式</li>
+                <li>主入口 (material-design.css) - 統一引入所有模組</li>
+            </ul>
+            
+            <div class="demo-section">
+                <div class="demo-title">📦 模組結構</div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <h5>🎯 Variables</h5>
+                        <p>設計令牌和 CSS 自訂屬性</p>
+                    </div>
+                    <div class="tech-item">
+                        <h5>🎨 Colors</h5>
+                        <p>色彩系統和工具類</p>
+                    </div>
+                    <div class="tech-item">
+                        <h5>📝 Typography</h5>
+                        <p>字體排版和文字樣式</p>
+                    </div>
+                    <div class="tech-item">
+                        <h5>🧩 Components</h5>
+                        <p>UI 組件和互動元素</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2000+ 工具類 -->
+        <article class="feature-detail-card">
+            <div class="feature-header">
+                <div class="feature-icon-large">⚡</div>
+                <div class="feature-content">
+                    <h3>2000+ 工具類</h3>
+                    <p class="feature-subtitle">企業級工具類庫，快速開發</p>
+                </div>
+            </div>
+            
+            <p class="text-medium-emphasis">
+                提供超過2000個預定義的工具類，涵蓋色彩、字體、佈局、間距、
+                陰影等所有設計需求。支援懸停、焦點、選取等完整互動狀態，
+                讓您能夠快速構建美觀的界面。
+            </p>
+            
+            <ul class="feature-highlights">
+                <li>色彩工具類：背景色、文字色、邊框色等</li>
+                <li>間距系統：margin、padding 的完整尺寸階層</li>
+                <li>字體工具：大小、重量、行高、字間距等</li>
+                <li>佈局工具：Flexbox、Grid、定位等</li>
+                <li>狀態工具：hover、focus、active 等互動狀態</li>
+                <li>響應式前綴：支援不同螢幕尺寸的條件樣式</li>
+            </ul>
+            
+            <div class="demo-section">
+                <div class="demo-title">⚡ 工具類示例</div>
+                <div class="utility-demo">
+                    <div class="utility-example bg-primary-100 text-primary-700">
+                        .bg-primary-100<br>.text-primary-700
+                    </div>
+                    <div class="utility-example bg-secondary-500 text-on-secondary">
+                        .bg-secondary-500<br>.text-on-secondary
+                    </div>
+                    <div class="utility-example" style="background: var(--surface); border: 2px solid var(--primary-300);">
+                        .border-primary-300<br>.border-2
+                    </div>
+                    <div class="utility-example bg-gradient-primary text-white">
+                        .bg-gradient-primary<br>.text-white
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <p>
+                慈濟設計系統 v2.0.0 | Material Design 3.0<br>
+                <small>基於 Material Design 規範的企業級 CSS 框架</small>
+            </p>
+            <p class="mt-4">
+                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-primary">GitHub</a> •
+                <a href="docs.html" class="link-primary">文檔</a> •
+                <a href="components.html" class="link-primary">組件</a> •
+                <a href="changelog.html" class="link-primary">更新日誌</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 導航切換功能
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // 主題切換功能
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const button = document.querySelector('.theme-toggle button');
+            if (document.body.classList.contains('light-theme')) {
+                button.textContent = '🌞 切換主題';
+            } else {
+                button.textContent = '🌙 切換主題';
+            }
+        }
+
+        // 載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-detail-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
