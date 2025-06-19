@@ -6,7 +6,7 @@
     <title>慈濟設計系統 - 組件展示</title>
     <meta name="description" content="慈濟設計系統 v1.x - 所有組件展示">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.8.css">
+    <link rel="stylesheet" href="../tzu-chi-design-system-v1.0.9.css">
     <style>
         /* 組件展示專用樣式 */
         body {
@@ -192,6 +192,7 @@
             <ul>
                 <li><a href="#tabs">標籤頁 Tabs</a></li>
                 <li><a href="#search-bar">搜尋欄</a></li>
+                <li><a href="#pagination">分頁導航 Pagination</a></li>
             </ul>
         </div>
         
@@ -1750,6 +1751,189 @@
 
 &lt;!-- 僅垂直間距 --&gt;
 &lt;div class="cis-row cis-gy-3"&gt;...&lt;/div&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 分頁導航 -->
+        <section id="pagination" class="showcase-section">
+            <div class="showcase-section-header">
+                <h2 class="showcase-section-title">分頁導航 Pagination</h2>
+                <p class="showcase-section-description">
+                    分頁導航組件，支援多種佈局和狀態，適用於內容較多的列表頁面
+                </p>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">基本分頁</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-pagination">
+                        <div class="cis-pagination-nav">
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--first">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">第一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--prev">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">上一頁</span>
+                                </button>
+                            </div>
+                            <div class="cis-pagination-numbers">
+                                <a href="#" class="cis-pagination-number cis-pagination-number--current">1</a>
+                                <a href="#" class="cis-pagination-number">2</a>
+                                <a href="#" class="cis-pagination-number">3</a>
+                                <a href="#" class="cis-pagination-number">4</a>
+                                <a href="#" class="cis-pagination-number">5</a>
+                            </div>
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--next">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">下一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--last">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">最後一頁</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cis-pagination-info">第 1 頁，共 8 頁</div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;div class="cis-pagination"&gt;
+  &lt;div class="cis-pagination-nav"&gt;
+    &lt;div class="cis-pagination-controls"&gt;
+      &lt;button class="cis-pagination-btn cis-pagination-btn--first"&gt;
+        &lt;span class="cis-pagination-icon cis-pagination-icon-double"&gt;&lt;/span&gt;
+        &lt;span class="cis-pagination-sr-only"&gt;第一頁&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button class="cis-pagination-btn cis-pagination-btn--prev"&gt;
+        &lt;span class="cis-pagination-icon cis-pagination-icon-single"&gt;&lt;/span&gt;
+        &lt;span class="cis-pagination-sr-only"&gt;上一頁&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="cis-pagination-numbers"&gt;
+      &lt;a href="#" class="cis-pagination-number cis-pagination-number--current"&gt;1&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;2&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;3&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;4&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;5&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="cis-pagination-controls"&gt;
+      &lt;button class="cis-pagination-btn cis-pagination-btn--next"&gt;
+        &lt;span class="cis-pagination-icon cis-pagination-icon-single"&gt;&lt;/span&gt;
+        &lt;span class="cis-pagination-sr-only"&gt;下一頁&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button class="cis-pagination-btn cis-pagination-btn--last"&gt;
+        &lt;span class="cis-pagination-icon cis-pagination-icon-double"&gt;&lt;/span&gt;
+        &lt;span class="cis-pagination-sr-only"&gt;最後一頁&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cis-pagination-info"&gt;第 1 頁，共 8 頁&lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">中間頁分頁</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-pagination">
+                        <div class="cis-pagination-nav">
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--first">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">第一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--prev">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">上一頁</span>
+                                </button>
+                            </div>
+                            <div class="cis-pagination-numbers">
+                                <a href="#" class="cis-pagination-number">3</a>
+                                <a href="#" class="cis-pagination-number cis-pagination-number--current">4</a>
+                                <a href="#" class="cis-pagination-number">5</a>
+                                <a href="#" class="cis-pagination-number">6</a>
+                                <a href="#" class="cis-pagination-number">7</a>
+                            </div>
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--next">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">下一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--last">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">最後一頁</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cis-pagination-info">第 4 頁，共 15 頁</div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;!-- 中間頁範例 --&gt;
+&lt;div class="cis-pagination"&gt;
+  &lt;div class="cis-pagination-nav"&gt;
+    &lt;!-- 控制按鈕 --&gt;
+    &lt;div class="cis-pagination-controls"&gt;...&lt;/div&gt;
+    &lt;!-- 頁碼 --&gt;
+    &lt;div class="cis-pagination-numbers"&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;3&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number cis-pagination-number--current"&gt;4&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;5&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;6&lt;/a&gt;
+      &lt;a href="#" class="cis-pagination-number"&gt;7&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- 控制按鈕 --&gt;
+    &lt;div class="cis-pagination-controls"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cis-pagination-info"&gt;第 4 頁，共 15 頁&lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="showcase-example">
+                <h3 class="showcase-example-title">簡化分頁</h3>
+                <div class="showcase-example-demo">
+                    <div class="cis-pagination">
+                        <div class="cis-pagination-nav">
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--prev">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">上一頁</span>
+                                </button>
+                            </div>
+                            <div class="cis-pagination-info">第 3 頁，共 10 頁</div>
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--next">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">下一頁</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-example-code">
+                    <pre>&lt;!-- 簡化版本 --&gt;
+&lt;div class="cis-pagination"&gt;
+  &lt;div class="cis-pagination-nav"&gt;
+    &lt;div class="cis-pagination-controls"&gt;
+      &lt;button class="cis-pagination-btn cis-pagination-btn--prev"&gt;
+        &lt;span class="cis-pagination-icon cis-pagination-icon-single"&gt;&lt;/span&gt;
+        &lt;span class="cis-pagination-sr-only"&gt;上一頁&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="cis-pagination-info"&gt;第 3 頁，共 10 頁&lt;/div&gt;
+    &lt;div class="cis-pagination-controls"&gt;
+      &lt;button class="cis-pagination-btn cis-pagination-btn--next"&gt;
+        &lt;span class="cis-pagination-icon cis-pagination-icon-single"&gt;&lt;/span&gt;
+        &lt;span class="cis-pagination-sr-only"&gt;下一頁&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
                 </div>
             </div>
         </section>

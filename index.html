@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v1.0.8 - CIS Dark Mode</title>
-    <meta name="description" content="慈濟設計系統 v1.0.8 - 基於 CIS 大入口網 Dark Mode 設計規範">
+    <title>慈濟設計系統 v1.0.9 - CIS Dark Mode</title>
+    <meta name="description" content="慈濟設計系統 v1.0.9 - 基於 CIS 大入口網 Dark Mode 設計規範">
     <meta name="keywords" content="慈濟,設計系統,CIS,design system,dark mode">
-    <meta property="og:title" content="慈濟設計系統 v1.0.8">
+    <meta property="og:title" content="慈濟設計系統 v1.0.9">
     <meta property="og:description" content="CIS 大入口網設計系統 - Dark Mode">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
-    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.8.css">
+    <link rel="stylesheet" href="tzu-chi-design-system-v1.0.9.css">
     <style>
         /* 展示頁面專用樣式 */
         .demo-container {
@@ -89,7 +89,7 @@
         <header class="demo-header">
             <h1 class="cis-h1">
                 慈濟設計系統
-                <span class="version-badge">v1.0.8</span>
+                <span class="version-badge">v1.0.9</span>
             </h1>
             <p class="cis-body-large cis-text-secondary">CIS 大入口網設計規範 - Dark Mode</p>
             <p class="cis-caption">更新日期：2025-06-19</p>
@@ -926,6 +926,110 @@
                                 <div class="cis-share-icon-lg"></div>
                             </div>
                             <span class="cis-social-text-lg">分享</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分頁導航 -->
+        <section class="demo-section">
+            <h2 class="cis-h2 demo-section-title">分頁導航 Pagination</h2>
+            
+            <h3 class="cis-h4">基本分頁</h3>
+            <div class="demo-box">
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg); margin-bottom: var(--cis-spacing-4);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">基本分頁組件</p>
+                    <div class="cis-pagination">
+                        <div class="cis-pagination-nav">
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--first">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">第一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--prev">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">上一頁</span>
+                                </button>
+                            </div>
+                            <div class="cis-pagination-numbers">
+                                <a href="#" class="cis-pagination-number cis-pagination-number--current">1</a>
+                                <a href="#" class="cis-pagination-number">2</a>
+                                <a href="#" class="cis-pagination-number">3</a>
+                                <a href="#" class="cis-pagination-number">4</a>
+                                <a href="#" class="cis-pagination-number">5</a>
+                            </div>
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--next">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">下一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--last">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">最後一頁</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cis-pagination-info">第 1 頁，共 8 頁</div>
+                    </div>
+                </div>
+                
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">中間頁分頁組件</p>
+                    <div class="cis-pagination">
+                        <div class="cis-pagination-nav">
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--first">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">第一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--prev">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">上一頁</span>
+                                </button>
+                            </div>
+                            <div class="cis-pagination-numbers">
+                                <a href="#" class="cis-pagination-number">3</a>
+                                <a href="#" class="cis-pagination-number cis-pagination-number--current">4</a>
+                                <a href="#" class="cis-pagination-number">5</a>
+                                <a href="#" class="cis-pagination-number">6</a>
+                                <a href="#" class="cis-pagination-number">7</a>
+                            </div>
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--next">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">下一頁</span>
+                                </button>
+                                <button class="cis-pagination-btn cis-pagination-btn--last">
+                                    <span class="cis-pagination-icon cis-pagination-icon-double"></span>
+                                    <span class="cis-pagination-sr-only">最後一頁</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cis-pagination-info">第 4 頁，共 15 頁</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cis-h4">簡化分頁</h3>
+            <div class="demo-box">
+                <div style="background: #292929; padding: var(--cis-spacing-6); border-radius: var(--cis-radius-lg);">
+                    <p class="cis-caption" style="color: #FFFFFF; margin-bottom: var(--cis-spacing-4);">簡化版本，僅顯示前後頁按鈕</p>
+                    <div class="cis-pagination">
+                        <div class="cis-pagination-nav">
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--prev">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">上一頁</span>
+                                </button>
+                            </div>
+                            <div class="cis-pagination-info">第 3 頁，共 10 頁</div>
+                            <div class="cis-pagination-controls">
+                                <button class="cis-pagination-btn cis-pagination-btn--next">
+                                    <span class="cis-pagination-icon cis-pagination-icon-single"></span>
+                                    <span class="cis-pagination-sr-only">下一頁</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
