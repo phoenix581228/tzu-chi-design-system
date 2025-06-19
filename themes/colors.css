@@ -1097,3 +1097,484 @@ body {
 .blockquote-author::before {
   content: "— ";
 }
+
+/* ===========================
+   Layout System - 佈局系統
+   =========================== */
+
+/* 佈局系統 */
+@import './variables.css';
+
+/* 主容器 */
+.main-container {
+  position: relative;
+  width: var(--container-width);
+  height: var(--container-height);
+  background: var(--background);
+}
+
+/* 區域佈局 */
+.header-section {
+  position: absolute;
+  left: var(--page-padding);
+  right: var(--page-padding);
+  top: 4.09%;
+  bottom: 85.13%;
+}
+
+.footer-section {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 92.07%;
+  bottom: 0%;
+}
+
+.content-section {
+  position: absolute;
+  left: var(--page-padding);
+  right: var(--page-padding);
+  top: 17.97%;
+  bottom: 8%;
+}
+
+/* 色彩面板佈局 */
+.color-panel {
+  position: absolute;
+  left: 35.07%;
+  right: 4.17%;
+}
+
+.color-panel-primary {
+  top: 20.04%;
+  bottom: 76.16%;
+}
+
+.color-panel-secondary {
+  top: 38.49%;
+  bottom: 57.72%;
+}
+
+.color-panel-surface {
+  top: 69.57%;
+  bottom: 22.84%;
+}
+
+.color-panel-outline {
+  top: 82.33%;
+  bottom: 14.57%;
+}
+
+/* 色彩網格 */
+.color-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0;
+  height: 100%;
+}
+
+.color-swatch-left {
+  background: var(--primary-900);
+}
+
+.color-swatch-center {
+  background: var(--primary-700);
+}
+
+.color-swatch-right {
+  background: var(--primary-400);
+}
+
+/* 側邊欄色彩方案 */
+.color-scheme-sidebar {
+  position: absolute;
+  left: 4.17%;
+  right: 70.83%;
+  top: 17.97%;
+  bottom: 30.65%;
+}
+
+.color-scheme-item {
+  width: 360px;
+  height: 88px;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.color-scheme-swatch {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  height: 100%;
+}
+
+.color-scheme-label {
+  position: absolute;
+  height: 24px;
+  left: 4.44%;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.color-scheme-code {
+  position: absolute;
+  height: 24px;
+  right: 4.44%;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.color-scheme-number {
+  position: absolute;
+  left: 4.17%;
+  right: 89.17%;
+  top: 4.37%;
+  bottom: 93.53%;
+  background: var(--text-high-emphasis);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-scheme-number-text {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: var(--surface);
+  font-weight: 500;
+}
+
+/* 分隔線 */
+.divider {
+  background: var(--divider);
+  height: 1px;
+}
+
+.divider-section {
+  position: absolute;
+  left: var(--page-padding);
+  right: var(--page-padding);
+  top: 14.83%;
+  bottom: 85.13%;
+  background: var(--text-high-emphasis);
+  opacity: 0.6;
+  mix-blend-mode: normal;
+}
+
+/* 標籤定位 */
+.label-container {
+  position: relative;
+  height: 100%;
+}
+
+.label-text {
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* 響應式佈局 */
+@media (max-width: 1200px) {
+  .main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .color-panel {
+    left: 5%;
+    right: 5%;
+  }
+  
+  .color-scheme-sidebar {
+    left: 5%;
+    right: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .header-section,
+  .footer-section,
+  .content-section {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: auto;
+    margin: 1rem;
+  }
+  
+  .color-panel,
+  .color-scheme-sidebar {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 1rem 0;
+  }
+  
+  .color-scheme-item {
+    width: 100%;
+  }
+}
+
+/* Flexbox 替代方案 */
+.flex-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-header {
+  flex: 0 0 auto;
+  padding: 2rem var(--page-padding);
+}
+
+.flex-content {
+  flex: 1 1 auto;
+  padding: 0 var(--page-padding);
+}
+
+.flex-footer {
+  flex: 0 0 auto;
+  padding: 1rem var(--page-padding);
+}
+
+/* Grid 替代方案 */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "sidebar header"
+    "sidebar content"
+    "sidebar footer";
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.grid-header {
+  grid-area: header;
+}
+
+.grid-sidebar {
+  grid-area: sidebar;
+}
+
+.grid-content {
+  grid-area: content;
+}
+
+.grid-footer {
+  grid-area: footer;
+}
+
+/* ===========================
+   Additional Layout Utilities - 額外佈局工具類
+   =========================== */
+
+/* 間距系統 */
+.space-y-1 > * + * { margin-top: var(--cis-spacing-1); }
+.space-y-2 > * + * { margin-top: var(--cis-spacing-2); }
+.space-y-3 > * + * { margin-top: var(--cis-spacing-3); }
+.space-y-4 > * + * { margin-top: var(--cis-spacing-4); }
+.space-y-5 > * + * { margin-top: var(--cis-spacing-5); }
+.space-y-6 > * + * { margin-top: var(--cis-spacing-6); }
+.space-y-8 > * + * { margin-top: var(--cis-spacing-8); }
+
+.space-x-1 > * + * { margin-left: var(--cis-spacing-1); }
+.space-x-2 > * + * { margin-left: var(--cis-spacing-2); }
+.space-x-3 > * + * { margin-left: var(--cis-spacing-3); }
+.space-x-4 > * + * { margin-left: var(--cis-spacing-4); }
+.space-x-5 > * + * { margin-left: var(--cis-spacing-5); }
+.space-x-6 > * + * { margin-left: var(--cis-spacing-6); }
+.space-x-8 > * + * { margin-left: var(--cis-spacing-8); }
+
+/* 容器寬度 */
+.container-sm { max-width: var(--cis-container-sm); margin: 0 auto; }
+.container-md { max-width: var(--cis-container-md); margin: 0 auto; }
+.container-lg { max-width: var(--cis-container-lg); margin: 0 auto; }
+.container-xl { max-width: var(--cis-container-xl); margin: 0 auto; }
+.container-2xl { max-width: var(--cis-container-2xl); margin: 0 auto; }
+
+/* 高度工具類 */
+.h-screen { height: 100vh; }
+.h-1/2 { height: 50%; }
+.h-1/3 { height: 33.333333%; }
+.h-2/3 { height: 66.666667%; }
+.h-1/4 { height: 25%; }
+.h-3/4 { height: 75%; }
+.h-auto { height: auto; }
+.h-fit { height: fit-content; }
+
+/* 寬度工具類 */
+.w-screen { width: 100vw; }
+.w-1/2 { width: 50%; }
+.w-1/3 { width: 33.333333%; }
+.w-2/3 { width: 66.666667%; }
+.w-1/4 { width: 25%; }
+.w-3/4 { width: 75%; }
+.w-auto { width: auto; }
+.w-fit { width: fit-content; }
+
+/* 最小/最大尺寸 */
+.min-h-screen { min-height: 100vh; }
+.min-h-0 { min-height: 0; }
+.min-h-full { min-height: 100%; }
+.max-h-screen { max-height: 100vh; }
+.max-h-full { max-height: 100%; }
+
+.min-w-0 { min-width: 0; }
+.min-w-full { min-width: 100%; }
+.max-w-screen { max-width: 100vw; }
+.max-w-full { max-width: 100%; }
+.max-w-none { max-width: none; }
+
+/* 顯示工具類 */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.table { display: table; }
+.table-row { display: table-row; }
+.table-cell { display: table-cell; }
+
+/* Flexbox 進階工具類 */
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+.flex-grow { flex-grow: 1; }
+.flex-grow-0 { flex-grow: 0; }
+.flex-shrink { flex-shrink: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+
+/* Grid 進階工具類 */
+.grid-cols-none { grid-template-columns: none; }
+.grid-cols-subgrid { grid-template-columns: subgrid; }
+
+.grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+.grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+.grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+
+.col-span-1 { grid-column: span 1 / span 1; }
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+.col-span-4 { grid-column: span 4 / span 4; }
+.col-span-6 { grid-column: span 6 / span 6; }
+.col-span-12 { grid-column: span 12 / span 12; }
+.col-span-full { grid-column: 1 / -1; }
+
+.row-span-1 { grid-row: span 1 / span 1; }
+.row-span-2 { grid-row: span 2 / span 2; }
+.row-span-3 { grid-row: span 3 / span 3; }
+.row-span-4 { grid-row: span 4 / span 4; }
+.row-span-full { grid-row: 1 / -1; }
+
+/* 定位工具類 */
+.static { position: static; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.inset-x-0 { left: 0; right: 0; }
+.inset-y-0 { top: 0; bottom: 0; }
+
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+.top-1/2 { top: 50%; }
+.right-1/2 { right: 50%; }
+.bottom-1/2 { bottom: 50%; }
+.left-1/2 { left: 50%; }
+
+/* 溢出處理 */
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+
+.overflow-x-auto { overflow-x: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-x-visible { overflow-x: visible; }
+.overflow-x-scroll { overflow-x: scroll; }
+
+.overflow-y-auto { overflow-y: auto; }
+.overflow-y-hidden { overflow-y: hidden; }
+.overflow-y-visible { overflow-y: visible; }
+.overflow-y-scroll { overflow-y: scroll; }
+
+/* Z-index 工具類 */
+.z-0 { z-index: var(--cis-z-0); }
+.z-10 { z-index: var(--cis-z-10); }
+.z-20 { z-index: var(--cis-z-20); }
+.z-30 { z-index: var(--cis-z-30); }
+.z-40 { z-index: var(--cis-z-40); }
+.z-50 { z-index: var(--cis-z-50); }
+.z-modal { z-index: var(--cis-z-modal); }
+.z-popover { z-index: var(--cis-z-popover); }
+.z-tooltip { z-index: var(--cis-z-tooltip); }
+
+/* 可見性工具類 */
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+.collapse { visibility: collapse; }
+
+/* 背景附著 */
+.bg-fixed { background-attachment: fixed; }
+.bg-local { background-attachment: local; }
+.bg-scroll { background-attachment: scroll; }
+
+/* 背景剪裁 */
+.bg-clip-border { background-clip: border-box; }
+.bg-clip-padding { background-clip: padding-box; }
+.bg-clip-content { background-clip: content-box; }
+.bg-clip-text { background-clip: text; }
+
+/* 背景重複 */
+.bg-repeat { background-repeat: repeat; }
+.bg-no-repeat { background-repeat: no-repeat; }
+.bg-repeat-x { background-repeat: repeat-x; }
+.bg-repeat-y { background-repeat: repeat-y; }
+.bg-repeat-round { background-repeat: round; }
+.bg-repeat-space { background-repeat: space; }
+
+/* 背景尺寸 */
+.bg-auto { background-size: auto; }
+.bg-cover { background-size: cover; }
+.bg-contain { background-size: contain; }
+
+/* 背景位置 */
+.bg-bottom { background-position: bottom; }
+.bg-center { background-position: center; }
+.bg-left { background-position: left; }
+.bg-left-bottom { background-position: left bottom; }
+.bg-left-top { background-position: left top; }
+.bg-right { background-position: right; }
+.bg-right-bottom { background-position: right bottom; }
+.bg-right-top { background-position: right top; }
+.bg-top { background-position: top; }
