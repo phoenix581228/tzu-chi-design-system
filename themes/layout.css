@@ -1,0 +1,92 @@
+/**
+ * Material Design 佈局系統
+ * 獨立的佈局模組
+ */
+
+/* Flexbox 佈局 */
+.flex-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-header {
+  flex: 0 0 auto;
+  padding: 2rem var(--page-padding);
+}
+
+.flex-content {
+  flex: 1 1 auto;
+  padding: 0 var(--page-padding);
+}
+
+.flex-footer {
+  flex: 0 0 auto;
+  padding: 1rem var(--page-padding);
+}
+
+/* Grid 佈局 */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "sidebar header"
+    "sidebar content"
+    "sidebar footer";
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.grid-header {
+  grid-area: header;
+}
+
+.grid-sidebar {
+  grid-area: sidebar;
+}
+
+.grid-content {
+  grid-area: content;
+}
+
+.grid-footer {
+  grid-area: footer;
+}
+
+/* 響應式容器 */
+.container-sm { max-width: var(--cis-container-sm); margin: 0 auto; }
+.container-md { max-width: var(--cis-container-md); margin: 0 auto; }
+.container-lg { max-width: var(--cis-container-lg); margin: 0 auto; }
+.container-xl { max-width: var(--cis-container-xl); margin: 0 auto; }
+.container-2xl { max-width: var(--cis-container-2xl); margin: 0 auto; }
+
+/* 響應式佈局 */
+@media (max-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "content"
+      "footer";
+  }
+  
+  .grid-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-header,
+  .flex-content,
+  .flex-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .grid-layout {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

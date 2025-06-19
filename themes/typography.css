@@ -1,0 +1,130 @@
+/**
+ * Material Design 字體排版系統
+ * 獨立的字體排版模組
+ */
+
+/* Material Design Typography Scale */
+.headline-1 {
+  font-family: var(--font-primary);
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 1.167;
+  letter-spacing: -1.5px;
+}
+
+.headline-2 {
+  font-family: var(--font-primary);
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.headline-3 {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0;
+}
+
+.headline-4 {
+  font-family: var(--font-primary);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.25px;
+}
+
+.headline-5 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.334;
+  letter-spacing: 0;
+}
+
+.headline-6 {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.15px;
+}
+
+.subtitle-1 {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.15px;
+}
+
+.subtitle-2 {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.1px;
+}
+
+.body-1 {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+}
+
+.body-2 {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.15px;
+}
+
+.button-text {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.caption {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.4px;
+}
+
+.overline {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 響應式字體 */
+@media (max-width: 768px) {
+  .headline-1 { font-size: 72px; }
+  .headline-2 { font-size: 48px; }
+  .headline-3 { font-size: 36px; }
+  .headline-4 { font-size: 28px; }
+  .headline-5 { font-size: 20px; }
+  .headline-6 { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .headline-1 { font-size: 48px; }
+  .headline-2 { font-size: 36px; }
+  .headline-3 { font-size: 28px; }
+  .headline-4 { font-size: 24px; }
+  .headline-5 { font-size: 18px; }
+  .headline-6 { font-size: 16px; }
+}

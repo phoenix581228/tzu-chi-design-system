@@ -1,0 +1,484 @@
+/* Material Design 色彩系統 - 主入口文件 */
+
+/* 
+  模塊化 CSS 架構
+  ================
+  
+  此文件系統將原始的大型CSS文件分割為以下模塊：
+  - variables.css: CSS變數定義
+  - base.css: 基礎樣式和重置
+  - colors.css: 色彩系統
+  - typography.css: 字體排版
+  - layout.css: 佈局系統
+  - components.css: UI組件
+*/
+
+/* 導入順序很重要：變數 → 基礎 → 功能模塊 */
+@import './variables.css';
+@import './base.css';
+@import './colors.css';
+@import './typography.css';
+@import './layout.css';
+@import './components.css';
+
+/* 主容器樣式 */
+.material-design-system {
+  font-family: var(--font-primary);
+  background: var(--background);
+  color: var(--text-high-emphasis);
+  min-height: 100vh;
+}
+
+/* 色彩系統展示容器 */
+.color-system-demo {
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* 標題區域 */
+.demo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.demo-title {
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -0.4px;
+  color: var(--text-high-emphasis);
+  margin-bottom: 1rem;
+}
+
+.demo-subtitle {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  color: var(--text-medium-emphasis);
+}
+
+/* 色彩面板網格 */
+.color-panels-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* 色彩方案側邊欄 */
+.color-scheme-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* 主要色彩面板區域 */
+.main-color-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 頁腳 */
+.demo-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--divider);
+  margin-top: 3rem;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--text-medium-emphasis);
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  .color-panels-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .color-scheme-list {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .color-scheme-item {
+    flex-shrink: 0;
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .color-system-demo {
+    padding: 1rem;
+  }
+  
+  .demo-title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  
+  .demo-subtitle {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .color-panels-grid {
+    gap: 1rem;
+  }
+  
+  .main-color-panels {
+    gap: 1rem;
+  }
+}
+
+/* 實用工具類 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible:focus {
+  outline: 2px solid var(--primary-200);
+  outline-offset: 2px;
+}
+
+/* 動畫效果 */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 可訪問性增強 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 高對比度模式支援 */
+@media (prefers-contrast: high) {
+  :root {
+    --divider: rgba(255, 255, 255, 0.5);
+    --outline: rgba(255, 255, 255, 0.3);
+    --text-medium-emphasis: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* 深色模式優化 */
+@media (prefers-color-scheme: dark) {
+  .material-design-system {
+    background: var(--background);
+    color: var(--text-high-emphasis);
+  }
+}
+
+/* 列印樣式 */
+@media print {
+  .material-design-system {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .color-card-swatch {
+    border: 1px solid #ccc;
+  }
+  
+  .demo-footer,
+  .btn {
+    display: none;
+  }
+}
+
+/* ===========================
+   Material Design 3.0 增強功能
+   =========================== */
+
+/* Material You 動態色彩支援 */
+.material-you-surface {
+  background: color-mix(in srgb, var(--primary-100) 10%, var(--surface));
+  transition: background-color var(--cis-duration-300) var(--cis-ease-out);
+}
+
+/* 表面色彩層級系統 */
+.surface-level-0 { background: var(--surface); }
+.surface-level-1 { background: color-mix(in srgb, var(--primary-100) 5%, var(--surface)); }
+.surface-level-2 { background: color-mix(in srgb, var(--primary-100) 8%, var(--surface)); }
+.surface-level-3 { background: color-mix(in srgb, var(--primary-100) 11%, var(--surface)); }
+.surface-level-4 { background: color-mix(in srgb, var(--primary-100) 12%, var(--surface)); }
+.surface-level-5 { background: color-mix(in srgb, var(--primary-100) 14%, var(--surface)); }
+
+/* 狀態層 (State Layers) */
+.state-layer-hover {
+  position: relative;
+}
+
+.state-layer-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-500);
+  opacity: 0;
+  transition: opacity var(--cis-duration-200) var(--cis-ease-out);
+  pointer-events: none;
+}
+
+.state-layer-hover:hover::before {
+  opacity: 0.08;
+}
+
+.state-layer-focus::before {
+  opacity: 0.12;
+}
+
+.state-layer-pressed::before {
+  opacity: 0.16;
+}
+
+/* 形狀系統 */
+.shape-none { border-radius: 0; }
+.shape-xs { border-radius: 4px; }
+.shape-sm { border-radius: 8px; }
+.shape-md { border-radius: 12px; }
+.shape-lg { border-radius: 16px; }
+.shape-xl { border-radius: 28px; }
+.shape-full { border-radius: 9999px; }
+
+/* 動作與手勢支援 */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 色彩角色 (Color Roles) */
+.color-primary { color: var(--primary-500); }
+.color-on-primary { color: var(--on-primary); }
+.color-primary-container { background: var(--primary-100); color: var(--primary-900); }
+.color-on-primary-container { color: var(--primary-900); }
+
+.color-secondary { color: var(--secondary-500); }
+.color-on-secondary { color: var(--on-secondary); }
+.color-secondary-container { background: var(--secondary-100); color: var(--secondary-900); }
+.color-on-secondary-container { color: var(--secondary-900); }
+
+.color-surface { background: var(--surface); }
+.color-on-surface { color: var(--on-surface); }
+.color-surface-variant { background: color-mix(in srgb, var(--primary-100) 5%, var(--surface)); }
+.color-on-surface-variant { color: var(--text-medium-emphasis); }
+
+.color-outline { border-color: var(--outline); }
+.color-outline-variant { border-color: var(--divider-light); }
+
+/* 表面容器系統 */
+.surface-container-lowest { background: var(--surface); }
+.surface-container-low { background: color-mix(in srgb, var(--primary-100) 3%, var(--surface)); }
+.surface-container { background: color-mix(in srgb, var(--primary-100) 6%, var(--surface)); }
+.surface-container-high { background: color-mix(in srgb, var(--primary-100) 9%, var(--surface)); }
+.surface-container-highest { background: color-mix(in srgb, var(--primary-100) 12%, var(--surface)); }
+
+/* Fab (浮動操作按鈕) 特殊樣式 */
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--primary-500);
+  color: var(--on-primary);
+  border: none;
+  box-shadow: var(--cis-elevation-6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--cis-duration-200) var(--cis-ease-out);
+}
+
+.fab:hover {
+  box-shadow: var(--cis-elevation-8);
+  transform: scale(1.05);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.fab-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.fab-large {
+  width: 96px;
+  height: 96px;
+  border-radius: 28px;
+}
+
+.fab-extended {
+  width: auto;
+  height: 56px;
+  padding: 0 16px;
+  border-radius: 16px;
+  gap: 8px;
+}
+
+/* 導航項目 */
+.navigation-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: var(--cis-radius-full);
+  cursor: pointer;
+  transition: all var(--cis-duration-200) var(--cis-ease-out);
+}
+
+.navigation-item:hover {
+  background: var(--primary-50);
+}
+
+.navigation-item.active {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+/* 列表項目 */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: var(--cis-radius-md);
+  cursor: pointer;
+  transition: background-color var(--cis-duration-200) var(--cis-ease-out);
+}
+
+.list-item:hover {
+  background: var(--primary-50);
+}
+
+.list-item-leading {
+  margin-right: 16px;
+}
+
+.list-item-trailing {
+  margin-left: auto;
+}
+
+.list-item-content {
+  flex: 1;
+}
+
+.list-item-title {
+  font-weight: 500;
+  color: var(--text-high-emphasis);
+  margin-bottom: 4px;
+}
+
+.list-item-subtitle {
+  font-size: 14px;
+  color: var(--text-medium-emphasis);
+}
+
+/* 材質運動 (Material Motion) */
+.motion-easing-standard {
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.motion-easing-decelerate {
+  transition-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+
+.motion-easing-accelerate {
+  transition-timing-function: cubic-bezier(0.3, 0, 1, 1);
+}
+
+.motion-easing-emphasized {
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.motion-duration-short1 { transition-duration: 50ms; }
+.motion-duration-short2 { transition-duration: 100ms; }
+.motion-duration-short3 { transition-duration: 150ms; }
+.motion-duration-short4 { transition-duration: 200ms; }
+.motion-duration-medium1 { transition-duration: 250ms; }
+.motion-duration-medium2 { transition-duration: 300ms; }
+.motion-duration-medium3 { transition-duration: 350ms; }
+.motion-duration-medium4 { transition-duration: 400ms; }
+.motion-duration-long1 { transition-duration: 450ms; }
+.motion-duration-long2 { transition-duration: 500ms; }
+.motion-duration-long3 { transition-duration: 550ms; }
+.motion-duration-long4 { transition-duration: 600ms; }
+.motion-duration-extra-long1 { transition-duration: 700ms; }
+.motion-duration-extra-long2 { transition-duration: 800ms; }
+.motion-duration-extra-long3 { transition-duration: 900ms; }
+.motion-duration-extra-long4 { transition-duration: 1000ms; }
+
+/* 版面資訊 */
+/*
+  Material Design 3.0 色彩系統整合完成
+  ===================================
+  
+  檔案架構：
+  ├── themes/
+  │   ├── material-design.css (主入口)
+  │   ├── variables.css (變數定義)
+  │   ├── colors.css (色彩系統 + 所有工具類)
+  │   └── dark-theme.css (深色主題)
+  
+  特色功能：
+  - 完整的 Material Design 3.0 色彩系統
+  - 響應式設計和無障礙支援  
+  - 模組化架構便於維護
+  - 向後兼容 CIS 設計系統
+  - 支援動態色彩和表面層級
+  - 包含完整的組件樣式
+  
+  最後更新：2025-06-19
+*/
