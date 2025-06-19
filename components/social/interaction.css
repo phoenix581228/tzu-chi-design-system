@@ -469,3 +469,243 @@
   height: 60px;
   -webkit-line-clamp: 3;
 }
+
+/* ===========================
+   直式圖片文章卡片 (垂直佈局)
+   =========================== */
+.cis-article-card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 100%;
+  max-width: 680px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* 直式圖片容器 */
+.cis-article-card-vertical .cis-article-image-container {
+  position: relative;
+  width: 100%;
+  height: 437px;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+}
+
+/* 背景圖片 (模糊效果) */
+.cis-article-card-vertical .cis-article-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  z-index: 1;
+}
+
+/* 背景遮罩 */
+.cis-article-card-vertical .cis-article-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+/* 主圖片 (居中顯示) */
+.cis-article-card-vertical .cis-article-main-image {
+  position: absolute;
+  width: 342px;
+  height: 437px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px 4px 0 0;
+  z-index: 3;
+}
+
+/* 垂直卡片內容區 */
+.cis-article-card-vertical .cis-article-content-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 8px;
+  width: 100%;
+  height: 111px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), #121212;
+  border-radius: 0 0 4px 4px;
+}
+
+/* 垂直卡片標題 */
+.cis-article-card-vertical .cis-article-title-vertical {
+  width: 100%;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: #FFFFFF;
+  text-align: left;
+  margin: 0;
+  height: 30px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* 垂直卡片分隔線 */
+.cis-article-card-vertical .cis-article-divider-vertical {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* 垂直卡片底部資訊區 */
+.cis-article-card-vertical .cis-article-meta-vertical {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 40px;
+  gap: 4px;
+}
+
+/* 垂直卡片資訊區 - 左側 */
+.cis-article-card-vertical .cis-article-info-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  height: 40px;
+}
+
+/* 垂直卡片日期 */
+.cis-article-card-vertical .cis-article-date-vertical {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+  height: 22px;
+  margin: 0;
+}
+
+/* 垂直卡片地點 */
+.cis-article-card-vertical .cis-article-location-vertical {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+  height: 22px;
+  margin: 0;
+}
+
+/* 垂直卡片社群操作區 */
+.cis-article-card-vertical .cis-social-actions-vertical {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  height: 22px;
+}
+
+/* 垂直卡片社群操作項目 */
+.cis-article-card-vertical .cis-social-action-vertical {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cis-article-card-vertical .cis-social-action-vertical:hover {
+  transform: scale(1.05);
+}
+
+/* 垂直卡片社群圖標 */
+.cis-article-card-vertical .cis-social-icon-vertical {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 垂直卡片社群文字 */
+.cis-article-card-vertical .cis-social-text-vertical {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: #8ECCFC;
+}
+
+/* ===========================
+   直式卡片響應式設計
+   =========================== */
+
+/* 平板 */
+@media (max-width: 768px) {
+  .cis-article-card-vertical {
+    max-width: 100%;
+  }
+  
+  .cis-article-card-vertical .cis-article-image-container {
+    height: 350px;
+  }
+  
+  .cis-article-card-vertical .cis-article-main-image {
+    width: 280px;
+    height: 350px;
+  }
+}
+
+/* 手機 */
+@media (max-width: 480px) {
+  .cis-article-card-vertical .cis-article-image-container {
+    height: 280px;
+  }
+  
+  .cis-article-card-vertical .cis-article-main-image {
+    width: 220px;
+    height: 280px;
+  }
+  
+  .cis-article-card-vertical .cis-article-content-vertical {
+    padding: 8px;
+    height: auto;
+    min-height: 80px;
+  }
+  
+  .cis-article-card-vertical .cis-article-title-vertical {
+    font-size: 18px;
+    height: auto;
+    -webkit-line-clamp: 2;
+  }
+  
+  .cis-article-card-vertical .cis-article-meta-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 8px;
+  }
+  
+  .cis-article-card-vertical .cis-social-actions-vertical {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
