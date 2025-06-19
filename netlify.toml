@@ -71,6 +71,8 @@
 # 環境變量
 [context.production.environment]
   SITE_URL = "https://tzu-chi-design-system.netlify.app"
+  INCOMING_HOOK_TITLE = "慈濟設計系統部署成功"
+  INCOMING_HOOK_URL = "your-webhook-url"
 
 [context.deploy-preview.environment]
   SITE_URL = "預覽部署 URL"
@@ -90,7 +92,3 @@
 [functions]
   directory = "functions"
 
-# 部署通知
-[build.environment]
-  INCOMING_HOOK_TITLE = "慈濟設計系統部署成功"
-  INCOMING_HOOK_URL = "your-webhook-url"
