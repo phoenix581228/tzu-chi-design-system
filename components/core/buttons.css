@@ -41,7 +41,7 @@
 
 /* 焦點樣式 */
 .cis-btn:focus-visible {
-  outline: 2px solid var(--cis-border-focus);
+  outline: 2px solid var(--primary-500);
   outline-offset: 2px;
 }
 
@@ -59,76 +59,76 @@
 
 /* 主要按鈕 */
 .cis-btn-primary {
-  background-color: var(--cis-brand-primary);
-  border-color: var(--cis-brand-primary);
-  color: #FFFFFF;
+  background-color: var(--primary-500);
+  border-color: var(--primary-500);
+  color: var(--on-primary);
 }
 
 .cis-btn-primary:hover:not(:disabled) {
-  background-color: var(--cis-brand-primary-light);
-  border-color: var(--cis-brand-primary-light);
+  background-color: var(--primary-400);
+  border-color: var(--primary-400);
   transform: translateY(-1px);
-  box-shadow: var(--cis-shadow-md);
+  box-shadow: var(--cis-elevation-4);
 }
 
 .cis-btn-primary:active:not(:disabled) {
-  background-color: var(--cis-brand-primary-dark);
-  border-color: var(--cis-brand-primary-dark);
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
   transform: translateY(0);
-  box-shadow: var(--cis-shadow-sm);
+  box-shadow: var(--cis-elevation-2);
 }
 
 /* 次要按鈕 */
 .cis-btn-secondary {
-  background-color: var(--cis-surface-2);
-  border-color: var(--cis-border-default);
-  color: var(--cis-text-primary);
+  background-color: var(--secondary-500);
+  border-color: var(--secondary-500);
+  color: var(--on-secondary);
 }
 
 .cis-btn-secondary:hover:not(:disabled) {
-  background-color: var(--cis-surface-3);
-  border-color: var(--cis-border-strong);
-  box-shadow: var(--cis-shadow-sm);
+  background-color: var(--secondary-400);
+  border-color: var(--secondary-400);
+  box-shadow: var(--cis-elevation-2);
 }
 
 .cis-btn-secondary:active:not(:disabled) {
-  background-color: var(--cis-surface-4);
-  border-color: var(--cis-border-strong);
+  background-color: var(--secondary-600);
+  border-color: var(--secondary-600);
 }
 
 /* 輪廓按鈕 */
 .cis-btn-outline {
   background-color: transparent;
-  border-color: var(--cis-brand-primary);
-  color: var(--cis-brand-primary);
+  border-color: var(--primary-500);
+  color: var(--primary-500);
 }
 
 .cis-btn-outline:hover:not(:disabled) {
-  background-color: var(--cis-brand-primary);
-  color: #FFFFFF;
-  box-shadow: var(--cis-shadow-md);
+  background-color: var(--primary-500);
+  color: var(--on-primary);
+  box-shadow: var(--cis-elevation-4);
 }
 
 .cis-btn-outline:active:not(:disabled) {
-  background-color: var(--cis-brand-primary-dark);
-  border-color: var(--cis-brand-primary-dark);
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
 }
 
 /* 文字按鈕 */
 .cis-btn-text {
   background-color: transparent;
   border-color: transparent;
-  color: var(--cis-brand-primary);
+  color: var(--primary-500);
   padding: var(--cis-spacing-2);
 }
 
 .cis-btn-text:hover:not(:disabled) {
-  background-color: var(--cis-hover-bg);
+  background-color: rgba(var(--primary-500), 0.08);
   text-decoration: underline;
 }
 
 .cis-btn-text:active:not(:disabled) {
-  background-color: var(--cis-active-bg);
+  background-color: rgba(var(--primary-500), 0.12);
 }
 
 /* 危險按鈕 */

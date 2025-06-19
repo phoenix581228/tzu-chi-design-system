@@ -10,10 +10,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--cis-surface-1);
-  border: 1px solid var(--cis-border-default);
+  background-color: var(--surface);
+  border: 1px solid var(--divider);
   border-radius: var(--cis-radius-lg);
-  box-shadow: var(--cis-shadow-sm);
+  box-shadow: var(--cis-elevation-1);
   overflow: hidden;
   transition: all var(--cis-duration-200) var(--cis-ease-in-out);
 }
@@ -21,8 +21,8 @@
 /* 卡片懸停效果 */
 .cis-card-hoverable:hover {
   transform: translateY(-2px);
-  box-shadow: var(--cis-shadow-lg);
-  border-color: var(--cis-border-strong);
+  box-shadow: var(--cis-elevation-8);
+  border-color: var(--outline);
 }
 
 /* 卡片點擊效果 */
@@ -32,7 +32,7 @@
 
 .cis-card-clickable:active {
   transform: translateY(0);
-  box-shadow: var(--cis-shadow-sm);
+  box-shadow: var(--cis-elevation-2);
 }
 
 /* ===========================
@@ -44,7 +44,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: var(--cis-surface-2);
+  background-color: var(--surface);
 }
 
 .cis-card-image img {

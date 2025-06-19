@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈濟設計系統 v2.0.0 測試頁面</title>
+    <link rel="stylesheet" href="tzu-chi-design-system-v2.0.0.css">
+    <style>
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid var(--divider);
+            border-radius: var(--cis-radius-lg);
+        }
+        
+        .test-title {
+            font-size: var(--cis-font-size-xl);
+            font-weight: 600;
+            color: var(--text-high-emphasis);
+            margin-bottom: 1rem;
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .color-swatch {
+            text-align: center;
+            padding: 1rem;
+            border-radius: var(--cis-radius-md);
+            color: white;
+            font-size: var(--cis-font-size-sm);
+            font-weight: 500;
+        }
+        
+        .primary-50 { background-color: var(--primary-50); color: black; }
+        .primary-100 { background-color: var(--primary-100); color: black; }
+        .primary-200 { background-color: var(--primary-200); color: black; }
+        .primary-300 { background-color: var(--primary-300); color: black; }
+        .primary-400 { background-color: var(--primary-400); color: white; }
+        .primary-500 { background-color: var(--primary-500); color: white; }
+        .primary-600 { background-color: var(--primary-600); color: white; }
+        .primary-700 { background-color: var(--primary-700); color: white; }
+        .primary-800 { background-color: var(--primary-800); color: white; }
+        .primary-900 { background-color: var(--primary-900); color: white; }
+        
+        .secondary-50 { background-color: var(--secondary-50); color: black; }
+        .secondary-100 { background-color: var(--secondary-100); color: black; }
+        .secondary-200 { background-color: var(--secondary-200); color: black; }
+        .secondary-300 { background-color: var(--secondary-300); color: black; }
+        .secondary-400 { background-color: var(--secondary-400); color: black; }
+        .secondary-500 { background-color: var(--secondary-500); color: black; }
+        .secondary-600 { background-color: var(--secondary-600); color: white; }
+        .secondary-700 { background-color: var(--secondary-700); color: white; }
+        .secondary-800 { background-color: var(--secondary-800); color: white; }
+        .secondary-900 { background-color: var(--secondary-900); color: white; }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center pt-8 pb-6">
+            <h1 class="text-high-emphasis" style="font-size: var(--cis-font-size-4xl); font-weight: 700; margin-bottom: 1rem;">
+                慈濟設計系統 v2.0.0
+            </h1>
+            <p class="text-medium-emphasis" style="font-size: var(--cis-font-size-lg);">
+                基於 Material Design 3.0 色彩系統的全新設計
+            </p>
+        </header>
+
+        <!-- 主題切換按鈕 -->
+        <div class="theme-toggle">
+            <button class="cis-btn cis-btn-secondary" onclick="toggleTheme()">
+                切換主題
+            </button>
+        </div>
+
+        <!-- 主要色彩系統 -->
+        <section class="test-section">
+            <h2 class="test-title">主要色彩 (Primary Colors)</h2>
+            <div class="color-palette">
+                <div class="color-swatch primary-50">50</div>
+                <div class="color-swatch primary-100">100</div>
+                <div class="color-swatch primary-200">200</div>
+                <div class="color-swatch primary-300">300</div>
+                <div class="color-swatch primary-400">400</div>
+                <div class="color-swatch primary-500">500</div>
+                <div class="color-swatch primary-600">600</div>
+                <div class="color-swatch primary-700">700</div>
+                <div class="color-swatch primary-800">800</div>
+                <div class="color-swatch primary-900">900</div>
+            </div>
+        </section>
+
+        <!-- 次要色彩系統 -->
+        <section class="test-section">
+            <h2 class="test-title">次要色彩 (Secondary Colors)</h2>
+            <div class="color-palette">
+                <div class="color-swatch secondary-50">50</div>
+                <div class="color-swatch secondary-100">100</div>
+                <div class="color-swatch secondary-200">200</div>
+                <div class="color-swatch secondary-300">300</div>
+                <div class="color-swatch secondary-400">400</div>
+                <div class="color-swatch secondary-500">500</div>
+                <div class="color-swatch secondary-600">600</div>
+                <div class="color-swatch secondary-700">700</div>
+                <div class="color-swatch secondary-800">800</div>
+                <div class="color-swatch secondary-900">900</div>
+            </div>
+        </section>
+
+        <!-- 按鈕系統 -->
+        <section class="test-section">
+            <h2 class="test-title">按鈕系統</h2>
+            <div class="d-flex gap-3 mb-4">
+                <button class="cis-btn cis-btn-primary">主要按鈕</button>
+                <button class="cis-btn cis-btn-secondary">次要按鈕</button>
+                <button class="cis-btn cis-btn-outline">輪廓按鈕</button>
+                <button class="cis-btn cis-btn-text">文字按鈕</button>
+            </div>
+            <div class="d-flex gap-3 mb-4">
+                <button class="cis-btn cis-btn-danger">危險按鈕</button>
+                <button class="cis-btn cis-btn-success">成功按鈕</button>
+                <button class="cis-btn cis-btn-primary" disabled>禁用按鈕</button>
+            </div>
+            <div class="d-flex gap-3">
+                <button class="cis-btn cis-btn-primary cis-btn-sm">小型</button>
+                <button class="cis-btn cis-btn-primary cis-btn-md">中型</button>
+                <button class="cis-btn cis-btn-primary cis-btn-lg">大型</button>
+            </div>
+        </section>
+
+        <!-- 卡片系統 -->
+        <section class="test-section">
+            <h2 class="test-title">卡片系統</h2>
+            <div class="d-grid grid-cols-3 gap-4">
+                <div class="cis-card">
+                    <div class="p-4">
+                        <h3 class="text-high-emphasis mb-2">基礎卡片</h3>
+                        <p class="text-medium-emphasis">這是一個基礎卡片的內容示例。</p>
+                    </div>
+                </div>
+                <div class="cis-card cis-card-hoverable">
+                    <div class="p-4">
+                        <h3 class="text-high-emphasis mb-2">懸停卡片</h3>
+                        <p class="text-medium-emphasis">這個卡片有懸停效果。</p>
+                    </div>
+                </div>
+                <div class="cis-card cis-card-clickable">
+                    <div class="p-4">
+                        <h3 class="text-high-emphasis mb-2">點擊卡片</h3>
+                        <p class="text-medium-emphasis">這個卡片可以點擊。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文字層級 -->
+        <section class="test-section">
+            <h2 class="test-title">文字層級</h2>
+            <div class="d-flex flex-column gap-2">
+                <p class="text-high-emphasis">高強調文字 (87% 不透明度)</p>
+                <p class="text-medium-emphasis">中等強調文字 (60% 不透明度)</p>
+                <p class="text-disabled">禁用文字 (38% 不透明度)</p>
+            </div>
+        </section>
+
+        <!-- 陰影系統 -->
+        <section class="test-section">
+            <h2 class="test-title">陰影系統 (Elevation)</h2>
+            <div class="d-grid grid-cols-4 gap-4">
+                <div class="p-4 shadow-1 rounded-md bg-primary text-center">Elevation 1</div>
+                <div class="p-4 shadow-4 rounded-md bg-primary text-center">Elevation 4</div>
+                <div class="p-4 shadow-8 rounded-md bg-primary text-center">Elevation 8</div>
+                <div class="p-4 shadow-16 rounded-md bg-primary text-center">Elevation 16</div>
+            </div>
+        </section>
+
+        <!-- 工具類示例 -->
+        <section class="test-section">
+            <h2 class="test-title">工具類示例</h2>
+            <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded bg-secondary">
+                <span class="text-on-secondary">Flexbox 佈局</span>
+                <button class="cis-btn cis-btn-text text-on-secondary">按鈕</button>
+            </div>
+            <div class="d-grid grid-cols-2 gap-4">
+                <div class="p-3 rounded-lg shadow-2">
+                    <p class="text-center text-high-emphasis">Grid 佈局 1</p>
+                </div>
+                <div class="p-3 rounded-lg shadow-2">
+                    <p class="text-center text-high-emphasis">Grid 佈局 2</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center pt-8 pb-4">
+            <p class="text-medium-emphasis">
+                慈濟設計系統 v2.0.0 | Material Design 3.0 色彩系統
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+
+        // 顯示當前色彩值
+        document.addEventListener('DOMContentLoaded', function() {
+            const root = getComputedStyle(document.documentElement);
+            console.log('Primary 500:', root.getPropertyValue('--primary-500'));
+            console.log('Secondary 500:', root.getPropertyValue('--secondary-500'));
+            console.log('Surface:', root.getPropertyValue('--surface'));
+            console.log('Background:', root.getPropertyValue('--background'));
+        });
+    </script>
+</body>
+</html>
