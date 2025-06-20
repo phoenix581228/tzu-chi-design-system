@@ -196,6 +196,124 @@
                     </div>
                 </section>
 
+                <!-- CI透明度規範 -->
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">🔍 CI透明度規範</h2>
+                    <p class="section-description">基於CI系統的標準透明度值，用於創建層次感和強調等級</p>
+                    
+                    <!-- On Primary 透明度展示 -->
+                    <div class="transparency-section">
+                        <h3 class="transparency-title">On Primary (#87CAFE)</h3>
+                        <p class="transparency-desc">在主要色彩上使用純黑色的不同透明度</p>
+                        
+                        <div class="primary-demo-background">
+                            <div class="color-code-display">#87CAFE</div>
+                        </div>
+                        
+                        <div class="transparency-grid">
+                            <div class="transparency-item on-primary-high">
+                                <div class="transparency-percentage">100%</div>
+                                <div class="emphasis-label">High Emphasis</div>
+                                <div class="emphasis-sublabel">On Primary | Black</div>
+                                <div class="emphasis-code">rgba(0, 0, 0, 1.0)</div>
+                            </div>
+                            
+                            <div class="transparency-item on-primary-medium">
+                                <div class="transparency-percentage">74%</div>
+                                <div class="emphasis-label">Medium Emphasis</div>
+                                <div class="emphasis-sublabel">On Primary | Black</div>
+                                <div class="emphasis-code">rgba(0, 0, 0, 0.74)</div>
+                            </div>
+                            
+                            <div class="transparency-item on-primary-disabled">
+                                <div class="transparency-percentage">38%</div>
+                                <div class="emphasis-label">Disabled</div>
+                                <div class="emphasis-sublabel">On Primary | Black</div>
+                                <div class="emphasis-code">rgba(0, 0, 0, 0.38)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- On Surface 透明度展示 -->
+                    <div class="transparency-section">
+                        <h3 class="transparency-title">On Surface (#121212)</h3>
+                        <p class="transparency-desc">在表面色彩上使用純白色的不同透明度</p>
+                        
+                        <div class="surface-demo-background">
+                            <div class="surface-color-code-display">#121212</div>
+                        </div>
+                        
+                        <div class="transparency-grid">
+                            <div class="transparency-item on-surface-high">
+                                <div class="transparency-percentage">100%</div>
+                                <div class="emphasis-label">High Emphasis</div>
+                                <div class="emphasis-sublabel">On Surface | White</div>
+                                <div class="emphasis-code">rgba(255, 255, 255, 1.0)</div>
+                            </div>
+                            
+                            <div class="transparency-item on-surface-medium">
+                                <div class="transparency-percentage">60%</div>
+                                <div class="emphasis-label">Medium Emphasis</div>
+                                <div class="emphasis-sublabel">On Surface | White</div>
+                                <div class="emphasis-code">rgba(255, 255, 255, 0.6)</div>
+                            </div>
+                            
+                            <div class="transparency-item on-surface-disabled">
+                                <div class="transparency-percentage">38%</div>
+                                <div class="emphasis-label">Disabled</div>
+                                <div class="emphasis-sublabel">On Surface | White</div>
+                                <div class="emphasis-code">rgba(255, 255, 255, 0.38)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 透明度變數範例 -->
+                    <div class="transparency-code-section">
+                        <h3 class="transparency-title">🔧 CSS變數定義</h3>
+                        <div class="code-block">
+                            <pre><code>/* CI系統透明度變數 */
+:root {
+  /* On Primary 透明度 - 在主色 #87CAFE 上使用 */
+  --on-primary-high: rgba(0, 0, 0, 1.0);      /* 100% 不透明度 */
+  --on-primary-medium: rgba(0, 0, 0, 0.74);   /* 74% 不透明度 */
+  --on-primary-disabled: rgba(0, 0, 0, 0.38); /* 38% 不透明度 */
+  
+  /* On Surface 透明度 - 在表面色 #121212 上使用 */
+  --on-surface-high: rgba(255, 255, 255, 1.0);    /* 100% 不透明度 */
+  --on-surface-medium: rgba(255, 255, 255, 0.6);  /* 60% 不透明度 */
+  --on-surface-disabled: rgba(255, 255, 255, 0.38); /* 38% 不透明度 */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- 使用範例 -->
+                    <div class="transparency-usage-section">
+                        <h3 class="transparency-title">💡 使用範例</h3>
+                        <div class="transparency-examples">
+                            <div class="transparency-example-card">
+                                <h4>在主色上的文字層次</h4>
+                                <div class="primary-text-demo">
+                                    <div class="primary-bg">
+                                        <p class="primary-text-high">主要文字 (100%)</p>
+                                        <p class="primary-text-medium">次要文字 (74%)</p>
+                                        <p class="primary-text-disabled">禁用文字 (38%)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="transparency-example-card">
+                                <h4>在表面色上的文字層次</h4>
+                                <div class="surface-text-demo">
+                                    <div class="surface-bg">
+                                        <p class="surface-text-high">主要文字 (100%)</p>
+                                        <p class="surface-text-medium">次要文字 (60%)</p>
+                                        <p class="surface-text-disabled">禁用文字 (38%)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- 實際應用範例 -->
                 <section class="utility-section fade-in">
@@ -620,6 +738,238 @@
             margin-bottom: 1rem;
         }
 
+        /* === CI透明度規範樣式 === */
+        
+        /* CI透明度變數定義 */
+        :root {
+            /* On Primary 透明度 - 在主色 #87CAFE 上使用 */
+            --on-primary-high: rgba(0, 0, 0, 1.0);      /* 100% 不透明度 */
+            --on-primary-medium: rgba(0, 0, 0, 0.74);   /* 74% 不透明度 */
+            --on-primary-disabled: rgba(0, 0, 0, 0.38); /* 38% 不透明度 */
+            
+            /* On Surface 透明度 - 在表面色 #121212 上使用 */
+            --on-surface-high: rgba(255, 255, 255, 1.0);    /* 100% 不透明度 */
+            --on-surface-medium: rgba(255, 255, 255, 0.6);  /* 60% 不透明度 */
+            --on-surface-disabled: rgba(255, 255, 255, 0.38); /* 38% 不透明度 */
+        }
+
+        .transparency-section {
+            margin-bottom: 3rem;
+        }
+
+        .transparency-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .transparency-desc {
+            color: var(--white-ffffff);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Primary demo background */
+        .primary-demo-background {
+            background: var(--primary-87cafe);
+            height: 80px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 1rem;
+            margin-bottom: 0;
+        }
+
+        .color-code-display {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--black-000000);
+        }
+
+        /* Surface demo background */
+        .surface-demo-background {
+            background: var(--surface-121212);
+            height: 80px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 1rem;
+            margin-bottom: 0;
+        }
+
+        .surface-color-code-display {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--white-ffffff);
+        }
+
+        /* 透明度網格 */
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .transparency-item {
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .transparency-item:last-child {
+            border-right: none;
+        }
+
+        .transparency-percentage {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .emphasis-label {
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .emphasis-sublabel {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-bottom: 0.25rem;
+        }
+
+        .emphasis-code {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        /* On Primary 透明度項目 */
+        .on-primary-high {
+            background: var(--on-primary-high);
+            color: var(--white-ffffff);
+        }
+
+        .on-primary-medium {
+            background: var(--on-primary-medium);
+            color: var(--white-ffffff);
+        }
+
+        .on-primary-disabled {
+            background: var(--on-primary-disabled);
+            color: var(--white-ffffff);
+        }
+
+        /* On Surface 透明度項目 */
+        .on-surface-high {
+            background: var(--on-surface-high);
+            color: var(--black-000000);
+        }
+
+        .on-surface-medium {
+            background: var(--on-surface-medium);
+            color: var(--black-000000);
+        }
+
+        .on-surface-disabled {
+            background: var(--on-surface-disabled);
+            color: var(--black-000000);
+        }
+
+        /* 透明度代碼區塊 */
+        .transparency-code-section {
+            margin: 2rem 0;
+        }
+
+        /* 透明度使用範例 */
+        .transparency-usage-section {
+            margin: 2rem 0;
+        }
+
+        .transparency-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .transparency-example-card {
+            background: var(--surface-121212);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--surface-121212);
+        }
+
+        .transparency-example-card h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        /* Primary text demo */
+        .primary-bg {
+            background: var(--primary-87cafe);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .primary-text-high {
+            color: var(--on-primary-high);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .primary-text-medium {
+            color: var(--on-primary-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .primary-text-disabled {
+            color: var(--on-primary-disabled);
+            margin-bottom: 0;
+        }
+
+        /* Surface text demo */
+        .surface-bg {
+            background: var(--surface-121212);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .surface-text-high {
+            color: var(--on-surface-high);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .surface-text-medium {
+            color: var(--on-surface-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .surface-text-disabled {
+            color: var(--on-surface-disabled);
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             .utility-items {
                 grid-template-columns: 1fr;
@@ -636,6 +986,21 @@
             .button-examples {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            
+            /* 透明度系統響應式 */
+            .transparency-grid {
+                grid-template-columns: 1fr;
+                gap: 1px;
+            }
+            
+            .transparency-examples {
+                grid-template-columns: 1fr;
+            }
+            
+            .transparency-item {
+                height: 80px;
+                padding: 0.75rem;
             }
         }
     </style>
