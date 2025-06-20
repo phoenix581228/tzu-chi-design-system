@@ -75,9 +75,9 @@ const sidebarHTML = `
             <li class="nav-item">
                 <a href="part6-layout.html" class="nav-link" data-page="part6-layout">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z"/>
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
-                    Part 6 - Layout
+                    Part 6 - Elevation
                 </a>
             </li>
             <li class="nav-item">
