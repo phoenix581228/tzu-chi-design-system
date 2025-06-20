@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Color System | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第一部分：完整的色彩系統變數定義">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    
+    <!-- 引入CI系統樣式 -->
+    <link rel="stylesheet" href="themes/colors.css">
+    <link rel="stylesheet" href="shared/sidebar.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <!-- 引入共用側邊欄組件 -->
+    <script src="shared/sidebar-component.js"></script>
+</head>
+
+<body>
+    <!-- 移動端菜單切換按鈕 -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <div class="app-container">
+        <!-- 左側導航欄 -->
+        <nav class="sidebar" id="sidebar">
+            <!-- 側邊欄內容將由 JavaScript 動態載入 -->
+        </nav>
+        
+        <!-- 側邊欄遮罩 -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 class="content-title">Part 1 - Color System</h1>
+                <p class="content-description">
+                    CI系統變數 - 完全匹配原始值<br>
+                    ⚠️ 重要：所有色彩值直接來自原始CI系統，禁止修改
+                </p>
+            </header>
+
+            <div class="content-body">
+                <!-- Primary Colors 主色調 -->
+                <section class="color-section fade-in">
+                    <h2 class="section-title">🌊 Primary Colors - 主色調</h2>
+                    <p class="section-description">慈濟CI系統原始主色調，從淺到深的完整色階</p>
+                    
+                    <div class="color-grid">
+                        <div class="color-card" style="background: var(--primary-e3f3fe);">
+                            <div class="color-info">
+                                <div class="color-name">primary-e3f3fe</div>
+                                <div class="color-value">#E3F3FE</div>
+                                <div class="color-usage">最淺色調</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-bae0fd);">
+                            <div class="color-info">
+                                <div class="color-name">primary-bae0fd</div>
+                                <div class="color-value">#BAE0FD</div>
+                                <div class="color-usage">輕度色調</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-8eccfc);">
+                            <div class="color-info">
+                                <div class="color-name">primary-8eccfc</div>
+                                <div class="color-value">#8ECCFC</div>
+                                <div class="color-usage">標準主色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-5fb7fa);">
+                            <div class="color-info">
+                                <div class="color-name">primary-5fb7fa</div>
+                                <div class="color-value">#5FB7FA</div>
+                                <div class="color-usage">中度色調</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-38a6fa);">
+                            <div class="color-info">
+                                <div class="color-name">primary-38a6fa</div>
+                                <div class="color-value">#38A6FA</div>
+                                <div class="color-usage">活躍狀態</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-0296f9);">
+                            <div class="color-info">
+                                <div class="color-name">primary-0296f9</div>
+                                <div class="color-value">#0296F9</div>
+                                <div class="color-usage">標準藍</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-0587eb);">
+                            <div class="color-info">
+                                <div class="color-name">primary-0587eb</div>
+                                <div class="color-value">#0587EB</div>
+                                <div class="color-usage">深度色調</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-0475d8);">
+                            <div class="color-info">
+                                <div class="color-name">primary-0475d8</div>
+                                <div class="color-value">#0475D8</div>
+                                <div class="color-usage">深藍色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-0364c5);">
+                            <div class="color-info">
+                                <div class="color-name">primary-0364c5</div>
+                                <div class="color-value">#0364C5</div>
+                                <div class="color-usage">重度色調</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-2a00a7);">
+                            <div class="color-info">
+                                <div class="color-name">primary-2a00a7</div>
+                                <div class="color-value">#2A00A7</div>
+                                <div class="color-usage">最深色調</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 特殊主色 -->
+                    <h3 class="subsection-title">✨ 特殊主色變數</h3>
+                    <div class="color-grid">
+                        <div class="color-card" style="background: var(--primary-0045a7);">
+                            <div class="color-info">
+                                <div class="color-name">primary-0045a7</div>
+                                <div class="color-value">#0045A7</div>
+                                <div class="color-usage">企業深藍</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-87cafe);">
+                            <div class="color-info">
+                                <div class="color-name">primary-87cafe</div>
+                                <div class="color-value">#87CAFE</div>
+                                <div class="color-usage">品牌特色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-3700b3);">
+                            <div class="color-info">
+                                <div class="color-name">primary-3700b3</div>
+                                <div class="color-value">#3700B3</div>
+                                <div class="color-usage">品牌深紫</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--primary-bb86fc);">
+                            <div class="color-info">
+                                <div class="color-name">primary-bb86fc</div>
+                                <div class="color-value">#BB86FC</div>
+                                <div class="color-usage">輔助紫色</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Secondary Colors 輔助色調 -->
+                <section class="color-section fade-in">
+                    <h2 class="section-title">🌅 Secondary Colors - 輔助色調</h2>
+                    <p class="section-description">慈濟CI系統輔助色彩調色板，溫暖的黃橙色系</p>
+                    
+                    <div class="color-grid">
+                        <div class="color-card" style="background: var(--secondary-fff8e1);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-fff8e1</div>
+                                <div class="color-value">#FFF8E1</div>
+                                <div class="color-usage">最淺黃</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffecb3);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffecb3</div>
+                                <div class="color-value">#FFECB3</div>
+                                <div class="color-usage">輕度黃色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffe082);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffe082</div>
+                                <div class="color-value">#FFE082</div>
+                                <div class="color-usage">標準黃色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffd650);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffd650</div>
+                                <div class="color-value">#FFD650</div>
+                                <div class="color-usage">明亮黃色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffc929);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffc929</div>
+                                <div class="color-value">#FFC929</div>
+                                <div class="color-usage">活躍黃色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffc20b);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffc20b</div>
+                                <div class="color-value">#FFC20B</div>
+                                <div class="color-usage">標準橙黃</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffb304);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffb304</div>
+                                <div class="color-value">#FFB304</div>
+                                <div class="color-usage">深橙黃</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ffa202);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ffa202</div>
+                                <div class="color-value">#FFA202</div>
+                                <div class="color-usage">橙色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ff9101);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ff9101</div>
+                                <div class="color-value">#FF9101</div>
+                                <div class="color-usage">深橙色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-ff6f01);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-ff6f01</div>
+                                <div class="color-value">#FF6F01</div>
+                                <div class="color-usage">最深橙</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--secondary-03dac5);">
+                            <div class="color-info">
+                                <div class="color-name">secondary-03dac5</div>
+                                <div class="color-value">#03DAC5</div>
+                                <div class="color-usage">輔助青色</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 系統色彩 -->
+                <section class="color-section fade-in">
+                    <h2 class="section-title">⚙️ Surface & Background - 系統色彩</h2>
+                    <p class="section-description">系統背景、表面與狀態色彩</p>
+                    
+                    <div class="color-grid">
+                        <div class="color-card" style="background: var(--surface-121212);">
+                            <div class="color-info">
+                                <div class="color-name">surface-121212</div>
+                                <div class="color-value">#121212</div>
+                                <div class="color-usage">表面色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--background-292929);">
+                            <div class="color-info">
+                                <div class="color-name">background-292929</div>
+                                <div class="color-value">#292929</div>
+                                <div class="color-usage">背景色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--white-ffffff);">
+                            <div class="color-info dark-text">
+                                <div class="color-name">white-ffffff</div>
+                                <div class="color-value">#FFFFFF</div>
+                                <div class="color-usage">純白色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--black-000000);">
+                            <div class="color-info">
+                                <div class="color-name">black-000000</div>
+                                <div class="color-value">#000000</div>
+                                <div class="color-usage">純黑色</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--error-cf6679);">
+                            <div class="color-info">
+                                <div class="color-name">error-cf6679</div>
+                                <div class="color-value">#CF6679</div>
+                                <div class="color-usage">錯誤狀態</div>
+                            </div>
+                        </div>
+                        <div class="color-card" style="background: var(--success-43a689);">
+                            <div class="color-info">
+                                <div class="color-name">success-43a689</div>
+                                <div class="color-value">#43A689</div>
+                                <div class="color-usage">成功狀態</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 透明度值 -->
+                <section class="color-section fade-in">
+                    <h2 class="section-title">🔍 透明度值 - 完全匹配原始CI系統</h2>
+                    <p class="section-description">精確的透明度值，用於層次感和深度設計</p>
+                    
+                    <div class="opacity-grid">
+                        <div class="opacity-card" style="background: var(--white-87);">
+                            <div class="opacity-info">
+                                <div class="opacity-name">white-87</div>
+                                <div class="opacity-value">rgba(255, 255, 255, 0.87)</div>
+                                <div class="opacity-usage">高強調文字</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--white-60);">
+                            <div class="opacity-info">
+                                <div class="opacity-name">white-60</div>
+                                <div class="opacity-value">rgba(255, 255, 255, 0.6)</div>
+                                <div class="opacity-usage">中強調文字</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--white-38);">
+                            <div class="opacity-info">
+                                <div class="opacity-name">white-38</div>
+                                <div class="opacity-value">rgba(255, 255, 255, 0.38)</div>
+                                <div class="opacity-usage">低強調文字</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--white-24);">
+                            <div class="opacity-info">
+                                <div class="opacity-name">white-24</div>
+                                <div class="opacity-value">rgba(255, 255, 255, 0.24)</div>
+                                <div class="opacity-usage">分隔線</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--white-12);">
+                            <div class="opacity-info">
+                                <div class="opacity-name">white-12</div>
+                                <div class="opacity-value">rgba(255, 255, 255, 0.12)</div>
+                                <div class="opacity-usage">邊框線</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--black-87); color: white;">
+                            <div class="opacity-info">
+                                <div class="opacity-name">black-87</div>
+                                <div class="opacity-value">rgba(0, 0, 0, 0.87)</div>
+                                <div class="opacity-usage">黑色高強調</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--black-74); color: white;">
+                            <div class="opacity-info">
+                                <div class="opacity-name">black-74</div>
+                                <div class="opacity-value">rgba(0, 0, 0, 0.74)</div>
+                                <div class="opacity-usage">黑色中強調</div>
+                            </div>
+                        </div>
+                        <div class="opacity-card" style="background: var(--black-38); color: white;">
+                            <div class="opacity-info">
+                                <div class="opacity-name">black-38</div>
+                                <div class="opacity-value">rgba(0, 0, 0, 0.38)</div>
+                                <div class="opacity-usage">黑色低強調</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 使用範例 -->
+                <section class="usage-section fade-in">
+                    <h2 class="section-title">💡 使用範例</h2>
+                    <div class="code-examples">
+                        <div class="code-example">
+                            <h3>CSS變數使用</h3>
+                            <div class="code-block">
+                                <pre><code>/* 使用主色調 */
+.primary-button {
+  background: var(--primary-8eccfc);
+  color: var(--black-000000);
+}
+
+/* 使用透明度 */
+.overlay {
+  background: var(--black-38);
+}
+
+/* 使用系統色彩 */
+.error-message {
+  background: var(--error-cf6679);
+  color: var(--white-87);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* 頁面專用樣式 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--white-ffffff);
+            margin: 3rem 0 1rem;
+            font-weight: 300;
+            border-left: 4px solid var(--primary-8eccfc);
+            padding-left: 1rem;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            color: var(--primary-8eccfc);
+            margin: 2rem 0 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .section-description {
+            color: var(--white-60);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .color-section {
+            margin-bottom: 4rem;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .color-card {
+            border-radius: 12px;
+            height: 120px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--white-12);
+            overflow: hidden;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--white-ffffff);
+            padding: 1rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .color-info.dark-text {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--black-000000);
+        }
+
+        .color-name {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 0.25rem;
+        }
+
+        .color-value {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+
+        .color-usage {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .opacity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .opacity-card {
+            border-radius: 8px;
+            height: 100px;
+            position: relative;
+            border: 1px solid var(--white-12);
+            overflow: hidden;
+        }
+
+        .opacity-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.75rem;
+        }
+
+        .opacity-name {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 0.25rem;
+        }
+
+        .opacity-value {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.625rem;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+
+        .opacity-usage {
+            font-size: 0.625rem;
+            opacity: 0.7;
+        }
+
+        .usage-section {
+            margin-top: 4rem;
+        }
+
+        .code-examples {
+            margin: 2rem 0;
+        }
+
+        .code-example {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            margin-bottom: 2rem;
+        }
+
+        .code-example h3 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .code-block {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875rem;
+            color: var(--white-87);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .opacity-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // 頁面載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // 色彩卡片點擊複製功能
+            const colorCards = document.querySelectorAll('.color-card, .opacity-card');
+            colorCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const colorValue = this.querySelector('.color-value, .opacity-value');
+                    if (colorValue && navigator.clipboard) {
+                        navigator.clipboard.writeText(colorValue.textContent).then(() => {
+                            // 顯示複製成功提示
+                            const tooltip = document.createElement('div');
+                            tooltip.textContent = '已複製 ' + colorValue.textContent;
+                            tooltip.style.cssText = `
+                                position: fixed;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                background: var(--primary-8eccfc);
+                                color: var(--black-000000);
+                                padding: 0.75rem 1.5rem;
+                                border-radius: 8px;
+                                font-weight: 500;
+                                z-index: 1000;
+                                animation: fadeInOut 2s ease;
+                            `;
+                            document.body.appendChild(tooltip);
+                            
+                            setTimeout(() => {
+                                document.body.removeChild(tooltip);
+                            }, 2000);
+                        });
+                    }
+                });
+            });
+        });
+        
+        // CSS動畫定義
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInOut {
+                0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

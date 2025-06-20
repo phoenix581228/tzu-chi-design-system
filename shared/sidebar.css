@@ -1,0 +1,254 @@
+/**
+ * 慈濟CIS系統 - 左側導航欄樣式
+ * 多頁式網站導航系統
+ */
+
+/* 主容器佈局 */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background: var(--background-292929);
+}
+
+/* 左側導航欄 */
+.sidebar {
+    width: 280px;
+    background: var(--surface-121212);
+    border-right: 1px solid var(--white-12);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 2rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--white-12);
+    text-align: center;
+}
+
+.sidebar-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3));
+}
+
+.sidebar-title {
+    font-family: var(--font-roboto-mono);
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-500);
+    color: var(--white-ffffff);
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-subtitle {
+    font-size: 0.75rem;
+    color: var(--white-60);
+}
+
+/* 導航菜單 */
+.sidebar-nav {
+    padding: 1rem 0;
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+}
+
+.nav-section-title {
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-500);
+    color: var(--white-60);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-04);
+    padding: 0 1.5rem 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--white-87);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-400);
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background: var(--background-292929);
+    color: var(--primary-8eccfc);
+    border-left-color: var(--primary-8eccfc);
+}
+
+.nav-link.active {
+    background: var(--background-292929);
+    color: var(--primary-8eccfc);
+    border-left-color: var(--primary-8eccfc);
+    font-weight: var(--font-weight-500);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover .nav-icon,
+.nav-link.active .nav-icon {
+    opacity: 1;
+}
+
+.nav-badge {
+    background: var(--primary-8eccfc);
+    color: var(--black-000000);
+    font-size: 0.625rem;
+    font-weight: var(--font-weight-500);
+    padding: 0.125rem 0.375rem;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+/* 主內容區域 */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    min-height: 100vh;
+    background: var(--background-292929);
+}
+
+.content-header {
+    background: linear-gradient(135deg, var(--background-292929) 0%, var(--surface-121212) 100%);
+    padding: 2rem;
+    border-bottom: 1px solid var(--white-12);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.content-title {
+    font-family: var(--font-roboto-mono);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--white-ffffff);
+    margin-bottom: 0.5rem;
+}
+
+.content-description {
+    color: var(--white-60);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.content-body {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 移動端響應式 */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 100%;
+        z-index: 2000;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 2001;
+        background: var(--primary-8eccfc);
+        color: var(--black-000000);
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+    }
+    
+    .sidebar.open + .sidebar-overlay {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
+
+/* 滾動條樣式 */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--surface-121212);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--white-24);
+    border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--white-38);
+}
+
+/* 特殊效果 */
+.fade-in {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

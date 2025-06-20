@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 6 - Layout | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第六部分：佈局系統 - 響應式網格、間距、容器等佈局工具">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>📐</text></svg>">
+    
+    <!-- 引入CI系統樣式 -->
+    <link rel="stylesheet" href="themes/colors.css">
+    <link rel="stylesheet" href="shared/sidebar.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <!-- 引入共用側邊欄組件 -->
+    <script src="shared/sidebar-component.js"></script>
+</head>
+
+<body>
+    <!-- 移動端菜單切換按鈕 -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <div class="app-container">
+        <!-- 左側導航欄 -->
+        <nav class="sidebar" id="sidebar">
+            <!-- 側邊欄內容將由 JavaScript 動態載入 -->
+        </nav>
+        
+        <!-- 側邊欄遮罩 -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 class="content-title">Part 6 - Layout</h1>
+                <p class="content-description">
+                    CI佈局系統<br>
+                    響應式網格、容器、間距等完整佈局工具，構建一致的頁面結構
+                </p>
+            </header>
+
+            <div class="content-body">
+                <!-- 容器系統 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">📦 容器系統</h2>
+                    <p class="section-description">基於CI系統尺寸規範的容器佈局</p>
+                    
+                    <div class="container-demos">
+                        <!-- 主容器 -->
+                        <div class="demo-container">
+                            <h4>主容器 (.main-container)</h4>
+                            <div class="container-example">
+                                <div class="main-container-demo">
+                                    <div class="container-content">
+                                        <div class="label-center-18">主容器展示</div>
+                                        <div class="label-center-14">寬度: 1440px, 高度: 2320px</div>
+                                        <div class="label-center-12">使用CI系統原始尺寸規範</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 主容器 */
+.main-container {
+  position: relative;
+  width: var(--container-width); /* 1440px */
+  height: var(--container-height); /* 2320px */
+  background: var(--background-292929);
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 側邊欄容器 -->
+                        <div class="demo-container">
+                            <h4>側邊欄容器 (.sidebar-container)</h4>
+                            <div class="container-example">
+                                <div class="sidebar-container-demo">
+                                    <div class="sidebar-content">
+                                        <div class="label-left-16">側邊欄</div>
+                                        <div class="label-left-12">360px × 1144px</div>
+                                    </div>
+                                    <div class="main-area">
+                                        <div class="label-center-16">主內容區域</div>
+                                        <div class="label-center-12">自適應寬度</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 側邊欄佈局 */
+.sidebar-container {
+  display: flex;
+  width: 100%;
+  height: var(--sidebar-height); /* 1144px */
+}
+
+.sidebar {
+  width: var(--sidebar-width); /* 360px */
+  background: var(--surface-121212);
+}
+
+.main-area {
+  flex: 1;
+  background: var(--background-292929);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 響應式網格系統 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">📱 響應式網格系統</h2>
+                    <p class="section-description">基於CSS Grid的現代化網格佈局系統</p>
+                    
+                    <div class="grid-demos">
+                        <!-- 12列網格 -->
+                        <div class="demo-container">
+                            <h4>12列網格系統</h4>
+                            <div class="grid-example">
+                                <div class="grid-12-demo">
+                                    <div class="grid-item col-12">
+                                        <div class="item-content">.col-12</div>
+                                    </div>
+                                    <div class="grid-item col-6">
+                                        <div class="item-content">.col-6</div>
+                                    </div>
+                                    <div class="grid-item col-6">
+                                        <div class="item-content">.col-6</div>
+                                    </div>
+                                    <div class="grid-item col-4">
+                                        <div class="item-content">.col-4</div>
+                                    </div>
+                                    <div class="grid-item col-4">
+                                        <div class="item-content">.col-4</div>
+                                    </div>
+                                    <div class="grid-item col-4">
+                                        <div class="item-content">.col-4</div>
+                                    </div>
+                                    <div class="grid-item col-3">
+                                        <div class="item-content">.col-3</div>
+                                    </div>
+                                    <div class="grid-item col-3">
+                                        <div class="item-content">.col-3</div>
+                                    </div>
+                                    <div class="grid-item col-3">
+                                        <div class="item-content">.col-3</div>
+                                    </div>
+                                    <div class="grid-item col-3">
+                                        <div class="item-content">.col-3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 12列網格 */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-6 { grid-column: span 6; }
+.col-12 { grid-column: span 12; }</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 自適應網格 -->
+                        <div class="demo-container">
+                            <h4>自適應網格</h4>
+                            <div class="grid-example">
+                                <div class="auto-grid-demo">
+                                    <div class="auto-grid-item">
+                                        <div class="item-content">自適應項目 1</div>
+                                    </div>
+                                    <div class="auto-grid-item">
+                                        <div class="item-content">自適應項目 2</div>
+                                    </div>
+                                    <div class="auto-grid-item">
+                                        <div class="item-content">自適應項目 3</div>
+                                    </div>
+                                    <div class="auto-grid-item">
+                                        <div class="item-content">自適應項目 4</div>
+                                    </div>
+                                    <div class="auto-grid-item">
+                                        <div class="item-content">自適應項目 5</div>
+                                    </div>
+                                    <div class="auto-grid-item">
+                                        <div class="item-content">自適應項目 6</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 自適應網格 */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.auto-grid-item {
+  background: var(--surface-121212);
+  border-radius: 8px;
+  padding: 1rem;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 間距系統 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">📏 間距系統</h2>
+                    <p class="section-description">基於CI系統的標準間距規範</p>
+                    
+                    <div class="spacing-demos">
+                        <!-- 內邊距工具類 -->
+                        <div class="demo-container">
+                            <h4>內邊距工具類 (Padding)</h4>
+                            <div class="spacing-example">
+                                <div class="spacing-grid">
+                                    <div class="spacing-item p-1">
+                                        <div class="spacing-content">.p-1 (4px)</div>
+                                    </div>
+                                    <div class="spacing-item p-2">
+                                        <div class="spacing-content">.p-2 (8px)</div>
+                                    </div>
+                                    <div class="spacing-item p-3">
+                                        <div class="spacing-content">.p-3 (12px)</div>
+                                    </div>
+                                    <div class="spacing-item p-4">
+                                        <div class="spacing-content">.p-4 (16px)</div>
+                                    </div>
+                                    <div class="spacing-item p-6">
+                                        <div class="spacing-content">.p-6 (24px)</div>
+                                    </div>
+                                    <div class="spacing-item p-8">
+                                        <div class="spacing-content">.p-8 (32px)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 內邊距工具類 */
+.p-1 { padding: 4px; }    /* var(--spacing-1) */
+.p-2 { padding: 8px; }    /* var(--spacing-2) */
+.p-3 { padding: 12px; }   /* var(--spacing-3) */
+.p-4 { padding: 16px; }   /* var(--spacing-4) */
+.p-6 { padding: 24px; }   /* var(--spacing-6) */
+.p-8 { padding: 32px; }   /* var(--spacing-8) */
+
+/* 方向性內邊距 */
+.pt-4 { padding-top: 16px; }
+.pr-4 { padding-right: 16px; }
+.pb-4 { padding-bottom: 16px; }
+.pl-4 { padding-left: 16px; }
+.px-4 { padding-left: 16px; padding-right: 16px; }
+.py-4 { padding-top: 16px; padding-bottom: 16px; }</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 外邊距工具類 -->
+                        <div class="demo-container">
+                            <h4>外邊距工具類 (Margin)</h4>
+                            <div class="spacing-example">
+                                <div class="margin-demo">
+                                    <div class="margin-item m-2">
+                                        <div class="margin-content">.m-2</div>
+                                    </div>
+                                    <div class="margin-item m-4">
+                                        <div class="margin-content">.m-4</div>
+                                    </div>
+                                    <div class="margin-item m-6">
+                                        <div class="margin-content">.m-6</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 外邊距工具類 */
+.m-1 { margin: 4px; }     /* var(--spacing-1) */
+.m-2 { margin: 8px; }     /* var(--spacing-2) */
+.m-3 { margin: 12px; }    /* var(--spacing-3) */
+.m-4 { margin: 16px; }    /* var(--spacing-4) */
+.m-6 { margin: 24px; }    /* var(--spacing-6) */
+.m-8 { margin: 32px; }    /* var(--spacing-8) */
+
+/* 方向性外邊距 */
+.mt-4 { margin-top: 16px; }
+.mr-4 { margin-right: 16px; }
+.mb-4 { margin-bottom: 16px; }
+.ml-4 { margin-left: 16px; }
+.mx-4 { margin-left: 16px; margin-right: 16px; }
+.my-4 { margin-top: 16px; margin-bottom: 16px; }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flexbox 佈局工具 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">🧩 Flexbox 佈局工具</h2>
+                    <p class="section-description">靈活的Flexbox佈局工具類集合</p>
+                    
+                    <div class="flex-demos">
+                        <!-- Flex 容器 -->
+                        <div class="demo-container">
+                            <h4>Flex 容器類型</h4>
+                            <div class="flex-examples">
+                                <div class="flex-example">
+                                    <h5>.flex (水平排列)</h5>
+                                    <div class="flex-demo flex">
+                                        <div class="flex-item">項目 1</div>
+                                        <div class="flex-item">項目 2</div>
+                                        <div class="flex-item">項目 3</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex-example">
+                                    <h5>.flex-col (垂直排列)</h5>
+                                    <div class="flex-demo flex-col">
+                                        <div class="flex-item">項目 1</div>
+                                        <div class="flex-item">項目 2</div>
+                                        <div class="flex-item">項目 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* Flex 容器 */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-flex {
+  display: inline-flex;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Flex 對齊 -->
+                        <div class="demo-container">
+                            <h4>Flex 對齊工具</h4>
+                            <div class="flex-examples">
+                                <div class="flex-example">
+                                    <h5>.justify-center</h5>
+                                    <div class="flex-demo flex justify-center">
+                                        <div class="flex-item">置中</div>
+                                        <div class="flex-item">對齊</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex-example">
+                                    <h5>.justify-between</h5>
+                                    <div class="flex-demo flex justify-between">
+                                        <div class="flex-item">左側</div>
+                                        <div class="flex-item">右側</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex-example">
+                                    <h5>.items-center</h5>
+                                    <div class="flex-demo flex items-center" style="height: 80px;">
+                                        <div class="flex-item">垂直</div>
+                                        <div class="flex-item">置中</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* Justify Content */
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+/* Align Items */
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 定位工具 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">📍 定位工具</h2>
+                    <p class="section-description">基於CI系統百分比定位的定位工具</p>
+                    
+                    <div class="position-demos">
+                        <div class="demo-container">
+                            <h4>CI系統定位類</h4>
+                            <div class="position-example">
+                                <div class="position-container">
+                                    <div class="position-item left-3507">
+                                        <span>.left-3507</span>
+                                        <small>左: 35.07%</small>
+                                    </div>
+                                    <div class="position-item right-417">
+                                        <span>.right-417</span>
+                                        <small>右: 4.17%</small>
+                                    </div>
+                                    <div class="position-item right-6083">
+                                        <span>.right-6083</span>
+                                        <small>右: 60.83%</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* CI系統定位 */
+.left-3507 {
+  position: absolute;
+  left: var(--left-3507); /* 35.07% */
+}
+
+.right-417 {
+  position: absolute;
+  right: var(--right-417); /* 4.17% */
+}
+
+.right-3458 {
+  position: absolute;
+  right: var(--right-3458); /* 34.58% */
+}
+
+.right-6083 {
+  position: absolute;
+  right: var(--right-6083); /* 60.83% */
+}
+
+.right-7083 {
+  position: absolute;
+  right: var(--right-7083); /* 70.83% */
+}
+
+.right-8317 {
+  position: absolute;
+  right: var(--right-8317); /* 83.17% */
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 響應式斷點 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">📱 響應式斷點</h2>
+                    <p class="section-description">適用於各種設備的響應式設計斷點</p>
+                    
+                    <div class="breakpoint-demos">
+                        <div class="demo-container">
+                            <h4>標準斷點系統</h4>
+                            <div class="breakpoint-table">
+                                <div class="breakpoint-row header">
+                                    <div class="breakpoint-name">斷點名稱</div>
+                                    <div class="breakpoint-size">螢幕尺寸</div>
+                                    <div class="breakpoint-prefix">CSS 前綴</div>
+                                    <div class="breakpoint-usage">使用情境</div>
+                                </div>
+                                <div class="breakpoint-row">
+                                    <div class="breakpoint-name">xs</div>
+                                    <div class="breakpoint-size">&lt; 576px</div>
+                                    <div class="breakpoint-prefix">預設</div>
+                                    <div class="breakpoint-usage">手機直向</div>
+                                </div>
+                                <div class="breakpoint-row">
+                                    <div class="breakpoint-name">sm</div>
+                                    <div class="breakpoint-size">≥ 576px</div>
+                                    <div class="breakpoint-prefix">sm:</div>
+                                    <div class="breakpoint-usage">手機橫向</div>
+                                </div>
+                                <div class="breakpoint-row">
+                                    <div class="breakpoint-name">md</div>
+                                    <div class="breakpoint-size">≥ 768px</div>
+                                    <div class="breakpoint-prefix">md:</div>
+                                    <div class="breakpoint-usage">平板</div>
+                                </div>
+                                <div class="breakpoint-row">
+                                    <div class="breakpoint-name">lg</div>
+                                    <div class="breakpoint-size">≥ 992px</div>
+                                    <div class="breakpoint-prefix">lg:</div>
+                                    <div class="breakpoint-usage">桌面</div>
+                                </div>
+                                <div class="breakpoint-row">
+                                    <div class="breakpoint-name">xl</div>
+                                    <div class="breakpoint-size">≥ 1200px</div>
+                                    <div class="breakpoint-prefix">xl:</div>
+                                    <div class="breakpoint-usage">大螢幕</div>
+                                </div>
+                                <div class="breakpoint-row">
+                                    <div class="breakpoint-name">2xl</div>
+                                    <div class="breakpoint-size">≥ 1440px</div>
+                                    <div class="breakpoint-prefix">2xl:</div>
+                                    <div class="breakpoint-usage">CI標準尺寸</div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>/* 響應式媒體查詢 */
+/* 手機 */
+@media (max-width: 575.98px) {
+  .container { padding: 0 1rem; }
+}
+
+/* 平板 */
+@media (min-width: 768px) {
+  .md\:col-6 { grid-column: span 6; }
+  .md\:flex-row { flex-direction: row; }
+}
+
+/* 桌面 */
+@media (min-width: 1200px) {
+  .xl\:container-fixed {
+    width: var(--container-width);
+    margin: 0 auto;
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 實際應用範例 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">🚀 實際應用範例</h2>
+                    <p class="section-description">佈局系統在實際設計中的組合應用</p>
+                    
+                    <div class="application-examples">
+                        <!-- 卡片網格佈局 -->
+                        <div class="example-card">
+                            <h4>卡片網格佈局</h4>
+                            <div class="layout-demo">
+                                <div class="card-grid-demo auto-grid">
+                                    <div class="demo-card bg-surface-121212 p-4">
+                                        <div class="label-left-18 mb-2">卡片標題 1</div>
+                                        <div class="label-left-14 mb-3">這是卡片內容描述</div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="label-left-12">詳細資訊</span>
+                                            <span class="label-right-12">2024/12</span>
+                                        </div>
+                                    </div>
+                                    <div class="demo-card bg-surface-121212 p-4">
+                                        <div class="label-left-18 mb-2">卡片標題 2</div>
+                                        <div class="label-left-14 mb-3">這是卡片內容描述</div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="label-left-12">詳細資訊</span>
+                                            <span class="label-right-12">2024/12</span>
+                                        </div>
+                                    </div>
+                                    <div class="demo-card bg-surface-121212 p-4">
+                                        <div class="label-left-18 mb-2">卡片標題 3</div>
+                                        <div class="label-left-14 mb-3">這是卡片內容描述</div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="label-left-12">詳細資訊</span>
+                                            <span class="label-right-12">2024/12</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="auto-grid"&gt;
+  &lt;div class="bg-surface-121212 p-4"&gt;
+    &lt;div class="label-left-18 mb-2"&gt;卡片標題&lt;/div&gt;
+    &lt;div class="label-left-14 mb-3"&gt;內容描述&lt;/div&gt;
+    &lt;div class="flex justify-between items-center"&gt;
+      &lt;span class="label-left-12"&gt;詳細資訊&lt;/span&gt;
+      &lt;span class="label-right-12"&gt;時間&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 側邊欄佈局 -->
+                        <div class="example-card">
+                            <h4>側邊欄佈局</h4>
+                            <div class="layout-demo">
+                                <div class="sidebar-layout-demo flex">
+                                    <div class="demo-sidebar bg-surface-121212 p-4">
+                                        <div class="label-left-16 mb-4">導航選單</div>
+                                        <div class="flex-col space-y-2">
+                                            <div class="nav-item label-left-14 p-2">首頁</div>
+                                            <div class="nav-item label-left-14 p-2">關於我們</div>
+                                            <div class="nav-item label-left-14 p-2">服務項目</div>
+                                            <div class="nav-item label-left-14 p-2">聯絡我們</div>
+                                        </div>
+                                    </div>
+                                    <div class="demo-main bg-background-292929 p-4 flex-1">
+                                        <div class="label-left-20 mb-4">主要內容區域</div>
+                                        <div class="label-left-14 mb-2">這裡是主要內容展示區域。</div>
+                                        <div class="label-left-14">使用 Flexbox 實現響應式側邊欄佈局。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="flex"&gt;
+  &lt;div class="bg-surface-121212 p-4" style="width: 240px;"&gt;
+    &lt;div class="label-left-16 mb-4"&gt;導航選單&lt;/div&gt;
+    &lt;div class="flex-col space-y-2"&gt;
+      &lt;div class="nav-item p-2"&gt;選單項目&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="bg-background-292929 p-4 flex-1"&gt;
+    &lt;div class="label-left-20"&gt;主要內容&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 使用指南 -->
+                <section class="layout-section fade-in">
+                    <h2 class="section-title">📖 Layout 使用指南</h2>
+                    <div class="usage-guide">
+                        <div class="guide-item">
+                            <h4>🎯 容器使用原則</h4>
+                            <ul>
+                                <li>主容器使用 <code>.main-container</code> 保持CI規範</li>
+                                <li>側邊欄使用固定寬度 360px</li>
+                                <li>響應式容器使用百分比或 auto</li>
+                                <li>內容區域保持適當的內邊距</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>📐 網格系統建議</h4>
+                            <ul>
+                                <li>桌面使用 12列網格系統</li>
+                                <li>移動端使用 1-2列佈局</li>
+                                <li>卡片組件使用自適應網格</li>
+                                <li>保持一致的網格間距 (1rem)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>📏 間距使用規範</h4>
+                            <ul>
+                                <li>使用 4px 基礎單位 (4, 8, 12, 16, 24, 32...)</li>
+                                <li>組件內部使用較小間距 (.p-2, .p-3)</li>
+                                <li>組件之間使用較大間距 (.m-4, .m-6)</li>
+                                <li>頁面邊距使用 CI 百分比定位</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>📱 響應式設計準則</h4>
+                            <ul>
+                                <li>優先設計移動端體驗 (Mobile First)</li>
+                                <li>使用斷點進行漸進式增強</li>
+                                <li>保持觸控友好的最小尺寸 (44px)</li>
+                                <li>CI標準尺寸 1440px 為目標解析度</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* 基礎樣式繼承 */
+        
+        /* 頁面專用樣式 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--white-ffffff);
+            margin: 3rem 0 1rem;
+            font-weight: 300;
+            border-left: 4px solid var(--primary-8eccfc);
+            padding-left: 1rem;
+        }
+
+        .section-description {
+            color: var(--white-60);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .layout-section {
+            margin-bottom: 4rem;
+        }
+
+        /* 容器展示樣式 */
+        .container-demos {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .demo-container {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .demo-container h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .container-example {
+            margin-bottom: 1rem;
+        }
+
+        .main-container-demo {
+            background: var(--background-292929);
+            border: 2px dashed var(--primary-8eccfc);
+            border-radius: 8px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container-content {
+            text-align: center;
+        }
+
+        .sidebar-container-demo {
+            display: flex;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--white-12);
+        }
+
+        .sidebar-content {
+            width: 120px;
+            background: var(--surface-121212);
+            padding: 1rem;
+            border-right: 1px solid var(--white-12);
+        }
+
+        .main-area {
+            flex: 1;
+            background: var(--background-292929);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 網格展示樣式 */
+        .grid-demos {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-example {
+            margin-bottom: 1rem;
+        }
+
+        .grid-12-demo {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 0.5rem;
+        }
+
+        .grid-item {
+            border-radius: 4px;
+            border: 1px solid var(--white-12);
+        }
+
+        .col-1 { grid-column: span 1; }
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-12 { grid-column: span 12; }
+
+        .item-content {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+            border-radius: 4px;
+        }
+
+        .auto-grid-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .auto-grid-item {
+            background: var(--surface-121212);
+            border: 1px solid var(--white-12);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        /* 間距展示樣式 */
+        .spacing-demos {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .spacing-example {
+            margin-bottom: 1rem;
+        }
+
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .spacing-item {
+            background: var(--primary-8eccfc);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spacing-content {
+            background: var(--background-292929);
+            color: var(--white-87);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .margin-demo {
+            background: var(--background-292929);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .margin-item {
+            background: var(--primary-8eccfc);
+            border-radius: 4px;
+        }
+
+        .margin-content {
+            background: var(--surface-121212);
+            color: var(--white-87);
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        /* Flexbox 展示樣式 */
+        .flex-demos {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .flex-examples {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .flex-example h5 {
+            color: var(--white-87);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flex-demo {
+            background: var(--background-292929);
+            border: 1px solid var(--white-12);
+            border-radius: 8px;
+            padding: 1rem;
+            gap: 0.5rem;
+        }
+
+        .flex-item {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        /* 工具類 */
+        .flex { display: flex; }
+        .flex-col { display: flex; flex-direction: column; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+
+        /* 定位展示樣式 */
+        .position-demos {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .position-example {
+            margin-bottom: 1rem;
+        }
+
+        .position-container {
+            position: relative;
+            background: var(--background-292929);
+            border: 1px solid var(--white-12);
+            border-radius: 8px;
+            height: 200px;
+        }
+
+        .position-item {
+            position: absolute;
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .position-item span {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .position-item small {
+            font-size: 0.625rem;
+            opacity: 0.8;
+        }
+
+        .left-3507 { left: 35.07%; top: 20px; }
+        .right-417 { right: 4.17%; top: 60px; }
+        .right-6083 { right: 60.83%; bottom: 20px; }
+
+        /* 響應式斷點展示 */
+        .breakpoint-demos {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .breakpoint-table {
+            display: grid;
+            gap: 1px;
+            background: var(--white-12);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .breakpoint-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 2fr;
+            gap: 1px;
+            background: var(--white-12);
+        }
+
+        .breakpoint-row > div {
+            background: var(--surface-121212);
+            padding: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .breakpoint-row.header > div {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            font-weight: var(--font-weight-500);
+        }
+
+        .breakpoint-name {
+            color: var(--primary-8eccfc);
+            font-family: var(--font-roboto-mono);
+        }
+
+        .breakpoint-size,
+        .breakpoint-prefix,
+        .breakpoint-usage {
+            color: var(--white-87);
+        }
+
+        /* 應用範例樣式 */
+        .application-examples {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .example-card h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .layout-demo {
+            margin-bottom: 1rem;
+        }
+
+        .card-grid-demo {
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-card {
+            border-radius: 8px;
+            border: 1px solid var(--white-12);
+        }
+
+        .sidebar-layout-demo {
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .demo-sidebar {
+            width: 160px;
+            border-right: 1px solid var(--white-12);
+        }
+
+        .demo-main {
+            flex: 1;
+        }
+
+        .nav-item {
+            background: var(--background-292929);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: var(--white-12);
+        }
+
+        /* 間距工具類 */
+        .p-1 { padding: 4px; }
+        .p-2 { padding: 8px; }
+        .p-3 { padding: 12px; }
+        .p-4 { padding: 16px; }
+        .p-6 { padding: 24px; }
+        .p-8 { padding: 32px; }
+
+        .m-1 { margin: 4px; }
+        .m-2 { margin: 8px; }
+        .m-3 { margin: 12px; }
+        .m-4 { margin: 16px; }
+        .m-6 { margin: 24px; }
+        .m-8 { margin: 32px; }
+
+        .mb-2 { margin-bottom: 8px; }
+        .mb-3 { margin-bottom: 12px; }
+        .mb-4 { margin-bottom: 16px; }
+
+        .space-y-2 > * + * { margin-top: 8px; }
+
+        .flex-1 { flex: 1; }
+
+        .auto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .code-block {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid var(--white-12);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            color: var(--white-87);
+            line-height: 1.5;
+        }
+
+        .usage-guide {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .guide-item {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .guide-item h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .guide-item ul {
+            color: var(--white-87);
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        .guide-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .guide-item code {
+            background: var(--background-292929);
+            color: var(--primary-8eccfc);
+            padding: 0.125rem 0.25rem;
+            border-radius: 3px;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875em;
+        }
+
+        @media (max-width: 768px) {
+            .grid-12-demo {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .col-12 { grid-column: span 4; }
+            .col-6 { grid-column: span 2; }
+            .col-4 { grid-column: span 2; }
+            .col-3 { grid-column: span 1; }
+            
+            .spacing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .breakpoint-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .breakpoint-row > div {
+                border-bottom: 1px solid var(--white-12);
+            }
+            
+            .sidebar-layout-demo {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .demo-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--white-12);
+            }
+        }
+    </style>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // 頁面載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

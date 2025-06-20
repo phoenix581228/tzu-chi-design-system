@@ -3,455 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟設計系統 v2.0.0 - Material Design 3.0</title>
-    <meta name="description" content="慈濟設計系統 v2.0.0 - 基於 Material Design 3.0 的完整設計系統">
-    <meta name="keywords" content="慈濟,設計系統,Material Design,design system,CSS framework">
-    <meta property="og:title" content="慈濟設計系統 v2.0.0 - Material Design 3.0">
-    <meta property="og:description" content="完整的 Material Design 3.0 色彩系統與企業級 CSS 框架">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://phoenix581228.github.io/tzu-chi-design-system/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🎨</text></svg>">
+    <title>慈濟 CIS 設計系統 | Tzu Chi Corporate Identity System</title>
+    <meta name="description" content="慈濟基金會企業識別系統（CIS）設計系統，包含完整的七部份模塊化架構">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🪷</text></svg>">
     
-    <!-- Material Design 3.0 CSS System -->
-    <link rel="stylesheet" href="themes/material-design.css">
+    <!-- 引入CI系統樣式 -->
+    <link rel="stylesheet" href="themes/colors.css">
+    <link rel="stylesheet" href="shared/sidebar.css">
     <link rel="stylesheet" href="shared/navigation.css">
     
+    <!-- 引入共用側邊欄組件 -->
+    <script src="shared/sidebar-component.js"></script>
+</head>
+
+<body>
+    <!-- 移動端菜單切換按鈕 -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <div class="app-container">
+        <!-- 左側導航欄 -->
+        <!-- 左側導航欄 -->
+        <nav class="sidebar" id="sidebar">
+            <!-- 側邊欄內容將由 JavaScript 動態載入 -->
+        </nav>
+        
+        <!-- 側邊欄遮罩 -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 class="content-title">慈濟 CIS 設計系統</h1>
+                <p class="content-description">
+                    慈濟慈善事業基金會企業識別系統（Corporate Identity System）<br>
+                    完整七部份模塊化架構 · 100%原始規範保留 · 企業級設計系統
+                </p>
+            </header>
+
+            <div class="content-body">
+                <!-- 系統概覽 -->
+                <section class="overview-section fade-in">
+                    <h2 class="section-title">🎯 系統概覽</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="overview-icon">🎨</div>
+                            <h3>CI色彩系統</h3>
+                            <p>39個原始色彩變數，完整保留慈濟CI規範</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-icon">📐</div>
+                            <h3>模塊化架構</h3>
+                            <p>七個獨立模塊，可單獨使用或組合使用</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-icon">⚡</div>
+                            <h3>現代化技術</h3>
+                            <p>CSS變數、響應式設計、無障礙性支援</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-icon">🔒</div>
+                            <h3>規範保護</h3>
+                            <p>100%原始色彩規範保留，零修改</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 快速開始 -->
+                <section class="quick-start-section fade-in">
+                    <h2 class="section-title">🚀 快速開始</h2>
+                    
+                    <div class="usage-methods">
+                        <div class="method-card">
+                            <h3>方法一：完整CI系統</h3>
+                            <div class="code-block">
+                                <pre><code>&lt;!-- 使用完整CI色彩系統 --&gt;
+&lt;link rel="stylesheet" href="themes/colors.css"&gt;</code></pre>
+                            </div>
+                            <p>包含所有七個部份的完整CI系統，適合直接替換現有CSS。</p>
+                        </div>
+
+                        <div class="method-card">
+                            <h3>方法二：模塊化使用</h3>
+                            <div class="code-block">
+                                <pre><code>&lt;!-- 主入口文件 --&gt;
+&lt;link rel="stylesheet" href="themes/material-design.css"&gt;</code></pre>
+                            </div>
+                            <p>使用主入口文件，自動載入所有模塊。</p>
+                        </div>
+
+                        <div class="method-card">
+                            <h3>方法三：選擇性載入</h3>
+                            <div class="code-block">
+                                <pre><code>&lt;!-- 只載入需要的模塊 --&gt;
+&lt;link rel="stylesheet" href="themes/variables.css"&gt;
+&lt;link rel="stylesheet" href="themes/base.css"&gt;
+&lt;link rel="stylesheet" href="themes/typography.css"&gt;</code></pre>
+                            </div>
+                            <p>根據需求選擇性載入特定模塊。</p>
+                        </div>
+
+                        <div class="method-card">
+                            <h3>方法四：CDN使用</h3>
+                            <div class="code-block">
+                                <pre><code>&lt;!-- 從GitHub Pages CDN載入 --&gt;
+&lt;link rel="stylesheet" href="https://phoenix581228.github.io/tzu-chi-design-system/themes/colors.css"&gt;</code></pre>
+                            </div>
+                            <p>直接從CDN使用，無需下載檔案。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 系統統計 -->
+                <section class="stats-section fade-in">
+                    <h2 class="section-title">📊 系統統計</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">系統模塊</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">39</div>
+                            <div class="stat-label">色彩變數</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2600+</div>
+                            <div class="stat-label">CSS代碼行</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">規範保留</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 安全保證 -->
+                <section class="safety-section fade-in">
+                    <h2 class="section-title">🔒 CI系統保護措施</h2>
+                    <div class="safety-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <div class="feature-content">
+                                <h3>色彩規範完全保留</h3>
+                                <p>所有原始色彩值：#292929, #8ECCFC, #FFE082 等</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <div class="feature-content">
+                                <h3>透明度值完整保持</h3>
+                                <p>精確的 rgba(255, 255, 255, 0.87) 等透明度值</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <div class="feature-content">
+                                <h3>字體系統不變</h3>
+                                <p>保持 'Roboto', 'Roboto Mono' 等原始字體設定</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <div class="feature-content">
+                                <h3>尺寸規範保持</h3>
+                                <p>維持 1440px, 2320px, 4.17% 等原始尺寸</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 底部連結 -->
+                <section class="links-section fade-in">
+                    <h2 class="section-title">📚 相關資源</h2>
+                    <div class="links-grid">
+                        <a href="CSS_MODULES_GUIDE.md" class="link-card" target="_blank">
+                            <div class="link-icon">📖</div>
+                            <h3>完整使用指南</h3>
+                            <p>詳細的模塊說明和使用範例</p>
+                        </a>
+                        <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-card" target="_blank">
+                            <div class="link-icon">🔗</div>
+                            <h3>GitHub 倉庫</h3>
+                            <p>原始碼、問題回報和貢獻</p>
+                        </a>
+                        <a href="https://phoenix581228.github.io/tzu-chi-design-system" class="link-card" target="_blank">
+                            <div class="link-icon">🌐</div>
+                            <h3>線上展示</h3>
+                            <p>完整系統展示和測試頁面</p>
+                        </a>
+                        <a href="CHANGELOG.md" class="link-card" target="_blank">
+                            <div class="link-icon">📝</div>
+                            <h3>更新日誌</h3>
+                            <p>版本歷史和變更記錄</p>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
     <style>
-        /* 首頁專用樣式 */
-        .hero-section {
-            background: var(--background);
-            color: var(--text-high-emphasis);
-            text-align: center;
-            padding: 4rem 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
+        /* 頁面專用樣式 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--white-ffffff);
+            margin: 3rem 0 1.5rem;
             font-weight: 300;
+            border-left: 4px solid var(--primary-8eccfc);
+            padding-left: 1rem;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .overview-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--white-12);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-8eccfc);
+        }
+
+        .overview-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            letter-spacing: -0.02em;
         }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            font-weight: 400;
+
+        .overview-card h3 {
+            color: var(--white-ffffff);
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            font-weight: var(--font-weight-500);
         }
-        
-        .hero-version {
-            display: inline-block;
-            background: var(--primary-100);
-            color: var(--primary-700);
-            padding: 0.5rem 1rem;
-            border-radius: var(--cis-radius-full);
-            font-weight: 500;
-            margin-bottom: 2rem;
+
+        .overview-card p {
+            color: var(--white-60);
+            font-size: 0.875rem;
+            line-height: 1.5;
         }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-hero {
-            padding: 0.75rem 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: var(--cis-radius-lg);
-            text-decoration: none;
-            transition: all var(--cis-duration-200) var(--cis-ease-out);
-        }
-        
-        .btn-hero-primary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-hero-primary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        .btn-hero-secondary {
-            background: white;
-            color: var(--primary-700);
-            border: 2px solid white;
-        }
-        
-        .btn-hero-secondary:hover {
-            background: var(--primary-50);
-            transform: translateY(-2px);
-        }
-        
-        .features-grid {
+
+        .usage-methods {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        
-        .feature-card {
-            background: var(--surface);
-            border-radius: var(--cis-radius-xl);
-            padding: 2rem;
-            box-shadow: var(--cis-elevation-2);
-            transition: all var(--cis-duration-300) var(--cis-ease-out);
+
+        .method-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
         }
-        
-        .feature-card:hover {
-            box-shadow: var(--cis-elevation-8);
-            transform: translateY(-4px);
-        }
-        
-        .feature-icon {
-            width: 3rem;
-            height: 3rem;
-            background: var(--primary-100);
-            border-radius: var(--cis-radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+
+        .method-card h3 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
             margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
         }
-        
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-high-emphasis);
-            margin-bottom: 0.5rem;
+
+        .code-block {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid var(--white-12);
         }
-        
-        .feature-description {
-            color: var(--text-medium-emphasis);
-            line-height: 1.6;
-        }
-        
-        .color-showcase {
-            background: var(--surface);
-            border-radius: var(--cis-radius-xl);
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: var(--cis-elevation-1);
-        }
-        
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .color-swatch {
-            height: 80px;
-            border-radius: var(--cis-radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 500;
-            font-size: 0.875rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .color-swatch::after {
-            content: attr(data-color);
-            position: absolute;
-            bottom: 0.5rem;
-            left: 0.5rem;
+
+        .code-block pre {
+            margin: 0;
+            font-family: var(--font-roboto-mono);
             font-size: 0.75rem;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: var(--cis-radius-base);
+            color: var(--white-87);
+            overflow-x: auto;
         }
-        
-        .stats-section {
-            background: var(--primary-50);
-            border-radius: var(--cis-radius-xl);
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-        
-        .stat-item {
+
+        .stat-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
+            border: 1px solid var(--white-12);
         }
-        
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary-700);
-            display: block;
+            color: var(--primary-8eccfc);
+            margin-bottom: 0.5rem;
         }
-        
+
         .stat-label {
-            color: var(--text-medium-emphasis);
-            font-weight: 500;
-        }
-        
-        .changelog-section {
-            background: var(--surface);
-            border-radius: var(--cis-radius-xl);
-            padding: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .changelog-item {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--divider);
-        }
-        
-        .changelog-item:last-child {
-            border-bottom: none;
-        }
-        
-        .changelog-version {
-            font-weight: 600;
-            color: var(--primary-600);
-            margin-bottom: 0.5rem;
-        }
-        
-        .changelog-date {
+            color: var(--white-60);
             font-size: 0.875rem;
-            color: var(--text-medium-emphasis);
+        }
+
+        .safety-features {
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--surface-121212);
+            border-radius: 12px;
+            border: 1px solid var(--white-12);
+        }
+
+        .feature-icon {
+            color: var(--success-43a689);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: var(--white-ffffff);
+            font-size: 1rem;
             margin-bottom: 0.5rem;
+            font-weight: var(--font-weight-500);
         }
-        
-        .footer-section {
+
+        .feature-content p {
+            color: var(--white-60);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .link-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--white-12);
+            transition: all 0.3s ease;
             text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid var(--divider);
-            color: var(--text-medium-emphasis);
         }
-        
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.125rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-hero {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .color-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        .link-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-8eccfc);
+            color: inherit;
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-card h3 {
+            color: var(--white-ffffff);
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .link-card p {
+            color: var(--white-60);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin: 0;
         }
     </style>
-</head>
-
-<body class="material-design-system">
-    <!-- 導航欄 -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                🎨 慈濟設計系統
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link active">首頁</a></li>
-                <li><a href="features.html" class="nav-link">功能特色</a></li>
-                <li><a href="colors.html" class="nav-link">色彩系統</a></li>
-                <li><a href="components.html" class="nav-link">組件展示</a></li>
-                <li><a href="docs.html" class="nav-link">使用文檔</a></li>
-                <li><a href="changelog.html" class="nav-link">更新日誌</a></li>
-            </ul>
-            <button class="nav-toggle" onclick="toggleNav()">☰</button>
-        </div>
-    </nav>
-
-    <!-- 主題切換按鈕 -->
-    <div class="theme-toggle">
-        <button class="btn btn-secondary" onclick="toggleTheme()">
-            🌙 切換主題
-        </button>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-version">v2.0.0 - Material Design 3.0</div>
-            <h1 class="hero-title">慈濟設計系統</h1>
-            <p class="hero-subtitle">
-                完整的 Material Design 3.0 色彩系統與企業級 CSS 框架<br>
-                模組化架構 · 2000+ 工具類 · 響應式設計
-            </p>
-            <div class="cta-buttons">
-                <a href="test-v2.html" class="btn-hero btn-hero-primary">
-                    🎨 查看展示
-                </a>
-                <a href="CSS_MODULES_GUIDE.md" class="btn-hero btn-hero-secondary">
-                    📖 使用文檔
-                </a>
-                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="btn-hero btn-hero-primary">
-                    💻 GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <div class="container">
-        <!-- 快速導覽 -->
-        <section class="section">
-            <h2 class="headline-4 text-center mb-8">🚀 探索設計系統</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌟</div>
-                    <h3 class="feature-title">功能特色</h3>
-                    <p class="feature-description">
-                        探索 Material Design 3.0、模組化架構、2000+ 工具類等六大核心特色
-                    </p>
-                    <a href="features.html" class="btn btn-primary mt-4">查看詳情</a>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3 class="feature-title">色彩系統</h3>
-                    <p class="feature-description">
-                        完整的 Material Design 3.0 色彩調色板和動態主題系統
-                    </p>
-                    <a href="colors.html" class="btn btn-primary mt-4">色彩展示</a>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🧩</div>
-                    <h3 class="feature-title">UI 組件</h3>
-                    <p class="feature-description">
-                        按鈕、卡片、表單等完整的企業級 UI 組件庫
-                    </p>
-                    <a href="components.html" class="btn btn-primary mt-4">組件展示</a>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📖</div>
-                    <h3 class="feature-title">使用文檔</h3>
-                    <p class="feature-description">
-                        詳細的安裝指南、API 文檔和最佳實踐建議
-                    </p>
-                    <a href="docs.html" class="btn btn-primary mt-4">查看文檔</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 統計數據 -->
-        <section class="stats-section">
-            <h3 class="headline-5 mb-4">📊 系統規模</h3>
-            <p class="text-medium-emphasis">企業級設計系統，功能完整且性能優化</p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">7</span>
-                    <div class="stat-label">CSS 模組</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">2000+</span>
-                    <div class="stat-label">工具類</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <div class="stat-label">色彩變數</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">20+</span>
-                    <div class="stat-label">UI 組件</div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="container">
-            <p>
-                慈濟設計系統 v2.0.0 | Material Design 3.0<br>
-                <small>基於 Material Design 規範的企業級 CSS 框架</small>
-            </p>
-            <p class="mt-4">
-                <a href="https://github.com/phoenix581228/tzu-chi-design-system" class="link-primary">GitHub</a> •
-                <a href="CSS_MODULES_GUIDE.md" class="link-primary">文檔</a> •
-                <a href="test-v2.html" class="link-primary">展示</a> •
-                <a href="CHANGELOG.md" class="link-primary">更新日誌</a>
-            </p>
-        </div>
-    </footer>
 
     <script>
-        // 導航切換功能
-        function toggleNav() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
         }
-
-        // 主題切換功能
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-            const button = document.querySelector('.theme-toggle button');
-            if (document.body.classList.contains('light-theme')) {
-                button.textContent = '🌞 切換主題';
-            } else {
-                button.textContent = '🌙 切換主題';
-            }
-        }
-
-        // 平滑滾動
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // 載入動畫
+        
+        // 頁面載入動畫
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.feature-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
                 setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 150);
             });
         });
-
-        // 顯示當前系統資訊
-        console.log('🎨 慈濟設計系統 v2.0.0');
-        console.log('📦 Material Design 3.0 整合完成');
-        console.log('🔗 GitHub: https://github.com/phoenix581228/tzu-chi-design-system');
     </script>
 </body>
 </html>

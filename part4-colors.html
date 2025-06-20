@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 4 - Colors | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第四部分：色彩工具類 - 背景色、文字色、邊框色等實用CSS類別">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🌈</text></svg>">
+    
+    <!-- 引入CI系統樣式 -->
+    <link rel="stylesheet" href="themes/colors.css">
+    <link rel="stylesheet" href="shared/sidebar.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <!-- 引入共用側邊欄組件 -->
+    <script src="shared/sidebar-component.js"></script>
+</head>
+
+<body>
+    <!-- 移動端菜單切換按鈕 -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <div class="app-container">
+        <!-- 左側導航欄 -->
+        <nav class="sidebar" id="sidebar">
+            <!-- 側邊欄內容將由 JavaScript 動態載入 -->
+        </nav>
+        
+        <!-- 側邊欄遮罩 -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 class="content-title">Part 4 - Colors</h1>
+                <p class="content-description">
+                    CI色彩工具類系統<br>
+                    提供完整的背景色、文字色、邊框色等實用CSS類別
+                </p>
+            </header>
+
+            <div class="content-body">
+                <!-- 背景色工具類 -->`
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">🎨 背景色工具類</h2>
+                    <p class="section-description">使用 .bg-* 前綴為元素設定背景顏色</p>
+                    
+                    <div class="utility-grid">
+                        <!-- Primary 背景色 -->
+                        <div class="utility-group">
+                            <h3 class="group-title">Primary 主色背景</h3>
+                            <div class="utility-items">
+                                <div class="utility-item bg-primary-e3f3fe">
+                                    <code>.bg-primary-e3f3fe</code>
+                                    <span>#E3F3FE</span>
+                                </div>
+                                <div class="utility-item bg-primary-bae0fd">
+                                    <code>.bg-primary-bae0fd</code>
+                                    <span>#BAE0FD</span>
+                                </div>
+                                <div class="utility-item bg-primary-8eccfc">
+                                    <code>.bg-primary-8eccfc</code>
+                                    <span>#8ECCFC</span>
+                                </div>
+                                <div class="utility-item bg-primary-5fb7fa">
+                                    <code>.bg-primary-5fb7fa</code>
+                                    <span>#5FB7FA</span>
+                                </div>
+                                <div class="utility-item bg-primary-0296f9">
+                                    <code>.bg-primary-0296f9</code>
+                                    <span>#0296F9</span>
+                                </div>
+                                <div class="utility-item bg-primary-0475d8">
+                                    <code>.bg-primary-0475d8</code>
+                                    <span>#0475D8</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary 背景色 -->
+                        <div class="utility-group">
+                            <h3 class="group-title">Secondary 輔助色背景</h3>
+                            <div class="utility-items">
+                                <div class="utility-item bg-secondary-fff8e1">
+                                    <code>.bg-secondary-fff8e1</code>
+                                    <span>#FFF8E1</span>
+                                </div>
+                                <div class="utility-item bg-secondary-ffe082">
+                                    <code>.bg-secondary-ffe082</code>
+                                    <span>#FFE082</span>
+                                </div>
+                                <div class="utility-item bg-secondary-ffc929">
+                                    <code>.bg-secondary-ffc929</code>
+                                    <span>#FFC929</span>
+                                </div>
+                                <div class="utility-item bg-secondary-ff9101">
+                                    <code>.bg-secondary-ff9101</code>
+                                    <span>#FF9101</span>
+                                </div>
+                                <div class="utility-item bg-secondary-03dac5">
+                                    <code>.bg-secondary-03dac5</code>
+                                    <span>#03DAC5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System 系統色背景 -->
+                        <div class="utility-group">
+                            <h3 class="group-title">System 系統色背景</h3>
+                            <div class="utility-items">
+                                <div class="utility-item bg-surface-121212">
+                                    <code>.bg-surface-121212</code>
+                                    <span>#121212</span>
+                                </div>
+                                <div class="utility-item bg-background-292929">
+                                    <code>.bg-background-292929</code>
+                                    <span>#292929</span>
+                                </div>
+                                <div class="utility-item bg-white-ffffff dark-text">
+                                    <code>.bg-white-ffffff</code>
+                                    <span>#FFFFFF</span>
+                                </div>
+                                <div class="utility-item bg-black-000000">
+                                    <code>.bg-black-000000</code>
+                                    <span>#000000</span>
+                                </div>
+                                <div class="utility-item bg-error-cf6679">
+                                    <code>.bg-error-cf6679</code>
+                                    <span>#CF6679</span>
+                                </div>
+                                <div class="utility-item bg-success-43a689">
+                                    <code>.bg-success-43a689</code>
+                                    <span>#43A689</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字色工具類 -->
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">✍️ 文字色工具類</h2>
+                    <p class="section-description">使用 .text-* 前綴為文字設定顏色</p>
+                    
+                    <div class="text-utility-grid">
+                        <!-- Primary 文字色 -->
+                        <div class="text-utility-group">
+                            <h3 class="group-title">Primary 主色文字</h3>
+                            <div class="text-examples">
+                                <div class="text-example text-primary-8eccfc">
+                                    <span>標準主色文字 (.text-primary-8eccfc)</span>
+                                </div>
+                                <div class="text-example text-primary-0296f9">
+                                    <span>主色藍文字 (.text-primary-0296f9)</span>
+                                </div>
+                                <div class="text-example text-primary-0475d8">
+                                    <span>深藍色文字 (.text-primary-0475d8)</span>
+                                </div>
+                                <div class="text-example text-primary-bb86fc">
+                                    <span>輔助紫色文字 (.text-primary-bb86fc)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary 文字色 -->
+                        <div class="text-utility-group">
+                            <h3 class="group-title">Secondary 輔助色文字</h3>
+                            <div class="text-examples">
+                                <div class="text-example text-secondary-ffc929">
+                                    <span>活躍黃色文字 (.text-secondary-ffc929)</span>
+                                </div>
+                                <div class="text-example text-secondary-ff9101">
+                                    <span>深橙色文字 (.text-secondary-ff9101)</span>
+                                </div>
+                                <div class="text-example text-secondary-03dac5">
+                                    <span>輔助青色文字 (.text-secondary-03dac5)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System 系統文字色 -->
+                        <div class="text-utility-group">
+                            <h3 class="group-title">System 系統色文字</h3>
+                            <div class="text-examples">
+                                <div class="text-example text-white-ffffff">
+                                    <span>純白文字 (.text-white-ffffff)</span>
+                                </div>
+                                <div class="text-example text-white-87">
+                                    <span>高強調文字 (.text-white-87)</span>
+                                </div>
+                                <div class="text-example text-white-60">
+                                    <span>中強調文字 (.text-white-60)</span>
+                                </div>
+                                <div class="text-example text-white-38">
+                                    <span>低強調文字 (.text-white-38)</span>
+                                </div>
+                                <div class="text-example text-error-cf6679">
+                                    <span>錯誤狀態文字 (.text-error-cf6679)</span>
+                                </div>
+                                <div class="text-example text-success-43a689">
+                                    <span>成功狀態文字 (.text-success-43a689)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 透明度背景工具類 -->
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">🔍 透明度背景工具類</h2>
+                    <p class="section-description">使用透明度值創建層次感和深度效果</p>
+                    
+                    <div class="opacity-utility-grid">
+                        <div class="opacity-demo bg-white-87">
+                            <div class="demo-content">
+                                <code>.bg-white-87</code>
+                                <span>White 87% 透明度</span>
+                                <small>高強調背景</small>
+                            </div>
+                        </div>
+                        <div class="opacity-demo bg-white-60">
+                            <div class="demo-content">
+                                <code>.bg-white-60</code>
+                                <span>White 60% 透明度</span>
+                                <small>中強調背景</small>
+                            </div>
+                        </div>
+                        <div class="opacity-demo bg-white-38">
+                            <div class="demo-content">
+                                <code>.bg-white-38</code>
+                                <span>White 38% 透明度</span>
+                                <small>低強調背景</small>
+                            </div>
+                        </div>
+                        <div class="opacity-demo bg-white-24">
+                            <div class="demo-content">
+                                <code>.bg-white-24</code>
+                                <span>White 24% 透明度</span>
+                                <small>分隔線背景</small>
+                            </div>
+                        </div>
+                        <div class="opacity-demo bg-white-12">
+                            <div class="demo-content">
+                                <code>.bg-white-12</code>
+                                <span>White 12% 透明度</span>
+                                <small>邊框背景</small>
+                            </div>
+                        </div>
+                        <div class="opacity-demo bg-black-87" style="color: white;">
+                            <div class="demo-content">
+                                <code>.bg-black-87</code>
+                                <span>Black 87% 透明度</span>
+                                <small>深色高強調背景</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 實際應用範例 -->
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">🚀 實際應用範例</h2>
+                    <p class="section-description">色彩工具類的實際使用場景展示</p>
+                    
+                    <div class="examples-grid">
+                        <!-- 卡片範例 -->
+                        <div class="example-card">
+                            <h4>卡片設計</h4>
+                            <div class="demo-card bg-surface-121212">
+                                <div class="card-header bg-primary-8eccfc">
+                                    <h5 class="text-black-000000">主標題</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-white-87">這是一個使用CI色彩系統的卡片範例。</p>
+                                    <p class="text-white-60">副文字使用較低透明度的白色。</p>
+                                </div>
+                                <div class="card-footer bg-white-12">
+                                    <button class="btn bg-secondary-ffc929 text-black-000000">操作按鈕</button>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="bg-surface-121212"&gt;
+  &lt;div class="bg-primary-8eccfc"&gt;
+    &lt;h5 class="text-black-000000"&gt;主標題&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p class="text-white-87"&gt;主要內容&lt;/p&gt;
+    &lt;p class="text-white-60"&gt;副文字&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 警告框範例 -->
+                        <div class="example-card">
+                            <h4>狀態提示</h4>
+                            <div class="alert-examples">
+                                <div class="alert bg-success-43a689 text-white-ffffff">
+                                    <strong>成功：</strong>操作已成功完成！
+                                </div>
+                                <div class="alert bg-error-cf6679 text-white-ffffff">
+                                    <strong>錯誤：</strong>發生了一個錯誤，請重試。
+                                </div>
+                                <div class="alert bg-secondary-ffc929 text-black-000000">
+                                    <strong>警告：</strong>請注意這個重要提示。
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="bg-success-43a689 text-white-ffffff"&gt;
+  成功提示
+&lt;/div&gt;
+&lt;div class="bg-error-cf6679 text-white-ffffff"&gt;
+  錯誤提示
+&lt;/div&gt;
+&lt;div class="bg-secondary-ffc929 text-black-000000"&gt;
+  警告提示
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 按鈕範例 -->
+                        <div class="example-card">
+                            <h4>按鈕系統</h4>
+                            <div class="button-examples">
+                                <button class="demo-btn bg-primary-8eccfc text-black-000000">主要按鈕</button>
+                                <button class="demo-btn bg-secondary-ffc929 text-black-000000">次要按鈕</button>
+                                <button class="demo-btn bg-white-12 text-white-87">輔助按鈕</button>
+                                <button class="demo-btn bg-error-cf6679 text-white-ffffff">危險按鈕</button>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;button class="bg-primary-8eccfc text-black-000000"&gt;
+  主要按鈕
+&lt;/button&gt;
+&lt;button class="bg-secondary-ffc929 text-black-000000"&gt;
+  次要按鈕
+&lt;/button&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 使用指南 -->
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">📖 使用指南</h2>
+                    <div class="usage-guide">
+                        <div class="guide-item">
+                            <h4>🎯 命名規則</h4>
+                            <ul>
+                                <li><code>.bg-*</code> - 背景色工具類</li>
+                                <li><code>.text-*</code> - 文字色工具類</li>
+                                <li>色彩名稱直接對應CSS變數名稱</li>
+                                <li>例如：<code>--primary-8eccfc</code> → <code>.bg-primary-8eccfc</code></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>✨ 最佳實踐</h4>
+                            <ul>
+                                <li>深色背景搭配淺色文字</li>
+                                <li>淺色背景搭配深色文字</li>
+                                <li>使用透明度創建層次感</li>
+                                <li>保持足夠的對比度確保可讀性</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>🔧 自訂擴展</h4>
+                            <p>可以根據需要新增更多色彩工具類：</p>
+                            <div class="code-block">
+                                <pre><code>/* 自訂色彩工具類 */
+.bg-custom-color { background: #YOUR_COLOR; }
+.text-custom-color { color: #YOUR_COLOR; }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* 頁面專用樣式 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--white-ffffff);
+            margin: 3rem 0 1rem;
+            font-weight: 300;
+            border-left: 4px solid var(--primary-8eccfc);
+            padding-left: 1rem;
+        }
+
+        .section-description {
+            color: var(--white-60);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .utility-section {
+            margin-bottom: 4rem;
+        }
+
+        .utility-grid {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .utility-group {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .group-title {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .utility-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .utility-item {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--white-12);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .utility-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .utility-item.dark-text {
+            color: var(--black-000000);
+        }
+
+        .utility-item:not(.dark-text) {
+            color: var(--white-ffffff);
+        }
+
+        .utility-item code {
+            display: block;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .utility-item span {
+            font-size: 0.675rem;
+            opacity: 0.8;
+        }
+
+        .text-utility-grid {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .text-utility-group {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .text-examples {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .text-example {
+            padding: 0.75rem;
+            border-radius: 6px;
+            background: var(--background-292929);
+            border: 1px solid var(--white-12);
+        }
+
+        .text-example span {
+            font-size: 0.875rem;
+        }
+
+        .opacity-utility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .opacity-demo {
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid var(--white-12);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .demo-content code {
+            display: block;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-content span {
+            display: block;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .demo-content small {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .example-card h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .demo-card {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .card-header {
+            padding: 1rem;
+        }
+
+        .card-header h5 {
+            margin: 0;
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-body p {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            padding: 1rem;
+        }
+
+        .btn {
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .alert-examples {
+            margin-bottom: 1rem;
+        }
+
+        .alert {
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .button-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-btn {
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-500);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .code-block {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid var(--white-12);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            color: var(--white-87);
+            line-height: 1.5;
+        }
+
+        .usage-guide {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .guide-item {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .guide-item h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .guide-item ul {
+            color: var(--white-87);
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        .guide-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .guide-item code {
+            background: var(--background-292929);
+            color: var(--primary-8eccfc);
+            padding: 0.125rem 0.25rem;
+            border-radius: 3px;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875em;
+        }
+
+        .guide-item p {
+            color: var(--white-87);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .utility-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .opacity-utility-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-examples {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // 頁面載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

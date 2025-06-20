@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3 - Base Styles | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第三部分：基礎樣式和重置，包含CSS重置、全域樣式和無障礙性">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🔧</text></svg>">
+    
+    <!-- 引入CI系統樣式 -->
+    <link rel="stylesheet" href="themes/colors.css">
+    <link rel="stylesheet" href="shared/sidebar.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <!-- 引入共用側邊欄組件 -->
+    <script src="shared/sidebar-component.js"></script>
+</head>
+
+<body>
+    <!-- 移動端菜單切換按鈕 -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <div class="app-container">
+        <!-- 左側導航欄 -->
+        <nav class="sidebar" id="sidebar">
+            <!-- 側邊欄內容將由 JavaScript 動態載入 -->
+        </nav>
+        
+        <!-- 側邊欄遮罩 -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 class="content-title">Part 3 - Base Styles</h1>
+                <p class="content-description">
+                    Material Design 基礎樣式<br>
+                    基礎重置和全域樣式定義，建立一致的設計基礎
+                </p>
+            </header>
+
+            <div class="content-body">
+                <!-- CSS重置 -->
+                <section class="base-section fade-in">
+                    <h2 class="section-title">🔄 CSS 重置</h2>
+                    <p class="section-description">統一瀏覽器預設樣式，建立一致的基礎</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📦</div>
+                            <h3>Box Model 統一</h3>
+                            <p>所有元素使用 border-box，確保尺寸計算一致</p>
+                            <div class="code-sample">box-sizing: border-box;</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>邊距重置</h3>
+                            <p>清除瀏覽器預設的 margin 和 padding</p>
+                            <div class="code-sample">margin: 0; padding: 0;</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📝</div>
+                            <h3>字體繼承</h3>
+                            <p>表單元素繼承父元素字體設定</p>
+                            <div class="code-sample">font-family: inherit;</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🖼️</div>
+                            <h3>響應式圖片</h3>
+                            <p>圖片自動適應容器大小</p>
+                            <div class="code-sample">max-width: 100%;</div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h3>CSS 重置代碼</h3>
+                        <div class="code-block">
+                            <pre><code>/* 基礎重置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML 基礎設定 */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Body 全域樣式 -->
+                <section class="base-section fade-in">
+                    <h2 class="section-title">🎨 Body 全域樣式</h2>
+                    <p class="section-description">設定頁面的基礎外觀和主題切換</p>
+                    
+                    <div class="demo-container">
+                        <div class="style-demo body-demo">
+                            <h4>全域樣式展示</h4>
+                            <p>這是 body 元素的基礎樣式，包含：</p>
+                            <ul>
+                                <li>字體系統：使用 CI 字型變數</li>
+                                <li>背景色彩：響應主題變數</li>
+                                <li>平滑轉場：支援主題切換動畫</li>
+                                <li>色彩繼承：文字顏色自動適應</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h3>Body 樣式代碼</h3>
+                        <div class="code-block">
+                            <pre><code>body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--background);
+  color: var(--on-background);
+  transition: background-color var(--cis-duration-300) var(--cis-ease-out),
+              color var(--cis-duration-300) var(--cis-ease-out);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 焦點管理 -->
+                <section class="base-section fade-in">
+                    <h2 class="section-title">🎯 焦點管理與無障礙性</h2>
+                    <p class="section-description">現代化的焦點指示器，改善鍵盤導航體驗</p>
+                    
+                    <div class="focus-demo-grid">
+                        <div class="focus-demo-item">
+                            <button class="demo-button" tabindex="0">可聚焦按鈕</button>
+                            <p>使用 Tab 鍵聚焦此按鈕</p>
+                        </div>
+                        
+                        <div class="focus-demo-item">
+                            <input type="text" class="demo-input" placeholder="輸入框焦點展示" tabindex="0">
+                            <p>鍵盤聚焦時顯示焦點環</p>
+                        </div>
+                        
+                        <div class="focus-demo-item">
+                            <a href="#" class="demo-link" tabindex="0">可聚焦連結</a>
+                            <p>連結元素的焦點狀態</p>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h3>焦點樣式代碼</h3>
+                        <div class="code-block">
+                            <pre><code>/* 移除預設焦點 */
+:focus {
+  outline: none;
+}
+
+/* 鍵盤焦點指示器 */
+:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 選取樣式 -->
+                <section class="base-section fade-in">
+                    <h2 class="section-title">✨ 選取文字樣式</h2>
+                    <p class="section-description">自訂文字選取的背景和顏色</p>
+                    
+                    <div class="selection-demo">
+                        <p>請選取這段文字來查看自訂的選取樣式效果。選取時會顯示品牌主色作為背景，確保文字的可讀性和品牌一致性。</p>
+                    </div>
+
+                    <div class="code-example">
+                        <h3>選取樣式代碼</h3>
+                        <div class="code-block">
+                            <pre><code>/* 文字選取樣式 */
+::selection {
+  background: var(--primary-200);
+  color: var(--on-primary);
+}
+
+::-moz-selection {
+  background: var(--primary-200);
+  color: var(--on-primary);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 捲軸樣式 -->
+                <section class="base-section fade-in">
+                    <h2 class="section-title">📜 自訂捲軸樣式</h2>
+                    <p class="section-description">現代化的捲軸設計，與整體主題一致</p>
+                    
+                    <div class="scrollbar-demo">
+                        <div class="scrollable-content">
+                            <h4>可捲動內容示範</h4>
+                            <p>這是一個可捲動的容器，展示自訂的捲軸樣式。</p>
+                            <p>捲軸使用主題色彩，提供一致的視覺體驗。</p>
+                            <p>在不同主題下，捲軸顏色會自動適應。</p>
+                            <p>請嘗試捲動查看效果。</p>
+                            <p>捲軸軌道使用表面色彩。</p>
+                            <p>捲軸拇指使用分隔線色彩。</p>
+                            <p>懸停時會有顏色變化效果。</p>
+                            <p>整體設計簡潔現代。</p>
+                            <p>符合 Material Design 規範。</p>
+                            <p>這是最後一行內容。</p>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h3>捲軸樣式代碼</h3>
+                        <div class="code-block">
+                            <pre><code>/* 自訂捲軸 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--divider);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 容器與無障礙性 -->
+                <section class="base-section fade-in">
+                    <h2 class="section-title">📦 容器與無障礙性</h2>
+                    <p class="section-description">響應式容器和螢幕閱讀器支援</p>
+                    
+                    <div class="container-demo">
+                        <div class="demo-container-example">
+                            <h4>.container 容器示範</h4>
+                            <p>這是一個使用 .container 類別的容器，會自動居中並具有最大寬度限制。</p>
+                            <p>在不同螢幕尺寸下會自動調整寬度。</p>
+                        </div>
+                        
+                        <div class="accessibility-demo">
+                            <h4>無障礙性支援</h4>
+                            <p>包含螢幕閱讀器專用的 .sr-only 類別：</p>
+                            <span class="sr-only">這段文字只有螢幕閱讀器可以讀取</span>
+                            <span class="visible-text">這段文字所有人都可以看到</span>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h3>容器與無障礙性代碼</h3>
+                        <div class="code-block">
+                            <pre><code>/* 響應式容器 */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+/* 螢幕閱讀器專用 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* 頁面專用樣式 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--white-ffffff);
+            margin: 3rem 0 1rem;
+            font-weight: 300;
+            border-left: 4px solid var(--primary-8eccfc);
+            padding-left: 1rem;
+        }
+
+        .section-description {
+            color: var(--white-60);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .base-section {
+            margin-bottom: 4rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--white-ffffff);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .feature-card p {
+            color: var(--white-60);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .code-sample {
+            background: var(--background-292929);
+            color: var(--primary-8eccfc);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+        }
+
+        .demo-container {
+            margin: 2rem 0;
+        }
+
+        .style-demo {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .body-demo h4 {
+            color: var(--primary-8eccfc);
+            margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .body-demo p {
+            color: var(--white-87);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .body-demo ul {
+            color: var(--white-60);
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        .body-demo li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .focus-demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .focus-demo-item {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            text-align: center;
+        }
+
+        .demo-button {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .demo-button:hover {
+            background: var(--primary-5fb7fa);
+        }
+
+        .demo-button:focus-visible {
+            outline: 2px solid var(--primary-8eccfc);
+            outline-offset: 2px;
+        }
+
+        .demo-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--white-24);
+            border-radius: 8px;
+            background: var(--background-292929);
+            color: var(--white-87);
+            margin-bottom: 1rem;
+        }
+
+        .demo-input:focus-visible {
+            outline: 2px solid var(--primary-8eccfc);
+            outline-offset: 2px;
+            border-color: var(--primary-8eccfc);
+        }
+
+        .demo-link {
+            color: var(--primary-8eccfc);
+            text-decoration: underline;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .demo-link:focus-visible {
+            outline: 2px solid var(--primary-8eccfc);
+            outline-offset: 2px;
+        }
+
+        .focus-demo-item p {
+            color: var(--white-60);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .selection-demo {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--white-12);
+            margin: 2rem 0;
+        }
+
+        .selection-demo p {
+            color: var(--white-87);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .selection-demo::selection {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+        }
+
+        .scrollbar-demo {
+            margin: 2rem 0;
+        }
+
+        .scrollable-content {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        .scrollable-content h4 {
+            color: var(--primary-8eccfc);
+            margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .scrollable-content p {
+            color: var(--white-87);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .container-demo {
+            margin: 2rem 0;
+        }
+
+        .demo-container-example {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--white-12);
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .demo-container-example h4 {
+            color: var(--primary-8eccfc);
+            margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .demo-container-example p {
+            color: var(--white-87);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .accessibility-demo {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .accessibility-demo h4 {
+            color: var(--primary-8eccfc);
+            margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .accessibility-demo p {
+            color: var(--white-87);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .visible-text {
+            color: var(--white-60);
+            font-style: italic;
+        }
+
+        .code-example {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            margin: 2rem 0;
+        }
+
+        .code-example h3 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        .code-block {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875rem;
+            color: var(--white-87);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .focus-demo-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // 頁面載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 5 - Typography | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第五部分：字體排版系統 - 字體大小、行高、字重、間距等完整排版規範">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>📝</text></svg>">
+    
+    <!-- 引入CI系統樣式 -->
+    <link rel="stylesheet" href="themes/colors.css">
+    <link rel="stylesheet" href="shared/sidebar.css">
+    <link rel="stylesheet" href="shared/navigation.css">
+    
+    <!-- 引入共用側邊欄組件 -->
+    <script src="shared/sidebar-component.js"></script>
+</head>
+
+<body>
+    <!-- 移動端菜單切換按鈕 -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <div class="app-container">
+        <!-- 左側導航欄 -->
+        <nav class="sidebar" id="sidebar">
+            <!-- 側邊欄內容將由 JavaScript 動態載入 -->
+        </nav>
+        
+        <!-- 側邊欄遮罩 -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 class="content-title">Part 5 - Typography</h1>
+                <p class="content-description">
+                    CI字體排版系統<br>
+                    完整的字體大小、行高、字重、間距規範，打造一致的閱讀體驗
+                </p>
+            </header>
+
+            <div class="content-body">
+                <!-- CI字體標籤系統 -->
+                <section class="typography-section fade-in">
+                    <h2 class="section-title">🏷️ CI字體標籤系統</h2>
+                    <p class="section-description">基於原始CI系統的完整字體標籤類別</p>
+                    
+                    <div class="label-system-grid">
+                        <!-- 主要標籤 -->
+                        <div class="label-group">
+                            <h3 class="group-title">主要標籤系統</h3>
+                            <div class="label-examples">
+                                <div class="label-example">
+                                    <div class="label-left">
+                                        主標題展示文字
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-left</code>
+                                        <span>48px / Roboto Mono / -0.4px</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-left-20">
+                                        副標題展示文字
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-left-20</code>
+                                        <span>20px / Roboto / 0.1px</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-left-18">
+                                        內容標題文字
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-left-18</code>
+                                        <span>18px / Roboto / 0.15px</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-left-14">
+                                        標準內容文字
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-left-14</code>
+                                        <span>14px / Roboto / 0.25px</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-left-12">
+                                        輔助說明文字
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-left-12</code>
+                                        <span>12px / Roboto / 0.4px</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 右側標籤 -->
+                        <div class="label-group">
+                            <h3 class="group-title">右側標籤系統</h3>
+                            <div class="label-examples">
+                                <div class="label-example">
+                                    <div class="label-right">
+                                        右對齊主標題
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-right</code>
+                                        <span>48px / Roboto Mono / -0.4px / 右對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-right-20">
+                                        右對齊副標題
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-right-20</code>
+                                        <span>20px / Roboto / 0.1px / 右對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-right-18">
+                                        右對齊內容標題
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-right-18</code>
+                                        <span>18px / Roboto / 0.15px / 右對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-right-14">
+                                        右對齊標準內容
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-right-14</code>
+                                        <span>14px / Roboto / 0.25px / 右對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-right-12">
+                                        右對齊輔助說明
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-right-12</code>
+                                        <span>12px / Roboto / 0.4px / 右對齊</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 中央標籤 -->
+                        <div class="label-group">
+                            <h3 class="group-title">中央標籤系統</h3>
+                            <div class="label-examples">
+                                <div class="label-example">
+                                    <div class="label-center">
+                                        中央對齊主標題
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-center</code>
+                                        <span>48px / Roboto Mono / -0.4px / 中央對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-center-20">
+                                        中央對齊副標題
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-center-20</code>
+                                        <span>20px / Roboto / 0.1px / 中央對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-center-18">
+                                        中央對齊內容標題
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-center-18</code>
+                                        <span>18px / Roboto / 0.15px / 中央對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-center-14">
+                                        中央對齊標準內容
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-center-14</code>
+                                        <span>14px / Roboto / 0.25px / 中央對齊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="label-example">
+                                    <div class="label-center-12">
+                                        中央對齊輔助說明
+                                    </div>
+                                    <div class="label-details">
+                                        <code>.label-center-12</code>
+                                        <span>12px / Roboto / 0.4px / 中央對齊</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 字體規格詳細說明 -->
+                <section class="typography-section fade-in">
+                    <h2 class="section-title">📐 字體規格詳細說明</h2>
+                    <p class="section-description">CI系統中的字體規格和技術參數</p>
+                    
+                    <div class="specs-grid">
+                        <!-- 字體家族 -->
+                        <div class="spec-card">
+                            <h4>字體家族</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">Roboto</span>
+                                    <span class="spec-value">主要文字字體</span>
+                                    <div class="spec-demo" style="font-family: var(--font-roboto);">
+                                        The quick brown fox jumps over the lazy dog. 這是中文測試文字。
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">Roboto Mono</span>
+                                    <span class="spec-value">等寬字體（代碼、數字）</span>
+                                    <div class="spec-demo" style="font-family: var(--font-roboto-mono);">
+                                        The quick brown fox jumps 0123456789
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 字體大小 -->
+                        <div class="spec-card">
+                            <h4>字體大小階層</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">48px</span>
+                                    <span class="spec-value">主標題 (var(--font-size-48))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">20px</span>
+                                    <span class="spec-value">副標題 (var(--font-size-20))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">18px</span>
+                                    <span class="spec-value">小標題 (var(--font-size-18))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">14px</span>
+                                    <span class="spec-value">內文 (var(--font-size-14))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">12px</span>
+                                    <span class="spec-value">輔助文字 (var(--font-size-12))</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 行高設定 -->
+                        <div class="spec-card">
+                            <h4>行高設定</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">48px</span>
+                                    <span class="spec-value">1:1 比例 (var(--line-height-48))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">28px</span>
+                                    <span class="spec-value">1.4:1 比例 (var(--line-height-28))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">24px</span>
+                                    <span class="spec-value">1.33:1 比例 (var(--line-height-24))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">20px</span>
+                                    <span class="spec-value">1.43:1 比例 (var(--line-height-20))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">16px</span>
+                                    <span class="spec-value">1.33:1 比例 (var(--line-height-16))</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">14px</span>
+                                    <span class="spec-value">1.17:1 比例 (var(--line-height-14))</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 字母間距 -->
+                        <div class="spec-card">
+                            <h4>字母間距調整</h4>
+                            <div class="spec-list">
+                                <div class="spec-item">
+                                    <span class="spec-name">-0.4px</span>
+                                    <span class="spec-value">大標題緊縮間距</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">0.1px</span>
+                                    <span class="spec-value">副標題微調間距</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">0.15px</span>
+                                    <span class="spec-value">小標題標準間距</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">0.25px</span>
+                                    <span class="spec-value">內文標準間距</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">0.4px</span>
+                                    <span class="spec-value">小文字寬鬆間距</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-name">0.5625px</span>
+                                    <span class="spec-value">特殊用途間距</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 實際應用範例 -->
+                <section class="typography-section fade-in">
+                    <h2 class="section-title">🚀 實際應用範例</h2>
+                    <p class="section-description">字體排版系統在實際設計中的應用展示</p>
+                    
+                    <div class="application-examples">
+                        <!-- 文章排版範例 -->
+                        <div class="example-card">
+                            <h4>文章排版</h4>
+                            <div class="article-demo">
+                                <div class="label-left">慈濟基金會年度報告</div>
+                                <div class="label-left-20">2024年度工作成果與展望</div>
+                                <div class="label-left-18">關於慈濟</div>
+                                <div class="label-left-14">
+                                    慈濟慈善事業基金會創立於1966年，由證嚴法師創辦。
+                                    秉持「人傷我痛、人苦我悲」的精神，以慈悲喜捨的情懷
+                                    投入慈善、醫療、教育、人文等四大志業。
+                                </div>
+                                <div class="label-left-12">發布日期：2024年12月</div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="label-left"&gt;主標題&lt;/div&gt;
+&lt;div class="label-left-20"&gt;副標題&lt;/div&gt;
+&lt;div class="label-left-18"&gt;章節標題&lt;/div&gt;
+&lt;div class="label-left-14"&gt;內文段落&lt;/div&gt;
+&lt;div class="label-left-12"&gt;輔助說明&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 卡片排版範例 -->
+                        <div class="example-card">
+                            <h4>卡片排版</h4>
+                            <div class="card-demo bg-surface-121212">
+                                <div class="card-header">
+                                    <div class="label-center-18">活動資訊</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="label-center-14">2024年歲末祝福</div>
+                                    <div class="label-center-12">時間：12月31日 19:00</div>
+                                    <div class="label-center-12">地點：靜思堂</div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="card"&gt;
+  &lt;div class="label-center-18"&gt;標題&lt;/div&gt;
+  &lt;div class="label-center-14"&gt;主要內容&lt;/div&gt;
+  &lt;div class="label-center-12"&gt;詳細資訊&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- 表格排版範例 -->
+                        <div class="example-card">
+                            <h4>表格/列表排版</h4>
+                            <div class="table-demo">
+                                <div class="table-header">
+                                    <div class="label-left-18">志工統計表</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="label-left-14">慈善志業</div>
+                                    <div class="label-right-14">2,580人</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="label-left-14">醫療志業</div>
+                                    <div class="label-right-14">1,240人</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="label-left-14">教育志業</div>
+                                    <div class="label-right-14">860人</div>
+                                </div>
+                                <div class="table-footer">
+                                    <div class="label-right-12">統計截至：2024年12月</div>
+                                </div>
+                            </div>
+                            <div class="code-block">
+                                <pre><code>&lt;div class="table-header"&gt;
+  &lt;div class="label-left-18"&gt;表格標題&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="table-row"&gt;
+  &lt;div class="label-left-14"&gt;項目&lt;/div&gt;
+  &lt;div class="label-right-14"&gt;數值&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 使用指南 -->
+                <section class="typography-section fade-in">
+                    <h2 class="section-title">📖 Typography 使用指南</h2>
+                    <div class="usage-guide">
+                        <div class="guide-item">
+                            <h4>🎯 標籤命名邏輯</h4>
+                            <ul>
+                                <li><code>.label-{對齊方式}-{字體大小}</code></li>
+                                <li>對齊方式：left（左）/ center（中）/ right（右）</li>
+                                <li>字體大小：48 / 20 / 18 / 14 / 12（px）</li>
+                                <li>不指定大小則預設為 48px</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>✨ 層級使用建議</h4>
+                            <ul>
+                                <li><strong>48px：</strong>頁面主標題、重要標語</li>
+                                <li><strong>20px：</strong>區段標題、副標題</li>
+                                <li><strong>18px：</strong>小節標題、重要內容</li>
+                                <li><strong>14px：</strong>一般內文、描述文字</li>
+                                <li><strong>12px：</strong>輔助說明、標籤、備註</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>🔧 字體變數參考</h4>
+                            <div class="variables-list">
+                                <div class="variable-item">
+                                    <code>--font-roboto</code>
+                                    <span>'Roboto', sans-serif</span>
+                                </div>
+                                <div class="variable-item">
+                                    <code>--font-roboto-mono</code>
+                                    <span>'Roboto Mono', monospace</span>
+                                </div>
+                                <div class="variable-item">
+                                    <code>--font-weight-400</code>
+                                    <span>標準字重</span>
+                                </div>
+                                <div class="variable-item">
+                                    <code>--font-weight-500</code>
+                                    <span>中等字重</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <h4>🌍 多語言支援</h4>
+                            <p>字體系統已針對中英文混合排版進行優化：</p>
+                            <ul>
+                                <li>英文使用 Roboto 字體確保清晰度</li>
+                                <li>中文回退至系統字體</li>
+                                <li>字母間距針對中英文混排調整</li>
+                                <li>行高設定考慮中文字符高度</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* 頁面專用樣式 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--white-ffffff);
+            margin: 3rem 0 1rem;
+            font-weight: 300;
+            border-left: 4px solid var(--primary-8eccfc);
+            padding-left: 1rem;
+        }
+
+        .section-description {
+            color: var(--white-60);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .typography-section {
+            margin-bottom: 4rem;
+        }
+
+        .label-system-grid {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .label-group {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .group-title {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .label-examples {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .label-example {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .label-details {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--white-60);
+        }
+
+        .label-details code {
+            display: block;
+            color: var(--primary-8eccfc);
+            font-family: var(--font-roboto-mono);
+            margin-bottom: 0.25rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .spec-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .spec-card h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .spec-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.75rem;
+            background: var(--background-292929);
+            border-radius: 6px;
+            border: 1px solid var(--white-12);
+        }
+
+        .spec-name {
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875rem;
+            color: var(--primary-8eccfc);
+            font-weight: var(--font-weight-500);
+            min-width: 60px;
+        }
+
+        .spec-value {
+            font-size: 0.875rem;
+            color: var(--white-87);
+            text-align: right;
+        }
+
+        .spec-demo {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: var(--white-12);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: var(--white-87);
+            grid-column: 1 / -1;
+        }
+
+        .application-examples {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .example-card h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .article-demo {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+            margin-bottom: 1rem;
+        }
+
+        .article-demo > div {
+            margin-bottom: 1rem;
+        }
+
+        .article-demo > div:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-demo {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .card-header {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            padding: 1rem;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-body > div {
+            margin-bottom: 0.5rem;
+        }
+
+        .card-body > div:last-child {
+            margin-bottom: 0;
+        }
+
+        .table-demo {
+            background: var(--background-292929);
+            border-radius: 8px;
+            border: 1px solid var(--white-12);
+            margin-bottom: 1rem;
+        }
+
+        .table-header {
+            background: var(--white-12);
+            padding: 1rem;
+            border-bottom: 1px solid var(--white-12);
+        }
+
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--white-12);
+        }
+
+        .table-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .table-footer {
+            padding: 0.75rem 1rem;
+            background: var(--white-12);
+        }
+
+        .code-block {
+            background: var(--background-292929);
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid var(--white-12);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.75rem;
+            color: var(--white-87);
+            line-height: 1.5;
+        }
+
+        .usage-guide {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .guide-item {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--white-12);
+        }
+
+        .guide-item h4 {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .guide-item ul {
+            color: var(--white-87);
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        .guide-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .guide-item code {
+            background: var(--background-292929);
+            color: var(--primary-8eccfc);
+            padding: 0.125rem 0.25rem;
+            border-radius: 3px;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875em;
+        }
+
+        .guide-item p {
+            color: var(--white-87);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .variables-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .variable-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--background-292929);
+            border-radius: 6px;
+            border: 1px solid var(--white-12);
+        }
+
+        .variable-item code {
+            background: none !important;
+            padding: 0 !important;
+        }
+
+        .variable-item span {
+            color: var(--white-60);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .label-example {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .label-details {
+                text-align: left;
+            }
+            
+            .table-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+            
+            .spec-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+            
+            .spec-value {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // 頁面載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
