@@ -26,7 +26,6 @@
   --secondary-ffa202: #FFA202;
   --secondary-ff9101: #FF9101;
   --secondary-ff6f01: #FF6F01;
-  --secondary-03dac5: #03DAC5;
 
   /* === SURFACE & BACKGROUND - 原始CI系統值 === */
   --surface-121212: #121212;
@@ -484,7 +483,6 @@
 .bg-secondary-ffa202 { background: var(--secondary-ffa202); }
 .bg-secondary-ff9101 { background: var(--secondary-ff9101); }
 .bg-secondary-ff6f01 { background: var(--secondary-ff6f01); }
-.bg-secondary-03dac5 { background: var(--secondary-03dac5); }
 
 /* === SURFACE & BACKGROUND 類 - 原始CI系統值 === */
 .bg-surface { background: var(--surface-121212); }
@@ -518,7 +516,6 @@
 .text-secondary-ffa202 { color: var(--secondary-ffa202); }
 .text-secondary-ff9101 { color: var(--secondary-ff9101); }
 .text-secondary-ff6f01 { color: var(--secondary-ff6f01); }
-.text-secondary-03dac5 { color: var(--secondary-03dac5); }
 
 /* === 基礎文字色彩 === */
 .text-white { color: var(--white-ffffff); }
