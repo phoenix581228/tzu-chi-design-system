@@ -7,7 +7,7 @@
 .app-container {
     display: flex;
     min-height: 100vh;
-    background: var(--background-292929);
+    background: var(--background-121212);
 }
 
 /* 左側導航欄 */
@@ -93,13 +93,13 @@
 }
 
 .nav-link:hover {
-    background: var(--background-292929);
+    background: var(--background-121212);
     color: var(--primary-8eccfc);
     border-left-color: var(--primary-8eccfc);
 }
 
 .nav-link.active {
-    background: var(--background-292929);
+    background: var(--background-121212);
     color: var(--primary-8eccfc);
     border-left-color: var(--primary-8eccfc);
     font-weight: var(--font-weight-500);
@@ -132,11 +132,11 @@
     flex: 1;
     margin-left: 280px;
     min-height: 100vh;
-    background: var(--background-292929);
+    background: var(--background-121212);
 }
 
 .content-header {
-    background: linear-gradient(135deg, var(--background-292929) 0%, var(--surface-121212) 100%);
+    background: linear-gradient(135deg, var(--background-121212) 0%, var(--surface-121212) 100%);
     padding: 2rem;
     border-bottom: 1px solid var(--white-12);
     position: sticky;

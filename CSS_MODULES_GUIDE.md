@@ -44,7 +44,7 @@ themes/
 ## 🎨 CI系統保護措施
 
 ### 1. **色彩規範完全保留**
-✅ 所有原始色彩值：#292929, #8ECCFC, #FFE082 等  
+✅ 所有原始色彩值：#121212, #8ECCFC, #FFE082 等  
 ✅ 所有透明度值：rgba(255, 255, 255, 0.87) 等  
 ✅ 所有特殊色彩：#87CAFE, #3700B3 等  
 ✅ 原始字體設定：'Roboto', 'Roboto Mono'  
@@ -80,7 +80,7 @@ themes/
   position: relative;
   width: var(--container-width);
   height: var(--container-height);
-  background: var(--background-292929);
+  background: var(--background-121212);
 }
 ```
 
@@ -108,7 +108,7 @@ themes/
   position: relative;
   width: var(--container-width);
   height: var(--container-height);
-  background: var(--background-292929);
+  background: var(--background-121212);
 }
 
 .ci-primary-panel {
@@ -139,7 +139,7 @@ themes/
 ```css
 .ci-design-system {
   font-family: var(--font-roboto);
-  background: var(--background-292929);
+  background: var(--background-121212);
   color: var(--white-87);
   min-height: 100vh;
 }

@@ -29,7 +29,7 @@
 
   /* === SURFACE & BACKGROUND - 原始CI系統值 === */
   --surface-121212: #121212;
-  --background-292929: #292929;
+  --background-121212: #121212;
   --white-ffffff: #FFFFFF;
   --black-000000: #000000;
   --error-cf6679: #CF6679;
@@ -148,7 +148,7 @@
   position: relative;
   width: var(--container-width);
   height: var(--container-height);
-  background: var(--background-292929);
+  background: var(--background-121212);
 }
 
 /* === 通用定位類 - 保留原始定位邏輯 === */
@@ -486,7 +486,7 @@
 
 /* === SURFACE & BACKGROUND 類 - 原始CI系統值 === */
 .bg-surface { background: var(--surface-121212); }
-.bg-background { background: var(--background-292929); }
+.bg-background-121212 { background: var(--background-121212); }
 .bg-white { background: var(--white-ffffff); }
 .bg-black { background: var(--black-000000); }
 .bg-error { background: var(--error-cf6679); }
@@ -571,7 +571,7 @@
 }
 
 .background-section {
-  background: var(--background-292929);
+  background: var(--background-121212);
   color: var(--white-87);
 }
 
@@ -1105,7 +1105,7 @@ body {
   position: relative;
   width: var(--container-width);
   height: var(--container-height);
-  background: var(--background-292929);
+  background: var(--background-121212);
 }
 
 /* === 標籤區域 - 原始CI定位 === */
@@ -1924,7 +1924,7 @@ body {
 
 .ci-panel-header {
   padding: 16px 20px;
-  background: var(--background-292929);
+  background: var(--background-121212);
   border-bottom: 1px solid var(--white-12);
 }
 
@@ -2069,7 +2069,7 @@ body {
   bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--background-292929);
+  background: var(--background-121212);
   color: var(--white-87);
   padding: 8px 12px;
   border-radius: var(--border-radius-4);
@@ -2287,7 +2287,7 @@ body {
 /* === 主應用容器 === */
 .ci-design-system {
   font-family: var(--font-roboto);
-  background: var(--background-292929);
+  background: var(--background-121212);
   color: var(--white-87);
   min-height: 100vh;
   position: relative;
@@ -2298,7 +2298,7 @@ body {
   padding: 2rem;
   max-width: var(--container-width);
   margin: 0 auto;
-  background: var(--background-292929);
+  background: var(--background-121212);
 }
 
 /* === 標題區域 - 匹配原始CI設計 === */
@@ -2515,7 +2515,7 @@ body {
 /* === 深色模式優化（保持CI預設） === */
 @media (prefers-color-scheme: dark) {
   .ci-design-system {
-    background: var(--background-292929);
+    background: var(--background-121212);
     color: var(--white-87);
   }
 }
@@ -2523,7 +2523,7 @@ body {
 /* === 淺色模式支援（如果CI需要） === */
 .ci-light-theme {
   --surface-121212: var(--white-ffffff);
-  --background-292929: #FAFAFA;
+  --background-121212: #FAFAFA;
   --white-87: var(--black-87);
   --white-60: var(--black-74);
   --white-38: var(--black-38);
@@ -2579,7 +2579,7 @@ body {
   position: fixed;
   top: 10px;
   right: 10px;
-  background: var(--background-292929);
+  background: var(--background-121212);
   border: 1px solid var(--white-12);
   border-radius: var(--border-radius-4);
   padding: 1rem;
