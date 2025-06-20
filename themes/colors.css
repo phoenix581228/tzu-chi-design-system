@@ -14,8 +14,6 @@
   --primary-0364c5: #0364C5;
   --primary-0045a7: #0045A7;
   --primary-87cafe: #87CAFE;
-  --primary-3700b3: #3700B3;
-  --primary-bb86fc: #BB86FC;
 
   /* === SECONDARY COLORS - 原始CI系統值 === */
   --secondary-fff8e1: #FFF8E1;
@@ -474,8 +472,6 @@
 .bg-primary-0364c5 { background: var(--primary-0364c5); }
 .bg-primary-0045a7 { background: var(--primary-0045a7); }
 .bg-primary-87cafe { background: var(--primary-87cafe); }
-.bg-primary-3700b3 { background: var(--primary-3700b3); }
-.bg-primary-bb86fc { background: var(--primary-bb86fc); }
 
 /* === SECONDARY 背景色彩類 - 完全匹配原始CI系統 === */
 .bg-secondary-fff8e1 { background: var(--secondary-fff8e1); }
@@ -510,8 +506,6 @@
 .text-primary-0364c5 { color: var(--primary-0364c5); }
 .text-primary-0045a7 { color: var(--primary-0045a7); }
 .text-primary-87cafe { color: var(--primary-87cafe); }
-.text-primary-3700b3 { color: var(--primary-3700b3); }
-.text-primary-bb86fc { color: var(--primary-bb86fc); }
 
 /* === SECONDARY 文字色彩類 === */
 .text-secondary-fff8e1 { color: var(--secondary-fff8e1); }
