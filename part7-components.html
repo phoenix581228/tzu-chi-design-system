@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Part 7 - Components | 慈濟 CIS 設計系統</title>
-    <meta name="description" content="慈濟CI系統第七部分：UI組件庫 - 按鈕、卡片、表單、導航等完整組件集合">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🧩</text></svg>">
+    <title>Part 7 - Search Components | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第七部分：搜尋欄組件 - 完整的搜尋輸入組件系統">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>🔍</text></svg>">
     
     <!-- 引入CI系統樣式 -->
     <link rel="stylesheet" href="themes/colors.css">
@@ -36,432 +36,282 @@
         <!-- 主內容區域 -->
         <main class="main-content">
             <header class="content-header fade-in">
-                <h1 class="content-title">Part 7 - Components</h1>
+                <h1 class="content-title">Part 7 - Search Components</h1>
                 <p class="content-description">
-                    CI UI組件庫<br>
-                    完整的按鈕、卡片、表單、導航等UI組件，快速構建一致的使用者介面
+                    CI 搜尋欄組件系統<br>
+                    基於慈濟CI規範的完整搜尋輸入組件，支援多種狀態和尺寸
                 </p>
             </header>
 
             <div class="content-body">
-                <!-- 按鈕組件 -->
+                <!-- 搜尋欄組件概覽 -->
                 <section class="component-section fade-in">
-                    <h2 class="section-title">🔘 按鈕組件</h2>
-                    <p class="section-description">基於CI色彩系統的完整按鈕組件集合</p>
+                    <h2 class="section-title">🔍 搜尋欄組件</h2>
+                    <p class="section-description">基於CI色彩系統的搜尋輸入組件，提供完整的互動狀態和多種尺寸選擇</p>
                     
-                    <div class="component-demos">
-                        <!-- 主要按鈕 -->
-                        <div class="demo-group">
-                            <h4>主要按鈕 (.btn-primary)</h4>
-                            <div class="button-showcase">
-                                <button class="btn btn-primary">主要操作</button>
-                                <button class="btn btn-primary" disabled>禁用狀態</button>
-                                <button class="btn btn-primary btn-loading">
-                                    <span class="loading-spinner"></span>
-                                    載入中...
+                    <!-- 尺寸展示 -->
+                    <div class="size-section">
+                        <h3 class="subsection-title">📏 組件尺寸</h3>
+                        
+                        <!-- 小尺寸搜尋欄 -->
+                        <div class="size-demo">
+                            <h4 class="size-title">Small Size (296×36px)</h4>
+                            <div class="search-examples-small">
+                                <!-- Default 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Default</label>
+                                    <div class="search-bar search-bar-sm search-bar-default">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" placeholder="搜尋..." readonly>
+                                        </div>
+                                        <button class="search-button">
+                                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Placeholder 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Placeholder</label>
+                                    <div class="search-bar search-bar-sm search-bar-placeholder">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" placeholder="請輸入關鍵字" readonly>
+                                        </div>
+                                        <button class="search-button">
+                                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Focus 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Focus</label>
+                                    <div class="search-bar search-bar-sm search-bar-focus">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" value="慈濟" readonly>
+                                            <div class="search-cursor"></div>
+                                        </div>
+                                        <button class="search-button">
+                                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Disabled 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Disabled</label>
+                                    <div class="search-bar search-bar-sm search-bar-disabled">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" placeholder="無法使用" disabled readonly>
+                                        </div>
+                                        <button class="search-button" disabled>
+                                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 大尺寸搜尋欄 -->
+                        <div class="size-demo">
+                            <h4 class="size-title">Large Size (391×54px)</h4>
+                            <div class="search-examples-large">
+                                <!-- Default 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Default</label>
+                                    <div class="search-bar search-bar-lg search-bar-default">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" placeholder="搜尋..." readonly>
+                                        </div>
+                                        <button class="search-button">
+                                            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Focus 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Focus</label>
+                                    <div class="search-bar search-bar-lg search-bar-focus">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" value="慈濟基金會" readonly>
+                                            <div class="search-cursor"></div>
+                                        </div>
+                                        <button class="search-button">
+                                            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Disabled 狀態 -->
+                                <div class="search-example">
+                                    <label class="state-label">Disabled</label>
+                                    <div class="search-bar search-bar-lg search-bar-disabled">
+                                        <div class="search-input-container">
+                                            <input type="text" class="search-input" placeholder="搜尋功能暫時無法使用" disabled readonly>
+                                        </div>
+                                        <button class="search-button" disabled>
+                                            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                                <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 互動演示區 -->
+                <section class="component-section fade-in">
+                    <h2 class="section-title">🎯 互動演示</h2>
+                    <p class="section-description">實際可操作的搜尋欄組件，體驗完整的互動效果</p>
+                    
+                    <div class="interactive-demo">
+                        <div class="demo-container">
+                            <h3 class="demo-title">實際搜尋演示</h3>
+                            <div class="search-bar search-bar-lg search-bar-interactive" id="interactive-search">
+                                <div class="search-input-container">
+                                    <input type="text" class="search-input" placeholder="在此輸入搜尋關鍵字..." id="search-input">
+                                </div>
+                                <button class="search-button" onclick="performSearch()">
+                                    <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                        <path d="21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
                                 </button>
                             </div>
-                            <div class="code-block">
-                                <pre><code>&lt;button class="btn btn-primary"&gt;主要操作&lt;/button&gt;
-&lt;button class="btn btn-primary" disabled&gt;禁用狀態&lt;/button&gt;
-&lt;button class="btn btn-primary btn-loading"&gt;
-  &lt;span class="loading-spinner"&gt;&lt;/span&gt;載入中...
-&lt;/button&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <!-- 次要按鈕 -->
-                        <div class="demo-group">
-                            <h4>次要按鈕 (.btn-secondary)</h4>
-                            <div class="button-showcase">
-                                <button class="btn btn-secondary">次要操作</button>
-                                <button class="btn btn-outline">外框按鈕</button>
-                                <button class="btn btn-ghost">幽靈按鈕</button>
-                            </div>
-                        </div>
-
-                        <!-- 狀態按鈕 -->
-                        <div class="demo-group">
-                            <h4>狀態按鈕</h4>
-                            <div class="button-showcase">
-                                <button class="btn btn-success">成功</button>
-                                <button class="btn btn-error">錯誤</button>
-                                <button class="btn btn-warning">警告</button>
-                            </div>
-                        </div>
-
-                        <!-- 按鈕尺寸 -->
-                        <div class="demo-group">
-                            <h4>按鈕尺寸</h4>
-                            <div class="button-showcase">
-                                <button class="btn btn-primary btn-sm">小尺寸</button>
-                                <button class="btn btn-primary">標準尺寸</button>
-                                <button class="btn btn-primary btn-lg">大尺寸</button>
-                            </div>
+                            <div class="search-result" id="search-result"></div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 卡片組件 -->
+                <!-- CSS 變數與實作 -->
                 <section class="component-section fade-in">
-                    <h2 class="section-title">🎴 卡片組件</h2>
-                    <p class="section-description">靈活的卡片容器組件，適用於各種內容展示</p>
+                    <h2 class="section-title">🔧 CSS 變數與實作</h2>
                     
-                    <div class="card-demos">
-                        <!-- 基礎卡片 -->
-                        <div class="demo-group">
-                            <h4>基礎卡片 (.card)</h4>
-                            <div class="card-showcase">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="label-left-18">卡片標題</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="label-left-14 mb-3">
-                                            這是卡片的主要內容區域，可以包含各種內容元素。
-                                        </div>
-                                        <div class="label-left-12">補充說明文字</div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button class="btn btn-primary btn-sm">操作</button>
-                                        <button class="btn btn-ghost btn-sm">取消</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="code-block">
-                                <pre><code>&lt;div class="card"&gt;
-  &lt;div class="card-header"&gt;
-    &lt;div class="label-left-18"&gt;卡片標題&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="card-body"&gt;
-    &lt;div class="label-left-14"&gt;主要內容&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="card-footer"&gt;
-    &lt;button class="btn btn-primary btn-sm"&gt;操作&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <!-- 圖片卡片 -->
-                        <div class="demo-group">
-                            <h4>圖片卡片 (.card-image)</h4>
-                            <div class="card-showcase">
-                                <div class="card card-image">
-                                    <div class="card-image-container">
-                                        <div class="card-image-placeholder">
-                                            <span>📷</span>
-                                            <div class="label-center-12">圖片區域</div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="label-left-16 mb-2">慈濟活動</div>
-                                        <div class="label-left-14 mb-2">2024年歲末祝福活動即將開始</div>
-                                        <div class="label-left-12">2024年12月31日</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 統計卡片 -->
-                        <div class="demo-group">
-                            <h4>統計卡片 (.card-stat)</h4>
-                            <div class="card-showcase">
-                                <div class="card card-stat">
-                                    <div class="stat-icon">👥</div>
-                                    <div class="stat-content">
-                                        <div class="stat-number">2,580</div>
-                                        <div class="stat-label">志工人數</div>
-                                        <div class="stat-change positive">+12.5%</div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="code-section">
+                        <h3 class="code-title">搜尋欄 CSS 變數</h3>
+                        <div class="code-block">
+                            <pre><code>/* 搜尋欄組件變數 */
+.search-bar {
+  /* 尺寸變數 */
+  --search-height-sm: 36px;
+  --search-height-lg: 54px;
+  --search-width-sm: 296px;
+  --search-width-lg: 391px;
+  
+  /* 色彩變數 - 使用CI系統定義 */
+  --search-bg: var(--background-121212);
+  --search-border: var(--on-surface-medium);
+  --search-border-focus: var(--primary-0475d8);
+  --search-border-disabled: var(--on-surface-disabled);
+  --search-button-bg: var(--primary-8eccfc);
+  --search-button-disabled: var(--on-surface-disabled);
+  --search-text: var(--white-ffffff);
+  --search-placeholder: var(--on-surface-medium);
+  
+  /* 間距變數 */
+  --search-padding: 0 16px;
+  --search-border-radius: 4px;
+  --search-button-width-sm: 36px;
+  --search-button-width-lg: 52px;
+}</code></pre>
                         </div>
                     </div>
-                </section>
 
-                <!-- 表單組件 -->
-                <section class="component-section fade-in">
-                    <h2 class="section-title">📝 表單組件</h2>
-                    <p class="section-description">完整的表單控制元件，支援驗證和狀態顯示</p>
-                    
-                    <div class="form-demos">
-                        <!-- 輸入框 -->
-                        <div class="demo-group">
-                            <h4>輸入框 (.form-input)</h4>
-                            <div class="form-showcase">
-                                <div class="form-group">
-                                    <label class="form-label">姓名</label>
-                                    <input type="text" class="form-input" placeholder="請輸入您的姓名">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">電子郵件</label>
-                                    <input type="email" class="form-input error" placeholder="example@email.com">
-                                    <div class="form-error">請輸入有效的電子郵件地址</div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">電話號碼</label>
-                                    <input type="tel" class="form-input success" placeholder="0912-345-678">
-                                    <div class="form-success">格式正確</div>
-                                </div>
-                            </div>
-                            <div class="code-block">
-                                <pre><code>&lt;div class="form-group"&gt;
-  &lt;label class="form-label"&gt;標籤&lt;/label&gt;
-  &lt;input type="text" class="form-input" placeholder="提示文字"&gt;
+                    <div class="code-section">
+                        <h3 class="code-title">HTML 結構範例</h3>
+                        <div class="code-block">
+                            <pre><code>&lt;!-- 小尺寸搜尋欄 --&gt;
+&lt;div class="search-bar search-bar-sm search-bar-default"&gt;
+  &lt;div class="search-input-container"&gt;
+    &lt;input type="text" class="search-input" placeholder="搜尋..."&gt;
+  &lt;/div&gt;
+  &lt;button class="search-button"&gt;
+    &lt;svg class="search-icon" width="20" height="20"&gt;
+      &lt;!-- 搜尋圖示 SVG --&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
 &lt;/div&gt;
 
-&lt;!-- 錯誤狀態 --&gt;
-&lt;input type="email" class="form-input error"&gt;
-&lt;div class="form-error"&gt;錯誤訊息&lt;/div&gt;
-
-&lt;!-- 成功狀態 --&gt;
-&lt;input type="tel" class="form-input success"&gt;
-&lt;div class="form-success"&gt;成功訊息&lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <!-- 選擇控制 -->
-                        <div class="demo-group">
-                            <h4>選擇控制</h4>
-                            <div class="form-showcase">
-                                <div class="form-group">
-                                    <label class="form-label">志業選擇</label>
-                                    <select class="form-select">
-                                        <option>請選擇志業</option>
-                                        <option>慈善志業</option>
-                                        <option>醫療志業</option>
-                                        <option>教育志業</option>
-                                        <option>人文志業</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">參與方式</label>
-                                    <div class="checkbox-group">
-                                        <label class="checkbox-item">
-                                            <input type="checkbox" checked>
-                                            <span class="checkbox-mark"></span>
-                                            志工服務
-                                        </label>
-                                        <label class="checkbox-item">
-                                            <input type="checkbox">
-                                            <span class="checkbox-mark"></span>
-                                            定期捐款
-                                        </label>
-                                        <label class="checkbox-item">
-                                            <input type="checkbox">
-                                            <span class="checkbox-mark"></span>
-                                            環保回收
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 文字區域 -->
-                        <div class="demo-group">
-                            <h4>文字區域 (.form-textarea)</h4>
-                            <div class="form-showcase">
-                                <div class="form-group">
-                                    <label class="form-label">意見回饋</label>
-                                    <textarea class="form-textarea" rows="4" placeholder="請分享您的想法..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 導航組件 -->
-                <section class="component-section fade-in">
-                    <h2 class="section-title">🧭 導航組件</h2>
-                    <p class="section-description">各種導航模式，包含選項卡、麵包屑、分頁等</p>
-                    
-                    <div class="nav-demos">
-                        <!-- 選項卡 -->
-                        <div class="demo-group">
-                            <h4>選項卡 (.nav-tabs)</h4>
-                            <div class="nav-showcase">
-                                <div class="nav-tabs">
-                                    <button class="nav-tab active">慈善志業</button>
-                                    <button class="nav-tab">醫療志業</button>
-                                    <button class="nav-tab">教育志業</button>
-                                    <button class="nav-tab">人文志業</button>
-                                </div>
-                                <div class="tab-content">
-                                    <div class="label-left-14">慈善志業相關內容展示區域</div>
-                                </div>
-                            </div>
-                            <div class="code-block">
-                                <pre><code>&lt;div class="nav-tabs"&gt;
-  &lt;button class="nav-tab active"&gt;選項一&lt;/button&gt;
-  &lt;button class="nav-tab"&gt;選項二&lt;/button&gt;
-  &lt;button class="nav-tab"&gt;選項三&lt;/button&gt;
+&lt;!-- 大尺寸搜尋欄 --&gt;
+&lt;div class="search-bar search-bar-lg search-bar-focus"&gt;
+  &lt;div class="search-input-container"&gt;
+    &lt;input type="text" class="search-input" value="搜尋內容"&gt;
+    &lt;div class="search-cursor"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="search-button"&gt;
+    &lt;svg class="search-icon" width="24" height="24"&gt;
+      &lt;!-- 搜尋圖示 SVG --&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
 &lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <!-- 麵包屑 -->
-                        <div class="demo-group">
-                            <h4>麵包屑 (.breadcrumb)</h4>
-                            <div class="nav-showcase">
-                                <nav class="breadcrumb">
-                                    <a href="#" class="breadcrumb-item">首頁</a>
-                                    <span class="breadcrumb-separator">›</span>
-                                    <a href="#" class="breadcrumb-item">關於慈濟</a>
-                                    <span class="breadcrumb-separator">›</span>
-                                    <span class="breadcrumb-item current">四大志業</span>
-                                </nav>
-                            </div>
-                        </div>
-
-                        <!-- 分頁 -->
-                        <div class="demo-group">
-                            <h4>分頁 (.pagination)</h4>
-                            <div class="nav-showcase">
-                                <nav class="pagination">
-                                    <button class="page-btn" disabled>‹</button>
-                                    <button class="page-btn active">1</button>
-                                    <button class="page-btn">2</button>
-                                    <button class="page-btn">3</button>
-                                    <span class="page-dots">...</span>
-                                    <button class="page-btn">10</button>
-                                    <button class="page-btn">›</button>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 資訊組件 -->
-                <section class="component-section fade-in">
-                    <h2 class="section-title">ℹ️ 資訊組件</h2>
-                    <p class="section-description">提示、警告、通知等資訊展示組件</p>
-                    
-                    <div class="info-demos">
-                        <!-- 警告框 -->
-                        <div class="demo-group">
-                            <h4>警告框 (.alert)</h4>
-                            <div class="alert-showcase">
-                                <div class="alert alert-success">
-                                    <div class="alert-icon">✓</div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">成功</div>
-                                        <div class="alert-message">您的資料已成功儲存！</div>
-                                    </div>
-                                    <button class="alert-close">×</button>
-                                </div>
-                                
-                                <div class="alert alert-error">
-                                    <div class="alert-icon">✕</div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">錯誤</div>
-                                        <div class="alert-message">發生未預期的錯誤，請重試。</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-warning">
-                                    <div class="alert-icon">⚠</div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">警告</div>
-                                        <div class="alert-message">此操作將無法復原，請謹慎確認。</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-info">
-                                    <div class="alert-icon">ℹ</div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">資訊</div>
-                                        <div class="alert-message">系統將於今晚進行例行維護。</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 標籤 -->
-                        <div class="demo-group">
-                            <h4>標籤 (.badge)</h4>
-                            <div class="badge-showcase">
-                                <span class="badge">預設</span>
-                                <span class="badge badge-primary">主要</span>
-                                <span class="badge badge-secondary">次要</span>
-                                <span class="badge badge-success">成功</span>
-                                <span class="badge badge-error">錯誤</span>
-                                <span class="badge badge-warning">警告</span>
-                            </div>
-                        </div>
-
-                        <!-- 進度條 -->
-                        <div class="demo-group">
-                            <h4>進度條 (.progress)</h4>
-                            <div class="progress-showcase">
-                                <div class="progress-item">
-                                    <div class="progress-label">
-                                        <span>專案進度</span>
-                                        <span>75%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="progress-item">
-                                    <div class="progress-label">
-                                        <span>目標達成</span>
-                                        <span>60%</span>
-                                    </div>
-                                    <div class="progress progress-success">
-                                        <div class="progress-bar" style="width: 60%"></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
 
                 <!-- 使用指南 -->
                 <section class="component-section fade-in">
-                    <h2 class="section-title">📖 Components 使用指南</h2>
-                    <div class="usage-guide">
+                    <h2 class="section-title">📖 使用指南</h2>
+                    
+                    <div class="guide-grid">
                         <div class="guide-item">
-                            <h4>🎯 組件設計原則</h4>
-                            <ul>
-                                <li>所有組件都基於CI色彩系統設計</li>
-                                <li>保持一致的間距和圓角規範</li>
-                                <li>支援無障礙性和鍵盤導航</li>
-                                <li>響應式設計適配各種螢幕尺寸</li>
+                            <h4 class="guide-title">🎯 狀態說明</h4>
+                            <ul class="guide-list">
+                                <li><strong>Default:</strong> 基本狀態，等待使用者互動</li>
+                                <li><strong>Placeholder:</strong> 顯示提示文字的狀態</li>
+                                <li><strong>Focus:</strong> 使用者點擊或聚焦時的狀態</li>
+                                <li><strong>Disabled:</strong> 功能暫時不可用的狀態</li>
                             </ul>
                         </div>
                         
                         <div class="guide-item">
-                            <h4>🔧 組件修飾符</h4>
-                            <ul>
-                                <li><strong>尺寸：</strong>.btn-sm, .btn-lg (小、大尺寸)</li>
-                                <li><strong>狀態：</strong>.active, .disabled, .loading</li>
-                                <li><strong>變體：</strong>.outline, .ghost, .solid</li>
-                                <li><strong>色彩：</strong>.primary, .secondary, .success, .error</li>
+                            <h4 class="guide-title">📏 尺寸選擇</h4>
+                            <ul class="guide-list">
+                                <li><strong>Small (36px):</strong> 適用於緊湊的介面空間</li>
+                                <li><strong>Large (54px):</strong> 適用於主要搜尋功能</li>
+                                <li>根據介面層級和重要性選擇適當尺寸</li>
+                                <li>保持同一介面中尺寸的一致性</li>
                             </ul>
                         </div>
                         
                         <div class="guide-item">
-                            <h4>🎨 自訂主題</h4>
-                            <p>組件使用CSS變數，可輕鬆自訂主題：</p>
-                            <div class="code-block">
-                                <pre><code>/* 自訂按鈕主色 */
-.btn-custom {
-  --btn-bg: var(--your-custom-color);
-  --btn-text: var(--your-text-color);
-  --btn-hover: var(--your-hover-color);
-}</code></pre>
-                            </div>
+                            <h4 class="guide-title">🎨 色彩規範</h4>
+                            <ul class="guide-list">
+                                <li>搜尋按鈕使用主色 <code>--primary-8eccfc</code></li>
+                                <li>聚焦邊框使用 <code>--primary-0475d8</code></li>
+                                <li>禁用狀態使用透明度 <code>--on-surface-disabled</code></li>
+                                <li>背景統一使用 <code>--background-121212</code></li>
+                            </ul>
                         </div>
                         
                         <div class="guide-item">
-                            <h4>📱 響應式建議</h4>
-                            <ul>
-                                <li>移動端使用較大的觸控目標 (44px+)</li>
-                                <li>調整按鈕和表單元素的間距</li>
-                                <li>簡化複雜的導航結構</li>
-                                <li>確保文字在小螢幕上的可讀性</li>
+                            <h4 class="guide-title">🔧 最佳實踐</h4>
+                            <ul class="guide-list">
+                                <li>提供清楚的佔位符文字說明</li>
+                                <li>確保搜尋按鈕有足夠的點擊區域</li>
+                                <li>支援鍵盤 Enter 鍵觸發搜尋</li>
+                                <li>在載入時提供適當的視覺回饋</li>
                             </ul>
                         </div>
                     </div>
@@ -482,7 +332,7 @@
         }
 
         .section-description {
-            color: var(--white-ffffff);
+            color: var(--on-surface-medium);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
@@ -491,610 +341,264 @@
             margin-bottom: 4rem;
         }
 
-        .component-demos {
+        .subsection-title {
+            font-size: 1.25rem;
+            color: var(--primary-8eccfc);
+            margin: 2rem 0 1rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        /* 搜尋欄組件樣式 */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--background-121212);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* 尺寸變體 */
+        .search-bar-sm {
+            width: 296px;
+            height: 36px;
+            border: 2px solid var(--on-surface-medium);
+        }
+
+        .search-bar-lg {
+            width: 391px;
+            height: 54px;
+            border: 2px solid var(--on-surface-medium);
+        }
+
+        /* 狀態變體 */
+        .search-bar-default {
+            border-color: var(--on-surface-medium);
+        }
+
+        .search-bar-placeholder {
+            border-color: var(--on-surface-medium);
+        }
+
+        .search-bar-focus {
+            border-color: var(--primary-0475d8);
+            box-shadow: 0 0 0 2px rgba(4, 117, 216, 0.2);
+        }
+
+        .search-bar-disabled {
+            border-color: var(--on-surface-disabled);
+            opacity: 0.6;
+        }
+
+        .search-bar-interactive {
+            border-color: var(--on-surface-medium);
+        }
+
+        .search-bar-interactive:focus-within {
+            border-color: var(--primary-0475d8);
+            box-shadow: 0 0 0 2px rgba(4, 117, 216, 0.2);
+        }
+
+        /* 輸入區域 */
+        .search-input-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--white-ffffff);
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+        }
+
+        .search-bar-sm .search-input {
+            font-size: 18px;
+            line-height: 1.25;
+        }
+
+        .search-bar-lg .search-input {
+            font-size: 26px;
+            line-height: 1.25;
+        }
+
+        .search-input::placeholder {
+            color: var(--on-surface-medium);
+        }
+
+        .search-input:disabled {
+            color: var(--on-surface-disabled);
+        }
+
+        .search-input:disabled::placeholder {
+            color: var(--on-surface-disabled);
+        }
+
+        /* 游標 */
+        .search-cursor {
+            width: 1px;
+            height: 22px;
+            background: var(--white-ffffff);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        .search-bar-lg .search-cursor {
+            height: 33px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* 搜尋按鈕 */
+        .search-button {
+            background: var(--primary-8eccfc);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .search-bar-sm .search-button {
+            width: 36px;
+            height: 36px;
+        }
+
+        .search-bar-lg .search-button {
+            width: 52px;
+            height: 54px;
+        }
+
+        .search-button:hover {
+            background: var(--primary-5fb7fa);
+            transform: translateY(-1px);
+        }
+
+        .search-button:disabled {
+            background: var(--on-surface-disabled);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .search-icon {
+            color: var(--black-000000);
+        }
+
+        .search-button:disabled .search-icon {
+            color: var(--black-000000);
+            opacity: 0.5;
+        }
+
+        /* 展示區域樣式 */
+        .size-demo {
+            margin-bottom: 3rem;
+        }
+
+        .size-title {
+            color: var(--primary-87cafe);
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .search-examples-small,
+        .search-examples-large {
             display: grid;
             gap: 2rem;
             margin: 2rem 0;
         }
 
-        .demo-group {
-            background: var(--surface-121212);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid var(--surface-121212);
-        }
-
-        .demo-group h4 {
-            color: var(--primary-8eccfc);
-            font-size: 1rem;
-            font-weight: var(--font-weight-500);
-            margin-bottom: 1rem;
-        }
-
-        /* 按鈕樣式 */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: var(--font-weight-500);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            outline: none;
-        }
-
-        .btn:focus-visible {
-            outline: 2px solid var(--primary-8eccfc);
-            outline-offset: 2px;
-        }
-
-        .btn-primary {
-            background: var(--primary-8eccfc);
-            color: var(--black-000000);
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            background: var(--primary-5fb7fa);
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: var(--secondary-ffc929);
-            color: var(--black-000000);
-        }
-
-        .btn-secondary:hover:not(:disabled) {
-            background: var(--secondary-ffd650);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--primary-8eccfc);
-            color: var(--primary-8eccfc);
-        }
-
-        .btn-outline:hover:not(:disabled) {
-            background: var(--primary-8eccfc);
-            color: var(--black-000000);
-        }
-
-        .btn-ghost {
-            background: var(--surface-121212);
-            color: var(--white-ffffff);
-        }
-
-        .btn-ghost:hover:not(:disabled) {
-            background: var(--surface-121212);
-        }
-
-        .btn-success {
-            background: var(--success-43a689);
-            color: var(--white-ffffff);
-        }
-
-        .btn-error {
-            background: var(--error-cf6679);
-            color: var(--white-ffffff);
-        }
-
-        .btn-warning {
-            background: var(--secondary-ff9101);
-            color: var(--white-ffffff);
-        }
-
-        .btn-sm {
-            padding: 0.5rem 1rem;
-            font-size: 0.75rem;
-        }
-
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
-        .loading-spinner {
-            width: 16px;
-            height: 16px;
-            border: 2px solid transparent;
-            border-top: 2px solid currentColor;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .button-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        /* 卡片樣式 */
-        .card {
-            background: var(--surface-121212);
-            border: 1px solid var(--surface-121212);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-header {
-            padding: 1rem 1.5rem;
-            background: var(--surface-121212);
-            border-bottom: 1px solid var(--surface-121212);
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        .card-footer {
-            padding: 1rem 1.5rem;
-            background: var(--surface-121212);
-            border-top: 1px solid var(--surface-121212);
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .card-image-container {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: var(--background-121212);
+        .search-example {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+            gap: 0.5rem;
         }
 
-        .card-stat {
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-8eccfc);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-content {
-            flex: 1;
-        }
-
-        .stat-number {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: var(--white-ffffff);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--white-ffffff);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-change {
-            font-size: 0.75rem;
+        .state-label {
+            color: var(--on-surface-medium);
+            font-size: 0.9rem;
             font-weight: var(--font-weight-500);
         }
 
-        .stat-change.positive {
-            color: var(--success-43a689);
+        /* 互動演示 */
+        .interactive-demo {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--on-surface-disabled);
         }
 
-        .card-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
+        .demo-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        /* 表單樣式 */
-        .form-group {
+        .demo-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
 
-        .form-label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: var(--font-weight-500);
-            color: var(--white-ffffff);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--surface-121212);
-            border-radius: 6px;
-            background: var(--background-121212);
-            color: var(--white-ffffff);
-            font-size: 0.875rem;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--primary-8eccfc);
-            box-shadow: 0 0 0 3px rgba(142, 204, 252, 0.1);
-        }
-
-        .form-input.error {
-            border-color: var(--error-cf6679);
-        }
-
-        .form-input.success {
-            border-color: var(--success-43a689);
-        }
-
-        .form-error {
-            color: var(--error-cf6679);
-            font-size: 0.75rem;
-            margin-top: 0.25rem;
-        }
-
-        .form-success {
-            color: var(--success-43a689);
-            font-size: 0.75rem;
-            margin-top: 0.25rem;
-        }
-
-        .checkbox-group {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            font-size: 0.875rem;
-            color: var(--white-ffffff);
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            display: none;
-        }
-
-        .checkbox-mark {
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--surface-121212);
-            border-radius: 3px;
-            background: var(--background-121212);
-            position: relative;
-            transition: all 0.2s ease;
-        }
-
-        .checkbox-item input[type="checkbox"]:checked + .checkbox-mark {
-            background: var(--primary-8eccfc);
-            border-color: var(--primary-8eccfc);
-        }
-
-        .checkbox-item input[type="checkbox"]:checked + .checkbox-mark::after {
-            content: '✓';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--black-000000);
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .form-showcase {
-            margin-bottom: 1rem;
-        }
-
-        /* 導航樣式 */
-        .nav-tabs {
-            display: flex;
-            gap: 0.25rem;
-            border-bottom: 1px solid var(--surface-121212);
-            margin-bottom: 1rem;
-        }
-
-        .nav-tab {
-            padding: 0.75rem 1rem;
-            border: none;
-            background: transparent;
-            color: var(--white-ffffff);
-            font-size: 0.875rem;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .nav-tab:hover {
-            color: var(--white-ffffff);
-        }
-
-        .nav-tab.active {
-            color: var(--primary-8eccfc);
-            border-bottom-color: var(--primary-8eccfc);
-        }
-
-        .tab-content {
-            padding: 1rem 0;
-        }
-
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-        }
-
-        .breadcrumb-item {
-            color: var(--white-ffffff);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .breadcrumb-item:hover {
-            color: var(--primary-8eccfc);
-        }
-
-        .breadcrumb-item.current {
-            color: var(--white-ffffff);
-        }
-
-        .breadcrumb-separator {
-            color: var(--white-ffffff);
-        }
-
-        .pagination {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .page-btn {
-            padding: 0.5rem 0.75rem;
-            border: 1px solid var(--surface-121212);
-            background: var(--background-121212);
-            color: var(--white-ffffff);
-            font-size: 0.875rem;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-
-        .page-btn:hover:not(:disabled) {
-            background: var(--surface-121212);
-        }
-
-        .page-btn.active {
-            background: var(--primary-8eccfc);
-            color: var(--black-000000);
-            border-color: var(--primary-8eccfc);
-        }
-
-        .page-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .page-dots {
-            color: var(--white-ffffff);
-            padding: 0 0.5rem;
-        }
-
-        .nav-showcase {
-            margin-bottom: 1rem;
-        }
-
-        /* 資訊組件樣式 */
-        .alert {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
+        .search-result {
+            margin-top: 1rem;
             padding: 1rem;
+            background: var(--background-121212);
             border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid;
-        }
-
-        .alert-success {
-            background: rgba(67, 166, 137, 0.1);
-            border-left-color: var(--success-43a689);
-        }
-
-        .alert-error {
-            background: rgba(207, 102, 121, 0.1);
-            border-left-color: var(--error-cf6679);
-        }
-
-        .alert-warning {
-            background: rgba(255, 145, 1, 0.1);
-            border-left-color: var(--secondary-ff9101);
-        }
-
-        .alert-info {
-            background: rgba(142, 204, 252, 0.1);
-            border-left-color: var(--primary-8eccfc);
-        }
-
-        .alert-icon {
-            font-size: 1.25rem;
-            margin-top: 0.125rem;
-        }
-
-        .alert-content {
-            flex: 1;
-        }
-
-        .alert-title {
-            font-weight: var(--font-weight-500);
+            border: 1px solid var(--on-surface-disabled);
             color: var(--white-ffffff);
-            margin-bottom: 0.25rem;
-        }
-
-        .alert-message {
-            color: var(--white-ffffff);
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-
-        .alert-close {
-            background: none;
-            border: none;
-            color: var(--white-ffffff);
-            font-size: 1.25rem;
-            cursor: pointer;
-            padding: 0;
-            width: 20px;
-            height: 20px;
+            min-height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-style: italic;
         }
 
-        .alert-close:hover {
-            color: var(--white-ffffff);
+        /* 代碼區塊 */
+        .code-section {
+            margin: 2rem 0;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
+        .code-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.1rem;
             font-weight: var(--font-weight-500);
-            border-radius: 12px;
-            background: var(--surface-121212);
-            color: var(--white-ffffff);
-        }
-
-        .badge-primary {
-            background: var(--primary-8eccfc);
-            color: var(--black-000000);
-        }
-
-        .badge-secondary {
-            background: var(--secondary-ffc929);
-            color: var(--black-000000);
-        }
-
-        .badge-success {
-            background: var(--success-43a689);
-            color: var(--white-ffffff);
-        }
-
-        .badge-error {
-            background: var(--error-cf6679);
-            color: var(--white-ffffff);
-        }
-
-        .badge-warning {
-            background: var(--secondary-ff9101);
-            color: var(--white-ffffff);
-        }
-
-        .progress {
-            width: 100%;
-            height: 8px;
-            background: var(--surface-121212);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--primary-8eccfc);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
-
-        .progress-success .progress-bar {
-            background: var(--success-43a689);
-        }
-
-        .progress-item {
             margin-bottom: 1rem;
         }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--white-ffffff);
-        }
-
-        .alert-showcase,
-        .badge-showcase,
-        .progress-showcase {
-            margin-bottom: 1rem;
-        }
-
-        .badge-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .mb-2 { margin-bottom: 8px; }
-        .mb-3 { margin-bottom: 12px; }
 
         .code-block {
-            background: var(--background-121212);
+            background: var(--surface-121212);
             border-radius: 8px;
-            padding: 1rem;
-            border: 1px solid var(--surface-121212);
+            padding: 1.5rem;
+            border: 1px solid var(--on-surface-disabled);
             overflow-x: auto;
         }
 
         .code-block pre {
             margin: 0;
             font-family: var(--font-roboto-mono);
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             color: var(--white-ffffff);
             line-height: 1.5;
         }
 
-        .usage-guide {
+        /* 指南網格 */
+        .guide-grid {
             display: grid;
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin: 2rem 0;
         }
 
@@ -1102,29 +606,29 @@
             background: var(--surface-121212);
             border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid var(--surface-121212);
+            border: 1px solid var(--on-surface-disabled);
         }
 
-        .guide-item h4 {
+        .guide-title {
             color: var(--primary-8eccfc);
             font-size: 1rem;
             font-weight: var(--font-weight-500);
             margin-bottom: 1rem;
         }
 
-        .guide-item ul {
+        .guide-list {
             color: var(--white-ffffff);
             list-style: disc;
             padding-left: 1.5rem;
             margin: 0;
         }
 
-        .guide-item li {
+        .guide-list li {
             margin-bottom: 0.5rem;
             line-height: 1.5;
         }
 
-        .guide-item code {
+        .guide-list code {
             background: var(--background-121212);
             color: var(--primary-8eccfc);
             padding: 0.125rem 0.25rem;
@@ -1133,39 +637,25 @@
             font-size: 0.875em;
         }
 
-        .guide-item p {
-            color: var(--white-ffffff);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
+        /* 響應式設計 */
         @media (max-width: 768px) {
-            .button-showcase {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .card-showcase {
+            .search-examples-small,
+            .search-examples-large {
                 grid-template-columns: 1fr;
             }
             
-            .nav-tabs {
-                overflow-x: auto;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
+            .search-bar-sm,
+            .search-bar-lg {
+                width: 100%;
+                max-width: 320px;
             }
             
-            .nav-tabs::-webkit-scrollbar {
-                display: none;
+            .guide-grid {
+                grid-template-columns: 1fr;
             }
             
-            .pagination {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            .badge-showcase {
-                justify-content: center;
+            .interactive-demo {
+                padding: 1rem;
             }
         }
     </style>
@@ -1175,6 +665,35 @@
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('open');
         }
+        
+        // 搜尋功能演示
+        function performSearch() {
+            const input = document.getElementById('search-input');
+            const result = document.getElementById('search-result');
+            const query = input.value.trim();
+            
+            if (query === '') {
+                result.textContent = '請輸入搜尋關鍵字';
+                result.style.color = 'var(--on-surface-disabled)';
+                return;
+            }
+            
+            result.textContent = `正在搜尋「${query}」...`;
+            result.style.color = 'var(--primary-8eccfc)';
+            
+            // 模擬搜尋延遲
+            setTimeout(() => {
+                result.textContent = `找到與「${query}」相關的結果`;
+                result.style.color = 'var(--white-ffffff)';
+            }, 1000);
+        }
+        
+        // Enter 鍵支援
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
         
         // 頁面載入動畫
         document.addEventListener('DOMContentLoaded', function() {
@@ -1189,42 +708,7 @@
                     el.style.transform = 'translateY(0)';
                 }, index * 200);
             });
-
-            // 組件互動功能
-            initializeComponents();
         });
-
-        function initializeComponents() {
-            // 選項卡切換
-            const tabs = document.querySelectorAll('.nav-tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            // 警告框關閉
-            const closeButtons = document.querySelectorAll('.alert-close');
-            closeButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    this.parentElement.style.display = 'none';
-                });
-            });
-
-            // 分頁按鈕
-            const pageButtons = document.querySelectorAll('.page-btn:not(.page-dots)');
-            pageButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    if (!this.disabled && !this.classList.contains('active')) {
-                        pageButtons.forEach(b => b.classList.remove('active'));
-                        if (!isNaN(this.textContent)) {
-                            this.classList.add('active');
-                        }
-                    }
-                });
-            });
-        }
     </script>
 </body>
 </html>
