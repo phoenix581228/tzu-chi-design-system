@@ -12,7 +12,6 @@
   --primary-0587eb: #0587EB;
   --primary-0475d8: #0475D8;
   --primary-0364c5: #0364C5;
-  --primary-2a00a7: #0045A7;
   --primary-0045a7: #0045A7;
   --primary-87cafe: #87CAFE;
   --primary-3700b3: #3700B3;
@@ -473,7 +472,6 @@
 .bg-primary-0587eb { background: var(--primary-0587eb); }
 .bg-primary-0475d8 { background: var(--primary-0475d8); }
 .bg-primary-0364c5 { background: var(--primary-0364c5); }
-.bg-primary-2a00a7 { background: var(--primary-2a00a7); }
 .bg-primary-0045a7 { background: var(--primary-0045a7); }
 .bg-primary-87cafe { background: var(--primary-87cafe); }
 .bg-primary-3700b3 { background: var(--primary-3700b3); }
@@ -510,7 +508,6 @@
 .text-primary-0587eb { color: var(--primary-0587eb); }
 .text-primary-0475d8 { color: var(--primary-0475d8); }
 .text-primary-0364c5 { color: var(--primary-0364c5); }
-.text-primary-2a00a7 { color: var(--primary-2a00a7); }
 .text-primary-0045a7 { color: var(--primary-0045a7); }
 .text-primary-87cafe { color: var(--primary-87cafe); }
 .text-primary-3700b3 { color: var(--primary-3700b3); }
@@ -1262,7 +1259,7 @@ body {
 .ci-primary-900 {
   top: 23.84%;
   bottom: 74.27%;
-  background: var(--primary-2a00a7);
+  background: var(--primary-0045a7);
 }
 
 .ci-primary-800 {
