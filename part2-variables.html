@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Part 2 - Variables | 慈濟 CIS 設計系統</title>
-    <meta name="description" content="慈濟CI系統第二部分：CSS變數定義 - 字型、間距、圓角、陰影等基礎變數">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>⚙️</text></svg>">
+    <title>Part 2 - Pagination | 慈濟 CIS 設計系統</title>
+    <meta name="description" content="慈濟CI系統第二部分：分頁導航組件 - 完整的分頁導航系統">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='40'>📄</text></svg>">
     
     <!-- 引入CI系統樣式 -->
     <link rel="stylesheet" href="themes/colors.css">
@@ -36,266 +36,350 @@
         <!-- 主內容區域 -->
         <main class="main-content">
             <header class="content-header fade-in">
-                <h1 class="content-title">Part 2 - Variables</h1>
+                <h1 class="content-title">Part 2 - Pagination</h1>
                 <p class="content-description">
-                    CIS 設計系統 - 主題變數定義<br>
-                    所有主題共用的基礎變數，包含字型、間距、圓角、陰影等
+                    CI 分頁導航組件系統<br>
+                    基於慈濟CI規範的分頁導航組件，支援多種狀態和完整的導航控制
                 </p>
             </header>
 
             <div class="content-body">
-                <!-- 字型系統 -->
-                <section class="variable-section fade-in">
-                    <h2 class="section-title">🔤 字型系統</h2>
-                    <p class="section-description">多語言支援的字型堆疊定義</p>
+                <!-- 分頁組件概覽 -->
+                <section class="pagination-section fade-in">
+                    <h2 class="section-title">📄 分頁導航組件</h2>
+                    <p class="section-description">完整的分頁導航系統，包含數字頁碼、導航箭頭和狀態顯示</p>
                     
-                    <div class="variable-grid">
-                        <div class="variable-card">
-                            <div class="variable-name">--cis-font-family-base</div>
-                            <div class="variable-value">-apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "微軟正黑體", "PingFang TC", "Helvetica Neue", Arial, sans-serif</div>
-                            <div class="variable-preview" style="font-family: var(--cis-font-family-base, -apple-system, BlinkMacSystemFont);">主要字型預覽 Main Font Preview</div>
+                    <!-- 基本分頁展示 -->
+                    <div class="pagination-demo">
+                        <h3 class="demo-title">基本分頁導航</h3>
+                        <div class="pagination-container">
+                            <div class="pagination-nav" id="basic-pagination">
+                                <!-- 導航按鈕 -->
+                                <div class="nav-buttons">
+                                    <button class="nav-btn nav-first" onclick="goToPage(1)" title="第一頁">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 17L13 12L18 7" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M11 17L6 12L11 7" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 17L13 12L18 7" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M11 17L6 12L11 7" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <button class="nav-btn nav-prev" onclick="previousPage()" title="上一頁">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <!-- 頁碼按鈕 -->
+                                <div class="page-numbers" id="page-numbers">
+                                    <button class="page-btn active" data-page="1">1</button>
+                                    <button class="page-btn" data-page="2">2</button>
+                                    <button class="page-btn" data-page="3">3</button>
+                                    <button class="page-btn" data-page="4">4</button>
+                                    <button class="page-btn" data-page="5">5</button>
+                                </div>
+
+                                <!-- 導航按鈕 -->
+                                <div class="nav-buttons">
+                                    <button class="nav-btn nav-next" onclick="nextPage()" title="下一頁">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <button class="nav-btn nav-last" onclick="goToPage(8)" title="最後一頁">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 17L11 12L6 7" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M13 17L18 12L13 7" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 17L11 12L6 7" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M13 17L18 12L13 7" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 分頁資訊 -->
+                            <div class="pagination-info" id="pagination-info">
+                                第 <span id="current-page">1</span> 頁，共 <span id="total-pages">8</span> 頁
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 狀態展示 -->
+                <section class="pagination-section fade-in">
+                    <h2 class="section-title">🎯 互動狀態展示</h2>
+                    <p class="section-description">分頁按鈕的不同互動狀態：預設、懸停、按下和禁用狀態</p>
+                    
+                    <div class="states-demo">
+                        <!-- 頁碼按鈕狀態 -->
+                        <div class="state-group">
+                            <h3 class="state-title">頁碼按鈕狀態</h3>
+                            <div class="button-states">
+                                <div class="state-example">
+                                    <label class="state-label">Default</label>
+                                    <button class="page-btn state-default">1</button>
+                                </div>
+                                
+                                <div class="state-example">
+                                    <label class="state-label">Hover</label>
+                                    <button class="page-btn state-hover">2</button>
+                                </div>
+                                
+                                <div class="state-example">
+                                    <label class="state-label">Active</label>
+                                    <button class="page-btn state-active">3</button>
+                                </div>
+                                
+                                <div class="state-example">
+                                    <label class="state-label">Pressed</label>
+                                    <button class="page-btn state-pressed">4</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 導航按鈕狀態 -->
+                        <div class="state-group">
+                            <h3 class="state-title">導航按鈕狀態</h3>
+                            <div class="nav-states">
+                                <div class="state-example">
+                                    <label class="state-label">Default</label>
+                                    <button class="nav-btn state-default">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="state-example">
+                                    <label class="state-label">Hover</label>
+                                    <button class="nav-btn state-hover">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="state-example">
+                                    <label class="state-label">Disabled</label>
+                                    <button class="nav-btn state-disabled" disabled>
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 不同類型展示 -->
+                <section class="pagination-section fade-in">
+                    <h2 class="section-title">📋 分頁類型展示</h2>
+                    <p class="section-description">不同場景下的分頁導航配置</p>
+                    
+                    <div class="types-demo">
+                        <!-- 簡潔型分頁 -->
+                        <div class="type-example">
+                            <h3 class="type-title">簡潔型分頁</h3>
+                            <div class="pagination-container simple">
+                                <div class="pagination-nav">
+                                    <button class="nav-btn">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <div class="page-numbers">
+                                        <button class="page-btn active">1</button>
+                                        <button class="page-btn">2</button>
+                                        <button class="page-btn">3</button>
+                                    </div>
+                                    
+                                    <button class="nav-btn">
+                                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="pagination-info">第 1 頁，共 3 頁</div>
+                            </div>
+                        </div>
+
+                        <!-- 完整型分頁 -->
+                        <div class="type-example">
+                            <h3 class="type-title">完整型分頁</h3>
+                            <div class="pagination-container complete">
+                                <div class="pagination-nav">
+                                    <div class="nav-buttons">
+                                        <button class="nav-btn">
+                                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M18 17L13 12L18 7" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M11 17L6 12L11 7" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M18 17L13 12L18 7" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M11 17L6 12L11 7" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                        <button class="nav-btn">
+                                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="page-numbers">
+                                        <button class="page-btn">1</button>
+                                        <button class="page-btn active">2</button>
+                                        <button class="page-btn">3</button>
+                                        <span class="page-ellipsis">...</span>
+                                        <button class="page-btn">10</button>
+                                    </div>
+                                    
+                                    <div class="nav-buttons">
+                                        <button class="nav-btn">
+                                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                        <button class="nav-btn">
+                                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M6 17L11 12L6 7" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M13 17L18 12L13 7" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M6 17L11 12L6 7" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M13 17L18 12L13 7" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="pagination-info">第 2 頁，共 10 頁</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CSS 實作與使用 -->
+                <section class="pagination-section fade-in">
+                    <h2 class="section-title">🔧 CSS 實作與使用</h2>
+                    
+                    <div class="code-section">
+                        <h3 class="code-title">分頁組件 CSS 變數</h3>
+                        <div class="code-block">
+                            <pre><code>/* 分頁導航組件變數 */
+.pagination-nav {
+  /* 色彩變數 - 使用CI系統定義 */
+  --pagination-bg: var(--background-121212);
+  --pagination-text: var(--white-ffffff);
+  --pagination-text-secondary: var(--on-surface-medium);
+  --pagination-active-bg: var(--primary-8eccfc);
+  --pagination-active-text: var(--black-000000);
+  --pagination-hover-bg: var(--primary-5fb7fa);
+  --pagination-disabled: var(--on-surface-disabled);
+  
+  /* 尺寸變數 */
+  --pagination-btn-size: 32px;
+  --pagination-font-size: 20px;
+  --pagination-gap: 12px;
+  --pagination-border-radius: 4px;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="code-section">
+                        <h3 class="code-title">HTML 結構範例</h3>
+                        <div class="code-block">
+                            <pre><code>&lt;!-- 基本分頁導航 --&gt;
+&lt;div class="pagination-container"&gt;
+  &lt;div class="pagination-nav"&gt;
+    &lt;!-- 導航按鈕 --&gt;
+    &lt;div class="nav-buttons"&gt;
+      &lt;button class="nav-btn nav-first"&gt;
+        &lt;!-- 雙左箭頭 SVG --&gt;
+      &lt;/button&gt;
+      &lt;button class="nav-btn nav-prev"&gt;
+        &lt;!-- 左箭頭 SVG --&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- 頁碼按鈕 --&gt;
+    &lt;div class="page-numbers"&gt;
+      &lt;button class="page-btn active"&gt;1&lt;/button&gt;
+      &lt;button class="page-btn"&gt;2&lt;/button&gt;
+      &lt;button class="page-btn"&gt;3&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- 導航按鈕 --&gt;
+    &lt;div class="nav-buttons"&gt;
+      &lt;button class="nav-btn nav-next"&gt;
+        &lt;!-- 右箭頭 SVG --&gt;
+      &lt;/button&gt;
+      &lt;button class="nav-btn nav-last"&gt;
+        &lt;!-- 雙右箭頭 SVG --&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- 分頁資訊 --&gt;
+  &lt;div class="pagination-info"&gt;
+    第 1 頁，共 5 頁
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 使用指南 -->
+                <section class="pagination-section fade-in">
+                    <h2 class="section-title">📖 使用指南</h2>
+                    
+                    <div class="guide-grid">
+                        <div class="guide-item">
+                            <h4 class="guide-title">🎯 組件結構</h4>
+                            <ul class="guide-list">
+                                <li><strong>導航按鈕：</strong>第一頁、上一頁、下一頁、最後一頁</li>
+                                <li><strong>頁碼按鈕：</strong>數字頁碼選擇</li>
+                                <li><strong>分頁資訊：</strong>當前頁數和總頁數顯示</li>
+                                <li><strong>省略符號：</strong>大量頁面時的簡化顯示</li>
+                            </ul>
                         </div>
                         
-                        <div class="variable-card">
-                            <div class="variable-name">--cis-font-family-mono</div>
-                            <div class="variable-value">"SF Mono", "Monaco", "Inconsolata", "Fira Code", monospace</div>
-                            <div class="variable-preview" style="font-family: 'SF Mono', 'Monaco', monospace;">等寬字型預覽 Mono Font Preview</div>
+                        <div class="guide-item">
+                            <h4 class="guide-title">🎨 視覺狀態</h4>
+                            <ul class="guide-list">
+                                <li><strong>Active：</strong>當前頁面 - 主色背景</li>
+                                <li><strong>Hover：</strong>懸停狀態 - 中度主色</li>
+                                <li><strong>Default：</strong>預設狀態 - 透明背景</li>
+                                <li><strong>Disabled：</strong>禁用狀態 - 透明度降低</li>
+                            </ul>
                         </div>
-                    </div>
-                </section>
-
-                <!-- 字體大小 -->
-                <section class="variable-section fade-in">
-                    <h2 class="section-title">📏 字體大小</h2>
-                    <p class="section-description">完整的字體大小階層系統</p>
-                    
-                    <div class="font-size-grid">
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-xs, 0.75rem);">
-                            <span class="size-label">XS - 12px</span>
-                            <span class="size-text">極小字體 (--cis-font-size-xs)</span>
+                        
+                        <div class="guide-item">
+                            <h4 class="guide-title">🔧 最佳實踐</h4>
+                            <ul class="guide-list">
+                                <li>提供清楚的視覺回饋和狀態指示</li>
+                                <li>確保按鈕有足夠的點擊區域 (32px)</li>
+                                <li>支援鍵盤導航和無障礙功能</li>
+                                <li>在移動裝置上優化觸控體驗</li>
+                            </ul>
                         </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-sm, 0.875rem);">
-                            <span class="size-label">SM - 14px</span>
-                            <span class="size-text">小字體 (--cis-font-size-sm)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-base, 1rem);">
-                            <span class="size-label">BASE - 16px</span>
-                            <span class="size-text">基礎字體 (--cis-font-size-base)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-lg, 1.125rem);">
-                            <span class="size-label">LG - 18px</span>
-                            <span class="size-text">大字體 (--cis-font-size-lg)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-xl, 1.25rem);">
-                            <span class="size-label">XL - 20px</span>
-                            <span class="size-text">超大字體 (--cis-font-size-xl)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-2xl, 1.5rem);">
-                            <span class="size-label">2XL - 24px</span>
-                            <span class="size-text">標題字體 (--cis-font-size-2xl)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-3xl, 1.875rem);">
-                            <span class="size-label">3XL - 30px</span>
-                            <span class="size-text">大標題 (--cis-font-size-3xl)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-4xl, 2.25rem);">
-                            <span class="size-label">4XL - 36px</span>
-                            <span class="size-text">主標題 (--cis-font-size-4xl)</span>
-                        </div>
-                        <div class="font-size-demo" style="font-size: var(--cis-font-size-5xl, 3rem);">
-                            <span class="size-label">5XL - 48px</span>
-                            <span class="size-text">超大標題 (--cis-font-size-5xl)</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 間距系統 -->
-                <section class="variable-section fade-in">
-                    <h2 class="section-title">📐 間距系統</h2>
-                    <p class="section-description">一致的間距規範，基於 4px 網格系統</p>
-                    
-                    <div class="spacing-grid">
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-1, 0.25rem); background: var(--primary-8eccfc);"></div>
-                            <span>1 - 4px (--cis-spacing-1)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-2, 0.5rem); background: var(--primary-8eccfc);"></div>
-                            <span>2 - 8px (--cis-spacing-2)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-3, 0.75rem); background: var(--primary-8eccfc);"></div>
-                            <span>3 - 12px (--cis-spacing-3)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-4, 1rem); background: var(--primary-8eccfc);"></div>
-                            <span>4 - 16px (--cis-spacing-4)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-6, 1.5rem); background: var(--primary-8eccfc);"></div>
-                            <span>6 - 24px (--cis-spacing-6)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-8, 2rem); background: var(--primary-8eccfc);"></div>
-                            <span>8 - 32px (--cis-spacing-8)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-12, 3rem); background: var(--primary-8eccfc);"></div>
-                            <span>12 - 48px (--cis-spacing-12)</span>
-                        </div>
-                        <div class="spacing-demo">
-                            <div class="spacing-bar" style="width: var(--cis-spacing-16, 4rem); background: var(--primary-8eccfc);"></div>
-                            <span>16 - 64px (--cis-spacing-16)</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 圓角系統 -->
-                <section class="variable-section fade-in">
-                    <h2 class="section-title">⭕ 圓角系統</h2>
-                    <p class="section-description">一致的圓角規範，適用於各種UI元件</p>
-                    
-                    <div class="radius-grid">
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-none, 0);">
-                            <span>none - 0px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-sm, 0.125rem);">
-                            <span>sm - 2px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-base, 0.25rem);">
-                            <span>base - 4px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-md, 0.375rem);">
-                            <span>md - 6px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-lg, 0.5rem);">
-                            <span>lg - 8px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-xl, 0.75rem);">
-                            <span>xl - 12px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-2xl, 1rem);">
-                            <span>2xl - 16px</span>
-                        </div>
-                        <div class="radius-demo" style="border-radius: var(--cis-radius-3xl, 1.5rem);">
-                            <span>3xl - 24px</span>
-                        </div>
-                        <div class="radius-demo pill-demo" style="border-radius: var(--cis-radius-full, 9999px);">
-                            <span>full - 9999px</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 陰影系統 -->
-                <section class="variable-section fade-in">
-                    <h2 class="section-title">🌫️ 陰影系統 (Material Design 3.0)</h2>
-                    <p class="section-description">Material Design 標準的陰影層級系統</p>
-                    
-                    <div class="shadow-grid">
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-1);">
-                            <span>Elevation 1</span>
-                            <small>卡片、按鈕</small>
-                        </div>
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-2);">
-                            <span>Elevation 2</span>
-                            <small>懸浮按鈕</small>
-                        </div>
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-4);">
-                            <span>Elevation 4</span>
-                            <small>應用欄</small>
-                        </div>
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-8);">
-                            <span>Elevation 8</span>
-                            <small>抽屜、選單</small>
-                        </div>
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-12);">
-                            <span>Elevation 12</span>
-                            <small>浮動操作按鈕</small>
-                        </div>
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-16);">
-                            <span>Elevation 16</span>
-                            <small>導航抽屜</small>
-                        </div>
-                        <div class="shadow-demo" style="box-shadow: var(--cis-elevation-24);">
-                            <span>Elevation 24</span>
-                            <small>對話框、日期選擇器</small>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SDGS顏色 -->
-                <section class="variable-section fade-in">
-                    <h2 class="section-title">🌍 SDGS 顏色系統</h2>
-                    <p class="section-description">聯合國永續發展目標色彩，慈濟公益特色</p>
-                    
-                    <div class="sdgs-grid">
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-1);">
-                            <span>SDG 1</span>
-                            <small>消除貧窮</small>
-                        </div>
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-2);">
-                            <span>SDG 2</span>
-                            <small>消除飢餓</small>
-                        </div>
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-3);">
-                            <span>SDG 3</span>
-                            <small>健康福祉</small>
-                        </div>
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-4);">
-                            <span>SDG 4</span>
-                            <small>優質教育</small>
-                        </div>
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-13);">
-                            <span>SDG 13</span>
-                            <small>氣候行動</small>
-                        </div>
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-16);">
-                            <span>SDG 16</span>
-                            <small>和平正義</small>
-                        </div>
-                        <div class="sdgs-demo" style="background: var(--cis-sdgs-17);">
-                            <span>SDG 17</span>
-                            <small>全球夥伴</small>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 使用範例 -->
-                <section class="usage-section fade-in">
-                    <h2 class="section-title">💡 使用範例</h2>
-                    <div class="code-examples">
-                        <div class="code-example">
-                            <h3>字型系統使用</h3>
-                            <div class="code-block">
-                                <pre><code>/* 使用字型變數 */
-.title {
-  font-family: var(--cis-font-family-base);
-  font-size: var(--cis-font-size-2xl);
-}
-
-.code {
-  font-family: var(--cis-font-family-mono);
-  font-size: var(--cis-font-size-sm);
-}</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="code-example">
-                            <h3>間距與圓角使用</h3>
-                            <div class="code-block">
-                                <pre><code>/* 使用間距變數 */
-.card {
-  padding: var(--cis-spacing-4);
-  margin: var(--cis-spacing-2);
-  border-radius: var(--cis-radius-lg);
-  box-shadow: var(--cis-elevation-2);
-}
-
-/* 使用動畫變數 */
-.button {
-  transition: all var(--cis-duration-200) var(--cis-ease-out);
-}</code></pre>
-                            </div>
+                        
+                        <div class="guide-item">
+                            <h4 class="guide-title">📱 響應式設計</h4>
+                            <ul class="guide-list">
+                                <li>小螢幕時隱藏部分頁碼和導航按鈕</li>
+                                <li>保持重要功能的可訪問性</li>
+                                <li>調整按鈕間距以適應觸控操作</li>
+                                <li>確保文字資訊清晰可讀</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -315,214 +399,254 @@
         }
 
         .section-description {
-            color: var(--white-ffffff);
+            color: var(--on-surface-medium);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
 
-        .variable-section {
+        .pagination-section {
             margin-bottom: 4rem;
         }
 
-        .variable-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .variable-card {
+        /* 分頁導航組件樣式 */
+        .pagination-container {
             background: var(--surface-121212);
             border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid var(--surface-121212);
+            padding: 2rem;
+            border: 1px solid var(--on-surface-disabled);
+            margin: 2rem 0;
         }
 
-        .variable-name {
-            font-family: var(--font-roboto-mono);
-            font-size: 0.875rem;
-            color: var(--primary-8eccfc);
-            font-weight: var(--font-weight-500);
-            margin-bottom: 0.5rem;
-        }
-
-        .variable-value {
-            font-family: var(--font-roboto-mono);
-            font-size: 0.75rem;
-            color: var(--white-ffffff);
-            background: var(--background-121212);
-            padding: 0.5rem;
-            border-radius: 4px;
+        .pagination-nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
             margin-bottom: 1rem;
-            word-break: break-all;
-        }
-
-        .variable-preview {
-            color: var(--white-ffffff);
-            font-size: 1rem;
-            padding: 0.75rem;
-            background: var(--background-121212);
-            border-radius: 4px;
-            border: 1px solid var(--surface-121212);
-        }
-
-        .font-size-grid {
-            display: grid;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .font-size-demo {
-            background: var(--surface-121212);
-            border-radius: 8px;
-            padding: 1rem;
-            border: 1px solid var(--surface-121212);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .size-label {
-            font-family: var(--font-roboto-mono);
-            font-size: 0.75rem;
-            color: var(--primary-8eccfc);
-            min-width: 80px;
-        }
-
-        .size-text {
-            color: var(--white-ffffff);
-        }
-
-        .spacing-grid {
-            display: grid;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .spacing-demo {
-            background: var(--surface-121212);
-            border-radius: 8px;
-            padding: 1rem;
-            border: 1px solid var(--surface-121212);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .spacing-bar {
-            height: 20px;
-            border-radius: 2px;
-        }
-
-        .spacing-demo span {
-            font-family: var(--font-roboto-mono);
-            font-size: 0.875rem;
-            color: var(--white-ffffff);
-        }
-
-        .radius-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .radius-demo {
-            background: var(--primary-8eccfc);
-            color: var(--black-000000);
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: var(--font-weight-500);
-            height: 80px;
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
         }
 
-        .pill-demo {
-            grid-column: span 2;
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
         }
 
-        .shadow-grid {
+        .page-numbers {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* 按鈕基礎樣式 */
+        .nav-btn,
+        .page-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: transparent;
+            color: var(--primary-8eccfc);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        /* 頁碼按鈕樣式 */
+        .page-btn {
+            color: var(--white-ffffff);
+        }
+
+        .page-btn:hover {
+            background: var(--primary-5fb7fa);
+            color: var(--black-000000);
+        }
+
+        .page-btn.active {
+            background: var(--primary-8eccfc);
+            color: var(--black-000000);
+            font-weight: 900;
+        }
+
+        /* 導航按鈕樣式 */
+        .nav-btn:hover {
+            background: var(--primary-5fb7fa);
+        }
+
+        .nav-btn:disabled {
+            color: var(--on-surface-disabled);
+            cursor: not-allowed;
+        }
+
+        .nav-btn:disabled:hover {
+            background: transparent;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        /* 雙箭頭特殊處理 */
+        .nav-first .nav-icon:first-child {
+            margin-right: -8px;
+        }
+
+        .nav-last .nav-icon:first-child {
+            margin-right: -8px;
+        }
+
+        /* 分頁資訊 */
+        .pagination-info {
+            text-align: center;
+            color: var(--on-surface-medium);
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        #current-page,
+        #total-pages {
+            color: var(--white-ffffff);
+            font-weight: 700;
+        }
+
+        /* 省略符號 */
+        .page-ellipsis {
+            color: var(--on-surface-medium);
+            font-size: 20px;
+            padding: 0 8px;
+        }
+
+        /* 演示區域樣式 */
+        .demo-title {
+            color: var(--primary-87cafe);
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1.5rem;
+        }
+
+        /* 狀態展示 */
+        .states-demo {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .state-group {
+            background: var(--background-121212);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid var(--on-surface-disabled);
+        }
+
+        .state-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .button-states,
+        .nav-states {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .state-example {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .state-label {
+            color: var(--on-surface-medium);
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-500);
+        }
+
+        /* 狀態模擬 */
+        .state-default {
+            /* 預設狀態已定義 */
+        }
+
+        .state-hover {
+            background: var(--primary-5fb7fa) !important;
+            color: var(--black-000000) !important;
+        }
+
+        .state-active {
+            background: var(--primary-8eccfc) !important;
+            color: var(--black-000000) !important;
+            font-weight: 900 !important;
+        }
+
+        .state-pressed {
+            background: var(--primary-5fb7fa) !important;
+            color: var(--black-000000) !important;
+            transform: translateY(1px) !important;
+        }
+
+        .state-disabled {
+            color: var(--on-surface-disabled) !important;
+            cursor: not-allowed !important;
+        }
+
+        /* 類型展示 */
+        .types-demo {
+            display: grid;
             gap: 2rem;
             margin: 2rem 0;
         }
 
-        .shadow-demo {
-            background: var(--surface-121212);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            color: var(--white-ffffff);
-        }
-
-        .shadow-demo span {
-            display: block;
-            font-weight: var(--font-weight-500);
-            margin-bottom: 0.5rem;
-        }
-
-        .shadow-demo small {
-            color: var(--white-ffffff);
-            font-size: 0.75rem;
-        }
-
-        .sdgs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .sdgs-demo {
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: var(--font-weight-500);
-        }
-
-        .sdgs-demo span {
-            display: block;
-            margin-bottom: 0.25rem;
-            font-size: 0.875rem;
-        }
-
-        .sdgs-demo small {
-            font-size: 0.75rem;
-            opacity: 0.9;
-        }
-
-        .usage-section {
-            margin-top: 4rem;
-        }
-
-        .code-examples {
-            margin: 2rem 0;
-        }
-
-        .code-example {
-            background: var(--surface-121212);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid var(--surface-121212);
-            margin-bottom: 2rem;
-        }
-
-        .code-example h3 {
-            color: var(--primary-8eccfc);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            font-weight: var(--font-weight-500);
-        }
-
-        .code-block {
+        .type-example {
             background: var(--background-121212);
             border-radius: 8px;
             padding: 1.5rem;
-            border: 1px solid var(--surface-121212);
+            border: 1px solid var(--on-surface-disabled);
+        }
+
+        .type-title {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .pagination-container.simple .pagination-nav {
+            gap: 20px;
+        }
+
+        .pagination-container.complete .pagination-nav {
+            gap: 30px;
+        }
+
+        /* 代碼區塊 */
+        .code-section {
+            margin: 2rem 0;
+        }
+
+        .code-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: var(--surface-121212);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--on-surface-disabled);
             overflow-x: auto;
         }
 
@@ -534,34 +658,175 @@
             line-height: 1.5;
         }
 
+        /* 指南網格 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .guide-item {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--on-surface-disabled);
+        }
+
+        .guide-title {
+            color: var(--primary-8eccfc);
+            font-size: 1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+
+        .guide-list {
+            color: var(--white-ffffff);
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .guide-list code {
+            background: var(--background-121212);
+            color: var(--primary-8eccfc);
+            padding: 0.125rem 0.25rem;
+            border-radius: 3px;
+            font-family: var(--font-roboto-mono);
+            font-size: 0.875em;
+        }
+
+        /* 響應式設計 */
         @media (max-width: 768px) {
-            .radius-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-            
-            .shadow-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 1rem;
-            }
-            
-            .sdgs-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            .pagination-nav {
+                gap: 15px;
+                flex-direction: column;
             }
 
-            .pill-demo {
-                grid-column: span 1;
+            .nav-buttons {
+                order: 2;
+            }
+
+            .page-numbers {
+                order: 1;
+            }
+
+            .button-states,
+            .nav-states {
+                justify-content: center;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pagination-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pagination-nav {
+                gap: 10px;
+            }
+
+            .nav-buttons {
+                gap: 8px;
+            }
+
+            .page-numbers {
+                gap: 8px;
+            }
+
+            .nav-btn,
+            .page-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+            }
+
+            .nav-icon {
+                width: 16px;
+                height: 16px;
             }
         }
     </style>
 
     <script>
+        // 全局變數
+        let currentPage = 1;
+        const totalPages = 8;
+
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('open');
         }
-        
-        // 頁面載入動畫
+
+        // 分頁功能
+        function updatePagination() {
+            // 更新當前頁顯示
+            document.getElementById('current-page').textContent = currentPage;
+            
+            // 更新頁碼按鈕
+            const pageButtons = document.querySelectorAll('#page-numbers .page-btn');
+            pageButtons.forEach(btn => {
+                const page = parseInt(btn.dataset.page);
+                btn.classList.toggle('active', page === currentPage);
+            });
+            
+            // 更新導航按鈕狀態
+            const firstBtn = document.querySelector('.nav-first');
+            const prevBtn = document.querySelector('.nav-prev');
+            const nextBtn = document.querySelector('.nav-next');
+            const lastBtn = document.querySelector('.nav-last');
+            
+            firstBtn.disabled = currentPage === 1;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            lastBtn.disabled = currentPage === totalPages;
+        }
+
+        function goToPage(page) {
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+                updatePagination();
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePagination();
+            }
+        }
+
+        // 頁碼按鈕點擊事件
         document.addEventListener('DOMContentLoaded', function() {
+            // 初始化分頁
+            updatePagination();
+            
+            // 綁定頁碼按鈕事件
+            const pageButtons = document.querySelectorAll('#page-numbers .page-btn');
+            pageButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const page = parseInt(btn.dataset.page);
+                    goToPage(page);
+                });
+            });
+            
+            // 頁面載入動畫
             const elements = document.querySelectorAll('.fade-in');
             elements.forEach((el, index) => {
                 el.style.opacity = '0';
@@ -573,6 +838,19 @@
                     el.style.transform = 'translateY(0)';
                 }, index * 200);
             });
+        });
+
+        // 鍵盤支援
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                previousPage();
+            } else if (e.key === 'ArrowRight') {
+                nextPage();
+            } else if (e.key === 'Home') {
+                goToPage(1);
+            } else if (e.key === 'End') {
+                goToPage(totalPages);
+            }
         });
     </script>
 </body>

@@ -165,6 +165,136 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- Outline 組件 -->
+                <section class="utility-section fade-in">
+                    <h2 class="section-title">🔲 Outline 組件</h2>
+                    <p class="section-description">基於CI系統的輪廓邊框組件，提供視覺邊界和強調效果</p>
+                    
+                    <!-- Outline 展示區域 -->
+                    <div class="outline-demo-section">
+                        <h3 class="transparency-title">輪廓組件展示</h3>
+                        
+                        <!-- 主要容器展示 -->
+                        <div class="outline-container">
+                            <div class="outline-main-demo">
+                                <h4 class="outline-demo-title">Outline 組件位置展示</h4>
+                                <p class="outline-demo-description">此組件位於右下角區域，展示視覺邊界效果</p>
+                                
+                                <!-- 實際的 Outline 組件 -->
+                                <div class="outline-component">
+                                    <div class="outline-content">
+                                        <div class="outline-label">Outline</div>
+                                        <div class="outline-specs">邊框組件</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 狀態展示 -->
+                        <div class="outline-states-demo">
+                            <h4 class="outline-section-title">不同狀態展示</h4>
+                            <div class="outline-states-grid">
+                                <div class="outline-state-item outline-default">
+                                    <div class="state-label">Default</div>
+                                    <div class="outline-preview">
+                                        <div class="outline-box outline-box-default">預設輪廓</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="outline-state-item outline-hover">
+                                    <div class="state-label">Hover</div>
+                                    <div class="outline-preview">
+                                        <div class="outline-box outline-box-hover">懸停效果</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="outline-state-item outline-focus">
+                                    <div class="state-label">Focus</div>
+                                    <div class="outline-preview">
+                                        <div class="outline-box outline-box-focus">聚焦狀態</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="outline-state-item outline-disabled">
+                                    <div class="state-label">Disabled</div>
+                                    <div class="outline-preview">
+                                        <div class="outline-box outline-box-disabled">禁用狀態</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CSS 實作代碼 -->
+                    <div class="transparency-code-section">
+                        <h3 class="transparency-title">🔧 CSS 實作代碼</h3>
+                        <div class="code-block">
+                            <pre><code>/* Outline 組件樣式 */
+.outline-component {
+  position: absolute;
+  left: 35.07%;
+  right: 4.17%;
+  top: 80.26%;
+  bottom: 14.57%;
+  
+  /* 使用CI系統色彩 */
+  border: 2px solid var(--primary-8eccfc);
+  background: var(--background-121212);
+  border-radius: 4px;
+  
+  /* 狀態變化 */
+  transition: all 0.3s ease;
+}
+
+.outline-component:hover {
+  border-color: var(--primary-5fb7fa);
+  box-shadow: 0 0 0 2px rgba(143, 204, 252, 0.2);
+}
+
+.outline-component:focus {
+  border-color: var(--primary-0475d8);
+  box-shadow: 0 0 0 3px rgba(4, 117, 216, 0.3);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- 使用指南 -->
+                    <div class="outline-usage-guide">
+                        <h3 class="transparency-title">📖 使用指南</h3>
+                        <div class="guide-grid">
+                            <div class="guide-item">
+                                <h4>🎯 組件特性</h4>
+                                <ul>
+                                    <li><strong>定位:</strong> 使用絕對定位，適用於特定佈局區域</li>
+                                    <li><strong>邊框:</strong> 使用主色 <code>--primary-8eccfc</code></li>
+                                    <li><strong>背景:</strong> 使用系統背景色 <code>--background-121212</code></li>
+                                    <li><strong>尺寸:</strong> 響應式尺寸，適應不同屏幕</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-item">
+                                <h4>🎨 視覺狀態</h4>
+                                <ul>
+                                    <li><strong>Default:</strong> 標準邊框顏色</li>
+                                    <li><strong>Hover:</strong> 中度主色邊框 + 陰影效果</li>
+                                    <li><strong>Focus:</strong> 深度主色邊框 + 強化陰影</li>
+                                    <li><strong>Disabled:</strong> 禁用狀態透明度</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="guide-item">
+                                <h4>🔧 最佳實踐</h4>
+                                <ul>
+                                    <li>保持邊框粗細一致性 (2px)</li>
+                                    <li>使用平滑的過渡動畫效果</li>
+                                    <li>確保足夠的對比度和可讀性</li>
+                                    <li>在不同背景下測試視覺效果</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
@@ -719,6 +849,176 @@
             margin-bottom: 0;
         }
 
+        /* === Outline 組件樣式 === */
+        
+        .outline-demo-section {
+            margin: 2rem 0;
+        }
+        
+        .outline-container {
+            background: var(--surface-121212);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--on-surface-disabled);
+            margin-bottom: 2rem;
+            position: relative;
+            min-height: 300px;
+        }
+        
+        .outline-main-demo {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: var(--background-121212);
+            border-radius: 8px;
+            border: 1px solid var(--on-surface-disabled);
+        }
+        
+        .outline-demo-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-500);
+            margin: 1rem 0 0.5rem 1rem;
+        }
+        
+        .outline-demo-description {
+            color: var(--on-surface-medium);
+            font-size: 0.9rem;
+            margin: 0 0 1rem 1rem;
+        }
+        
+        /* 實際的 Outline 組件 */
+        .outline-component {
+            position: absolute;
+            left: 35.07%;
+            right: 4.17%;
+            top: 80.26%;
+            bottom: 14.57%;
+            
+            /* 使用CI系統色彩 */
+            border: 2px solid var(--primary-8eccfc);
+            background: var(--background-121212);
+            border-radius: 4px;
+            
+            /* 狀態變化 */
+            transition: all 0.3s ease;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .outline-component:hover {
+            border-color: var(--primary-5fb7fa);
+            box-shadow: 0 0 0 2px rgba(143, 204, 252, 0.2);
+            transform: scale(1.02);
+        }
+        
+        .outline-content {
+            text-align: center;
+        }
+        
+        .outline-label {
+            color: var(--white-ffffff);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .outline-specs {
+            color: var(--on-surface-medium);
+            font-size: 0.75rem;
+        }
+        
+        /* 狀態展示 */
+        .outline-states-demo {
+            margin-top: 2rem;
+        }
+        
+        .outline-section-title {
+            color: var(--primary-8eccfc);
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1.5rem;
+        }
+        
+        .outline-states-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .outline-state-item {
+            background: var(--surface-121212);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--on-surface-disabled);
+            text-align: center;
+        }
+        
+        .outline-state-item .state-label {
+            color: var(--on-surface-medium);
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-500);
+            margin-bottom: 1rem;
+        }
+        
+        .outline-preview {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .outline-box {
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: var(--white-ffffff);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+        
+        .outline-box-default {
+            border: 2px solid var(--primary-8eccfc);
+            background: var(--background-121212);
+        }
+        
+        .outline-box-hover {
+            border: 2px solid var(--primary-5fb7fa);
+            background: var(--background-121212);
+            box-shadow: 0 0 0 2px rgba(95, 183, 250, 0.2);
+        }
+        
+        .outline-box-focus {
+            border: 2px solid var(--primary-0475d8);
+            background: var(--background-121212);
+            box-shadow: 0 0 0 3px rgba(4, 117, 216, 0.3);
+        }
+        
+        .outline-box-disabled {
+            border: 2px solid var(--on-surface-disabled);
+            background: var(--background-121212);
+            opacity: 0.6;
+            color: var(--on-surface-disabled);
+        }
+        
+        /* 使用指南網格 */
+        .outline-usage-guide {
+            margin: 2rem 0;
+        }
+        
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
         @media (max-width: 768px) {
             .utility-items {
                 grid-template-columns: 1fr;
@@ -750,6 +1050,23 @@
             .transparency-item {
                 height: 100px;
                 padding: 1rem;
+            }
+            
+            /* Outline 組件響應式 */
+            .outline-states-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .outline-container {
+                padding: 1rem;
+            }
+            
+            .outline-main-demo {
+                height: 200px;
             }
         }
     </style>
