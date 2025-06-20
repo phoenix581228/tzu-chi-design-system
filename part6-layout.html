@@ -155,65 +155,56 @@
                     <div class="elevation-variables">
                         <h3 class="variables-title">🔧 CSS變數定義</h3>
                         <div class="code-block">
-                            <pre><code>/* Material Design Elevation System - 基於CI #121212背景色 */
+                            <pre><code>/* Material Design Elevation System - 深色主題最佳化版本 */
 :root {
-  /* 00dp - 無陰影 */
+  /* 00dp - 無高度效果 */
   --elevation-00dp: none;
   --elevation-00dp-bg: #121212;
   
-  /* 01dp - 輕微陰影 */
-  --elevation-01dp: 0px 1px 1px rgba(0, 0, 0, 0.14),
-                    0px 2px 1px rgba(0, 0, 0, 0.12),
-                    0px 1px 3px rgba(0, 0, 0, 0.2);
-  --elevation-01dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #121212;
+  /* 01dp - 輕微高度 */
+  --elevation-01dp: 0px 1px 3px rgba(0, 0, 0, 0.6),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.05);
+  --elevation-01dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%), #121212;
   
-  /* 02dp - 淺層陰影 */
-  --elevation-02dp: 0px 2px 2px rgba(0, 0, 0, 0.14),
-                    0px 3px 1px rgba(0, 0, 0, 0.12),
-                    0px 1px 5px rgba(0, 0, 0, 0.2);
-  --elevation-02dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), #121212;
+  /* 02dp - 淺層高度 */
+  --elevation-02dp: 0px 2px 6px rgba(0, 0, 0, 0.7),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.07);
+  --elevation-02dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%), #121212;
   
-  /* 03dp - 基礎陰影 */
-  --elevation-03dp: 0px 3px 4px rgba(0, 0, 0, 0.14),
-                    0px 3px 3px rgba(0, 0, 0, 0.12),
-                    0px 1px 8px rgba(0, 0, 0, 0.2);
-  --elevation-03dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #121212;
+  /* 03dp - 基礎高度 */
+  --elevation-03dp: 0px 3px 8px rgba(0, 0, 0, 0.8),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.08);
+  --elevation-03dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%), #121212;
   
-  /* 04dp - 中等陰影 */
-  --elevation-04dp: 0px 4px 5px rgba(0, 0, 0, 0.14),
-                    0px 1px 10px rgba(0, 0, 0, 0.12),
-                    0px 2px 4px rgba(0, 0, 0, 0.2);
-  --elevation-04dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09)), #121212;
+  /* 04dp - 中等高度 */
+  --elevation-04dp: 0px 4px 12px rgba(0, 0, 0, 0.9),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.09);
+  --elevation-04dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.05) 100%), #121212;
   
-  /* 06dp - 明顯陰影 */
-  --elevation-06dp: 0px 6px 10px rgba(0, 0, 0, 0.14),
-                    0px 1px 18px rgba(0, 0, 0, 0.12),
-                    0px 3px 5px rgba(0, 0, 0, 0.2);
-  --elevation-06dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.11)), #121212;
+  /* 06dp - 明顯高度 */
+  --elevation-06dp: 0px 6px 16px rgba(0, 0, 0, 1.0),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.11);
+  --elevation-06dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.06) 100%), #121212;
   
-  /* 08dp - 較深陰影 */
-  --elevation-08dp: 0px 8px 10px rgba(0, 0, 0, 0.14),
-                    0px 3px 14px rgba(0, 0, 0, 0.12),
-                    0px 5px 5px rgba(0, 0, 0, 0.2);
-  --elevation-08dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), #121212;
+  /* 08dp - 較深高度 */
+  --elevation-08dp: 0px 8px 20px rgba(0, 0, 0, 1.0),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.12);
+  --elevation-08dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.07) 100%), #121212;
   
-  /* 12dp - 深層陰影 */
-  --elevation-12dp: 0px 12px 17px rgba(0, 0, 0, 0.14),
-                    0px 5px 22px rgba(0, 0, 0, 0.12),
-                    0px 7px 8px rgba(0, 0, 0, 0.2);
-  --elevation-12dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14)), #121212;
+  /* 12dp - 深層高度 */
+  --elevation-12dp: 0px 12px 28px rgba(0, 0, 0, 1.0),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.14);
+  --elevation-12dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.08) 100%), #121212;
   
-  /* 16dp - 強層陰影 */
-  --elevation-16dp: 0px 16px 24px rgba(0, 0, 0, 0.14),
-                    0px 6px 30px rgba(0, 0, 0, 0.12),
-                    0px 8px 10px rgba(0, 0, 0, 0.2);
-  --elevation-16dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), #121212;
+  /* 16dp - 強層高度 */
+  --elevation-16dp: 0px 16px 36px rgba(0, 0, 0, 1.0),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+  --elevation-16dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.09) 100%), #121212;
   
-  /* 24dp - 最深陰影 */
-  --elevation-24dp: 0px 24px 38px rgba(0, 0, 0, 0.14),
-                    0px 9px 46px rgba(0, 0, 0, 0.12),
-                    0px 11px 15px rgba(0, 0, 0, 0.2);
-  --elevation-24dp-bg: linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212;
+  /* 24dp - 最深高度 */
+  --elevation-24dp: 0px 24px 48px rgba(0, 0, 0, 1.0),
+                    inset 0px 1px 0px rgba(255, 255, 255, 0.16);
+  --elevation-24dp-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.10) 100%), #121212;
 }</code></pre>
                         </div>
                     </div>
