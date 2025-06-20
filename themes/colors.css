@@ -35,15 +35,6 @@
   --error-cf6679: #CF6679;
   --success-43a689: #43A689;
 
-  /* === 透明度值 - 完全匹配原始CI系統 === */
-  --white-87: rgba(255, 255, 255, 0.87);
-  --white-60: rgba(255, 255, 255, 0.6);
-  --white-38: rgba(255, 255, 255, 0.38);
-  --white-24: rgba(255, 255, 255, 0.24);
-  --white-12: rgba(255, 255, 255, 0.12);
-  --black-87: rgba(0, 0, 0, 0.87);
-  --black-74: rgba(0, 0, 0, 0.74);
-  --black-38: rgba(0, 0, 0, 0.38);
 
   /* === 字體設定 - 原始CI系統 === */
   --font-roboto: 'Roboto', sans-serif;
@@ -258,26 +249,7 @@
   visibility: hidden;
 }
 
-/* === 透明度 - 使用原始CI系統值 === */
-.opacity-87 {
-  opacity: 0.87;
-}
-
-.opacity-60 {
-  opacity: 0.6;
-}
-
-.opacity-38 {
-  opacity: 0.38;
-}
-
-.opacity-24 {
-  opacity: 0.24;
-}
-
-.opacity-12 {
-  opacity: 0.12;
-}
+/* === 透明度類已移除 - 改用純色 === */
 
 /* === 混合模式 - 保留原始設定 === */
 .blend-normal {
@@ -406,15 +378,15 @@
 
 /* === 陰影效果 === */
 .shadow-sm {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 var(--black-000000);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px 0 var(--black-000000), 0 1px 2px 0 var(--black-000000);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px var(--black-000000), 0 2px 4px -1px var(--black-000000);
 }
 
 /* === 過渡效果 === */
@@ -523,25 +495,6 @@
 .text-error { color: var(--error-cf6679); }
 .text-success { color: var(--success-43a689); }
 
-/* === 透明度文字色彩 - 原始CI系統值 === */
-.text-white-87 { color: var(--white-87); }
-.text-white-60 { color: var(--white-60); }
-.text-white-38 { color: var(--white-38); }
-.text-white-24 { color: var(--white-24); }
-.text-white-12 { color: var(--white-12); }
-.text-black-87 { color: var(--black-87); }
-.text-black-74 { color: var(--black-74); }
-.text-black-38 { color: var(--black-38); }
-
-/* === 邊框色彩類 === */
-.border-white-87 { border-color: var(--white-87); }
-.border-white-60 { border-color: var(--white-60); }
-.border-white-38 { border-color: var(--white-38); }
-.border-white-24 { border-color: var(--white-24); }
-.border-white-12 { border-color: var(--white-12); }
-.border-black-87 { border-color: var(--black-87); }
-.border-black-74 { border-color: var(--black-74); }
-.border-black-38 { border-color: var(--black-38); }
 
 /* === 邊框樣式 === */
 .border-1 { border: 1px solid; }
@@ -567,27 +520,27 @@
 
 .surface-section {
   background: var(--surface-121212);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .background-section {
   background: var(--background-121212);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .on-primary-section {
   background: var(--black-000000);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .on-secondary-section {
   background: var(--black-000000);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .on-surface-section {
   background: var(--white-ffffff);
-  color: var(--black-87);
+  color: var(--black-000000);
 }
 
 .error-section {
@@ -646,7 +599,7 @@
   right: var(--right-8917);
   width: 24px;
   height: 24px;
-  background: var(--white-87);
+  background: var(--white-ffffff);
   color: var(--surface-121212);
   border-radius: 50%;
   display: flex;
@@ -662,26 +615,26 @@
 /* === 分隔線 - 原始CI系統透明度 === */
 .divider {
   height: 1px;
-  background: var(--white-12);
+  background: var(--white-ffffff);
 }
 
 .divider-light {
   height: 1px;
-  background: var(--white-24);
+  background: var(--white-ffffff);
 }
 
 .divider-thick {
   height: 2px;
-  background: var(--white-24);
+  background: var(--white-ffffff);
 }
 
 /* === 輪廓線 - 原始CI系統值 === */
 .outline {
-  border: 1px solid var(--white-12);
+  border: 1px solid var(--white-ffffff);
 }
 
 .outline-thick {
-  border: 2px solid var(--white-87);
+  border: 2px solid var(--white-ffffff);
 }
 
 /* === 特殊效果 - 保留原始CI混合模式 === */
@@ -722,7 +675,7 @@
 body {
   font-family: var(--font-roboto);
   font-style: normal;
-  color: var(--white-87);
+  color: var(--white-ffffff);
   line-height: 1.5;
 }
 
@@ -812,7 +765,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-01);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .label-standard {
@@ -822,7 +775,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   letter-spacing: var(--letter-spacing-04);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 /* === 標題層級 - 基於原始CI系統 === */
@@ -832,7 +785,7 @@ body {
   font-size: var(--font-size-20);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .caption-14 {
@@ -841,7 +794,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   letter-spacing: var(--letter-spacing-025);
-  color: var(--white-60);
+  color: var(--white-ffffff);
 }
 
 /* === 色彩方案標籤 - 匹配原始CI設計 === */
@@ -877,7 +830,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   letter-spacing: var(--letter-spacing-025);
-  color: var(--white-60);
+  color: var(--white-ffffff);
 }
 
 /* === Material Design Typography Scale - 基於原始CI === */
@@ -887,7 +840,7 @@ body {
   font-weight: 300;
   line-height: 1.167;
   letter-spacing: -1.5px;
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .headline-2 {
@@ -896,7 +849,7 @@ body {
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.5px;
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .headline-3 {
@@ -905,7 +858,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: var(--line-height-48);
   letter-spacing: var(--letter-spacing-minus04);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .headline-4 {
@@ -914,7 +867,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: 1.235;
   letter-spacing: var(--letter-spacing-025);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .headline-5 {
@@ -923,7 +876,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: 1.334;
   letter-spacing: 0;
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .headline-6 {
@@ -932,7 +885,7 @@ body {
   font-weight: var(--font-weight-500);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .subtitle-1 {
@@ -941,7 +894,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: 1.75;
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .subtitle-2 {
@@ -950,7 +903,7 @@ body {
   font-weight: var(--font-weight-500);
   line-height: 1.57;
   letter-spacing: var(--letter-spacing-01);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .body-1 {
@@ -959,7 +912,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: 1.5;
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .body-2 {
@@ -968,7 +921,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: 1.43;
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .button-text {
@@ -978,7 +931,7 @@ body {
   line-height: 1.75;
   letter-spacing: var(--letter-spacing-04);
   text-transform: uppercase;
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .caption {
@@ -987,7 +940,7 @@ body {
   font-weight: var(--font-weight-400);
   line-height: 1.66;
   letter-spacing: var(--letter-spacing-04);
-  color: var(--white-60);
+  color: var(--white-ffffff);
 }
 
 .overline {
@@ -997,7 +950,7 @@ body {
   line-height: 2.66;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--white-60);
+  color: var(--white-ffffff);
 }
 
 /* === 單行文字省略 === */
@@ -1142,9 +1095,8 @@ body {
   right: var(--padding-417);
   top: var(--top-1483);
   bottom: var(--bottom-8513);
-  background: var(--white-87);
+  background: var(--white-ffffff);
   mix-blend-mode: normal;
-  opacity: 0.6;
 }
 
 /* === 頁腳區域 - 原始CI定位 === */
@@ -1183,7 +1135,7 @@ body {
   right: 60px;
   top: 0%;
   bottom: 99.46%;
-  background: var(--white-24);
+  background: var(--white-ffffff);
 }
 
 /* === 輪廓區域 - 原始CI定位 === */
@@ -1212,7 +1164,7 @@ body {
   right: var(--right-417);
   top: 82.33%;
   bottom: var(--bottom-1457);
-  border: 1px solid var(--white-12);
+  border: 1px solid var(--white-ffffff);
   border-radius: var(--border-radius-4);
 }
 
@@ -1444,23 +1396,6 @@ body {
   background: var(--black-000000);
 }
 
-.ci-on-primary-black-74 {
-  position: absolute;
-  left: 55.21%;
-  right: 24.31%;
-  top: 60.6%;
-  bottom: var(--bottom-356);
-  background: var(--black-74);
-}
-
-.ci-on-primary-black-38 {
-  position: absolute;
-  left: 75.69%;
-  right: var(--right-417);
-  top: 60.6%;
-  bottom: var(--bottom-356);
-  background: var(--black-38);
-}
 
 /* === Surface面板 - 原始CI定位 === */
 .ci-surface-panel {
@@ -1490,23 +1425,6 @@ body {
   background: var(--white-ffffff);
 }
 
-.ci-surface-white-60 {
-  position: absolute;
-  left: 55.21%;
-  right: 24.31%;
-  top: 73.36%;
-  bottom: var(--bottom-2284);
-  background: var(--white-60);
-}
-
-.ci-surface-white-38 {
-  position: absolute;
-  left: 75.69%;
-  right: var(--right-417);
-  top: 73.36%;
-  bottom: var(--bottom-2284);
-  background: var(--white-38);
-}
 
 /* === 色彩方案側邊欄 - 原始CI定位 === */
 .ci-color-scheme-sidebar {
@@ -1696,7 +1614,7 @@ body {
   background: var(--surface-121212);
   border-radius: var(--border-radius-4);
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px var(--black-000000);
   position: relative;
 }
 
@@ -1720,7 +1638,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-24);
   margin-bottom: 4px;
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .ci-color-card-value {
@@ -1728,7 +1646,7 @@ body {
   font-weight: var(--font-weight-500);
   font-size: var(--font-size-14);
   line-height: var(--line-height-24);
-  color: var(--white-60);
+  color: var(--white-ffffff);
   text-align: right;
 }
 
@@ -1738,7 +1656,7 @@ body {
   left: 8px;
   width: 24px;
   height: 24px;
-  background: var(--white-87);
+  background: var(--white-ffffff);
   color: var(--surface-121212);
   border-radius: 50%;
   display: flex;
@@ -1816,7 +1734,7 @@ body {
   right: 89.17%;
   top: 4.37%;
   bottom: 93.53%;
-  background: var(--white-87);
+  background: var(--white-ffffff);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1868,12 +1786,12 @@ body {
 
 .ci-btn-surface {
   background: var(--surface-121212);
-  color: var(--white-87);
-  border: 1px solid var(--white-12);
+  color: var(--white-ffffff);
+  border: 1px solid var(--white-ffffff);
 }
 
 .ci-btn-surface:hover {
-  background: var(--white-12);
+  background: var(--white-ffffff);
 }
 
 .ci-btn-error {
@@ -1894,7 +1812,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   letter-spacing: var(--letter-spacing-04);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 .ci-label-mono {
@@ -1925,7 +1843,7 @@ body {
 .ci-panel-header {
   padding: 16px 20px;
   background: var(--background-121212);
-  border-bottom: 1px solid var(--white-12);
+  border-bottom: 1px solid var(--white-ffffff);
 }
 
 .ci-panel-title {
@@ -1934,7 +1852,7 @@ body {
   font-size: var(--font-size-20);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   margin: 0;
 }
 
@@ -1959,7 +1877,7 @@ body {
   font-family: var(--font-roboto);
   font-size: var(--font-size-12);
   font-weight: var(--font-weight-500);
-  background: var(--black-74);
+  background: var(--black-000000);
   color: var(--white-ffffff);
   padding: 4px 8px;
   border-radius: var(--border-radius-4);
@@ -1968,34 +1886,34 @@ body {
 /* === 分隔線組件 - 原始CI透明度 === */
 .ci-divider {
   height: 1px;
-  background: var(--white-12);
+  background: var(--white-ffffff);
   margin: 2rem 0;
 }
 
 .ci-divider-light {
   height: 1px;
-  background: var(--white-24);
+  background: var(--white-ffffff);
 }
 
 .ci-divider-thick {
   height: 2px;
-  background: var(--white-24);
+  background: var(--white-ffffff);
 }
 
 .ci-divider-vertical {
   width: 1px;
   height: 100%;
-  background: var(--white-12);
+  background: var(--white-ffffff);
 }
 
 /* === 輸入框組件 - CI風格 === */
 .ci-input {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid var(--white-12);
+  border: 1px solid var(--white-ffffff);
   border-radius: var(--border-radius-4);
   background: var(--surface-121212);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   font-family: var(--font-roboto);
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
@@ -2004,11 +1922,11 @@ body {
 .ci-input:focus {
   outline: none;
   border-color: var(--primary-8eccfc);
-  box-shadow: 0 0 0 2px rgba(142, 204, 252, 0.2);
+  box-shadow: 0 0 0 2px var(--primary-8eccfc);
 }
 
 .ci-input::placeholder {
-  color: var(--white-38);
+  color: var(--white-ffffff);
 }
 
 /* === 下拉選單組件 === */
@@ -2024,9 +1942,9 @@ body {
   width: 200px;
   padding: 12px 16px;
   background: var(--surface-121212);
-  border: 1px solid var(--white-12);
+  border: 1px solid var(--white-ffffff);
   border-radius: var(--border-radius-4);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   font-family: var(--font-roboto);
   font-size: var(--font-size-14);
   cursor: pointer;
@@ -2038,17 +1956,17 @@ body {
   left: 0;
   right: 0;
   background: var(--surface-121212);
-  border: 1px solid var(--white-12);
+  border: 1px solid var(--white-ffffff);
   border-top: none;
   border-radius: 0 0 var(--border-radius-4) var(--border-radius-4);
-  box-shadow: 0 4px 6px var(--black-38);
+  box-shadow: 0 4px 6px var(--black-000000);
   z-index: var(--z-dropdown);
 }
 
 .ci-select-option {
   padding: 12px 16px;
   cursor: pointer;
-  color: var(--white-87);
+  color: var(--white-ffffff);
   font-family: var(--font-roboto);
   font-size: var(--font-size-14);
 }
@@ -2070,13 +1988,13 @@ body {
   left: 50%;
   transform: translateX(-50%);
   background: var(--background-121212);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   padding: 8px 12px;
   border-radius: var(--border-radius-4);
   font-family: var(--font-roboto);
   font-size: var(--font-size-12);
   white-space: nowrap;
-  box-shadow: 0 2px 8px var(--black-38);
+  box-shadow: 0 2px 8px var(--black-000000);
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
@@ -2126,7 +2044,7 @@ body {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--white-12);
+  border: 2px solid var(--white-ffffff);
   border-top: 2px solid var(--primary-8eccfc);
   border-radius: 50%;
   animation: ci-spin 1s linear infinite;
@@ -2150,7 +2068,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--black-74);
+  background: var(--black-000000);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2163,7 +2081,7 @@ body {
   padding: 2rem;
   max-width: 500px;
   width: 90%;
-  box-shadow: 0 10px 25px var(--black-38);
+  box-shadow: 0 10px 25px var(--black-000000);
 }
 
 .ci-modal-header {
@@ -2174,13 +2092,13 @@ body {
   font-family: var(--font-roboto);
   font-size: var(--font-size-20);
   font-weight: var(--font-weight-500);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   margin: 0;
 }
 
 .ci-modal-body {
   margin-bottom: 1.5rem;
-  color: var(--white-60);
+  color: var(--white-ffffff);
 }
 
 .ci-modal-footer {
@@ -2254,7 +2172,7 @@ body {
   .ci-panel {
     background: var(--white-ffffff);
     color: var(--black-000000);
-    border: 1px solid var(--black-38);
+    border: 1px solid var(--black-000000);
   }
 }
 
@@ -2288,7 +2206,7 @@ body {
 .ci-design-system {
   font-family: var(--font-roboto);
   background: var(--background-121212);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   min-height: 100vh;
   position: relative;
 }
@@ -2324,15 +2242,14 @@ body {
   font-size: var(--font-size-20);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }
 
 /* === 分隔線 - 原始CI設計 === */
 .ci-demo-divider {
   height: 1px;
-  background: var(--white-87);
+  background: var(--white-ffffff);
   mix-blend-mode: normal;
-  opacity: 0.6;
   margin: 2rem 0;
 }
 
@@ -2357,7 +2274,7 @@ body {
   font-size: var(--font-size-20);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   margin-bottom: 2rem;
 }
 
@@ -2376,7 +2293,7 @@ body {
   font-size: var(--font-size-20);
   line-height: var(--line-height-24);
   letter-spacing: var(--letter-spacing-015);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   margin-bottom: 1rem;
 }
 
@@ -2384,7 +2301,7 @@ body {
 .ci-demo-footer {
   text-align: center;
   padding: 2rem;
-  border-top: 1px solid var(--white-12);
+  border-top: 1px solid var(--white-ffffff);
   margin-top: 3rem;
 }
 
@@ -2395,7 +2312,7 @@ body {
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   letter-spacing: var(--letter-spacing-025);
-  color: var(--white-60);
+  color: var(--white-ffffff);
 }
 
 /* === 響應式設計 - 保持CI規範 === */
@@ -2503,20 +2420,13 @@ body {
   }
 }
 
-/* === 高對比度模式支援 === */
-@media (prefers-contrast: high) {
-  :root {
-    --white-12: rgba(255, 255, 255, 0.5);
-    --white-24: rgba(255, 255, 255, 0.7);
-    --white-60: rgba(255, 255, 255, 0.9);
-  }
-}
+/* === 高對比度模式支援 - 透明度變量已移除 === */
 
 /* === 深色模式優化（保持CI預設） === */
 @media (prefers-color-scheme: dark) {
   .ci-design-system {
     background: var(--background-121212);
-    color: var(--white-87);
+    color: var(--white-ffffff);
   }
 }
 
@@ -2524,11 +2434,6 @@ body {
 .ci-light-theme {
   --surface-121212: var(--white-ffffff);
   --background-121212: #FAFAFA;
-  --white-87: var(--black-87);
-  --white-60: var(--black-74);
-  --white-38: var(--black-38);
-  --white-24: rgba(0, 0, 0, 0.24);
-  --white-12: rgba(0, 0, 0, 0.12);
 }
 
 /* === 列印樣式 === */
@@ -2539,7 +2444,7 @@ body {
   }
   
   .ci-color-card-swatch {
-    border: 1px solid var(--black-38);
+    border: 1px solid var(--black-000000);
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
@@ -2567,10 +2472,10 @@ body {
   display: block;
   font-family: var(--font-roboto-mono);
   font-size: var(--font-size-12);
-  color: var(--white-38);
+  color: var(--white-ffffff);
   text-align: center;
   padding: 1rem;
-  border-top: 1px solid var(--white-12);
+  border-top: 1px solid var(--white-ffffff);
   margin-top: 2rem;
 }
 
@@ -2580,12 +2485,12 @@ body {
   top: 10px;
   right: 10px;
   background: var(--background-121212);
-  border: 1px solid var(--white-12);
+  border: 1px solid var(--white-ffffff);
   border-radius: var(--border-radius-4);
   padding: 1rem;
   font-family: var(--font-roboto-mono);
   font-size: var(--font-size-12);
-  color: var(--white-87);
+  color: var(--white-ffffff);
   z-index: var(--z-tooltip);
 }
 

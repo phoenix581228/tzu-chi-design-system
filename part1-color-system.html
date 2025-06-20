@@ -265,70 +265,6 @@
                     </div>
                 </section>
 
-                <!-- 透明度值 -->
-                <section class="color-section fade-in">
-                    <h2 class="section-title">🔍 透明度值 - 完全匹配原始CI系統</h2>
-                    <p class="section-description">精確的透明度值，用於層次感和深度設計</p>
-                    
-                    <div class="opacity-grid">
-                        <div class="opacity-card" style="background: var(--white-87);">
-                            <div class="opacity-info">
-                                <div class="opacity-name">white-87</div>
-                                <div class="opacity-value">rgba(255, 255, 255, 0.87)</div>
-                                <div class="opacity-usage">高強調文字</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--white-60);">
-                            <div class="opacity-info">
-                                <div class="opacity-name">white-60</div>
-                                <div class="opacity-value">rgba(255, 255, 255, 0.6)</div>
-                                <div class="opacity-usage">中強調文字</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--white-38);">
-                            <div class="opacity-info">
-                                <div class="opacity-name">white-38</div>
-                                <div class="opacity-value">rgba(255, 255, 255, 0.38)</div>
-                                <div class="opacity-usage">低強調文字</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--white-24);">
-                            <div class="opacity-info">
-                                <div class="opacity-name">white-24</div>
-                                <div class="opacity-value">rgba(255, 255, 255, 0.24)</div>
-                                <div class="opacity-usage">分隔線</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--white-12);">
-                            <div class="opacity-info">
-                                <div class="opacity-name">white-12</div>
-                                <div class="opacity-value">rgba(255, 255, 255, 0.12)</div>
-                                <div class="opacity-usage">邊框線</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--black-87); color: white;">
-                            <div class="opacity-info">
-                                <div class="opacity-name">black-87</div>
-                                <div class="opacity-value">rgba(0, 0, 0, 0.87)</div>
-                                <div class="opacity-usage">黑色高強調</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--black-74); color: white;">
-                            <div class="opacity-info">
-                                <div class="opacity-name">black-74</div>
-                                <div class="opacity-value">rgba(0, 0, 0, 0.74)</div>
-                                <div class="opacity-usage">黑色中強調</div>
-                            </div>
-                        </div>
-                        <div class="opacity-card" style="background: var(--black-38); color: white;">
-                            <div class="opacity-info">
-                                <div class="opacity-name">black-38</div>
-                                <div class="opacity-value">rgba(0, 0, 0, 0.38)</div>
-                                <div class="opacity-usage">黑色低強調</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- 使用範例 -->
                 <section class="usage-section fade-in">
@@ -343,15 +279,10 @@
   color: var(--black-000000);
 }
 
-/* 使用透明度 */
-.overlay {
-  background: var(--black-38);
-}
-
 /* 使用系統色彩 */
 .error-message {
   background: var(--error-cf6679);
-  color: var(--white-87);
+  color: var(--white-ffffff);
 }</code></pre>
                             </div>
                         </div>
@@ -380,7 +311,7 @@
         }
 
         .section-description {
-            color: var(--white-60);
+            color: var(--white-ffffff);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
@@ -402,7 +333,7 @@
             position: relative;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--white-12);
+            border: 1px solid var(--surface-121212);
             overflow: hidden;
         }
 
@@ -457,7 +388,7 @@
             border-radius: 8px;
             height: 100px;
             position: relative;
-            border: 1px solid var(--white-12);
+            border: 1px solid var(--surface-121212);
             overflow: hidden;
         }
 
@@ -500,7 +431,7 @@
             background: var(--surface-121212);
             border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid var(--white-12);
+            border: 1px solid var(--surface-121212);
             margin-bottom: 2rem;
         }
 
@@ -515,7 +446,7 @@
             background: var(--background-121212);
             border-radius: 8px;
             padding: 1.5rem;
-            border: 1px solid var(--white-12);
+            border: 1px solid var(--surface-121212);
             overflow-x: auto;
         }
 
@@ -523,7 +454,7 @@
             margin: 0;
             font-family: var(--font-roboto-mono);
             font-size: 0.875rem;
-            color: var(--white-87);
+            color: var(--white-ffffff);
             line-height: 1.5;
         }
 

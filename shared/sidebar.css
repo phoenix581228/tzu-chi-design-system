@@ -14,7 +14,7 @@
 .sidebar {
     width: 280px;
     background: var(--surface-121212);
-    border-right: 1px solid var(--white-12);
+    border-right: 1px solid var(--surface-121212);
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +26,7 @@
 
 .sidebar-header {
     padding: 2rem 1.5rem 1rem;
-    border-bottom: 1px solid var(--white-12);
+    border-bottom: 1px solid var(--surface-121212);
     text-align: center;
 }
 
@@ -47,7 +47,7 @@
 
 .sidebar-subtitle {
     font-size: 0.75rem;
-    color: var(--white-60);
+    color: var(--white-ffffff);
 }
 
 /* 導航菜單 */
@@ -62,7 +62,7 @@
 .nav-section-title {
     font-size: 0.75rem;
     font-weight: var(--font-weight-500);
-    color: var(--white-60);
+    color: var(--white-ffffff);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-04);
     padding: 0 1.5rem 0.5rem;
@@ -84,7 +84,7 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.5rem;
-    color: var(--white-87);
+    color: var(--white-ffffff);
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: var(--font-weight-400);
@@ -138,7 +138,7 @@
 .content-header {
     background: linear-gradient(135deg, var(--background-121212) 0%, var(--surface-121212) 100%);
     padding: 2rem;
-    border-bottom: 1px solid var(--white-12);
+    border-bottom: 1px solid var(--surface-121212);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -154,7 +154,7 @@
 }
 
 .content-description {
-    color: var(--white-60);
+    color: var(--white-ffffff);
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -229,12 +229,12 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background: var(--white-24);
+    background: var(--surface-121212);
     border-radius: 2px;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-    background: var(--white-38);
+    background: var(--white-ffffff);
 }
 
 /* 特殊效果 */
